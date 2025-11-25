@@ -206,30 +206,31 @@ function qbox:get_characters_for_client(client_identifier)
 		end
 	end
 
-	if GetResourceState("qbx_properties"):find("start") then
-		local properties = self:get_properties_for_characters(chars)
+	-- Disabled: qbx_properties integration disabled - using external property handler instead
+	-- if GetResourceState("qbx_properties"):find("start") then
+	-- 	local properties = self:get_properties_for_characters(chars)
 
-		if properties and next(properties) then
-			log.info("[qbox:get_characters_for_client] `qbx_properties` is started, and properties are valid.")
-			for i = 1, #chars do
-				local char = chars[i] --[[@as ICharacter]]
+	-- 	if properties and next(properties) then
+	-- 		log.info("[qbox:get_characters_for_client] `qbx_properties` is started, and properties are valid.")
+	-- 		for i = 1, #chars do
+	-- 			local char = chars[i] --[[@as ICharacter]]
 
-				if not char then goto continue end
+	-- 			if not char then goto continue end
 
-				local raw_data = char.raw_data --[[@as IQboxCharacterData]]
+	-- 			local raw_data = char.raw_data --[[@as IQboxCharacterData]]
 
-				if not properties[raw_data.citizenid] then
-					log.verbosef("[qbox:get_characters_for_client] No properties found for character. (Char - %s", (char.first_name .. char.last_name) or "nil", type(properties[raw_data.citizenid]))
-					goto continue
-				end
+	-- 			if not properties[raw_data.citizenid] then
+	-- 				log.verbosef("[qbox:get_characters_for_client] No properties found for character. (Char - %s", (char.first_name .. char.last_name) or "nil", type(properties[raw_data.citizenid]))
+	-- 				goto continue
+	-- 			end
 
-				char.apartments = properties[raw_data.citizenid]
-				char.properties_loaded = true
+	-- 			char.apartments = properties[raw_data.citizenid]
+	-- 			char.properties_loaded = true
 
-				::continue::
-			end
-		end
-	end
+	-- 			::continue::
+	-- 		end
+	-- 	end
+	-- end
 
 	return chars
 end
