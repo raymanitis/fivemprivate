@@ -374,7 +374,7 @@ const RightInventory: React.FC = () => {
                                                     fontWeight: '400',
                                                     fontSize: '1vh',
                                                     color: 'rgba(255,255,255,0.5)',
-                                                }}>Mængde</p>
+                                                }}>Quantity</p>
                                                 <a style={{
                                                     marginTop: '0.5vh',
                                                     display: 'flex',
@@ -390,7 +390,7 @@ const RightInventory: React.FC = () => {
                                             color: 'rgba(255,255,255,0.5)',
                                             fontWeight: '500',
                                         }}>
-                                            CRAFTING TID:
+                                            CRAFTING TIME:
                                             <a style={{
                                                 color: 'rgba(255,255,255)',
                                                 fontSize: '1.25vh',
@@ -411,7 +411,7 @@ const RightInventory: React.FC = () => {
                                             display: 'flex',
                                             fontSize: '1vh',
                                             color: 'rgba(255,255,255,0.5)',
-                                        }}>Ting Krævet</a>
+                                        }}>Items Required</a>
 
                                         {/* Ingredients Grid */}
                                         <div className="ingredients-grid" style={{
@@ -468,7 +468,7 @@ const RightInventory: React.FC = () => {
                                                 <a style={{
                                                     color: 'rgba(255,255,255,0.5)',
                                                     fontSize: '1vh',
-                                                }}>Mængde</a>
+                                                }}>Quantity</a>
                                                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', backgroundColor: 'rgba(0,0,0,0.5)', padding: '0.5rem', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '0.5rem' }}>
                                                     <button style={{ color: 'white', background: 'transparent', border: 'none' }} onClick={() => setRecipeQuantity(Math.max(1, recipeQuantity - 1))}><i className="fas fa-minus"></i></button>
                                                     <span style={{
@@ -490,7 +490,7 @@ const RightInventory: React.FC = () => {
                                                 fontSize: '1.25vh',
                                                 fontWeight: '600',
                                             }}>
-                                                Tilføj Til Kø
+                                                Add To Queue
                                             </button>
                                         </div>
 
@@ -507,7 +507,7 @@ const RightInventory: React.FC = () => {
                                             fontSize: '1.2vh',
                                             color: 'rgba(255,255,255,0.5)',
                                             fontWeight: '500',
-                                        }}>Crafting Kø</a>
+                                        }}>Crafting Queue</a>
                                         {craftQueue.length > 0 && (
                                             <div style={{
                                                 display: 'flex',
