@@ -440,6 +440,7 @@ button:active {
   border-bottom-right-radius: 0.25vh;
   font-size: 0.8vh;
   font-family: $mainFont;
+  margin-left: auto;
 }
 
 .item-slot-wrapper {
@@ -461,6 +462,7 @@ button:active {
   flex-direction: row;
   align-items: center;
   justify-content: space-between !important;
+  position: relative;
 }
 
 .item-hotslot-header-wrapper {
@@ -471,7 +473,9 @@ button:active {
   color: #ffffff83;
   display: flex;
   flex-direction: row;
-  align-self: flex-end;
+  position: absolute;
+  left: 0;
+  top: calc(0.9vh + 6px);
   white-space: normal;       /* allow wrapping */
   word-wrap: break-word;     /* break long words if needed */
   word-break: break-word;    /* extra safety */
@@ -615,6 +619,7 @@ button:active {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 // item notifications

@@ -91,7 +91,7 @@ const InventoryGrid: React.FC<InventoryGridProps> = ({
                 <input
                 style={{ border: '1px solid rgba(255,255,255,0.2)', height: '2.5vh', fontSize: '1vh', display: 'flex', alignItems: 'center' }}
                   type="search"
-                  placeholder="Søg item..."
+                  placeholder="Search item..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.stopPropagation()}

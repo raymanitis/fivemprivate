@@ -12,8 +12,8 @@ import { Rarity } from '../../store/rarity';
 type EvidenceKey = 'blood' | 'casing'
 
 const EVIDENCE_LABELS: Record<EvidenceKey, string> = {
-  blood: 'Blod',
-  casing: 'Patronhylster',
+  blood: 'Blood',
+  casing: 'Casing',
 }
 
 const SlotTooltip: React.ForwardRefRenderFunction<
