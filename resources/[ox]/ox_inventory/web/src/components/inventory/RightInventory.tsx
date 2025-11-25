@@ -206,12 +206,12 @@ const RightInventory: React.FC = () => {
                             fontWeight: '600',
                             paddingBottom: '0.5rem',
                             paddingTop: '0.5rem',
-                        }}>Indkøbskurv</a>
+                        }}>Shopping Cart</a>
                         {cart.length === 0 && <div className="no-items">
                             <i className="fal fa-layer-plus"></i>
                             <p>
-                                Tilføj ting til indkøbskurven
-                                <a>Alternativ: CTRL + Klik for hurtig tilføjelse</a>
+                                Add items to shopping cart
+                                <a>Alternative: CTRL + Click for quick add</a>
                             </p>
                         </div>}
                         <div className="cart-item-grid">
@@ -252,8 +252,8 @@ const RightInventory: React.FC = () => {
                                     <p>${totalCost.toFixed(2)}</p>
                                 </div>
                                 <div style={{ display: 'flex', gap: '1rem', justifyContent: 'end' }}>
-                                    <button onClick={() => pay('cash')}>Betal Kontant</button>
-                                    <button onClick={() => pay('bank')}>Betal Bank</button>
+                                    <button onClick={() => pay('cash')}>Pay Cash</button>
+                                    <button onClick={() => pay('bank')}>Pay Bank</button>
                                 </div>
                             </div>
                         )}

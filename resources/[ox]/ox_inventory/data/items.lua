@@ -12,6 +12,12 @@ return {
 		}
 	},
 
+	['money'] = {
+		label = 'Money',
+		rarity = 'rare',
+	},
+
+
 	['black_money'] = {
 		label = 'Dirty Money',
 		rarity = 'rare',
