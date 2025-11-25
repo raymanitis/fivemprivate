@@ -2,7 +2,7 @@
 
 return {
 	General = {
-		name = 'Butik',
+		name = '24/7 Supermarket',
 		blip = {
 			id = 59, colour = 69, scale = 0.8
 		}, inventory = {
@@ -35,7 +35,7 @@ return {
 	},
 
 	Liquor = {
-		name = 'Vinhandel',
+		name = 'Liquor Store',
 		blip = {
 			id = 93, colour = 69, scale = 0.8
 		}, inventory = {
