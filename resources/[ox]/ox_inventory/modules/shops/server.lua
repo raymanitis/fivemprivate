@@ -145,6 +145,7 @@ lib.callback.register('ox_inventory:openShop', function(source, data)
 		end
 
 		---@diagnostic disable-next-line: assign-type-mismatch
+
 		left:openInventory(left)
 		left.currentShop = shop.id
 	end
@@ -152,17 +153,51 @@ lib.callback.register('ox_inventory:openShop', function(source, data)
 	return { label = left.label, type = left.type, slots = left.slots, weight = left.weight, maxWeight = left.maxWeight }, shop
 end)
 
-local function canAffordItem(inv, currency, price)
-	local canAfford = price >= 0 and Inventory.GetItemCount(inv, currency) >= price
+-- local function canAffordItem(inv, currency, price)
+-- 	local canAfford = price >= 0 and Inventory.GetItemCount(inv, currency) >= price
 
-	return canAfford or {
-		type = 'error',
-		description = locale('cannot_afford', ('%s%s'):format((currency == 'money' and locale('$') or math.groupdigits(price)), (currency == 'money' and math.groupdigits(price) or ' '..Items(currency).label)))
-	}
+-- 	return canAfford or {
+-- 		type = 'error',
+-- 		description = locale('cannot_afford', ('%s%s'):format((currency == 'money' and locale('$') or math.groupdigits(price)), (currency == 'money' and math.groupdigits(price) or ' '..Items(currency).label)))
+-- 	}
+-- end
+
+local function canAffordItem(inv, currency, price)
+    if price < 0 then
+        return {
+            type = 'error',
+            description = locale('cannot_afford', 'invalid price')
+        }
+    end
+
+    if currency == 'cash' then
+        local count = Inventory.GetItemCount(inv, 'money')
+        if count >= price then return true end
+
+        return {
+            type = 'error',
+            description = locale('cannot_afford', locale('$') .. math.groupdigits(price))
+        }
+    elseif currency == 'bank' then
+        local user = exports['limitless-core']:getComponent('User'):GetPlayer(inv.id)
+        if user and user.bank >= price then return true end
+
+        return {
+            type = 'error',
+            description = locale('cannot_afford', math.groupdigits(price) .. ' Bank')
+        }
+	end
 end
 
-local function removeCurrency(inv, currency, price)
-	Inventory.RemoveItem(inv, currency, price)
+local function removeCurrency(inv, currency, amount)
+    if currency == 'money' then
+        Inventory.RemoveItem(inv, 'money', amount)
+    elseif currency == 'bank' then
+        local user = exports['limitless-core']:getComponent('User'):GetPlayer(inv.id)
+        if user then
+            user.removeBank(amount)
+        end
+    end
 end
 
 local TriggerEventHooks = require 'modules.hooks.server'
@@ -181,106 +216,94 @@ local function isRequiredGrade(grade, rank)
 end
 
 lib.callback.register('ox_inventory:buyItem', function(source, data)
-	if data.toType == 'player' then
-		if data.count == nil then data.count = 1 end
+    local playerInv = Inventory(source)
+    if not playerInv or not playerInv.currentShop then return end
 
-		local playerInv = Inventory(source)
+    local shopType, shopId = playerInv.currentShop:match('^(.-) (%d-)$')
+    if not shopType then shopType = playerInv.currentShop end
+    if shopId then shopId = tonumber(shopId) end
 
-		if not playerInv or not playerInv.currentShop then return end
+    local shop = shopId and Shops[shopType][shopId] or Shops[shopType]
 
-		local shopType, shopId = playerInv.currentShop:match('^(.-) (%d-)$')
+    local method = data.method or 'money'
 
-		if not shopType then shopType = playerInv.currentShop end
+    local totalPrice = 0
+    local purchaseList = {}
 
-		if shopId then shopId = tonumber(shopId) end
+    for _, item in ipairs(data.items) do
+        local fromData = nil
+        for _, shopItem in pairs(shop.items) do
+            if shopItem.name == item.name then
+                fromData = shopItem
+                break
+            end
+        end
 
-		local shop = shopId and Shops[shopType][shopId] or Shops[shopType]
-		local fromData = shop.items[data.fromSlot]
-		local toData = playerInv.items[data.toSlot]
+        if not fromData then
+            return false, false, { type = 'error', description = locale('item_notfound', item.name) }
+        end
 
-		if fromData then
-			if fromData.count then
-				if fromData.count == 0 then
-					return false, false, { type = 'error', description = locale('shop_nostock') }
-				elseif data.count > fromData.count then
-					data.count = fromData.count
-				end
-			end
+        local fromItem = Items(fromData.name)
+        local quantity = item.quantity or 1
 
-			if fromData.license and server.hasLicense and not server.hasLicense(playerInv, fromData.license) then
-				return false, false, { type = 'error', description = locale('item_unlicensed') }
-			end
+        if fromData.count and fromData.count < quantity then
+            return false, false, { type = 'error', description = locale('shop_nostock') }
+        end
 
-			if fromData.grade then
-				local _, rank = server.hasGroup(playerInv, shop.groups)
-				if not isRequiredGrade(fromData.grade, rank) then
-					return false, false, { type = 'error', description = locale('stash_lowgrade') }
-				end
-			end
+        if fromData.license and server.hasLicense and not server.hasLicense(playerInv, fromData.license) then
+            return false, false, { type = 'error', description = locale('item_unlicensed') }
+        end
 
-			local currency = fromData.currency or 'money'
-			local fromItem = Items(fromData.name)
+        if fromData.grade then
+            local _, rank = server.hasGroup(playerInv, shop.groups)
+            if not isRequiredGrade(fromData.grade, rank) then
+                return false, false, { type = 'error', description = locale('stash_lowgrade') }
+            end
+        end
 
-			local result = fromItem.cb and fromItem.cb('buying', fromItem, playerInv, data.fromSlot, shop)
-			if result == false then return false end
+        local metadata, count = Items.Metadata(playerInv, fromItem, fromData.metadata and table.clone(fromData.metadata) or {}, quantity)
+        local price = count * (item.price or fromData.price)
 
-			local toItem = toData and Items(toData.name)
+        totalPrice = totalPrice + price
 
-			local metadata, count = Items.Metadata(playerInv, fromItem, fromData.metadata and table.clone(fromData.metadata) or {}, data.count)
-			local price = count * fromData.price
+        table.insert(purchaseList, {
+            fromData = fromData,
+            fromItem = fromItem,
+            metadata = metadata,
+            count = count,
+            price = price
+        })
+    end
 
-			if toData == nil or (fromItem.name == toItem?.name and fromItem.stack and table.matches(toData.metadata, metadata)) then
-				local newWeight = playerInv.weight + (fromItem.weight + (metadata?.weight or 0)) * count
+    local canAfford = canAffordItem(playerInv, method, totalPrice)
+    if canAfford ~= true then
+        return false, false, canAfford
+    end
 
-				if newWeight > playerInv.maxWeight then
-					return false, false, { type = 'error', description = locale('cannot_carry') }
-				end
+    for _, purchase in ipairs(purchaseList) do
+        local newWeight = playerInv.weight + (purchase.fromItem.weight + (purchase.metadata?.weight or 0)) * purchase.count
+        if newWeight > playerInv.maxWeight then
+            return false, false, { type = 'error', description = locale('cannot_carry') }
+        end
 
-				local canAfford = canAffordItem(playerInv, currency, price)
+        Inventory.AddItem(playerInv, purchase.fromItem.name, purchase.count, purchase.metadata)
 
-				if canAfford ~= true then
-					return false, false, canAfford
-				end
+        playerInv.weight = newWeight
 
-				if not TriggerEventHooks('buyItem', {
-					source = source,
-					shopType = shopType,
-					shopId = shopId,
-					toInventory = playerInv.id,
-					toSlot = data.toSlot,
-					fromSlot = fromData,
-					itemName = fromData.name,
-					metadata = metadata,
-					count = count,
-					price = fromData.price,
-					totalPrice = price,
-					currency = currency,
-				}) then return false end
+        if purchase.fromData.count then
+            purchase.fromData.count = purchase.fromData.count - purchase.count
+        end
+    end
 
-				Inventory.SetSlot(playerInv, fromItem, count, metadata, data.toSlot)
-				playerInv.weight = newWeight
-				removeCurrency(playerInv, currency, price)
+    removeCurrency(playerInv, method, totalPrice)
 
-				if fromData.count then
-					shop.items[data.fromSlot].count = fromData.count - count
-				end
+    if server.syncInventory then server.syncInventory(playerInv) end
 
-				if server.syncInventory then server.syncInventory(playerInv) end
+    if server.loglevel > 0 then
+        lib.logger(playerInv.owner, 'buyItem', ('"%s" bought %d items for %s'):format(playerInv.label, #purchaseList, totalPrice), ('shop:%s'):format(shop.label))
+    end
 
-				local message = locale('purchased_for', count, metadata?.label or fromItem.label, (currency == 'money' and locale('$') or math.groupdigits(price)), (currency == 'money' and math.groupdigits(price) or ' '..Items(currency).label))
-
-				if server.loglevel > 0 then
-					if server.loglevel > 1 or fromData.price >= 500 then
-						lib.logger(playerInv.owner, 'buyItem', ('"%s" %s'):format(playerInv.label, message:lower()), ('shop:%s'):format(shop.label))
-					end
-				end
-
-				return true, {data.toSlot, playerInv.items[data.toSlot], shop.items[data.fromSlot].count and shop.items[data.fromSlot], playerInv.weight}, { type = 'success', description = message }
-			end
-
-			return false, false, { type = 'error', description = locale('unable_stack_items') }
-		end
-	end
+    return true, { playerInv.items, playerInv.weight }, { type = 'success', description = message }
 end)
 
 server.shops = Shops

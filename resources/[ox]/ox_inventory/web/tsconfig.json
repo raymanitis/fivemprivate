@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "allowUnreachableCode": false,
   },
-  "include": ["src", "public"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

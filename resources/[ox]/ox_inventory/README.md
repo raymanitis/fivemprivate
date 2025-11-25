@@ -1,58 +1,84 @@
-# ox_inventory
 
-A complete inventory system for FiveM, implementing items, weapons, shops, and more without any strict framework dependency.
+## Casper's Redesign
+!! NOT DONE W.I.P !!
 
-![](https://img.shields.io/github/downloads/communityox/ox_inventory/total?logo=github)
-![](https://img.shields.io/github/downloads/communityox/ox_inventory/latest/total?logo=github)
-![](https://img.shields.io/github/contributors/communityox/ox_inventory?logo=github)
-![](https://img.shields.io/github/v/release/communityox/ox_inventory?logo=github)
+This redesign is a work in progress, released so that people can continue working on it. I have added a custom shop system as prod, and a crafting system (work in progress).
+Use common sense, and feel free to join my Discord so we can share ideas and create more things together.
 
-## 📚 Documentation
+Do not resell, I have chosen to make it available to everyone so you don't have to pay a lot for a redesign that doesn't even work.
+Remember to build the inventory before use, otherwise it's just plug n' play. (few items have been added)
 
-https://coxdocs.dev/ox_inventory
+https://discord.gg/mjXCDRJ2hf
 
-## 💾 Download
+Credits:
+legacy, spunK(wut) & emptyy
 
-https://github.com/communityox/ox_inventory/releases/latest/download/ox_inventory.zip
+## Missing items & bugs
 
-## Supported frameworks
+- Crafting (ui is done) - feel free to fork and make crafting so we can all enjoy it. :)
+- Utility (ui is done) - feel free to fork and make crafting so we can all enjoy it. :)
+- Searchbar may have a problem with movement.
 
-We do not guarantee compatibility or support for third-party resources.
-
-- [ox_core](https://github.com/communityox/ox_core)
-- [esx](https://github.com/esx-framework/esx_core)
-- [qbox](https://github.com/Qbox-project/qbx_core)
-- [nd_core](https://github.com/ND-Framework/ND_Core)
+- Target error inside client.lua with limitless-targeting (convert it to ox_target)
+- Delete all items if you get errors and make your own.
+- If there are more errors, as this version is for a custom framework, please let us know.
 
 ## ✨ Features
 
-- Server-side security ensures interactions with items, shops, and stashes are all validated.
-- Logging for important events, such as purchases, item movement, and item creation or removal.
-- Supports player-owned vehicles, licenses, and group systems implemented by frameworks.
-- Fully synchronised, allowing multiple players to [access the same inventory](https://user-images.githubusercontent.com/65407488/230926091-c0033732-d293-48c9-9d62-6f6ae0a8a488.mp4).
+- Drag n' Drop shop.
+- Custom crafting system (wip)
+- Inspired and perfected design.
+- Rarity system.
+- Utility System (ui only so far) -hidden.
 
-### Items
+## In modules/shops.lua - line 165-201:
+Change this code to your frameworks.
 
-- Inventory items are stored per-slot, with customisable metadata to support item uniqueness.
-- Overrides default weapon-system with weapons as items.
-- Weapon attachments and ammo system, including special ammo types.
-- Durability, allowing items to be depleted or removed overtime.
-- Internal item system provides secure and easy handling for item use effects.
-- Compatibility with 3rd party framework item registration.
+```ruby
+local function canAffordItem(inv, currency, price)
+    if price < 0 then
+        return {
+            type = 'error',
+            description = locale('cannot_afford', 'invalid price')
+        }
+    end
 
-### Shops
+    if currency == 'cash' then
+        local count = Inventory.GetItemCount(inv, 'money')
+        if count >= price then return true end
 
-- Restricted access based on groups and licenses.
-- Support different currency for items (black money, poker chips, etc).
+        return {
+            type = 'error',
+            description = locale('cannot_afford', locale('$') .. math.groupdigits(price))
+        }
+    elseif currency == 'bank' then
+        local user = exports['limitless-core']:getComponent('User'):GetPlayer(inv.id)
+        if user and user.bank >= price then return true end
 
-### Stashes
+        return {
+            type = 'error',
+            description = locale('cannot_afford', math.groupdigits(price) .. ' Bank')
+        }
+	end
+end
 
-- Personal stashes, linking a stash with a specific identifier or creating per-player instances.
-- Restricted access based on groups.
-- Registration of new stashes from any resource.
-- Containers allow access to stashes when using an item, like a paperbag or backpack.
-- Access gloveboxes and trunks for any vehicle.
-- Random item generation inside dumpsters and unowned vehicles.
+local function removeCurrency(inv, currency, amount)
+    if currency == 'money' then
+        Inventory.RemoveItem(inv, 'money', amount)
+    elseif currency == 'bank' then
+        local user = exports['limitless-core']:getComponent('User'):GetPlayer(inv.id)
+        if user then
+            user.removeBank(amount)
+        end
+    end
+end
+```
+
+![Nyt Projekt (1)](https://github.com/user-attachments/assets/623ebd2a-7a14-416b-818e-d8d1a8da7a25)
+
+## 📚 Documentation
+
+https://overextended.dev/ox_inventory
 
 ## Copyright
 

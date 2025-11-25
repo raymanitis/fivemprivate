@@ -3,6 +3,7 @@ if not lib then return end
 require 'modules.bridge.client'
 require 'modules.interface.client'
 
+local Items = require 'modules.items.client'
 local Utils = require 'modules.utils.client'
 local Weapon = require 'modules.weapon.client'
 local currentWeapon
@@ -43,6 +44,35 @@ plyState:set('invBusy', true, true)
 plyState:set('invHotkeys', false, false)
 plyState:set('canUseWeapons', false, false)
 
+-- BACKPACK HELPER FUNCTION
+local function getBackpackData()
+	if not PlayerData or not PlayerData.inventory then return nil end
+	
+	local backpackSlot = nil
+	local backpackItem = nil
+	
+	-- Search for backpack in player inventory
+	for slot, item in pairs(PlayerData.inventory) do
+		if item and item.metadata and item.metadata.container and item.metadata.isBackpack then
+			backpackSlot = slot
+			backpackItem = item
+			break
+		end
+	end
+	
+	if not backpackItem then return nil end
+	
+	-- Return backpack data structure
+	return {
+		slot = backpackSlot,
+		id = backpackItem.metadata.container,
+		label = backpackItem.metadata.label or backpackItem.label or 'Backpack',
+		slots = backpackItem.metadata.size and backpackItem.metadata.size[1] or 0,
+		maxWeight = backpackItem.metadata.size and backpackItem.metadata.size[2] or 0,
+		items = {} -- Items will be populated from the container inventory on server
+	}
+end
+
 local function canOpenInventory()
     if not PlayerData.loaded then
         return shared.info('cannot open inventory', '(player inventory has not loaded)')
@@ -79,143 +109,13 @@ end
 
 local defaultInventory = {
 	type = 'newdrop',
-	slots = shared.dropslots,
+	slots = shared.playerslots,
 	weight = 0,
-	maxWeight = shared.dropweight,
+	maxWeight = shared.playerweight,
 	items = {}
 }
 
 local currentInventory = defaultInventory
-
--- Character preview rendering using render target
-local characterPreviewCam = nil
-local characterPreviewPed = nil
-local characterPreviewTxd = nil
-local characterPreviewDui = nil
-
-local function createCharacterPreview()
-	if characterPreviewCam then return end
-
-	local ped = playerPed
-	local model = GetEntityModel(ped)
-	
-	-- Request model if needed
-	if not IsModelInCdimage(model) then return end
-	RequestModel(model)
-	local timeout = 0
-	while not HasModelLoaded(model) and timeout < 100 do
-		Wait(10)
-		timeout = timeout + 1
-	end
-	
-	if not HasModelLoaded(model) then return end
-	
-	-- Create a clone of the player ped for preview (positioned off-screen)
-	local pedCoords = GetEntityCoords(ped)
-	characterPreviewPed = ClonePed(ped, false, false, true)
-	
-	-- Position ped off-screen but visible to camera
-	SetEntityCoords(characterPreviewPed, pedCoords.x, pedCoords.y, pedCoords.z - 100.0, false, false, false, false)
-	FreezeEntityPosition(characterPreviewPed, true)
-	SetEntityInvincible(characterPreviewPed, true)
-	SetBlockingOfNonTemporaryEvents(characterPreviewPed, true)
-	SetEntityAlpha(characterPreviewPed, 255, false)
-	SetEntityCollision(characterPreviewPed, false, false)
-	
-	-- Set ped to idle animation
-	TaskPlayAnim(characterPreviewPed, 'amb@world_human_cop_idles@male@idle_a', 'idle_a', 8.0, -8.0, -1, 49, 0, false, false, false)
-	
-	-- Create camera pointing at the ped
-	characterPreviewCam = CreateCam('DEFAULT_SCRIPTED_CAMERA', true)
-	local previewCoords = GetEntityCoords(characterPreviewPed)
-	local camCoords = previewCoords + vector3(0.0, 1.0, 0.5)
-	SetCamCoord(characterPreviewCam, camCoords.x, camCoords.y, camCoords.z)
-	PointCamAtEntity(characterPreviewCam, characterPreviewPed, 0.0, 0.0, 0.0, true)
-	SetCamFov(characterPreviewCam, 50.0)
-	SetCamActive(characterPreviewCam, true)
-	RenderCam(true, true, 500, true, true)
-	
-	-- Create DUI and texture for rendering
-	characterPreviewTxd = CreateRuntimeTxd('inventory_preview')
-	characterPreviewDui = CreateDui('https://nui://ox_inventory/web/character_preview.html', 512, 512)
-	local duiHandle = GetDuiHandle(characterPreviewDui)
-	local tx = CreateRuntimeTextureFromDuiHandle(characterPreviewTxd, 'preview', duiHandle)
-	
-	-- Wait a bit for texture to be ready
-	Wait(100)
-	
-	-- Send texture URL to NUI
-	SendNUIMessage({
-		action = 'setCharacterPreview',
-		data = {
-			url = 'nui://ox_inventory/inventory_preview/preview'
-		}
-	})
-	
-	-- Render loop to update camera and sync ped
-	CreateThread(function()
-		while characterPreviewCam and invOpen do
-			Wait(0)
-			if characterPreviewCam and characterPreviewPed and DoesEntityExist(characterPreviewPed) then
-				-- Update camera to follow ped
-				local pedCoords = GetEntityCoords(characterPreviewPed)
-				local camCoords = pedCoords + vector3(0.0, 1.0, 0.5)
-				SetCamCoord(characterPreviewCam, camCoords.x, camCoords.y, camCoords.z)
-				PointCamAtEntity(characterPreviewCam, characterPreviewPed, 0.0, 0.0, 0.0, true)
-				
-				-- Sync ped appearance periodically
-				if GetGameTimer() % 1000 < 50 then
-					-- Sync model
-					local playerModel = GetEntityModel(playerPed)
-					if GetEntityModel(characterPreviewPed) ~= playerModel then
-						SetEntityModel(characterPreviewPed, playerModel)
-					end
-					
-					-- Sync components/clothing
-					for i = 0, 11 do
-						local drawable = GetPedDrawableVariation(playerPed, i)
-						local texture = GetPedTextureVariation(playerPed, i)
-						SetPedComponentVariation(characterPreviewPed, i, drawable, texture, 0)
-					end
-					
-					-- Sync props
-					for i = 0, 2 do
-						local prop = GetPedPropIndex(playerPed, i)
-						local propTexture = GetPedPropTextureIndex(playerPed, i)
-						if prop ~= -1 then
-							SetPedPropIndex(characterPreviewPed, i, prop, propTexture, true)
-						else
-							ClearPedProp(characterPreviewPed, i)
-						end
-					end
-				end
-			end
-		end
-	end)
-end
-
-local function destroyCharacterPreview()
-	if characterPreviewCam then
-		SetCamActive(characterPreviewCam, false)
-		DestroyCam(characterPreviewCam, false)
-		RenderCam(false, false, 0, false, false)
-		characterPreviewCam = nil
-	end
-	
-	if characterPreviewPed and DoesEntityExist(characterPreviewPed) then
-		DeleteEntity(characterPreviewPed)
-		characterPreviewPed = nil
-	end
-	
-	if characterPreviewDui then
-		DestroyDui(characterPreviewDui)
-		characterPreviewDui = nil
-	end
-	
-	characterPreviewTxd = nil
-	
-	SendNUIMessage({ action = 'setCharacterPreview', data = { url = nil } })
-end
 
 local function closeTrunk()
 	if currentInventory?.type == 'trunk' then
@@ -292,23 +192,23 @@ function client.openInventory(inv, data)
     local left, right, accessError
 
     if inv == 'player' and data ~= cache.serverId then
-        local targetId, targetPed, serverId
+        local targetId, targetPed
 
         if not data then
             targetId, targetPed = Utils.GetClosestPlayer()
-            serverId = targetId and GetPlayerServerId(targetId)
-            data = serverId
+            data = targetId and GetPlayerServerId(targetId)
         else
-            serverId = type(data) == 'table' and data.id or data
+            local serverId = type(data) == 'table' and data.id or data
+
+            if serverId == cache.serverId then return end
+
             targetId = serverId and GetPlayerFromServerId(serverId)
             targetPed = targetId and GetPlayerPed(targetId)
         end
 
-        if serverId == cache.serverId then return end
-
         local targetCoords = targetPed and GetEntityCoords(targetPed)
 
-        if not targetCoords or #(targetCoords - GetEntityCoords(playerPed)) > 1.8 or (not client.hasGroup(shared.police) and not Player(serverId).state.canSteal) then
+        if not targetCoords or #(targetCoords - GetEntityCoords(playerPed)) > 1.8 or not (client.hasGroup(shared.police) or canOpenTarget(targetPed)) then
             return lib.notify({ id = 'inventory_right_access', type = 'error', description = locale('inventory_right_access') })
         end
     end
@@ -365,7 +265,8 @@ function client.openInventory(inv, data)
             end
         end
 
-        left, right, accessError = lib.callback.await('ox_inventory:openInventory', false, inv, data)
+		local backpackData
+		left, right, accessError, backpackData = lib.callback.await('ox_inventory:openInventory', false, inv, data)
     end
 
     if accessError then
@@ -399,22 +300,28 @@ function client.openInventory(inv, data)
     SetNuiFocusKeepInput(true)
     closeTrunk()
 
-    if client.screenblur then Utils.blurIn() end
+    if client.screenblur then TriggerScreenblurFadeIn(0) end
 
     currentInventory = right or defaultInventory
     left.items = PlayerData.inventory
     left.groups = PlayerData.groups
 
+	for _, v in pairs(currentInventory.items) do
+		local item = Items[v.name]
+
+		if item and item.rarity then
+			v.rarity = item.rarity
+		end
+	end
+
     SendNUIMessage({
         action = 'setupInventory',
         data = {
             leftInventory = left,
-            rightInventory = currentInventory
+            rightInventory = currentInventory,
+			backpackInventory = backpackData -- Use server data instead
         }
     })
-
-    -- Create character preview
-    createCharacterPreview()
 
     if not currentInventory.coords and not inv == 'container' then
         currentInventory.coords = GetEntityCoords(playerPed)
@@ -446,6 +353,16 @@ function client.openInventory(inv, data)
     return true
 end
 
+if invOpen then
+    -- Request fresh backpack data from server
+    lib.callback('ox_inventory:getBackpackData', false, function(backpackData)
+        SendNUIMessage({
+            action = 'updateBackpack',
+            data = backpackData
+        })
+    end)
+end
+
 RegisterNetEvent('ox_inventory:openInventory', client.openInventory)
 exports('openInventory', client.openInventory)
 
@@ -459,7 +376,7 @@ RegisterNetEvent('ox_inventory:forceOpenInventory', function(left, right)
 	SetNuiFocusKeepInput(true)
 	closeTrunk()
 
-	if client.screenblur then Utils.blurIn() end
+	if client.screenblur then TriggerScreenblurFadeIn(0) end
 
 	currentInventory = right or defaultInventory
 	currentInventory.ignoreSecurityChecks = true
@@ -684,10 +601,9 @@ local function useSlot(slot, noAnim)
 				local clipSize = GetMaxAmmoInClip(playerPed, currentWeapon.hash, true)
 				local currentAmmo = GetAmmoInPedWeapon(playerPed, currentWeapon.hash)
 				local _, maxAmmo = GetMaxAmmo(playerPed, currentWeapon.hash)
+				-- if maxAmmo < clipSize then clipSize = maxAmmo end
 
-				if maxAmmo < clipSize then clipSize = maxAmmo end
-
-				if currentAmmo == clipSize then return end
+				-- if currentAmmo == clipSize then return end
 
 				useItem(data, function(resp)
 					if not resp or resp.name ~= currentWeapon?.ammo then return end
@@ -731,16 +647,17 @@ local function useSlot(slot, noAnim)
 						end
 					end
 
-					if maxAmmo > clipSize then
-						clipSize = GetMaxAmmoInClip(playerPed, currentWeapon.hash, true)
-					end
+					-- if maxAmmo > clipSize then
+					-- 	clipSize = GetMaxAmmoInClip(playerPed, currentWeapon.hash, true)
+					-- end
 
 					currentAmmo = GetAmmoInPedWeapon(playerPed, currentWeapon.hash)
-					local missingAmmo = clipSize - currentAmmo
-					local addAmmo = resp.count > missingAmmo and missingAmmo or resp.count
+					-- local missingAmmo = clipSize - currentAmmo
+					local addAmmo = clipSize
+					-- local addAmmo = resp.count > missingAmmo and missingAmmo or resp.count
 					local newAmmo = currentAmmo + addAmmo
-
-					if newAmmo == currentAmmo then return end
+					
+					-- if newAmmo == currentAmmo then return end
 
                     AddAmmoToPed(playerPed, currentWeapon.hash, addAmmo)
 
@@ -772,6 +689,7 @@ local function useSlot(slot, noAnim)
 						end)
 					end
 
+					-- lib.callback.await('ox_inventory:updateWeapon', false, 'load', newAmmo, false, currentWeapon.metadata.specialAmmo)
 					lib.callback.await('ox_inventory:updateWeapon', false, 'load', newAmmo, false, currentWeapon.metadata.specialAmmo)
 				end)
 			elseif data.component then
@@ -870,14 +788,10 @@ local invHotkeys = false
 
 ---@type function?
 local function registerCommands()
-	if client.enablestealcommand then
-		RegisterCommand('steal', openNearbyInventory, false)
-	end
+	RegisterCommand('steal', openNearbyInventory, false)
 
 	local function openGlovebox(vehicle)
 		if not IsPedInAnyVehicle(playerPed, false) or not NetworkGetEntityIsNetworked(vehicle) then return end
-
-		if IsEntityDead(vehicle) then return end
 
 		local vehicleHash = GetEntityModel(vehicle)
 		local vehicleClass = GetVehicleClass(vehicle)
@@ -989,12 +903,12 @@ local function registerCommands()
 		description = locale('disable_hotbar'),
 		defaultKey = client.keys[3],
 		onPressed = function()
-			if EnableWeaponWheel or not invHotkeys or IsNuiFocused() or lib.progressActive() then return end
+			if EnableWeaponWheel or IsNuiFocused() or lib.progressActive() then return end
 			SendNUIMessage({ action = 'toggleHotbar' })
 		end
 	})
 
-	for i = 1, 5 do
+	for i = 1, 4 do
 		lib.addKeybind({
 			name = ('hotkey%s'):format(i),
 			description = locale('use_hotbar', i),
@@ -1018,9 +932,8 @@ function client.closeInventory(server)
 		invOpen = nil
 		SetNuiFocus(false, false)
 		SetNuiFocusKeepInput(false)
-		Utils.blurOut()
+		TriggerScreenblurFadeOut(0)
 		closeTrunk()
-		destroyCharacterPreview()
 		SendNUIMessage({ action = 'closeInventory' })
 		SetInterval(client.interval, 200)
 		Wait(200)
@@ -1078,8 +991,23 @@ local function updateInventory(data, weight)
 			PlayerData.inventory[item.slot] = item.name and item or nil
 		end
 	end
+	
+	for k,v in pairs(data) do
+		if v and v.item ~= nil and v.item.name ~= nil then
+			local itemData = Items[v.item.name] or Weapons[v.item.name]
+			v.item.rarity = itemData.rarity
+		end
+	end
 
 	SendNUIMessage({ action = 'refreshSlots', data = { items = data, itemCount = itemCount} })
+	
+	-- REFRESH BACKPACK DATA
+	if invOpen then
+		SendNUIMessage({
+			action = 'updateBackpack',
+			data = getBackpackData()
+		})
+	end
 
     if weight ~= PlayerData.weight then client.setPlayerData('weight', weight) end
 
@@ -1157,10 +1085,9 @@ end)
 ---@param point CPoint
 local function nearbyDrop(point)
 	if not point.instance or point.instance == currentInstance then
-        DrawMarker(client.dropmarker.type, point.coords.x, point.coords.y, point.coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, client.dropmarker.scale[1], client.dropmarker.scale[2], client.dropmarker.scale[3],
-        ---@diagnostic disable-next-line: param-type-mismatch
-        client.dropmarker.colour[1], client.dropmarker.colour[2], client.dropmarker.colour[3], 222, false, false, 0, true, false, false, false)
-    end
+		---@diagnostic disable-next-line: param-type-mismatch
+		DrawMarker(2, point.coords.x, point.coords.y, point.coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 150, 30, 30, 222, false, false, 0, true, false, false, false)
+	end
 end
 
 ---@param point CPoint
@@ -1360,7 +1287,7 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 			description = v.description,
 			buttons = buttons,
 			ammoName = v.ammoname,
-			image = v.client?.image
+			image = v.client?.image,
 		}
 	end
 
@@ -1368,6 +1295,11 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 		local item = Items[data.name]
 
 		if item then
+
+			if item.rarity then
+				data.rarity = item.rarity
+			end
+
 			item.count += data.count
 			ItemData[data.name].count += data.count
 			local add = item.client?.add
@@ -1376,14 +1308,6 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 				add(item.count)
 			end
 		end
-	end
-
-	local phone = Items.phone
-
-	if phone and phone.count < 1 then
-		pcall(function()
-			return exports.npwd:setPhoneDisabled(true)
-		end)
 	end
 
 	client.setPlayerData('inventory', inventory)
@@ -1466,16 +1390,14 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 				items = PlayerData.inventory,
 				maxWeight = shared.playerweight,
 			},
+			backpackInventory = backpackData,
 			imagepath = client.imagepath
 		}
 	})
 
 	PlayerData.loaded = true
 
-	if not client.disablesetupnotification then
-		lib.notify({ description = locale('inventory_setup') })
-	end
-
+	-- lib.notify({ description = locale('inventory_setup') })
 	Shops.refreshShops()
 	Inventory.Stashes()
 	Inventory.Evidence()
@@ -1485,12 +1407,6 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 	TriggerEvent('ox_inventory:updateInventory', PlayerData.inventory)
 
 	client.interval = SetInterval(function()
-        local canSteal = canOpenTarget(playerPed)
-
-        if canSteal ~= plyState.canSteal then
-            plyState:set('canSteal', canSteal, true)
-        end
-
 		if invOpen == false then
 			playerCoords = GetEntityCoords(playerPed)
 
@@ -1512,14 +1428,14 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 						local ped = GetPlayerPed(id)
 						local pedCoords = GetEntityCoords(ped)
 
-						if not id or #(playerCoords - pedCoords) > maxDistance or (not client.hasGroup(shared.police) and not Player(currentInventory.id).state.canSteal) then
+						if not id or #(playerCoords - pedCoords) > maxDistance or not (client.hasGroup(shared.police) or canOpenTarget(ped)) then
 							client.closeInventory()
 							lib.notify({ id = 'inventory_lost_access', type = 'error', description = locale('inventory_lost_access') })
 						else
 							TaskTurnPedToFaceCoord(playerPed, pedCoords.x, pedCoords.y, pedCoords.z, 50)
 						end
 
-					elseif currentInventory.coords and (#(playerCoords - currentInventory.coords) > maxDistance or canSteal) then
+					elseif currentInventory.coords and (#(playerCoords - currentInventory.coords) > maxDistance or canOpenTarget(playerPed)) then
 						client.closeInventory()
 						lib.notify({ id = 'inventory_lost_access', type = 'error', description = locale('inventory_lost_access') })
 					end
@@ -1714,13 +1630,12 @@ RegisterNetEvent('ox_inventory:viewInventory', function(left, right)
 	if source == '' then return end
 
 	plyState.invOpen = true
-
 	SetInterval(client.interval, 100)
 	SetNuiFocus(true, true)
 	SetNuiFocusKeepInput(true)
 	closeTrunk()
 
-	if client.screenblur then Utils.blurIn() end
+	if client.screenblur then TriggerScreenblurFadeIn(0) end
 
 	currentInventory = right or defaultInventory
 	currentInventory.ignoreSecurityChecks = true
@@ -1732,7 +1647,8 @@ RegisterNetEvent('ox_inventory:viewInventory', function(left, right)
 		action = 'setupInventory',
 		data = {
 			leftInventory = left,
-			rightInventory = currentInventory
+			rightInventory = currentInventory,
+			backpackInventory = backpackData -- Use server data instead
 		}
 	})
 end)
@@ -1991,31 +1907,12 @@ RegisterNUICallback('swapItems', function(data, cb)
 	end
 end)
 
-RegisterNUICallback('buyItem', function(data, cb)
+RegisterNUICallback('buyItems', function(data, cb)
 	---@type boolean, false | { [1]: number, [2]: SlotWithItem, [3]: SlotWithItem | false, [4]: number}, NotifyProps
 	local response, data, message = lib.callback.await('ox_inventory:buyItem', 100, data)
 
-	if data then
-		updateInventory({
-			{
-				item = data[2],
-				inventory = cache.serverId
-			}
-		}, data[4])
-
-		if data[3] then
-			SendNUIMessage({
-				action = 'refreshSlots',
-				data = {
-					items = {
-						{
-							item = data[3],
-							inventory = 'shop'
-						}
-					}
-				}
-			})
-		end
+	if response then 
+		client.closeInventory()
 	end
 
 	if message then

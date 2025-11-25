@@ -12,7 +12,9 @@ function client.hasGroup(group)
 	if type(group) == 'table' then
 		for name, rank in pairs(group) do
 			local groupRank = PlayerData.groups[name]
-			if groupRank and groupRank >= (rank or 0) then
+			
+			-- if groupRank and groupRank >= (rank or 0) then
+			if groupRank then
 				return name, groupRank
 			end
 		end

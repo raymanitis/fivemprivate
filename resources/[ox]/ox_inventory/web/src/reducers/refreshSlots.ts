@@ -21,11 +21,18 @@ export const refreshSlotsReducer: CaseReducer<State, PayloadAction<Payload>> = (
     Object.values(action.payload.items)
       .filter((data) => !!data)
       .forEach((data) => {
-        const targetInventory = data.inventory
-          ? data.inventory !== InventoryType.PLAYER
-            ? state.rightInventory
-            : state.leftInventory
-          : state.leftInventory;
+        let targetInventory;
+        if (data.inventory) {
+          if (data.inventory === InventoryType.PLAYER) {
+            targetInventory = state.leftInventory;
+          } else if (data.inventory === InventoryType.BACKPACK) {
+            targetInventory = state.backpackInventory;
+          } else {
+            targetInventory = state.rightInventory;
+          }
+        } else {
+          targetInventory = state.leftInventory;
+        }
 
         data.item.durability = itemDurability(data.item.metadata, curTime);
         targetInventory.items[data.item.slot - 1] = data.item;
@@ -60,6 +67,8 @@ export const refreshSlotsReducer: CaseReducer<State, PayloadAction<Payload>> = (
         ? 'leftInventory'
         : inventoryId === state.rightInventory.id
         ? 'rightInventory'
+        : inventoryId === state.backpackInventory.id
+        ? 'backpackInventory'
         : null;
 
     if (!inv) return;
@@ -76,6 +85,8 @@ export const refreshSlotsReducer: CaseReducer<State, PayloadAction<Payload>> = (
         ? 'leftInventory'
         : inventoryId === state.rightInventory.id
         ? 'rightInventory'
+        : inventoryId === state.backpackInventory.id
+        ? 'backpackInventory'
         : null;
 
     if (!inv) return;
@@ -86,6 +97,7 @@ export const refreshSlotsReducer: CaseReducer<State, PayloadAction<Payload>> = (
       payload: {
         leftInventory: inv === 'leftInventory' ? state[inv] : undefined,
         rightInventory: inv === 'rightInventory' ? state[inv] : undefined,
+        backpackInventory: inv === 'backpackInventory' ? state[inv] : undefined,
       },
     });
   }

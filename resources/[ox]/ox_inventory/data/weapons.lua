@@ -1,3 +1,105 @@
+local ammoTypes = {
+	['ammo-22'] = {
+		label = '.22 Long Rifle',
+		weight = 3,
+	},
+
+	['ammo-38'] = {
+		label = '.38 LC',
+		weight = 15,
+	},
+
+	['ammo-44'] = {
+		label = '.44 Magnum',
+		weight = 16,
+	},
+
+	['ammo-45'] = {
+		label = '.45 ACP',
+		weight = 15,
+	},
+
+	['ammo-50'] = {
+		label = '.50 AE',
+		weight = 45,
+	},
+
+	['ammo-9'] = {
+		label = '9mm',
+		weight = 7,
+		rarity = 'uncommon',
+	},
+
+	['ammo-firework'] = {
+		label = 'Firework',
+		weight = 200,
+	},
+
+	['ammo-flare'] = {
+		label = 'Flare round',
+		weight = 38,
+	},
+
+	['ammo-grenade'] = {
+		label = '40mm Explosive',
+		weight = 400,
+	},
+
+	['ammo-heavysniper'] = {
+		label = '.50 BMG',
+		weight = 51,
+	},
+
+	['ammo-laser'] = {
+		label = 'Laser charge',
+		weight = 1,
+	},
+
+	['ammo-musket'] = {
+		label = '.50 Ball',
+		weight = 38,
+	},
+
+	['ammo-railgun'] = {
+		label = 'Railgun charge',
+		weight = 150,
+	},
+
+	['ammo-rifle'] = {
+		label = '5.56x45',
+		weight = 4,
+	},
+
+	['ammo-rifle2'] = {
+		label = '7.62x39',
+		weight = 8,
+	},
+
+	['ammo-rocket'] = {
+		label = 'Rocket',
+		weight = 500,
+	},
+
+	['ammo-shotgun'] = {
+		label = '12 Gauge',
+		weight = 38,
+	},
+
+	['ammo-sniper'] = {
+		label = '7.62x51',
+		weight = 9,
+	},
+
+	['ammo-emp'] = {
+		label = 'EMP round',
+		weight = 400,
+	},
+}
+
+exports('ammoTypes', function()
+	return ammoTypes
+end)
+
 return {
 	Weapons = {
 		['WEAPON_BATTLERIFLE'] = {
@@ -32,6 +134,7 @@ return {
 			label = 'AP Pistol',
 			weight = 1400,
 			durability = 0.1,
+			rarity = 'epic',
 			ammoname = 'ammo-9',
 		},
 
@@ -39,6 +142,7 @@ return {
 			label = 'Assault Rifle',
 			weight = 4500,
 			durability = 0.03,
+			rarity = 'legendary',
 			ammoname = 'ammo-rifle2',
 		},
 
@@ -164,10 +268,12 @@ return {
 		},
 
 		['WEAPON_COMBATPISTOL'] = {
-			label = 'Combat Pistol',
-			weight = 785,
+			label = 'Gnock 19',
+			weight = 1000,
 			durability = 0.2,
-			ammoname = 'ammo-9'
+			rarity = 'rare',
+			ammoname = 'ammo-9',
+			description = 'En pistol politiet gør meget brug af.'
 		},
 
 		['WEAPON_COMBATSHOTGUN'] = {
@@ -429,6 +535,7 @@ return {
 			label = 'Mini SMG',
 			weight = 1270,
 			durability = 0.05,
+			rarity = 'epic',
 			ammoname = 'ammo-9'
 		},
 
@@ -487,6 +594,7 @@ return {
 			label = 'Pistol .50',
 			weight = 2000,
 			durability = 0.1,
+			rarity = 'mythic',
 			ammoname = 'ammo-50'
 		},
 
@@ -621,6 +729,7 @@ return {
 			label = 'SNS Pistol',
 			weight = 465,
 			durability = 0.1,
+			rarity = 'rare',
 			ammoname = 'ammo-45'
 		},
 
@@ -660,6 +769,7 @@ return {
 		['WEAPON_STUNGUN'] = {
 			label = 'Tazer',
 			weight = 227,
+			rarity = 'uncommon',
 			durability = 0.1,
 		},
 
@@ -681,6 +791,7 @@ return {
 			label = 'Vintage Pistol',
 			weight = 700,
 			durability = 0.1,
+			rarity = 'uncommon',
 			ammoname = 'ammo-9'
 		},
 
@@ -739,6 +850,7 @@ return {
 			label = 'Suppressor',
 			weight = 280,
 			type = 'muzzle',
+			rarity = 'epic',
 			client = {
                 image = 'at_suppressor.png',
 				component = {
@@ -802,9 +914,10 @@ return {
 		['at_clip_extended_pistol'] = {
 			label = 'Extended Pistol Clip',
 			type = 'magazine',
+			rarity = 'epic',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended.png',
+                image = 'at_clip_extended_pistol.png',
 				component = {
 					`COMPONENT_APPISTOL_CLIP_02`,
 					`COMPONENT_CERAMICPISTOL_CLIP_02`,
@@ -858,6 +971,7 @@ return {
 		['at_clip_extended_rifle'] = {
 			label = 'Extended Rifle Clip',
 			type = 'magazine',
+			rarity = 'epic',
 			weight = 280,
 			client = {
                 image = 'at_clip_extended2.png',
@@ -1065,6 +1179,7 @@ return {
 		['at_scope_holo'] = {
 			label = 'Holographic Sight',
 			type = 'sight',
+			rarity = 'epic',
 			weight = 280,
 			client = {
 				component = {
@@ -1781,100 +1896,5 @@ return {
 		},
 	},
 
-	Ammo = {
-		['ammo-22'] = {
-			label = '.22 Long Rifle',
-			weight = 3,
-		},
-
-		['ammo-38'] = {
-			label = '.38 LC',
-			weight = 15,
-		},
-
-		['ammo-44'] = {
-			label = '.44 Magnum',
-			weight = 16,
-		},
-
-		['ammo-45'] = {
-			label = '.45 ACP',
-			weight = 15,
-		},
-
-		['ammo-50'] = {
-			label = '.50 AE',
-			weight = 45,
-		},
-
-		['ammo-9'] = {
-			label = '9mm',
-			weight = 7,
-		},
-
-		['ammo-firework'] = {
-			label = 'Firework',
-			weight = 200,
-		},
-
-		['ammo-flare'] = {
-			label = 'Flare round',
-			weight = 38,
-		},
-
-		['ammo-grenade'] = {
-			label = '40mm Explosive',
-			weight = 400,
-		},
-
-		['ammo-heavysniper'] = {
-			label = '.50 BMG',
-			weight = 51,
-		},
-
-		['ammo-laser'] = {
-			label = 'Laser charge',
-			weight = 1,
-		},
-
-		['ammo-musket'] = {
-			label = '.50 Ball',
-			weight = 38,
-		},
-
-		['ammo-railgun'] = {
-			label = 'Railgun charge',
-			weight = 150,
-		},
-
-		['ammo-rifle'] = {
-			label = '5.56x45',
-			weight = 4,
-		},
-
-		['ammo-rifle2'] = {
-			label = '7.62x39',
-			weight = 8,
-		},
-
-		['ammo-rocket'] = {
-			label = 'Rocket',
-			weight = 500,
-		},
-
-		['ammo-shotgun'] = {
-			label = '12 Gauge',
-			weight = 38,
-		},
-
-		['ammo-sniper'] = {
-			label = '7.62x51',
-			weight = 9,
-		},
-
-		['ammo-emp'] = {
-			label = 'EMP round',
-			weight = 400,
-		},
-	}
+	Ammo = ammoTypes
 }

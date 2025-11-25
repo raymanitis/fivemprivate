@@ -8,6 +8,7 @@ import { Items } from '../store/items';
 export const onDrop = (source: DragSource, target?: DropTarget) => {
   const { inventory: state } = store.getState();
 
+  // Support for backpack inventory in getTargetInventory
   const { sourceInventory, targetInventory } = getTargetInventory(state, source.inventory, target?.inventory);
 
   const sourceSlot = sourceInventory.items[source.item.slot - 1] as SlotWithItem;
@@ -44,9 +45,10 @@ export const onDrop = (source: DragSource, target?: DropTarget) => {
       ? sourceSlot.count
       : state.itemAmount;
 
+  // 🔥 FIX: sørg for at rarity altid følger med slots
   const data = {
-    fromSlot: sourceSlot,
-    toSlot: targetSlot,
+    fromSlot: { ...sourceSlot, rarity: sourceSlot.rarity },
+    toSlot: { ...targetSlot, rarity: targetSlot.rarity },
     fromType: sourceInventory.type,
     toType: targetInventory.type,
     count: count,
@@ -65,13 +67,13 @@ export const onDrop = (source: DragSource, target?: DropTarget) => {
       ? store.dispatch(
           stackSlots({
             ...data,
-            toSlot: targetSlot,
+            toSlot: { ...targetSlot, rarity: targetSlot.rarity }, // 👈 rarity med
           })
         )
       : store.dispatch(
           swapSlots({
             ...data,
-            toSlot: targetSlot,
+            toSlot: { ...targetSlot, rarity: targetSlot.rarity }, // 👈 rarity med
           })
         )
     : store.dispatch(moveSlots(data));

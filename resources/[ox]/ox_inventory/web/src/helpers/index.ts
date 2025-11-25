@@ -52,25 +52,53 @@ export const canCraftItem = (item: Slot, inventoryType: string) => {
   if (!isSlotWithItem(item) || inventoryType !== 'crafting') return true;
   if (!item.ingredients) return true;
   const leftInventory = store.getState().inventory.leftInventory;
+  const backpackInventory = store.getState().inventory.backpackInventory;
   const ingredientItems = Object.entries(item.ingredients);
 
   const remainingItems = ingredientItems.filter((ingredient) => {
-    const [item, count] = [ingredient[0], ingredient[1]];
-    const globalItem = Items[item];
+    const [itemName, count] = [ingredient[0], ingredient[1]];
+    const globalItem = Items[itemName];
 
-    if (count >= 1) {
-      if (globalItem && globalItem.count >= count) return false;
-    }
+    let totalCount = 0;
 
-    const hasItem = leftInventory.items.find((playerItem) => {
-      if (isSlotWithItem(playerItem) && playerItem.name === item) {
-        if (count < 1) {
-          if (playerItem.metadata?.durability >= count * 100) return true;
-
-          return false;
-        }
+    // Count in leftInventory
+    leftInventory.items.forEach((playerItem) => {
+      if (isSlotWithItem(playerItem) && playerItem.name === itemName) {
+        totalCount += playerItem.count ?? 1;
       }
     });
+
+    // Count in backpackInventory
+    if (backpackInventory && backpackInventory.items) {
+      backpackInventory.items.forEach((playerItem) => {
+        if (isSlotWithItem(playerItem) && playerItem.name === itemName) {
+          totalCount += playerItem.count ?? 1;
+        }
+      });
+    }
+
+    if (count >= 1) {
+      if (globalItem && totalCount >= count) return false;
+    }
+
+    const hasItem =
+      leftInventory.items.find((playerItem) => {
+        if (isSlotWithItem(playerItem) && playerItem.name === itemName) {
+          if (count < 1) {
+            if (playerItem.metadata?.durability >= count * 100) return true;
+            return false;
+          }
+        }
+      }) ||
+      (backpackInventory &&
+        backpackInventory.items.find((playerItem) => {
+          if (isSlotWithItem(playerItem) && playerItem.name === itemName) {
+            if (count < 1) {
+              if (playerItem.metadata?.durability >= count * 100) return true;
+              return false;
+            }
+          }
+        }));
 
     return !hasItem;
   });
@@ -97,21 +125,44 @@ export const getTargetInventory = (
   state: State,
   sourceType: Inventory['type'],
   targetType?: Inventory['type']
-): { sourceInventory: Inventory; targetInventory: Inventory } => ({
-  sourceInventory: sourceType === InventoryType.PLAYER ? state.leftInventory : state.rightInventory,
-  targetInventory: targetType
-    ? targetType === InventoryType.PLAYER
-      ? state.leftInventory
-      : state.rightInventory
-    : sourceType === InventoryType.PLAYER
-    ? state.rightInventory
-    : state.leftInventory,
-});
+): { sourceInventory: Inventory; targetInventory: Inventory } => {
+  let sourceInventory: Inventory;
+  let targetInventory: Inventory;
+
+  if (sourceType === InventoryType.PLAYER) {
+    sourceInventory = state.leftInventory;
+  } else if (sourceType === InventoryType.BACKPACK) {
+    sourceInventory = state.backpackInventory;
+  } else {
+    sourceInventory = state.rightInventory;
+  }
+
+  if (targetType) {
+    if (targetType === InventoryType.PLAYER) {
+      targetInventory = state.leftInventory;
+    } else if (targetType === InventoryType.BACKPACK) {
+      targetInventory = state.backpackInventory;
+    } else {
+      targetInventory = state.rightInventory;
+    }
+  } else {
+    if (sourceType === InventoryType.PLAYER) {
+      targetInventory = state.rightInventory;
+    } else if (sourceType === InventoryType.BACKPACK) {
+      targetInventory = state.leftInventory;
+    } else {
+      targetInventory = state.leftInventory;
+    }
+  }
+
+  return { sourceInventory, targetInventory };
+};
 
 export const itemDurability = (metadata: any, curTime: number) => {
   // sorry dunak
   // it's ok linden i fix inventory
-  if (metadata?.durability === undefined) return;
+  if (metadata?.durability === 0) return;
+  if (!metadata?.durability) return;
 
   let durability = metadata.durability;
 

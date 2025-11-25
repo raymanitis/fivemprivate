@@ -8,6 +8,7 @@ import { getItemUrl } from '../../helpers';
 import { SlotWithItem } from '../../typings';
 import { Items } from '../../store/items';
 import Fade from './transitions/Fade';
+import { Rarity } from '../../store/rarity';
 
 interface ItemNotificationProps {
   item: SlotWithItem;
@@ -28,20 +29,45 @@ const ItemNotification = React.forwardRef(
   (props: { item: ItemNotificationProps; style?: React.CSSProperties }, ref: React.ForwardedRef<HTMLDivElement>) => {
     const slotItem = props.item.item;
 
+    const rarityColors = Rarity
+    const rarityKey = (slotItem?.rarity ?? 'common').toLowerCase();
+    const rarityColor = rarityColors[rarityKey];
+
+    const withAlpha = (color: string, alpha: number) => {
+      return color.replace(/rgba?\(([^)]+)\)/, (match, contents) => {
+        if (!contents) return match; // <-- guard against undefined
+        const parts = contents.split(',').map((p: string) => p.trim());
+        if (parts.length === 3) {
+          return `rgba(${parts.join(', ')}, ${alpha})`;
+        } else if (parts.length === 4) {
+          return `rgba(${parts[0]}, ${parts[1]}, ${parts[2]}, ${alpha})`;
+        }
+        return match;
+      });
+    };
+
+
     return (
       <div
         className="item-notification-item-box"
         style={{
-          backgroundImage: `url(${getItemUrl(slotItem) || 'none'}`,
-          ...props.style,
+          border: '1px solid transparent', // gradient border area
+          background: `${slotItem?.name ? `url(${getItemUrl(slotItem as SlotWithItem)}) center / 50% 50% no-repeat padding-box,` : ''}
+                    linear-gradient(45deg, #161616bb, #000000b4) padding-box,
+                    linear-gradient(-45deg, rgba(255,255,255,0), ${withAlpha(rarityColor, 1)}) border-box
+                  `,
+          boxShadow: `inset 0px 0px 3vh -2vh ${withAlpha(rarityColor, 1)}`
         }}
         ref={ref}
       >
         <div className="item-slot-wrapper">
           <div className="item-notification-action-box">
+
             <p>{props.item.text}</p>
           </div>
-          <div className="inventory-slot-label-text2">{slotItem.metadata?.label || Items[slotItem.name]?.label}</div>
+          <div className="inventory-slot-label-box">
+            <div className="inventory-slot-label-text">{slotItem.label || Items[slotItem.name]?.label}</div>
+          </div>
         </div>
       </div>
     );
@@ -77,9 +103,9 @@ export const ItemNotificationsProvider = ({ children }: { children: React.ReactN
       {createPortal(
         <TransitionGroup className="item-notification-container">
           {queue.values.map((notification, index) => (
-            <Fade key={`item-notification-${index}`}>
-              <ItemNotification item={notification.item} ref={notification.ref} />
-            </Fade>
+              <Fade key={`item-notification-${index}`}>
+                <ItemNotification item={notification.item} ref={notification.ref}/>
+              </Fade>
           ))}
         </TransitionGroup>,
         document.body

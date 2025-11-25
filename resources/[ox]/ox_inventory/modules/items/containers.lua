@@ -51,12 +51,17 @@ local function setContainerProperties(itemName, properties)
 	}
 end
 
-exports('setContainerProperties', setContainerProperties)
-
 setContainerProperties('paperbag', {
 	slots = 5,
 	maxWeight = 1000,
 	blacklist = { 'testburger' }
+})
+
+setContainerProperties('small_backpack', {
+    slots = 8,
+    maxWeight = 2000,
+    blacklist = { 'testburger' },
+    side = 'left', -- 👈 custom flag to mark it for left inventory only
 })
 
 setContainerProperties('pizzabox', {

@@ -8,6 +8,7 @@ export const setupInventoryReducer: CaseReducer<
   PayloadAction<{
     leftInventory?: Inventory;
     rightInventory?: Inventory;
+    backpackInventory?: Inventory;
   }>
 > = (state, action) => {
   const { leftInventory, rightInventory } = action.payload;
@@ -17,39 +18,70 @@ export const setupInventoryReducer: CaseReducer<
     state.leftInventory = {
       ...leftInventory,
       items: Array.from(Array(leftInventory.slots), (_, index) => {
-        const item = Object.values(leftInventory.items).find((item) => item?.slot === index + 1) || {
-          slot: index + 1,
-        };
+        const rawItem =
+          Object.values(leftInventory.items).find((i) => i?.slot === index + 1) || {
+            slot: index + 1,
+          };
 
-        if (!item.name) return item;
+        if (!rawItem.name) return rawItem;
 
-        if (typeof Items[item.name] === 'undefined') {
-          getItemData(item.name);
+        if (typeof Items[rawItem.name] === 'undefined') {
+          getItemData(rawItem.name);
         }
 
-        item.durability = itemDurability(item.metadata, curTime);
-        return item;
+        return {
+          ...rawItem,
+          durability: itemDurability(rawItem.metadata, curTime),
+        };
       }),
     };
 
-  if (rightInventory)
+  if (action.payload.backpackInventory) {
+    const backpackInventory = action.payload.backpackInventory;
+    state.backpackInventory = {
+      ...backpackInventory,
+      items: Array.from(Array(backpackInventory.slots), (_, index) => {
+        const rawItem =
+          Object.values(backpackInventory.items).find((i) => i?.slot === index + 1) || {
+            slot: index + 1,
+          };
+
+        if (!rawItem.name) return rawItem;
+
+        if (typeof Items[rawItem.name] === 'undefined') {
+          getItemData(rawItem.name);
+        }
+
+        return {
+          ...rawItem,
+          durability: itemDurability(rawItem.metadata, curTime),
+        };
+      }),
+    };
+  }
+
+  if (rightInventory) {
     state.rightInventory = {
       ...rightInventory,
       items: Array.from(Array(rightInventory.slots), (_, index) => {
-        const item = Object.values(rightInventory.items).find((item) => item?.slot === index + 1) || {
-          slot: index + 1,
-        };
+        const rawItem =
+          Object.values(rightInventory.items).find((i) => i?.slot === index + 1) || {
+            slot: index + 1,
+          };
 
-        if (!item.name) return item;
+        if (!rawItem.name) return rawItem;
 
-        if (typeof Items[item.name] === 'undefined') {
-          getItemData(item.name);
+        if (typeof Items[rawItem.name] === 'undefined') {
+          getItemData(rawItem.name);
         }
 
-        item.durability = itemDurability(item.metadata, curTime);
-        return item;
+        return {
+          ...rawItem,
+          durability: itemDurability(rawItem.metadata, curTime),
+        };
       }),
     };
+  }
 
   state.shiftPressed = false;
   state.isBusy = false;

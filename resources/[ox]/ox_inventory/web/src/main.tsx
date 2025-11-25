@@ -12,7 +12,9 @@ import { isEnvBrowser } from './utils/misc';
 const root = document.getElementById('root');
 
 if (isEnvBrowser()) {
-  root!.style.backgroundImage = 'url("https://i.hizliresim.com/g892i1u.png")';
+  // https://i.imgur.com/iPTAdYV.png - Night time img
+  // root!.style.backgroundImage = 'url("https://i.imgur.com/iPTAdYV.png")';
+  root!.style.backgroundColor = '#121212';
   root!.style.backgroundSize = 'cover';
   root!.style.backgroundRepeat = 'no-repeat';
   root!.style.backgroundPosition = 'center';

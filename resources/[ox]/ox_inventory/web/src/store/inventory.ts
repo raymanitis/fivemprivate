@@ -1,5 +1,4 @@
 import { createSlice, current, isFulfilled, isPending, isRejected, PayloadAction } from '@reduxjs/toolkit';
-import { fetchNui } from '../utils/fetchNui';
 import type { RootState } from '.';
 import {
   moveSlotsReducer,
@@ -8,12 +7,7 @@ import {
   stackSlotsReducer,
   swapSlotsReducer,
 } from '../reducers';
-import type { State as BaseState, Inventory, Slot } from '../typings';
-
-export interface State extends BaseState {
-  activeFilter?: string | null;
-  clothactive?: boolean | null;
-}
+import { State } from '../typings';
 
 const initialState: State = {
   leftInventory: {
@@ -22,9 +16,13 @@ const initialState: State = {
     slots: 0,
     maxWeight: 0,
     items: [],
-    weighttext: 'Weight',
-    header: 'Inventory',
-    description: 'Some good description'
+  },
+  backpackInventory: {
+    id: '',
+    type: '',
+    slots: 0,
+    maxWeight: 0,
+    items: [],
   },
   rightInventory: {
     id: '',
@@ -32,16 +30,12 @@ const initialState: State = {
     slots: 0,
     maxWeight: 0,
     items: [],
-    weighttext: 'Weight',
-    header: 'Inventory',
-    description: 'Some good description'
   },
   additionalMetadata: new Array(),
   itemAmount: 0,
   shiftPressed: false,
   isBusy: false,
 };
-
 
 export const inventorySlice = createSlice({
   name: 'inventory',
@@ -61,13 +55,6 @@ export const inventorySlice = createSlice({
       }
 
       state.additionalMetadata = [...state.additionalMetadata, ...metadata];
-    },
-    setActiveFilter: (state, action: PayloadAction<string | null>) => {
-      state.activeFilter = action.payload;
-    },
-    setClothActive: (state, action: PayloadAction<boolean | null>) => {
-      state.clothactive = action.payload;
-      fetchNui('openClothing', { payload: action.payload });
     },
     setItemAmount: (state, action: PayloadAction<number>) => {
       state.itemAmount = action.payload;
@@ -90,15 +77,17 @@ export const inventorySlice = createSlice({
       state.history = {
         leftInventory: current(state.leftInventory),
         rightInventory: current(state.rightInventory),
+        backpackInventory: current(state.backpackInventory),
       };
     });
     builder.addMatcher(isFulfilled, (state) => {
       state.isBusy = false;
     });
     builder.addMatcher(isRejected, (state) => {
-      if (state.history && state.history.leftInventory && state.history.rightInventory) {
+      if (state.history && state.history.leftInventory && state.history.rightInventory && state.history.backpackInventory) {
         state.leftInventory = state.history.leftInventory;
         state.rightInventory = state.history.rightInventory;
+        state.backpackInventory = state.history.backpackInventory;
       }
       state.isBusy = false;
     });
@@ -115,15 +104,11 @@ export const {
   stackSlots,
   refreshSlots,
   setContainerWeight,
-  setActiveFilter,
-  setClothActive,
 } = inventorySlice.actions;
-
 export const selectLeftInventory = (state: RootState) => state.inventory.leftInventory;
+export const selectBackpackInventory = (state: RootState) => state.inventory.backpackInventory;
 export const selectRightInventory = (state: RootState) => state.inventory.rightInventory;
 export const selectItemAmount = (state: RootState) => state.inventory.itemAmount;
 export const selectIsBusy = (state: RootState) => state.inventory.isBusy;
-export const selectActiveFilter = (state: RootState) => state.inventory.activeFilter; 
-export const selectClothActive = (state: RootState) => state.inventory.clothactive; 
 
 export default inventorySlice.reducer;

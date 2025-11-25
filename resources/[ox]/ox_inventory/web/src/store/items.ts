@@ -6,7 +6,7 @@ export const Items: {
   water: {
     name: 'water',
     close: false,
-    label: 'VODA',
+    label: 'Water',
     stack: true,
     usable: true,
     count: 0,
@@ -17,22 +17,6 @@ export const Items: {
     label: 'BURGR',
     stack: false,
     usable: false,
-    count: 0,
-  },
-  bandage: {
-    name: 'bandage',
-    close: false,
-    label: 'Bandage',
-    stack: false,
-    usable: false,
-    count: 0,
-  },
-  weapon_pistol: {
-    name: 'weapon_pistol',
-    close: false,
-    label: 'PISTOL',
-    stack: false,
-    usable: true,
     count: 0,
   },
 };

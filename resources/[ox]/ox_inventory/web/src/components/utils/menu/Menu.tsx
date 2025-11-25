@@ -49,7 +49,6 @@ interface MenuProps {
   label?: string;
   nested?: boolean;
   children?: React.ReactNode;
-  header?: React.ReactNode;
 }
 
 export const MenuComponent = React.forwardRef<HTMLButtonElement, MenuProps & React.HTMLProps<HTMLButtonElement>>(
@@ -221,11 +220,6 @@ export const MenuComponent = React.forwardRef<HTMLButtonElement, MenuProps & Rea
                       style={{ ...floatingStyles, ...styles }}
                       {...getFloatingProps()}
                     >
-                      {props.header && (
-                        <div className="context-menu-header">
-                          {props.header}
-                        </div>
-                      )}
                       {children}
                     </div>
                   </FloatingFocusManager>
@@ -242,13 +236,12 @@ export const MenuComponent = React.forwardRef<HTMLButtonElement, MenuProps & Rea
 interface MenuItemProps {
   label: string;
   disabled?: boolean;
-  icon?: React.ReactNode;
 }
 
 export const MenuItem = React.forwardRef<
   HTMLButtonElement,
   MenuItemProps & React.ButtonHTMLAttributes<HTMLButtonElement>
->(({ label, disabled, icon, ...props }, forwardedRef) => {
+>(({ label, disabled, ...props }, forwardedRef) => {
   const menu = useContext(MenuContext);
   const item = useListItem({ label: disabled ? null : label });
   const tree = useFloatingTree();
@@ -274,7 +267,6 @@ export const MenuItem = React.forwardRef<
         },
       })}
     >
-      {icon && <span style={{ marginRight: '8px' }}>{icon}</span>}
       {label}
     </button>
   );
