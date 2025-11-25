@@ -47,8 +47,8 @@ const useStyles = createStyles((theme, params: { position: 'middle' | 'bottom'; 
       transition: 'none',
       animation: `${progressCircle} linear forwards`,
       animationDuration: `${params.duration}ms`,
-      stroke: "#FF4E62",
-      boxShadow: "0 0 1.463vh 0 rgba(255, 78, 99, 0.53)"
+      stroke: "#AAAAAA",
+      boxShadow: "0 0 1.463vh 0 rgba(170, 170, 170, 0.8)"
     },
   },
   value: {

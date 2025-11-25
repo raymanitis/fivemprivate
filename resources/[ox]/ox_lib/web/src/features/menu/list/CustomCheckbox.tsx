@@ -9,11 +9,11 @@ const useStyles = createStyles((theme) => ({
     width: "2",
     fontSize: "2vh",
     backgroundColor: theme.colors.dark[7],
-    '&:checked': { backgroundColor: "#FFF", borderColor: "#3D3D3D" },
+    '&:checked': { backgroundColor: "#3D3D3D", borderColor: "#3D3D3D" },
   },
   inner: {
     '> svg > path': {
-      fill: "#3D3D3D",
+      fill: "#FFF",
     }
   },
 }));

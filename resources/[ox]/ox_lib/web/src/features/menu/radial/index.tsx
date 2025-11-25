@@ -22,19 +22,19 @@ const useStyles = createStyles((theme) => ({
     strokeWidth: 1,
     transition: 'fill 0.35s',
     '&:hover': {
-      fill: "rgba(255, 255, 255, 1)",
+      fill: "#4A4A4A",
       cursor: 'pointer',
       '& ~ g text': {
-        fill: '#000',
+        fill: '#fff',
       },
       '& ~ g svg path': {
-        fill: '#000',
+        fill: '#fff',
       },
     },
   },
   centerHex: {
     opacity: ".9",
-    fill: "#ffffffff",
+    fill: "#3D3D3D",
     transition: 'opacity 0.3s',
     '&:hover': {
       opacity: "1",
@@ -57,7 +57,7 @@ const useStyles = createStyles((theme) => ({
     pointerEvents: 'none',
   },
   centerIcon: {
-    color: '#373737',
+    color: '#fff',
   },
 }));
 

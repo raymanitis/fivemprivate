@@ -116,10 +116,10 @@ code {
 }
 
 .cancelButton:hover {
-  color: #3D3D3D;
+  color: #FFF;
   cursor: pointer;
   border: 0.0926vh solid rgba(255, 255, 255, 0.40);
-  background: #FFF;
+  background: #3D3D3D;
 }
 
 .confirmButton {
@@ -137,9 +137,9 @@ code {
   font-size: 1vh;
   font-weight: 600;
   
-  color: #3D3D3D;
+  color: #FFF;
   border: 0.0926vh solid rgba(255, 255, 255, 0.40);
-  background: #FFF;
+  background: #3D3D3D;
   opacity: .75;
   transition: opacity .3s;
 }
@@ -184,8 +184,30 @@ code {
   gap: 0.9259vh;
   border-radius: 0.9259vh;
   border: none;
-  background: radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%);
-  transition: all .35s;
+  background-color: rgba(26, 27, 30, 0.97);
+  background-image: radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%);
+  transition: background-color .15s ease;
+  opacity: 1;
+  position: relative;
+}
+
+.headerButton2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.9259vh;
+  background-color: rgba(26, 27, 30, 0.97);
+  opacity: 0;
+  transition: opacity .15s ease;
+  pointer-events: none;
+}
+
+.headerButton2:hover:not(:disabled)::before {
+  opacity: 1;
+  background-color: #4A4A4A;
 }
 
 .headerButton {
@@ -197,35 +219,77 @@ code {
   gap: 0.9259vh;
   border-radius: 0.9259vh;
   border: none;
-  background: radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%);
-  transition: all .35s;
+  background-color: rgba(26, 27, 30, 0.97);
+  background-image: radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%);
+  transition: background-color .15s ease;
+  opacity: 1;
+  position: relative;
+}
+
+.headerButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.9259vh;
+  background-color: rgba(26, 27, 30, 0.97);
+  opacity: 0;
+  transition: opacity .15s ease;
+  pointer-events: none;
+}
+
+.headerButton:hover:not(:disabled)::before {
+  opacity: 1;
+  background-color: #4A4A4A;
 }
 
 .headerButtonIcon {
   display: flex;
-  transition: color .35s;
+  transition: color .15s ease;
   color: rgba(255, 255, 255, 0.911);
   font-size: 1.6667vh;
+  position: relative;
+  z-index: 1;
 }
 
-.headerButton:hover {
+.headerButton:hover:not(:disabled) {
   cursor: pointer;
-  background: #fff;
-  color: #000;
+  opacity: 1;
 }
 
-.headerButton:hover .headerButtonIcon{
-  color: #000;
+.headerButton:hover:not(:disabled) .headerButtonIcon{
+  color: #FFF;
 }
 
-.headerButton2:hover {
+.headerButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.headerButton:disabled .headerButtonIcon {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.headerButton2:hover:not(:disabled) {
   cursor: pointer;
-  background: #fff;
-  color: #000;
+  opacity: 1;
 }
 
-.headerButton2:hover .headerButtonIcon{
-  color: #000;
+.headerButton2:hover:not(:disabled) .headerButtonIcon{
+  color: #FFF;
+  position: relative;
+  z-index: 1;
+}
+
+.headerButton2:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.headerButton2:disabled .headerButtonIcon {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .buttonsFlexWrapper {
@@ -243,11 +307,11 @@ code {
 }
 
 .buttonsFlexWrapper:hover .buttonArrowContainer {
-  background-color: #fff;
+  background-color: #3D3D3D;
 }
 
 .buttonsFlexWrapper:hover .arrowIcon {
-  color: black;
+  color: #FFF;
 }
 
 .buttonsFlexWrapper[data-disabled] {
@@ -472,7 +536,8 @@ code {
   border-radius: 0.5556vh;
   border: 0.0926vh solid rgba(255, 255, 255, 0.10);
   border-color: rgba(255, 255, 255, 0.40);
-  background: #FFF;
+  background: #3D3D3D;
+  color: #FFF;
   text-align: center;
   font-family: Inter;
   font-size: 0.9259vh;
@@ -485,8 +550,8 @@ code {
 .cancelButton2:hover {
   cursor: pointer;
   border-color: rgba(255, 255, 255, 0.40);
-  background: #FFF;
-  color: #3D3D3D;
+  background: #3D3D3D;
+  color: #FFF;
 }
 
 .confirmButton2:hover {
@@ -683,20 +748,20 @@ code {
   width: .75vh;
   height: .75vh;
   border-radius: 3.4259vh;
-  background: #FFF;
-  box-shadow: 0 0 1.2407vh 0 rgba(255, 255, 255, 0.7);
+  background: #3D3D3D;
+  box-shadow: 0 0 1.2407vh 0 rgba(61, 61, 61, 0.7);
 }
 
 .select-dropdown[data-selected] {
-  background-color: #FFF;
-  color: #000;
+  background-color: #3D3D3D;
+  color: #FFF;
   font-family: Inter;
   font-size: 1.2963vh;
   font-weight: 600;
 }
 
 .select-dropdown[data-selected]:hover {
-  background-color: #FFF;
+  background-color: #3D3D3D;
 }
 
 .select-dropdown:hover {
@@ -736,15 +801,15 @@ code {
 }
 
 .input-section:enabled:hover {
-  background-color: #fff;
-  color: #3D3D3D;
+  background-color: #3D3D3D;
+  color: #FFF;
   cursor: pointer;
 }
 
 
 .input-section:disabled:hover {
-  background-color: #fff;
-  color: #3D3D3D;
+  background-color: #3D3D3D;
+  color: #FFF;
   cursor: pointer;
 }
 
@@ -793,9 +858,9 @@ code {
 .thumb {
   width: 1.25vh;
   height: 1.25vh;
-  background: #FFF;
+  background: #3D3D3D;
   border: 0.1852vh solid rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 1.2685vh 0 rgba(255, 255, 255, 0.46);
+  box-shadow: 0 0 1.2685vh 0 rgba(61, 61, 61, 0.46);
 }
 
 .sliderRoot {
@@ -805,8 +870,8 @@ code {
 }
 
 .sliderBar {
-  background: #FFF;
-  box-shadow: 0 0 1.2685vh 0 rgba(255, 255, 255, 0.46);
+  background: #3D3D3D;
+  box-shadow: 0 0 1.2685vh 0 rgba(61, 61, 61, 0.46);
 }
 
 .marks {
@@ -852,17 +917,17 @@ code {
   width: 4vh;
   height: 1.5vh;
   border-radius: 4.75vh;
-  background: rgba(255, 78, 98, 0.20);
+  background: rgba(74, 74, 74, 0.50);
   justify-content: center;
   align-items: center;
 }
 
 .percent p {
   margin-top: .1vh;
-  color: #FF4E62;
+  color: #FFF;
   font-family: Inter;
   font-size: .95vh;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .pDesc {
@@ -919,7 +984,7 @@ code {
   width: 4vh;
   height: 1.5vh;
   border-radius: 4.75vh;
-  background: rgba(255, 78, 98, 0.20);
+  background: rgba(74, 74, 74, 0.50);
   justify-content: center;
   align-items: center;
 }
@@ -928,18 +993,18 @@ code {
   position: absolute !important;
   margin-left: -29.75vh;
   margin-top: .25vh;
-  color: #FF4E62;
+  color: #FFF;
   font-family: Inter;
   font-size: .85vh;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .percent2 p {
   margin-top: .1vh;
-  color: #FF4E62;
+  color: #FFF;
   font-family: Inter;
   font-size: .95vh;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .skillCont {

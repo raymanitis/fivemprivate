@@ -29,9 +29,9 @@ const useStyles = createStyles((theme) => ({
   },
   bar: {
     height: '100%',
-    background: "#FF4E62",
+    background: "#AAAAAA",
     borderRadius: "5.5556vh",
-    boxShadow: "0 0 1.463vh 0 rgba(255, 78, 98, 0.41)",
+    boxShadow: "0 0 1.463vh 0 rgba(170, 170, 170, 0.8)",
   },
   labelWrapper: {
     position: 'absolute',

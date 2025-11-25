@@ -59,7 +59,7 @@ const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
     width: "1.95vh",
     height: "2vh",
     borderRadius: "0.2778vh",
-    background: "#fff"
+    background: "#3D3D3D"
   },
   scrollIndexValue: {
     paddingTop: ".35vh",

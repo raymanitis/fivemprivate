@@ -39,7 +39,6 @@ const Header: React.FC<{ title: string }> = ({ title }) => {
         </svg>
       </div>
       <Text className={classes.heading}>{title}</Text>
-      <Text className={"menuDesc2"}>The most beautiful menu you could ever see, with plenty of options..</Text>
     </Box>
     </>
   );

@@ -1,12 +1,11 @@
 import React from 'react';
 import { useNuiEvent } from '../../hooks/useNuiEvent';
-import { Box, createStyles, Group } from '@mantine/core';
+import { Box, createStyles } from '@mantine/core';
 import ReactMarkdown from 'react-markdown';
 import ScaleFade from '../../transitions/ScaleFade';
 import remarkGfm from 'remark-gfm';
 import type { TextUiPosition, TextUiProps } from '../../typings';
 import MarkdownComponents from '../../config/MarkdownComponents';
-import LibIcon from '../../components/LibIcon';
 
 const useStyles = createStyles((theme, params: { position?: TextUiPosition }) => ({
   wrapper: {
@@ -55,26 +54,9 @@ const TextUI: React.FC = () => {
       <Box className={classes.wrapper}>
         <ScaleFade visible={visible}>
           <Box style={data.style} className={classes.container}>
-            <Group spacing={12}>
-              {data.icon && (
-                <LibIcon
-                  icon={data.icon}
-                  fixedWidth
-                  size="lg"
-                  animation={data.iconAnimation}
-                  style={{
-                    padding: "0.575vh",
-                    borderRadius: "0.463vh",
-                    background: "#FFF",
-                    color: "#1D1D1D",
-                    alignSelf: !data.alignIcon || data.alignIcon === 'center' ? 'center' : 'start',
-                  }}
-                />
-              )}
-              <ReactMarkdown components={MarkdownComponents} remarkPlugins={[remarkGfm]}>
-                {data.text}
-              </ReactMarkdown>
-            </Group>
+            <ReactMarkdown components={MarkdownComponents} remarkPlugins={[remarkGfm]}>
+              {data.text}
+            </ReactMarkdown>
           </Box>
         </ScaleFade>
       </Box>
