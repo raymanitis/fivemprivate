@@ -386,14 +386,13 @@ return {
 		rarity = 'epic',
 	},
 
-	['small_backpack'] = {
-		label = 'Small Backpack',
+	['bag'] = {
+		label = 'Bag',
 		weight = 500,
-		image = 'backpack.png',
 		stack = false,
 		useable = false,
 		close = false,
-		description = 'A small backpack that provides extra storage space',
+		description = 'A small bag that provides extra storage space',
 		rarity = 'uncommon',
 	},
 }

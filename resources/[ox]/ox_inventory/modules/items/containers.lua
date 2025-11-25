@@ -52,23 +52,13 @@ local function setContainerProperties(itemName, properties)
 	}
 end
 
-setContainerProperties('paperbag', {
-	slots = 5,
-	maxWeight = 1000,
-	blacklist = { 'testburger' }
-})
 
-setContainerProperties('small_backpack', {
+setContainerProperties('bag', {
     slots = 8,
     maxWeight = 2000,
     blacklist = { 'testburger' },
     side = 'left', -- 👈 custom flag to mark it for left inventory only
 })
 
-setContainerProperties('pizzabox', {
-	slots = 5,
-	maxWeight = 1000,
-	whitelist = { 'pizza' }
-})
 
 return containers
