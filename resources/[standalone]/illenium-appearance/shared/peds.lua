@@ -2,6 +2,9 @@ Config.Peds = {
     pedConfig = {
         {
             peds = {
+                -- First 2 values are the default female/male peds, if you wanna remove custom peds just delete the rest and keep these 2.
+                "mp_f_freemode_01",
+                "mp_m_freemode_01",
                 "a_c_boar",
                 "a_c_boar_02",
                 "a_c_cat_01",
@@ -772,7 +775,6 @@ Config.Peds = {
                 "mp_f_execpa_01",
                 "mp_f_execpa_02",
                 "mp_f_forgery_01",
-                "mp_f_freemode_01",
                 "mp_f_helistaff_01",
                 "mp_f_meth_01",
                 "mp_f_misty_01",
@@ -791,7 +793,6 @@ Config.Peds = {
                 "mp_m_famdd_01",
                 "mp_m_fibsec_01",
                 "mp_m_forgery_01",
-                "mp_m_freemode_01",
                 "mp_m_g_vagfun_01",
                 "mp_m_marston_01",
                 "mp_m_meth_01",
@@ -1053,7 +1054,7 @@ Config.Peds = {
                 "u_m_y_tattoo_01",
                 "u_m_y_ushi",
                 "u_m_y_zombie_01",
-            }
-        }
-    }
+            },
+        },
+    },
 }

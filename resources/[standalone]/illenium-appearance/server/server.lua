@@ -1,17 +1,17 @@
 local outfitCache = {}
 local uniformCache = {}
 
-local function getMoneyForShop(shopType)
-    local money = 0
-    if shopType == "clothing" then
-        money = Config.ClothingCost
-    elseif shopType == "barber" then
-        money = Config.BarberCost
-    elseif shopType == "tattoo" then
-        money = Config.TattooCost
-    elseif shopType == "surgeon" then
-        money = Config.SurgeonCost
-    end
+local function getMoneyForShop(type)
+    local validShopTypes = {
+        ["clothing"] = Config.ClothingCost,
+        ["barber"] = Config.BarberCost,
+        ["tattoo"] = Config.TattooCost,
+        ["surgeon"] = Config.SurgeonCost,
+    }
+
+    local shopType = validShopTypes[type]
+
+    local money = shopType and shopType or 0
 
     return money
 end
@@ -19,13 +19,14 @@ end
 local function getOutfitsForPlayer(citizenid)
     outfitCache[citizenid] = {}
     local result = Database.PlayerOutfits.GetAllByCitizenID(citizenid)
+
     for i = 1, #result, 1 do
         outfitCache[citizenid][#outfitCache[citizenid] + 1] = {
             id = result[i].id,
             name = result[i].outfitname,
             model = result[i].model,
             components = json.decode(result[i].components),
-            props = json.decode(result[i].props)
+            props = json.decode(result[i].props),
         }
     end
 end
@@ -58,6 +59,7 @@ end)
 lib.callback.register("illenium-appearance:server:importOutfitCode", function(source, outfitName, outfitCode)
     local citizenID = Framework.GetPlayerID(source)
     local existingOutfitCode = Database.PlayerOutfitCodes.GetByCode(outfitCode)
+
     if not existingOutfitCode then
         return nil
     end
@@ -67,10 +69,16 @@ lib.callback.register("illenium-appearance:server:importOutfitCode", function(so
         return
     end
 
-    if playerOutfit.citizenid == citizenID then return end -- Validation when someone tried to duplicate own outfit
-    if Database.PlayerOutfits.GetByOutfit(outfitName, citizenID) then return end -- Validation duplicate outfit name, if validate on local id, someone can "spam error" server-sided
+    if playerOutfit.citizenid == citizenID then
+        return
+    end -- Validation when someone tried to duplicate own outfit
 
-    local id = Database.PlayerOutfits.Add(citizenID, outfitName, playerOutfit.model, playerOutfit.components, playerOutfit.props)
+    if Database.PlayerOutfits.GetByOutfit(outfitName, citizenID) then
+        return
+    end -- Validation duplicate outfit name, if validate on local id, someone can "spam error" server-sided
+
+    local id = Database.PlayerOutfits.Add(citizenID, outfitName, playerOutfit.model, playerOutfit.components,
+        playerOutfit.props)
 
     if not id then
         print("Something went wrong while importing the outfit")
@@ -82,7 +90,7 @@ lib.callback.register("illenium-appearance:server:importOutfitCode", function(so
         name = outfitName,
         model = playerOutfit.model,
         components = json.decode(playerOutfit.components),
-        props = json.decode(playerOutfit.props)
+        props = json.decode(playerOutfit.props),
     }
 
     return true
@@ -95,34 +103,35 @@ end)
 
 lib.callback.register("illenium-appearance:server:hasMoney", function(source, shopType)
     local money = getMoneyForShop(shopType)
-    if Framework.HasMoney(source, "cash", money) then
-        return true, money
-    else
+
+    if not Framework.HasMoney(source, "cash", money) then
         return false, money
     end
+
+    return true, money
 end)
 
 lib.callback.register("illenium-appearance:server:payForTattoo", function(source, tattoo)
     local src = source
     local cost = tattoo.cost or Config.TattooCost
 
-    if Framework.RemoveMoney(src, "cash", cost) then
-        lib.notify(src, {
-            title = _L("purchase.tattoo.success.title"),
-            description = string.format(_L("purchase.tattoo.success.description"), tattoo.label, cost),
-            type = "success",
-            position = Config.NotifyOptions.position
-        })
-        return true
-    else
+    if not Framework.RemoveMoney(src, "cash", cost) then
         lib.notify(src, {
             title = _L("purchase.tattoo.failure.title"),
             description = _L("purchase.tattoo.failure.description"),
             type = "error",
-            position = Config.NotifyOptions.position
+            position = Config.NotifyOptions.position,
         })
         return false
     end
+
+    lib.notify(src, {
+        title = _L("purchase.tattoo.success.title"),
+        description = string.format(_L("purchase.tattoo.success.description"), tattoo.label, cost),
+        type = "success",
+        position = Config.NotifyOptions.position,
+    })
+    return true
 end)
 
 lib.callback.register("illenium-appearance:server:getOutfits", function(source)
@@ -151,7 +160,7 @@ lib.callback.register("illenium-appearance:server:getManagementOutfits", functio
                 model = result[i].model,
                 gender = result[i].gender,
                 components = json.decode(result[i].components),
-                props = json.decode(result[i].props)
+                props = json.decode(result[i].props),
             }
         end
     end
@@ -178,14 +187,14 @@ RegisterServerEvent("illenium-appearance:server:chargeCustomer", function(shopTy
             title = _L("purchase.store.success.title"),
             description = string.format(_L("purchase.store.success.description"), money, shopType),
             type = "success",
-            position = Config.NotifyOptions.position
+            position = Config.NotifyOptions.position,
         })
     else
         lib.notify(src, {
             title = _L("purchase.store.failure.title"),
             description = _L("purchase.store.failure.description"),
             type = "error",
-            position = Config.NotifyOptions.position
+            position = Config.NotifyOptions.position,
         })
     end
 end)
@@ -206,13 +215,13 @@ RegisterNetEvent("illenium-appearance:server:saveOutfit", function(name, model, 
             name = name,
             model = model,
             components = components,
-            props = props
+            props = props,
         }
         lib.notify(src, {
             title = _L("outfits.save.success.title"),
             description = string.format(_L("outfits.save.success.description"), name),
             type = "success",
-            position = Config.NotifyOptions.position
+            position = Config.NotifyOptions.position,
         })
     end
 end)
@@ -224,7 +233,9 @@ RegisterNetEvent("illenium-appearance:server:updateOutfit", function(id, model, 
         getOutfitsForPlayer(citizenID)
     end
     if model and components and props then
-        if not Database.PlayerOutfits.Update(id, model, json.encode(components), json.encode(props)) then return end
+        if not Database.PlayerOutfits.Update(id, model, json.encode(components), json.encode(props)) then
+            return
+        end
         local outfitName = ""
         for i = 1, #outfitCache[citizenID], 1 do
             local outfit = outfitCache[citizenID][i]
@@ -240,7 +251,7 @@ RegisterNetEvent("illenium-appearance:server:updateOutfit", function(id, model, 
             title = _L("outfits.update.success.title"),
             description = string.format(_L("outfits.update.success.description"), outfitName),
             type = "success",
-            position = Config.NotifyOptions.position
+            position = Config.NotifyOptions.position,
         })
     end
 end)
@@ -254,9 +265,9 @@ RegisterNetEvent("illenium-appearance:server:saveManagementOutfit", function(out
 
     lib.notify(src, {
         title = _L("outfits.save.success.title"),
-            description = string.format(_L("outfits.save.success.description"), outfitData.Name),
+        description = string.format(_L("outfits.save.success.description"), outfitData.Name),
         type = "success",
-        position = Config.NotifyOptions.position
+        position = Config.NotifyOptions.position,
     })
 end)
 
@@ -309,10 +320,10 @@ if Config.EnablePedMenu then
                 name = "playerID",
                 type = "number",
                 help = "Target player's server id",
-                optional = true
+                optional = true,
             },
         },
-        restricted = Config.PedMenuGroup
+        restricted = Config.PedMenuGroup,
     }, function(source, args)
         local target = source
         if args.playerID then
@@ -324,7 +335,7 @@ if Config.EnablePedMenu then
                     title = _L("commands.pedmenu.failure.title"),
                     description = _L("commands.pedmenu.failure.description"),
                     type = "error",
-                    position = Config.NotifyOptions.position
+                    position = Config.NotifyOptions.position,
                 })
                 return
             end
@@ -334,11 +345,11 @@ if Config.EnablePedMenu then
 end
 
 if Config.EnableJobOutfitsCommand then
-    lib.addCommand("joboutfits", { help = _L("commands.joboutfits.title"), }, function(source)
+    lib.addCommand("joboutfits", { help = _L("commands.joboutfits.title") }, function(source)
         TriggerClientEvent("illenium-apearance:client:outfitsCommand", source, true)
     end)
 
-    lib.addCommand("gangoutfits", { help = _L("commands.gangoutfits.title"), }, function(source)
+    lib.addCommand("gangoutfits", { help = _L("commands.gangoutfits.title") }, function(source)
         TriggerClientEvent("illenium-apearance:client:outfitsCommand", source)
     end)
 end
@@ -351,4 +362,6 @@ lib.addCommand("clearstuckprops", { help = _L("commands.clearstuckprops.title") 
     TriggerClientEvent("illenium-appearance:client:ClearStuckProps", source)
 end)
 
-lib.versionCheck("iLLeniumStudios/illenium-appearance")
+local versionCheck = require("modules.utility.server.version-check")
+
+versionCheck("vipexv/vx-illenium-rework-version-control")

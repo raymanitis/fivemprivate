@@ -1,0 +1,79 @@
+{
+	"interface": {
+		"header": {
+			"title": "Character Selector",
+			"subtitle": "The modern way to manage your characters."
+		},
+		"character_list": {
+			"spawn_point": "Spawn Point"
+		},
+		"new_character_card": {
+			"title": "New Character",
+			"subtitle": "Time for a new journey?"
+		},
+		"modals": {
+			"delete": {
+				"title": "Are you sure you want to delete \"%s\"?",
+				"subtitle": "This action is permanent and cannot be reversed.",
+				"request_pending": {
+					"title": "Hang tight while we delete this character!",
+					"subtitle": "This should only take a moment."
+				},
+				"request_complete": {
+					"title": "Successfully deleted the character!",
+					"subtitle": "The request was successfully completed."
+				},
+				"second_step_confirm": "To confirm, please type %s in the box below."
+			},
+			"new_character_registration": {
+				"title": "New Character Registration Form",
+				"subtitle": "To get started, please provide all the required information in the fields below.",
+				"request_pending": {
+					"title": "Registering new character!",
+					"subtitle": "Please hang tight, this should only take a moment."
+				}
+			}
+		},
+		"common": {
+			"confirm": "Confirm",
+			"cancel": "Cancel",
+			"continue": "Continue",
+			"close": "Close",
+			"delete": "Delete",
+			"male": "Male",
+			"female": "Female",
+			"first_name": "First Name",
+			"last_name": "Last Name",
+			"height": "Height",
+			"dob": "Date Of Birth",
+			"last_location": "Last Location",
+			"properties": "Properties",
+			"back": "Back",
+			"find_place_to_customize_char": "Find a place to customize your character.",
+			"find_place_to_customize_char_subtitle": "Look for a peaceful area away from crowds.",
+			"alert": "Alert",
+			"welcome": "Welcome",
+			"no_data_found": "We couldn't find any data."
+		},
+		"spawn_selector": {
+			"title": "Spawn Selector",
+			"subtitle": "Choose where you'd like to wake up in the city"
+		},
+		"apartment_selector": {
+			"title": "Apartment Selector",
+			"subtitle": "Choose where you would like your first home!"
+		}
+	},
+	"errors": {
+		"first_name_requirements": "First name must start with a capital letter and be between %s and %s letters!",
+		"last_name_requirements": "Last name must start with a capital letter and be between %s and %s letters!",
+		"height_requirements": "Height must be between %s and %s cm!",
+		"dob_requirements": "Date of birth must be between %s and %s!",
+		"nationality_requirements": "Invalid Nationality!",
+		"error_occurred": "An Error has occurred!",
+		"no_other_info": "We don't have any other info.",
+		"unknown_error": "An Unknown Error has occurred.",
+		"sex_requirements": "Please make sure to select your character's sex.",
+		"name_is_not_unique": "This name is not unique as it already exists."
+	}
+}

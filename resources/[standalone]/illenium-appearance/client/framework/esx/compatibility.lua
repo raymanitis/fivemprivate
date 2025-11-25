@@ -1,89 +1,102 @@
-if not Framework.ESX() then return end
+if not Framework.ESX() then
+	return
+end
+
+local log = require("modules.utility.shared.logger")
 
 local client = client
 local firstSpawn = false
 
 AddEventHandler("esx_skin:resetFirstSpawn", function()
-    firstSpawn = true
+	firstSpawn = true
 end)
 
 AddEventHandler("esx_skin:playerRegistered", function()
-    if(firstSpawn) then
-        InitializeCharacter(Framework.GetGender(true))
-    end
+	if not firstSpawn then
+		return log.verbosef(
+			"[client] [esx/compatibility] [esx_skin:playerRegistered] `firstSpawn` is false, returning.")
+	end
+
+	InitializeCharacter(Framework.GetGender(true))
 end)
 
 RegisterNetEvent("skinchanger:loadSkin2", function(ped, skin)
-    if not skin.model then skin.model = "mp_m_freemode_01" end
-    client.setPedAppearance(ped, skin)
-    Framework.CachePed()
+	if not skin.model then
+		skin.model = "mp_m_freemode_01"
+	end
+
+	client.setPedAppearance(ped, skin)
+	Framework.CachePed()
 end)
 
 RegisterNetEvent("skinchanger:getSkin", function(cb)
-    while not Framework.PlayerData do
-        Wait(1000)
-    end
-    lib.callback("illenium-appearance:server:getAppearance", false, function(appearance)
-        cb(appearance)
-        Framework.CachePed()
-    end)
+	while not Framework.PlayerData do
+		Wait(1000)
+	end
+
+	lib.callback("illenium-appearance:server:getAppearance", false, function(appearance)
+		cb(appearance)
+		Framework.CachePed()
+	end)
 end)
 
-
 local function LoadSkin(skin, cb)
-    if skin.model then
-        client.setPlayerAppearance(skin)
-    else -- add validation invisible when failed registration (maybe server restarted when apply skin)
-        SetInitialClothes(Config.InitialPlayerClothes[Framework.GetGender(true)])
-    end
-    if Framework.PlayerData and Framework.PlayerData.loadout then
-        TriggerEvent("esx:restoreLoadout")
-    end
-    Framework.CachePed()
+	if skin.model then
+		client.setPlayerAppearance(skin)
+	else -- add validation invisible when failed registration (maybe server restarted when apply skin)
+		SetInitialClothes(Config.InitialPlayerClothes[Framework.GetGender(true)])
+	end
+
+	if Framework.PlayerData and Framework.PlayerData.loadout then
+		TriggerEvent("esx:restoreLoadout")
+	end
+
+	Framework.CachePed()
+
 	if cb ~= nil then
 		cb()
 	end
 end
 
 RegisterNetEvent("skinchanger:loadSkin", function(skin, cb)
-    LoadSkin(skin, cb)
+	LoadSkin(skin, cb)
 end)
 
 local function loadClothes(_, clothes)
-    local components = Framework.ConvertComponents(clothes, client.getPedComponents(cache.ped))
-    local props = Framework.ConvertProps(clothes, client.getPedProps(cache.ped))
+	local components = Framework.ConvertComponents(clothes, client.getPedComponents(cache.ped))
+	local props = Framework.ConvertProps(clothes, client.getPedProps(cache.ped))
 
-    client.setPedComponents(cache.ped, components)
-    client.setPedProps(cache.ped, props)
+	client.setPedComponents(cache.ped, components)
+	client.setPedProps(cache.ped, props)
 end
 
 RegisterNetEvent("skinchanger:loadClothes", function(_, clothes)
-    loadClothes(_, clothes)
+	loadClothes(_, clothes)
 end)
 
 RegisterNetEvent("esx_skin:openSaveableMenu", function(onSubmit, onCancel)
-    InitializeCharacter(Framework.GetGender(true), onSubmit, onCancel)
+	InitializeCharacter(Framework.GetGender(true), onSubmit, onCancel)
 end)
 
 local function exportHandler(exportName, func)
-  AddEventHandler(('__cfx_export_skinchanger_%s'):format(exportName), function(setCB)
-      setCB(func)
-  end)
+	AddEventHandler(("__cfx_export_skinchanger_%s"):format(exportName), function(setCB)
+		setCB(func)
+	end)
 end
 
 exportHandler("GetSkin", function()
-    while not Framework.PlayerData do
-        Wait(1000)
-    end
+	while not Framework.PlayerData do
+		Wait(1000)
+	end
 
-    local appearance = lib.callback.await("illenium-appearance:server:getAppearance", false)
-    return appearance
+	local appearance = lib.callback.await("illenium-appearance:server:getAppearance", false)
+	return appearance
 end)
 
 exportHandler("LoadSkin", function(skin)
-    return LoadSkin(skin)
+	return LoadSkin(skin)
 end)
 
 exportHandler("LoadClothes", function(playerSkin, clothesSkin)
-    return loadClothes(playerSkin, clothesSkin)
+	return loadClothes(playerSkin, clothesSkin)
 end)

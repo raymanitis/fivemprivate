@@ -1,10 +1,12 @@
-if not Config.BossManagedOutfits then return end
+if not Config.BossManagedOutfits then
+    return
+end
 
 Management = {}
 
 Management.ItemIDs = {
     Gang = nil,
-    Boss = nil
+    Boss = nil,
 }
 
 function Management.IsQB()

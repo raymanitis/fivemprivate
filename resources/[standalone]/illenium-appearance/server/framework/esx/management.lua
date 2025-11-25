@@ -1,4 +1,6 @@
-if not Framework.ESX() then return end
+if not Framework.ESX() then
+    return
+end
 
 if Config.BossManagedOutfits then
     function isBoss(grades, grade)
@@ -10,7 +12,7 @@ if Config.BossManagedOutfits then
         end
         return highestGrade == grade
     end
-    lib.addCommand("bossmanagedoutfits", { help = _L("commands.bossmanagedoutfits.title"), }, function(source)
+    lib.addCommand("bossmanagedoutfits", { help = _L("commands.bossmanagedoutfits.title") }, function(source)
         local job = Framework.GetJob(source)
         local grades = Database.JobGrades.GetByJobName(job.name)
         if not grades then
@@ -22,7 +24,7 @@ if Config.BossManagedOutfits then
         end
 
         TriggerClientEvent("illenium-appearance:client:OutfitManagementMenu", source, {
-            type = "Job"
+            type = "Job",
         })
     end)
 end

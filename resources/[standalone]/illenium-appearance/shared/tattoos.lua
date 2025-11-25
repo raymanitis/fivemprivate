@@ -6,7 +6,7 @@ Config.Tattoos = {
             hashMale = "MP_Airraces_Tattoo_000_M",
             hashFemale = "MP_Airraces_Tattoo_000_F",
             zone = "ZONE_TORSO",
-            collection = "mpairraces_overlays"
+            collection = "mpairraces_overlays",
         },
         {
             name = "TAT_AR_001",
@@ -14,7 +14,7 @@ Config.Tattoos = {
             hashMale = "MP_Airraces_Tattoo_001_M",
             hashFemale = "MP_Airraces_Tattoo_001_F",
             zone = "ZONE_TORSO",
-            collection = "mpairraces_overlays"
+            collection = "mpairraces_overlays",
         },
         {
             name = "TAT_AR_002",
@@ -22,7 +22,7 @@ Config.Tattoos = {
             hashMale = "MP_Airraces_Tattoo_002_M",
             hashFemale = "MP_Airraces_Tattoo_002_F",
             zone = "ZONE_TORSO",
-            collection = "mpairraces_overlays"
+            collection = "mpairraces_overlays",
         },
         {
             name = "TAT_AR_004",
@@ -30,7 +30,7 @@ Config.Tattoos = {
             hashMale = "MP_Airraces_Tattoo_004_M",
             hashFemale = "MP_Airraces_Tattoo_004_F",
             zone = "ZONE_TORSO",
-            collection = "mpairraces_overlays"
+            collection = "mpairraces_overlays",
         },
         {
             name = "TAT_AR_005",
@@ -38,7 +38,7 @@ Config.Tattoos = {
             hashMale = "MP_Airraces_Tattoo_005_M",
             hashFemale = "MP_Airraces_Tattoo_005_F",
             zone = "ZONE_TORSO",
-            collection = "mpairraces_overlays"
+            collection = "mpairraces_overlays",
         },
         {
             name = "TAT_AR_006",
@@ -46,7 +46,7 @@ Config.Tattoos = {
             hashMale = "MP_Airraces_Tattoo_006_M",
             hashFemale = "MP_Airraces_Tattoo_006_F",
             zone = "ZONE_TORSO",
-            collection = "mpairraces_overlays"
+            collection = "mpairraces_overlays",
         },
         {
             name = "TAT_AR_007",
@@ -54,7 +54,7 @@ Config.Tattoos = {
             hashMale = "MP_Airraces_Tattoo_007_M",
             hashFemale = "MP_Airraces_Tattoo_007_F",
             zone = "ZONE_TORSO",
-            collection = "mpairraces_overlays"
+            collection = "mpairraces_overlays",
         },
         {
             name = "TAT_BB_018",
@@ -62,7 +62,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Back_000",
             hashFemale = "",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_019",
@@ -70,7 +70,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Chest_000",
             hashFemale = "",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_020",
@@ -78,7 +78,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Chest_001",
             hashFemale = "",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_023",
@@ -86,7 +86,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Stom_000",
             hashFemale = "",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_032",
@@ -94,7 +94,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Stom_001",
             hashFemale = "",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_003",
@@ -102,7 +102,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Back_000",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_001",
@@ -110,7 +110,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Back_001",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_005",
@@ -118,7 +118,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Back_002",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_012",
@@ -126,7 +126,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Chest_000",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_013",
@@ -134,7 +134,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Chest_001",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_000",
@@ -142,7 +142,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Chest_002",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_006",
@@ -150,7 +150,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_RSide_000",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_011",
@@ -158,7 +158,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Should_000",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_004",
@@ -166,7 +166,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Should_001",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_014",
@@ -174,7 +174,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Stom_000",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_009",
@@ -182,7 +182,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Stom_001",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_010",
@@ -190,7 +190,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Stom_002",
             zone = "ZONE_TORSO",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BI_000",
@@ -198,7 +198,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_000_M",
             hashFemale = "MP_MP_Biker_Tat_000_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_001",
@@ -206,7 +206,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_001_M",
             hashFemale = "MP_MP_Biker_Tat_001_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_003",
@@ -214,7 +214,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_003_M",
             hashFemale = "MP_MP_Biker_Tat_003_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_005",
@@ -222,7 +222,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_005_M",
             hashFemale = "MP_MP_Biker_Tat_005_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_006",
@@ -230,7 +230,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_006_M",
             hashFemale = "MP_MP_Biker_Tat_006_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_008",
@@ -238,7 +238,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_008_M",
             hashFemale = "MP_MP_Biker_Tat_008_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_010",
@@ -246,7 +246,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_010_M",
             hashFemale = "MP_MP_Biker_Tat_010_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_011",
@@ -254,7 +254,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_011_M",
             hashFemale = "MP_MP_Biker_Tat_011_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_013",
@@ -262,7 +262,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_013_M",
             hashFemale = "MP_MP_Biker_Tat_013_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_017",
@@ -270,7 +270,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_017_M",
             hashFemale = "MP_MP_Biker_Tat_017_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_018",
@@ -278,7 +278,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_018_M",
             hashFemale = "MP_MP_Biker_Tat_018_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_019",
@@ -286,7 +286,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_019_M",
             hashFemale = "MP_MP_Biker_Tat_019_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_021",
@@ -294,7 +294,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_021_M",
             hashFemale = "MP_MP_Biker_Tat_021_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_023",
@@ -302,7 +302,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_023_M",
             hashFemale = "MP_MP_Biker_Tat_023_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_026",
@@ -310,7 +310,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_026_M",
             hashFemale = "MP_MP_Biker_Tat_026_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_029",
@@ -318,7 +318,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_029_M",
             hashFemale = "MP_MP_Biker_Tat_029_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_030",
@@ -326,7 +326,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_030_M",
             hashFemale = "MP_MP_Biker_Tat_030_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_031",
@@ -334,7 +334,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_031_M",
             hashFemale = "MP_MP_Biker_Tat_031_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_032",
@@ -342,7 +342,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_032_M",
             hashFemale = "MP_MP_Biker_Tat_032_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_034",
@@ -350,7 +350,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_034_M",
             hashFemale = "MP_MP_Biker_Tat_034_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_039",
@@ -358,7 +358,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_039_M",
             hashFemale = "MP_MP_Biker_Tat_039_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_041",
@@ -366,7 +366,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_041_M",
             hashFemale = "MP_MP_Biker_Tat_041_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_043",
@@ -374,7 +374,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_043_M",
             hashFemale = "MP_MP_Biker_Tat_043_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_050",
@@ -382,7 +382,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_050_M",
             hashFemale = "MP_MP_Biker_Tat_050_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_052",
@@ -390,7 +390,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_052_M",
             hashFemale = "MP_MP_Biker_Tat_052_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_058",
@@ -398,7 +398,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_058_M",
             hashFemale = "MP_MP_Biker_Tat_058_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_059",
@@ -406,7 +406,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_059_M",
             hashFemale = "MP_MP_Biker_Tat_059_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_060",
@@ -414,7 +414,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_060_M",
             hashFemale = "MP_MP_Biker_Tat_060_F",
             zone = "ZONE_TORSO",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BUS_011",
@@ -422,7 +422,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_Stomach_000",
             hashFemale = "",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_001",
@@ -430,7 +430,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_Chest_000",
             hashFemale = "",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_002",
@@ -438,7 +438,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_Chest_001",
             hashFemale = "",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_000",
@@ -446,7 +446,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_Back_000",
             hashFemale = "",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_002",
@@ -454,7 +454,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_Chest_000",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_003",
@@ -462,7 +462,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_Chest_001",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_004",
@@ -470,7 +470,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_Chest_002",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_011",
@@ -478,7 +478,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_Stom_000",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_012",
@@ -486,7 +486,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_Stom_001",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_013",
@@ -494,7 +494,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_Stom_002",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_000",
@@ -502,7 +502,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_Back_000",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_001",
@@ -510,7 +510,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_Back_001",
             zone = "ZONE_TORSO",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_H27_000",
@@ -518,7 +518,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_000_M",
             hashFemale = "MP_Christmas2017_Tattoo_000_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_002",
@@ -526,7 +526,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_002_M",
             hashFemale = "MP_Christmas2017_Tattoo_002_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_003",
@@ -534,7 +534,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_003_M",
             hashFemale = "MP_Christmas2017_Tattoo_003_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_005",
@@ -542,7 +542,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_005_M",
             hashFemale = "MP_Christmas2017_Tattoo_005_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_008",
@@ -550,7 +550,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_008_M",
             hashFemale = "MP_Christmas2017_Tattoo_008_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_009",
@@ -558,7 +558,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_009_M",
             hashFemale = "MP_Christmas2017_Tattoo_009_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_010",
@@ -566,7 +566,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_010_M",
             hashFemale = "MP_Christmas2017_Tattoo_010_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_011",
@@ -574,7 +574,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_011_M",
             hashFemale = "MP_Christmas2017_Tattoo_011_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_015",
@@ -582,7 +582,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_015_M",
             hashFemale = "MP_Christmas2017_Tattoo_015_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_016",
@@ -590,7 +590,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_016_M",
             hashFemale = "MP_Christmas2017_Tattoo_016_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_019",
@@ -598,7 +598,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_019_M",
             hashFemale = "MP_Christmas2017_Tattoo_019_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_020",
@@ -606,7 +606,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_020_M",
             hashFemale = "MP_Christmas2017_Tattoo_020_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_021",
@@ -614,7 +614,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_021_M",
             hashFemale = "MP_Christmas2017_Tattoo_021_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_022",
@@ -622,7 +622,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_022_M",
             hashFemale = "MP_Christmas2017_Tattoo_022_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_024",
@@ -630,7 +630,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_024_M",
             hashFemale = "MP_Christmas2017_Tattoo_024_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_026",
@@ -638,7 +638,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_026_M",
             hashFemale = "MP_Christmas2017_Tattoo_026_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_027",
@@ -646,7 +646,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_027_M",
             hashFemale = "MP_Christmas2017_Tattoo_027_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_AW_000",
@@ -654,7 +654,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2018_Tat_000_M",
             hashFemale = "MP_Christmas2018_Tat_000_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2018_overlays"
+            collection = "mpchristmas2018_overlays",
         },
         {
             name = "TAT_X2_005",
@@ -662,7 +662,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_005",
             hashFemale = "MP_Xmas2_F_Tat_005",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_006",
@@ -670,7 +670,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_006",
             hashFemale = "MP_Xmas2_F_Tat_006",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_009",
@@ -678,7 +678,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_009",
             hashFemale = "MP_Xmas2_F_Tat_009",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_011",
@@ -686,7 +686,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_011",
             hashFemale = "MP_Xmas2_F_Tat_011",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_013",
@@ -694,7 +694,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_013",
             hashFemale = "MP_Xmas2_F_Tat_013",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_015",
@@ -702,7 +702,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_015",
             hashFemale = "MP_Xmas2_F_Tat_015",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_016",
@@ -710,7 +710,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_016",
             hashFemale = "MP_Xmas2_F_Tat_016",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_017",
@@ -718,7 +718,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_017",
             hashFemale = "MP_Xmas2_F_Tat_017",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_018",
@@ -726,7 +726,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_018",
             hashFemale = "MP_Xmas2_F_Tat_018",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_019",
@@ -734,7 +734,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_019",
             hashFemale = "MP_Xmas2_F_Tat_019",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_028",
@@ -742,7 +742,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_028",
             hashFemale = "MP_Xmas2_F_Tat_028",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_GR_000",
@@ -750,7 +750,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_000_M",
             hashFemale = "MP_Gunrunning_Tattoo_000_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_001",
@@ -758,7 +758,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_001_M",
             hashFemale = "MP_Gunrunning_Tattoo_001_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_009",
@@ -766,7 +766,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_009_M",
             hashFemale = "MP_Gunrunning_Tattoo_009_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_010",
@@ -774,7 +774,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_010_M",
             hashFemale = "MP_Gunrunning_Tattoo_010_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_012",
@@ -782,7 +782,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_012_M",
             hashFemale = "MP_Gunrunning_Tattoo_012_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_013",
@@ -790,7 +790,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_013_M",
             hashFemale = "MP_Gunrunning_Tattoo_013_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_014",
@@ -798,7 +798,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_014_M",
             hashFemale = "MP_Gunrunning_Tattoo_014_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_017",
@@ -806,7 +806,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_017_M",
             hashFemale = "MP_Gunrunning_Tattoo_017_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_018",
@@ -814,7 +814,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_018_M",
             hashFemale = "MP_Gunrunning_Tattoo_018_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_019",
@@ -822,7 +822,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_019_M",
             hashFemale = "MP_Gunrunning_Tattoo_019_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_020",
@@ -830,7 +830,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_020_M",
             hashFemale = "MP_Gunrunning_Tattoo_020_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_022",
@@ -838,7 +838,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_022_M",
             hashFemale = "MP_Gunrunning_Tattoo_022_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_028",
@@ -846,7 +846,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_028_M",
             hashFemale = "MP_Gunrunning_Tattoo_028_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_029",
@@ -854,7 +854,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_029_M",
             hashFemale = "MP_Gunrunning_Tattoo_029_F",
             zone = "ZONE_TORSO",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_H3_023",
@@ -862,7 +862,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_023_M",
             hashFemale = "mpHeist3_Tat_023_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_024",
@@ -870,7 +870,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_024_M",
             hashFemale = "mpHeist3_Tat_024_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_025",
@@ -878,7 +878,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_025_M",
             hashFemale = "mpHeist3_Tat_025_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_026",
@@ -886,7 +886,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_026_M",
             hashFemale = "mpHeist3_Tat_026_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_027",
@@ -894,7 +894,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_027_M",
             hashFemale = "mpHeist3_Tat_027_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_028",
@@ -902,7 +902,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_028_M",
             hashFemale = "mpHeist3_Tat_028_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_029",
@@ -910,7 +910,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_029_M",
             hashFemale = "mpHeist3_Tat_029_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_030",
@@ -918,7 +918,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_030_M",
             hashFemale = "mpHeist3_Tat_030_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_033",
@@ -926,7 +926,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_033_M",
             hashFemale = "mpHeist3_Tat_033_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_035",
@@ -934,7 +934,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_035_M",
             hashFemale = "mpHeist3_Tat_035_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_036",
@@ -942,7 +942,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_036_M",
             hashFemale = "mpHeist3_Tat_036_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_037",
@@ -950,7 +950,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_037_M",
             hashFemale = "mpHeist3_Tat_037_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_038",
@@ -958,7 +958,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_038_M",
             hashFemale = "mpHeist3_Tat_038_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_039",
@@ -966,7 +966,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_039_M",
             hashFemale = "mpHeist3_Tat_039_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H4_004",
@@ -974,7 +974,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_004_M",
             hashFemale = "MP_Heist4_Tat_004_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_013",
@@ -982,7 +982,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_013_M",
             hashFemale = "MP_Heist4_Tat_013_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_014",
@@ -990,7 +990,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_014_M",
             hashFemale = "MP_Heist4_Tat_014_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_015",
@@ -998,7 +998,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_015_M",
             hashFemale = "MP_Heist4_Tat_015_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_016",
@@ -1006,7 +1006,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_016_M",
             hashFemale = "MP_Heist4_Tat_016_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_017",
@@ -1014,7 +1014,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_017_M",
             hashFemale = "MP_Heist4_Tat_017_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_018",
@@ -1022,7 +1022,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_018_M",
             hashFemale = "MP_Heist4_Tat_018_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_019",
@@ -1030,7 +1030,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_019_M",
             hashFemale = "MP_Heist4_Tat_019_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_020",
@@ -1038,7 +1038,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_020_M",
             hashFemale = "MP_Heist4_Tat_020_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_021",
@@ -1046,7 +1046,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_021_M",
             hashFemale = "MP_Heist4_Tat_021_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_022",
@@ -1054,7 +1054,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_022_M",
             hashFemale = "MP_Heist4_Tat_022_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_023",
@@ -1062,7 +1062,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_023_M",
             hashFemale = "MP_Heist4_Tat_023_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_030",
@@ -1070,7 +1070,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_030_M",
             hashFemale = "MP_Heist4_Tat_030_F",
             zone = "ZONE_TORSO",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_HP_000",
@@ -1078,7 +1078,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_000",
             hashFemale = "FM_Hip_F_Tat_000",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_002",
@@ -1086,7 +1086,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_002",
             hashFemale = "FM_Hip_F_Tat_002",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_006",
@@ -1094,7 +1094,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_006",
             hashFemale = "FM_Hip_F_Tat_006",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_011",
@@ -1102,7 +1102,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_011",
             hashFemale = "FM_Hip_F_Tat_011",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_012",
@@ -1110,7 +1110,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_012",
             hashFemale = "FM_Hip_F_Tat_012",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_013",
@@ -1118,7 +1118,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_013",
             hashFemale = "FM_Hip_F_Tat_013",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_024",
@@ -1126,7 +1126,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_024",
             hashFemale = "FM_Hip_F_Tat_024",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_025",
@@ -1134,7 +1134,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_025",
             hashFemale = "FM_Hip_F_Tat_025",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_029",
@@ -1142,7 +1142,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_029",
             hashFemale = "FM_Hip_F_Tat_029",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_030",
@@ -1150,7 +1150,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_030",
             hashFemale = "FM_Hip_F_Tat_030",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_031",
@@ -1158,7 +1158,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_031",
             hashFemale = "FM_Hip_F_Tat_031",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_032",
@@ -1166,7 +1166,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_032",
             hashFemale = "FM_Hip_F_Tat_032",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_033",
@@ -1174,7 +1174,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_033",
             hashFemale = "FM_Hip_F_Tat_033",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_035",
@@ -1182,7 +1182,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_035",
             hashFemale = "FM_Hip_F_Tat_035",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_041",
@@ -1190,7 +1190,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_041",
             hashFemale = "FM_Hip_F_Tat_041",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_046",
@@ -1198,7 +1198,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_046",
             hashFemale = "FM_Hip_F_Tat_046",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_047",
@@ -1206,7 +1206,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_047",
             hashFemale = "FM_Hip_F_Tat_047",
             zone = "ZONE_TORSO",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_IE_000",
@@ -1214,7 +1214,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_000_M",
             hashFemale = "MP_MP_ImportExport_Tat_000_F",
             zone = "ZONE_TORSO",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_IE_001",
@@ -1222,7 +1222,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_001_M",
             hashFemale = "MP_MP_ImportExport_Tat_001_F",
             zone = "ZONE_TORSO",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_IE_002",
@@ -1230,7 +1230,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_002_M",
             hashFemale = "MP_MP_ImportExport_Tat_002_F",
             zone = "ZONE_TORSO",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_IE_009",
@@ -1238,7 +1238,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_009_M",
             hashFemale = "MP_MP_ImportExport_Tat_009_F",
             zone = "ZONE_TORSO",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_IE_010",
@@ -1246,7 +1246,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_010_M",
             hashFemale = "MP_MP_ImportExport_Tat_010_F",
             zone = "ZONE_TORSO",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_IE_011",
@@ -1254,7 +1254,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_011_M",
             hashFemale = "MP_MP_ImportExport_Tat_011_F",
             zone = "ZONE_TORSO",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_S2_000",
@@ -1262,7 +1262,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_000_M",
             hashFemale = "MP_LR_Tat_000_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_008",
@@ -1270,7 +1270,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_008_M",
             hashFemale = "MP_LR_Tat_008_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_011",
@@ -1278,7 +1278,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_011_M",
             hashFemale = "MP_LR_Tat_011_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_012",
@@ -1286,7 +1286,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_012_M",
             hashFemale = "MP_LR_Tat_012_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_016",
@@ -1294,7 +1294,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_016_M",
             hashFemale = "MP_LR_Tat_016_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_019",
@@ -1302,7 +1302,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_019_M",
             hashFemale = "MP_LR_Tat_019_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_031",
@@ -1310,7 +1310,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_031_M",
             hashFemale = "MP_LR_Tat_031_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_032",
@@ -1318,7 +1318,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_032_M",
             hashFemale = "MP_LR_Tat_032_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S1_001",
@@ -1326,7 +1326,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_001_M",
             hashFemale = "MP_LR_Tat_001_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_002",
@@ -1334,7 +1334,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_002_M",
             hashFemale = "MP_LR_Tat_002_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_004",
@@ -1342,7 +1342,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_004_M",
             hashFemale = "MP_LR_Tat_004_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_009",
@@ -1350,7 +1350,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_009_M",
             hashFemale = "MP_LR_Tat_009_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_010",
@@ -1358,7 +1358,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_010_M",
             hashFemale = "MP_LR_Tat_010_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_013",
@@ -1366,7 +1366,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_013_M",
             hashFemale = "MP_LR_Tat_013_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_014",
@@ -1374,7 +1374,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_014_M",
             hashFemale = "MP_LR_Tat_014_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_021",
@@ -1382,7 +1382,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_021_M",
             hashFemale = "MP_LR_Tat_021_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_026",
@@ -1390,7 +1390,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_026_M",
             hashFemale = "MP_LR_Tat_026_F",
             zone = "ZONE_TORSO",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_L2_002",
@@ -1398,7 +1398,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_002_M",
             hashFemale = "MP_LUXE_TAT_002_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_012",
@@ -1406,7 +1406,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_012_M",
             hashFemale = "MP_LUXE_TAT_012_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_022",
@@ -1414,7 +1414,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_022_M",
             hashFemale = "MP_LUXE_TAT_022_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_025",
@@ -1422,7 +1422,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_025_M",
             hashFemale = "MP_LUXE_TAT_025_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_027",
@@ -1430,7 +1430,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_027_M",
             hashFemale = "MP_LUXE_TAT_027_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_029",
@@ -1438,7 +1438,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_029_M",
             hashFemale = "MP_LUXE_TAT_029_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_LX_003",
@@ -1446,7 +1446,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_003_M",
             hashFemale = "MP_LUXE_TAT_003_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_LX_006",
@@ -1454,7 +1454,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_006_M",
             hashFemale = "MP_LUXE_TAT_006_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_LX_007",
@@ -1462,7 +1462,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_007_M",
             hashFemale = "MP_LUXE_TAT_007_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_LX_008",
@@ -1470,7 +1470,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_008_M",
             hashFemale = "MP_LUXE_TAT_008_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_LX_014",
@@ -1478,7 +1478,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_014_M",
             hashFemale = "MP_LUXE_TAT_014_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_LX_015",
@@ -1486,7 +1486,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_015_M",
             hashFemale = "MP_LUXE_TAT_015_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_LX_024",
@@ -1494,7 +1494,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_024_M",
             hashFemale = "MP_LUXE_TAT_024_F",
             zone = "ZONE_TORSO",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_FX_004",
@@ -1502,7 +1502,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_004_M",
             hashFemale = "MP_Security_Tat_004_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_008",
@@ -1510,7 +1510,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_008_M",
             hashFemale = "MP_Security_Tat_008_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_013",
@@ -1518,7 +1518,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_013_M",
             hashFemale = "MP_Security_Tat_013_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_014",
@@ -1526,7 +1526,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_014_M",
             hashFemale = "MP_Security_Tat_014_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_015",
@@ -1534,7 +1534,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_015_M",
             hashFemale = "MP_Security_Tat_015_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_016",
@@ -1542,7 +1542,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_016_M",
             hashFemale = "MP_Security_Tat_016_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_017",
@@ -1550,7 +1550,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_017_M",
             hashFemale = "MP_Security_Tat_017_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_018",
@@ -1558,7 +1558,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_018_M",
             hashFemale = "MP_Security_Tat_018_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_024",
@@ -1566,7 +1566,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_024_M",
             hashFemale = "MP_Security_Tat_024_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_025",
@@ -1574,7 +1574,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_025_M",
             hashFemale = "MP_Security_Tat_025_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_026",
@@ -1582,7 +1582,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_026_M",
             hashFemale = "MP_Security_Tat_026_F",
             zone = "ZONE_TORSO",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_SM_000",
@@ -1590,7 +1590,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_000_M",
             hashFemale = "MP_Smuggler_Tattoo_000_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_002",
@@ -1598,7 +1598,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_002_M",
             hashFemale = "MP_Smuggler_Tattoo_002_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_003",
@@ -1606,7 +1606,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_003_M",
             hashFemale = "MP_Smuggler_Tattoo_003_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_006",
@@ -1614,7 +1614,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_006_M",
             hashFemale = "MP_Smuggler_Tattoo_006_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_007",
@@ -1622,7 +1622,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_007_M",
             hashFemale = "MP_Smuggler_Tattoo_007_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_009",
@@ -1630,7 +1630,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_009_M",
             hashFemale = "MP_Smuggler_Tattoo_009_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_010",
@@ -1638,7 +1638,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_010_M",
             hashFemale = "MP_Smuggler_Tattoo_010_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_013",
@@ -1646,7 +1646,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_013_M",
             hashFemale = "MP_Smuggler_Tattoo_013_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_015",
@@ -1654,7 +1654,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_015_M",
             hashFemale = "MP_Smuggler_Tattoo_015_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_016",
@@ -1662,7 +1662,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_016_M",
             hashFemale = "MP_Smuggler_Tattoo_016_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_017",
@@ -1670,7 +1670,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_017_M",
             hashFemale = "MP_Smuggler_Tattoo_017_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_018",
@@ -1678,7 +1678,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_018_M",
             hashFemale = "MP_Smuggler_Tattoo_018_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_019",
@@ -1686,7 +1686,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_019_M",
             hashFemale = "MP_Smuggler_Tattoo_019_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_021",
@@ -1694,7 +1694,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_021_M",
             hashFemale = "MP_Smuggler_Tattoo_021_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_022",
@@ -1702,7 +1702,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_022_M",
             hashFemale = "MP_Smuggler_Tattoo_022_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_024",
@@ -1710,7 +1710,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_024_M",
             hashFemale = "MP_Smuggler_Tattoo_024_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_025",
@@ -1718,7 +1718,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_025_M",
             hashFemale = "MP_Smuggler_Tattoo_025_F",
             zone = "ZONE_TORSO",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_ST_011",
@@ -1726,7 +1726,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_011_M",
             hashFemale = "MP_MP_Stunt_tat_011_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_012",
@@ -1734,7 +1734,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_012_M",
             hashFemale = "MP_MP_Stunt_tat_012_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_014",
@@ -1742,7 +1742,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_014_M",
             hashFemale = "MP_MP_Stunt_tat_014_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_018",
@@ -1750,7 +1750,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_018_M",
             hashFemale = "MP_MP_Stunt_tat_018_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_019",
@@ -1758,7 +1758,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_019_M",
             hashFemale = "MP_MP_Stunt_tat_019_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_024",
@@ -1766,7 +1766,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_024_M",
             hashFemale = "MP_MP_Stunt_tat_024_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_026",
@@ -1774,7 +1774,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_026_M",
             hashFemale = "MP_MP_Stunt_tat_026_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_027",
@@ -1782,7 +1782,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_027_M",
             hashFemale = "MP_MP_Stunt_tat_027_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_029",
@@ -1790,7 +1790,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_029_M",
             hashFemale = "MP_MP_Stunt_tat_029_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_030",
@@ -1798,7 +1798,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_030_M",
             hashFemale = "MP_MP_Stunt_tat_030_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_033",
@@ -1806,7 +1806,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_033_M",
             hashFemale = "MP_MP_Stunt_tat_033_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_034",
@@ -1814,7 +1814,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_034_M",
             hashFemale = "MP_MP_Stunt_tat_034_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_037",
@@ -1822,7 +1822,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_037_M",
             hashFemale = "MP_MP_Stunt_tat_037_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_040",
@@ -1830,7 +1830,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_040_M",
             hashFemale = "MP_MP_Stunt_tat_040_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_041",
@@ -1838,7 +1838,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_041_M",
             hashFemale = "MP_MP_Stunt_tat_041_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_044",
@@ -1846,7 +1846,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_044_M",
             hashFemale = "MP_MP_Stunt_tat_044_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_046",
@@ -1854,7 +1854,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_046_M",
             hashFemale = "MP_MP_Stunt_tat_046_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_048",
@@ -1862,7 +1862,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_048_M",
             hashFemale = "MP_MP_Stunt_tat_048_F",
             zone = "ZONE_TORSO",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_VW_000",
@@ -1870,7 +1870,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_000_M",
             hashFemale = "MP_Vinewood_Tat_000_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_001",
@@ -1878,7 +1878,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_001_M",
             hashFemale = "MP_Vinewood_Tat_001_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_003",
@@ -1886,7 +1886,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_003_M",
             hashFemale = "MP_Vinewood_Tat_003_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_006",
@@ -1894,7 +1894,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_006_M",
             hashFemale = "MP_Vinewood_Tat_006_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_007",
@@ -1902,7 +1902,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_007_M",
             hashFemale = "MP_Vinewood_Tat_007_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_008",
@@ -1910,7 +1910,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_008_M",
             hashFemale = "MP_Vinewood_Tat_008_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_009",
@@ -1918,7 +1918,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_009_M",
             hashFemale = "MP_Vinewood_Tat_009_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_010",
@@ -1926,7 +1926,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_010_M",
             hashFemale = "MP_Vinewood_Tat_010_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_011",
@@ -1934,7 +1934,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_011_M",
             hashFemale = "MP_Vinewood_Tat_011_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_012",
@@ -1942,7 +1942,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_012_M",
             hashFemale = "MP_Vinewood_Tat_012_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_015",
@@ -1950,7 +1950,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_015_M",
             hashFemale = "MP_Vinewood_Tat_015_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_016",
@@ -1958,7 +1958,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_016_M",
             hashFemale = "MP_Vinewood_Tat_016_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_017",
@@ -1966,7 +1966,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_017_M",
             hashFemale = "MP_Vinewood_Tat_017_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_021",
@@ -1974,7 +1974,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_021_M",
             hashFemale = "MP_Vinewood_Tat_021_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_022",
@@ -1982,7 +1982,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_022_M",
             hashFemale = "MP_Vinewood_Tat_022_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_023",
@@ -1990,7 +1990,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_023_M",
             hashFemale = "MP_Vinewood_Tat_023_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_024",
@@ -1998,7 +1998,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_024_M",
             hashFemale = "MP_Vinewood_Tat_024_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_029",
@@ -2006,7 +2006,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_029_M",
             hashFemale = "MP_Vinewood_Tat_029_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_030",
@@ -2014,7 +2014,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_030_M",
             hashFemale = "MP_Vinewood_Tat_030_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_031",
@@ -2022,7 +2022,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_031_M",
             hashFemale = "MP_Vinewood_Tat_031_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_032",
@@ -2030,7 +2030,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_032_M",
             hashFemale = "MP_Vinewood_Tat_032_F",
             zone = "ZONE_TORSO",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_FM_011",
@@ -2038,7 +2038,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_003",
             hashFemale = "FM_Tat_Award_F_003",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_012",
@@ -2046,7 +2046,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_004",
             hashFemale = "FM_Tat_Award_F_004",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_013",
@@ -2054,7 +2054,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_005",
             hashFemale = "FM_Tat_Award_F_005",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_016",
@@ -2062,7 +2062,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_008",
             hashFemale = "FM_Tat_Award_F_008",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_019",
@@ -2070,7 +2070,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_011",
             hashFemale = "FM_Tat_Award_F_011",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_020",
@@ -2078,7 +2078,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_012",
             hashFemale = "FM_Tat_Award_F_012",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_021",
@@ -2086,7 +2086,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_013",
             hashFemale = "FM_Tat_Award_F_013",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_022",
@@ -2094,7 +2094,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_014",
             hashFemale = "FM_Tat_Award_F_014",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_024",
@@ -2102,7 +2102,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_016",
             hashFemale = "FM_Tat_Award_F_016",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_025",
@@ -2110,7 +2110,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_017",
             hashFemale = "FM_Tat_Award_F_017",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_026",
@@ -2118,7 +2118,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_018",
             hashFemale = "FM_Tat_Award_F_018",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_027",
@@ -2126,7 +2126,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_019",
             hashFemale = "FM_Tat_Award_F_019",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_219",
@@ -2134,7 +2134,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_004",
             hashFemale = "FM_Tat_F_004",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_213",
@@ -2142,7 +2142,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_009",
             hashFemale = "FM_Tat_F_009",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_218",
@@ -2150,7 +2150,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_010",
             hashFemale = "FM_Tat_F_010",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_214",
@@ -2158,7 +2158,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_011",
             hashFemale = "FM_Tat_F_011",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_220",
@@ -2166,7 +2166,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_012",
             hashFemale = "FM_Tat_F_012",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_215",
@@ -2174,7 +2174,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_013",
             hashFemale = "FM_Tat_F_013",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_216",
@@ -2182,7 +2182,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_016",
             hashFemale = "FM_Tat_F_016",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_217",
@@ -2190,7 +2190,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_019",
             hashFemale = "FM_Tat_F_019",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_221",
@@ -2198,7 +2198,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_020",
             hashFemale = "FM_Tat_F_020",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_225",
@@ -2206,7 +2206,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_024",
             hashFemale = "FM_Tat_F_024",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_226",
@@ -2214,7 +2214,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_025",
             hashFemale = "FM_Tat_F_025",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_230",
@@ -2222,7 +2222,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_029",
             hashFemale = "FM_Tat_F_029",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_231",
@@ -2230,7 +2230,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_030",
             hashFemale = "FM_Tat_F_030",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_235",
@@ -2238,7 +2238,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_034",
             hashFemale = "FM_Tat_F_034",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_237",
@@ -2246,7 +2246,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_036",
             hashFemale = "FM_Tat_F_036",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_245",
@@ -2254,7 +2254,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_044",
             hashFemale = "FM_Tat_F_044",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_246",
@@ -2262,7 +2262,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_045",
             hashFemale = "FM_Tat_F_045",
             zone = "ZONE_TORSO",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_SB_057",
@@ -2270,7 +2270,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_057_M",
             hashFemale = "MP_Sum2_Tat_057_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_058",
@@ -2278,7 +2278,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_058_M",
             hashFemale = "MP_Sum2_Tat_058_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_059",
@@ -2286,7 +2286,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_059_M",
             hashFemale = "MP_Sum2_Tat_059_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_060",
@@ -2294,7 +2294,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_060_M",
             hashFemale = "MP_Sum2_Tat_060_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_061",
@@ -2302,7 +2302,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_061_M",
             hashFemale = "MP_Sum2_Tat_061_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_062",
@@ -2310,7 +2310,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_062_M",
             hashFemale = "MP_Sum2_Tat_062_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_003",
@@ -2318,7 +2318,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_003_M",
             hashFemale = "MP_Sum2_Tat_003_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_004",
@@ -2326,7 +2326,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_004_M",
             hashFemale = "MP_Sum2_Tat_004_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_005",
@@ -2334,7 +2334,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_005_M",
             hashFemale = "MP_Sum2_Tat_005_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_006",
@@ -2342,7 +2342,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_006_M",
             hashFemale = "MP_Sum2_Tat_006_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_007",
@@ -2350,7 +2350,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_007_M",
             hashFemale = "MP_Sum2_Tat_007_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_035",
@@ -2358,7 +2358,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_035_M",
             hashFemale = "MP_Sum2_Tat_035_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_036",
@@ -2366,7 +2366,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_036_M",
             hashFemale = "MP_Sum2_Tat_036_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_037",
@@ -2374,7 +2374,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_037_M",
             hashFemale = "MP_Sum2_Tat_037_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_038",
@@ -2382,7 +2382,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_038_M",
             hashFemale = "MP_Sum2_Tat_038_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_039",
@@ -2390,7 +2390,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_039_M",
             hashFemale = "MP_Sum2_Tat_039_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_040",
@@ -2398,7 +2398,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_040_M",
             hashFemale = "MP_Sum2_Tat_040_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_041",
@@ -2406,7 +2406,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_041_M",
             hashFemale = "MP_Sum2_Tat_041_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_042",
@@ -2414,7 +2414,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_042_M",
             hashFemale = "MP_Sum2_Tat_042_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_043",
@@ -2422,7 +2422,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_043_M",
             hashFemale = "MP_Sum2_Tat_043_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_044",
@@ -2430,7 +2430,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_044_M",
             hashFemale = "MP_Sum2_Tat_044_F",
             zone = "ZONE_TORSO",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_X6_004",
@@ -2438,7 +2438,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_004_M",
             hashFemale = "MP_Christmas3_Tat_004_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_005",
@@ -2446,7 +2446,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_005_M",
             hashFemale = "MP_Christmas3_Tat_005_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_006",
@@ -2454,7 +2454,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_006_M",
             hashFemale = "MP_Christmas3_Tat_006_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_007",
@@ -2462,7 +2462,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_007_M",
             hashFemale = "MP_Christmas3_Tat_007_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_014",
@@ -2470,7 +2470,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_014_M",
             hashFemale = "MP_Christmas3_Tat_014_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_015",
@@ -2478,7 +2478,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_015_M",
             hashFemale = "MP_Christmas3_Tat_015_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_016",
@@ -2486,7 +2486,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_016_M",
             hashFemale = "MP_Christmas3_Tat_016_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_017",
@@ -2494,7 +2494,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_017_M",
             hashFemale = "MP_Christmas3_Tat_017_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_018",
@@ -2502,7 +2502,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_018_M",
             hashFemale = "MP_Christmas3_Tat_018_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_019",
@@ -2510,7 +2510,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_019_M",
             hashFemale = "MP_Christmas3_Tat_019_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_020",
@@ -2518,7 +2518,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_020_M",
             hashFemale = "MP_Christmas3_Tat_020_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_021",
@@ -2526,7 +2526,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_021_M",
             hashFemale = "MP_Christmas3_Tat_021_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_022",
@@ -2534,7 +2534,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_022_M",
             hashFemale = "MP_Christmas3_Tat_022_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_023",
@@ -2542,7 +2542,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_023_M",
             hashFemale = "MP_Christmas3_Tat_023_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_024",
@@ -2550,7 +2550,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_024_M",
             hashFemale = "MP_Christmas3_Tat_024_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_025",
@@ -2558,7 +2558,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_025_M",
             hashFemale = "MP_Christmas3_Tat_025_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_040",
@@ -2566,7 +2566,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_040_M",
             hashFemale = "MP_Christmas3_Tat_040_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_041",
@@ -2574,7 +2574,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_041_M",
             hashFemale = "MP_Christmas3_Tat_041_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_042",
@@ -2582,7 +2582,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_042_M",
             hashFemale = "MP_Christmas3_Tat_042_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_043",
@@ -2590,7 +2590,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_043_M",
             hashFemale = "MP_Christmas3_Tat_043_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_044",
@@ -2598,7 +2598,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_044_M",
             hashFemale = "MP_Christmas3_Tat_044_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_045",
@@ -2606,7 +2606,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_045_M",
             hashFemale = "MP_Christmas3_Tat_045_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_046",
@@ -2614,7 +2614,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_046_M",
             hashFemale = "MP_Christmas3_Tat_046_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_047",
@@ -2622,7 +2622,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_047_M",
             hashFemale = "MP_Christmas3_Tat_047_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_048",
@@ -2630,7 +2630,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_048_M",
             hashFemale = "MP_Christmas3_Tat_048_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_049",
@@ -2638,7 +2638,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_049_M",
             hashFemale = "MP_Christmas3_Tat_049_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_050",
@@ -2646,7 +2646,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_050_M",
             hashFemale = "MP_Christmas3_Tat_050_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_051",
@@ -2654,8 +2654,8 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_051_M",
             hashFemale = "MP_Christmas3_Tat_051_F",
             zone = "ZONE_TORSO",
-            collection = "mpchristmas3_overlays"
-        }
+            collection = "mpchristmas3_overlays",
+        },
     },
     ZONE_LEFT_ARM = {
         {
@@ -2664,7 +2664,7 @@ Config.Tattoos = {
             hashMale = "MP_Airraces_Tattoo_003_M",
             hashFemale = "MP_Airraces_Tattoo_003_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpairraces_overlays"
+            collection = "mpairraces_overlays",
         },
         {
             name = "TAT_BB_024",
@@ -2672,7 +2672,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_LArm_000",
             hashFemale = "",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_017",
@@ -2680,7 +2680,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_LArm_001",
             hashFemale = "",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_002",
@@ -2688,7 +2688,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_LArm_000",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_016",
@@ -2696,7 +2696,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_LArm_001",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BI_012",
@@ -2704,7 +2704,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_012_M",
             hashFemale = "MP_MP_Biker_Tat_012_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_016",
@@ -2712,7 +2712,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_016_M",
             hashFemale = "MP_MP_Biker_Tat_016_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_020",
@@ -2720,7 +2720,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_020_M",
             hashFemale = "MP_MP_Biker_Tat_020_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_024",
@@ -2728,7 +2728,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_024_M",
             hashFemale = "MP_MP_Biker_Tat_024_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_025",
@@ -2736,7 +2736,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_025_M",
             hashFemale = "MP_MP_Biker_Tat_025_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_035",
@@ -2744,7 +2744,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_035_M",
             hashFemale = "MP_MP_Biker_Tat_035_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_045",
@@ -2752,7 +2752,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_045_M",
             hashFemale = "MP_MP_Biker_Tat_045_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_053",
@@ -2760,7 +2760,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_053_M",
             hashFemale = "MP_MP_Biker_Tat_053_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_055",
@@ -2768,7 +2768,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_055_M",
             hashFemale = "MP_MP_Biker_Tat_055_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BUS_003",
@@ -2776,7 +2776,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_LeftArm_000",
             hashFemale = "",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_004",
@@ -2784,7 +2784,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_LeftArm_001",
             hashFemale = "",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_005",
@@ -2792,7 +2792,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_LArm_000",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_H27_001",
@@ -2800,7 +2800,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_001_M",
             hashFemale = "MP_Christmas2017_Tattoo_001_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_004",
@@ -2808,7 +2808,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_004_M",
             hashFemale = "MP_Christmas2017_Tattoo_004_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_007",
@@ -2816,7 +2816,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_007_M",
             hashFemale = "MP_Christmas2017_Tattoo_007_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_013",
@@ -2824,7 +2824,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_013_M",
             hashFemale = "MP_Christmas2017_Tattoo_013_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_025",
@@ -2832,7 +2832,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_025_M",
             hashFemale = "MP_Christmas2017_Tattoo_025_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_029",
@@ -2840,7 +2840,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_029_M",
             hashFemale = "MP_Christmas2017_Tattoo_029_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_X2_000",
@@ -2848,7 +2848,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_000",
             hashFemale = "MP_Xmas2_F_Tat_000",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_010",
@@ -2856,7 +2856,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_010",
             hashFemale = "MP_Xmas2_F_Tat_010",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_012",
@@ -2864,7 +2864,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_012",
             hashFemale = "MP_Xmas2_F_Tat_012",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_020",
@@ -2872,7 +2872,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_020",
             hashFemale = "MP_Xmas2_F_Tat_020",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_021",
@@ -2880,7 +2880,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_021",
             hashFemale = "MP_Xmas2_F_Tat_021",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_GR_004",
@@ -2888,7 +2888,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_004_M",
             hashFemale = "MP_Gunrunning_Tattoo_004_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_008",
@@ -2896,7 +2896,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_008_M",
             hashFemale = "MP_Gunrunning_Tattoo_008_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_015",
@@ -2904,7 +2904,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_015_M",
             hashFemale = "MP_Gunrunning_Tattoo_015_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_016",
@@ -2912,7 +2912,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_016_M",
             hashFemale = "MP_Gunrunning_Tattoo_016_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_025",
@@ -2920,7 +2920,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_025_M",
             hashFemale = "MP_Gunrunning_Tattoo_025_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_027",
@@ -2928,7 +2928,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_027_M",
             hashFemale = "MP_Gunrunning_Tattoo_027_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_H3_040",
@@ -2936,7 +2936,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_040_M",
             hashFemale = "mpHeist3_Tat_040_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_041",
@@ -2944,7 +2944,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_041_M",
             hashFemale = "mpHeist3_Tat_041_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H4_009",
@@ -2952,7 +2952,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_009_M",
             hashFemale = "MP_Heist4_Tat_009_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_HP_003",
@@ -2960,7 +2960,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_003",
             hashFemale = "FM_Hip_F_Tat_003",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_007",
@@ -2968,7 +2968,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_007",
             hashFemale = "FM_Hip_F_Tat_007",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_015",
@@ -2976,7 +2976,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_015",
             hashFemale = "FM_Hip_F_Tat_015",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_016",
@@ -2984,7 +2984,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_016",
             hashFemale = "FM_Hip_F_Tat_016",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_026",
@@ -2992,7 +2992,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_026",
             hashFemale = "FM_Hip_F_Tat_026",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_027",
@@ -3000,7 +3000,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_027",
             hashFemale = "FM_Hip_F_Tat_027",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_028",
@@ -3008,7 +3008,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_028",
             hashFemale = "FM_Hip_F_Tat_028",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_034",
@@ -3016,7 +3016,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_034",
             hashFemale = "FM_Hip_F_Tat_034",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_037",
@@ -3024,7 +3024,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_037",
             hashFemale = "FM_Hip_F_Tat_037",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_039",
@@ -3032,7 +3032,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_039",
             hashFemale = "FM_Hip_F_Tat_039",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_043",
@@ -3040,7 +3040,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_043",
             hashFemale = "FM_Hip_F_Tat_043",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_048",
@@ -3048,7 +3048,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_048",
             hashFemale = "FM_Hip_F_Tat_048",
             zone = "ZONE_LEFT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_IE_004",
@@ -3056,7 +3056,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_004_M",
             hashFemale = "MP_MP_ImportExport_Tat_004_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_IE_008",
@@ -3064,7 +3064,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_008_M",
             hashFemale = "MP_MP_ImportExport_Tat_008_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_S2_006",
@@ -3072,7 +3072,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_006_M",
             hashFemale = "MP_LR_Tat_006_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_018",
@@ -3080,7 +3080,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_018_M",
             hashFemale = "MP_LR_Tat_018_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_022",
@@ -3088,7 +3088,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_022_M",
             hashFemale = "MP_LR_Tat_022_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S1_005",
@@ -3096,7 +3096,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_005_M",
             hashFemale = "MP_LR_Tat_005_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_027",
@@ -3104,7 +3104,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_027_M",
             hashFemale = "MP_LR_Tat_027_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_033",
@@ -3112,7 +3112,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_033_M",
             hashFemale = "MP_LR_Tat_033_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_L2_005",
@@ -3120,7 +3120,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_005_M",
             hashFemale = "MP_LUXE_TAT_005_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_016",
@@ -3128,7 +3128,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_016_M",
             hashFemale = "MP_LUXE_TAT_016_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_018",
@@ -3136,7 +3136,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_018_M",
             hashFemale = "MP_LUXE_TAT_018_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_028",
@@ -3144,7 +3144,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_028_M",
             hashFemale = "MP_LUXE_TAT_028_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_031",
@@ -3152,7 +3152,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_031_M",
             hashFemale = "MP_LUXE_TAT_031_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_LX_009",
@@ -3160,7 +3160,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_009_M",
             hashFemale = "MP_LUXE_TAT_009_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_LX_020",
@@ -3168,7 +3168,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_020_M",
             hashFemale = "MP_LUXE_TAT_020_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_LX_021",
@@ -3176,7 +3176,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_021_M",
             hashFemale = "MP_LUXE_TAT_021_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_FX_006",
@@ -3184,7 +3184,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_006_M",
             hashFemale = "MP_Security_Tat_006_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_010",
@@ -3192,7 +3192,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_010_M",
             hashFemale = "MP_Security_Tat_010_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_011",
@@ -3200,7 +3200,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_011_M",
             hashFemale = "MP_Security_Tat_011_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_019",
@@ -3208,7 +3208,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_019_M",
             hashFemale = "MP_Security_Tat_019_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_SM_004",
@@ -3216,7 +3216,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_004_M",
             hashFemale = "MP_Smuggler_Tattoo_004_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_008",
@@ -3224,7 +3224,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_008_M",
             hashFemale = "MP_Smuggler_Tattoo_008_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_014",
@@ -3232,7 +3232,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_014_M",
             hashFemale = "MP_Smuggler_Tattoo_014_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_ST_001",
@@ -3240,7 +3240,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_001_M",
             hashFemale = "MP_MP_Stunt_tat_001_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_002",
@@ -3248,7 +3248,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_002_M",
             hashFemale = "MP_MP_Stunt_tat_002_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_008",
@@ -3256,7 +3256,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_008_M",
             hashFemale = "MP_MP_Stunt_tat_008_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_022",
@@ -3264,7 +3264,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_022_M",
             hashFemale = "MP_MP_Stunt_tat_022_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_023",
@@ -3272,7 +3272,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_023_M",
             hashFemale = "MP_MP_Stunt_tat_023_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_035",
@@ -3280,7 +3280,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_035_M",
             hashFemale = "MP_MP_Stunt_tat_035_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_039",
@@ -3288,7 +3288,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_039_M",
             hashFemale = "MP_MP_Stunt_tat_039_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_043",
@@ -3296,7 +3296,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_043_M",
             hashFemale = "MP_MP_Stunt_tat_043_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_VW_002",
@@ -3304,7 +3304,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_002_M",
             hashFemale = "MP_Vinewood_Tat_002_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_005",
@@ -3312,7 +3312,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_005_M",
             hashFemale = "MP_Vinewood_Tat_005_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_014",
@@ -3320,7 +3320,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_014_M",
             hashFemale = "MP_Vinewood_Tat_014_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_019",
@@ -3328,7 +3328,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_019_M",
             hashFemale = "MP_Vinewood_Tat_019_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_026",
@@ -3336,7 +3336,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_026_M",
             hashFemale = "MP_Vinewood_Tat_026_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_FM_009",
@@ -3344,7 +3344,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_001",
             hashFemale = "FM_Tat_Award_F_001",
             zone = "ZONE_LEFT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_015",
@@ -3352,7 +3352,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_007",
             hashFemale = "FM_Tat_Award_F_007",
             zone = "ZONE_LEFT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_023",
@@ -3360,7 +3360,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_015",
             hashFemale = "FM_Tat_Award_F_015",
             zone = "ZONE_LEFT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_201",
@@ -3368,7 +3368,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_005",
             hashFemale = "FM_Tat_F_005",
             zone = "ZONE_LEFT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_202",
@@ -3376,7 +3376,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_006",
             hashFemale = "FM_Tat_F_006",
             zone = "ZONE_LEFT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_203",
@@ -3384,7 +3384,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_015",
             hashFemale = "FM_Tat_F_015",
             zone = "ZONE_LEFT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_232",
@@ -3392,7 +3392,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_031",
             hashFemale = "FM_Tat_F_031",
             zone = "ZONE_LEFT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_242",
@@ -3400,7 +3400,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_041",
             hashFemale = "FM_Tat_F_041",
             zone = "ZONE_LEFT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_SB_008",
@@ -3408,7 +3408,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_008_M",
             hashFemale = "MP_Sum2_Tat_008_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_009",
@@ -3416,7 +3416,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_009_M",
             hashFemale = "MP_Sum2_Tat_009_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_010",
@@ -3424,7 +3424,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_010_M",
             hashFemale = "MP_Sum2_Tat_010_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_028",
@@ -3432,7 +3432,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_028_M",
             hashFemale = "MP_Sum2_Tat_028_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_029",
@@ -3440,7 +3440,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_029_M",
             hashFemale = "MP_Sum2_Tat_029_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_049",
@@ -3448,7 +3448,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_049_M",
             hashFemale = "MP_Sum2_Tat_049_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_X6_000",
@@ -3456,7 +3456,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_000_M",
             hashFemale = "MP_Christmas3_Tat_000_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_001",
@@ -3464,7 +3464,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_001_M",
             hashFemale = "MP_Christmas3_Tat_001_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_026",
@@ -3472,7 +3472,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_026_M",
             hashFemale = "MP_Christmas3_Tat_026_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_028",
@@ -3480,7 +3480,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_028_M",
             hashFemale = "MP_Christmas3_Tat_028_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_030",
@@ -3488,7 +3488,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_030_M",
             hashFemale = "MP_Christmas3_Tat_030_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_033",
@@ -3496,8 +3496,8 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_033_M",
             hashFemale = "MP_Christmas3_Tat_033_F",
             zone = "ZONE_LEFT_ARM",
-            collection = "mpchristmas3_overlays"
-        }
+            collection = "mpchristmas3_overlays",
+        },
     },
     ZONE_HEAD = {
         {
@@ -3506,7 +3506,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Head_000",
             hashFemale = "",
             zone = "ZONE_HEAD",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_022",
@@ -3514,7 +3514,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Head_001",
             hashFemale = "",
             zone = "ZONE_HEAD",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_031",
@@ -3522,7 +3522,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Head_002",
             hashFemale = "",
             zone = "ZONE_HEAD",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_028",
@@ -3530,7 +3530,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Neck_000",
             hashFemale = "",
             zone = "ZONE_HEAD",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_029",
@@ -3538,7 +3538,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Neck_001",
             hashFemale = "",
             zone = "ZONE_HEAD",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_008",
@@ -3546,7 +3546,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_Neck_000",
             zone = "ZONE_HEAD",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BI_009",
@@ -3554,7 +3554,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_009_M",
             hashFemale = "MP_MP_Biker_Tat_009_F",
             zone = "ZONE_HEAD",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_038",
@@ -3562,7 +3562,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_038_M",
             hashFemale = "MP_MP_Biker_Tat_038_F",
             zone = "ZONE_HEAD",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_051",
@@ -3570,7 +3570,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_051_M",
             hashFemale = "MP_MP_Biker_Tat_051_F",
             zone = "ZONE_HEAD",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BUS_005",
@@ -3578,7 +3578,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_Neck_000",
             hashFemale = "",
             zone = "ZONE_HEAD",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_006",
@@ -3586,7 +3586,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_Neck_001",
             hashFemale = "",
             zone = "ZONE_HEAD",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_007",
@@ -3594,7 +3594,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_Neck_002",
             hashFemale = "",
             zone = "ZONE_HEAD",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_008",
@@ -3602,7 +3602,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_Neck_003",
             hashFemale = "",
             zone = "ZONE_HEAD",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_007",
@@ -3610,7 +3610,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_Neck_000",
             zone = "ZONE_HEAD",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_008",
@@ -3618,7 +3618,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_Neck_001",
             zone = "ZONE_HEAD",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_X2_007",
@@ -3626,7 +3626,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_007",
             hashFemale = "MP_Xmas2_F_Tat_007",
             zone = "ZONE_HEAD",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_024",
@@ -3634,7 +3634,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_024",
             hashFemale = "MP_Xmas2_F_Tat_024",
             zone = "ZONE_HEAD",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_025",
@@ -3642,7 +3642,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_025",
             hashFemale = "MP_Xmas2_F_Tat_025",
             zone = "ZONE_HEAD",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_029",
@@ -3650,7 +3650,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_029",
             hashFemale = "MP_Xmas2_F_Tat_029",
             zone = "ZONE_HEAD",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_GR_003",
@@ -3658,7 +3658,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_003_M",
             hashFemale = "MP_Gunrunning_Tattoo_003_F",
             zone = "ZONE_HEAD",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_H3_000",
@@ -3666,7 +3666,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_000_M",
             hashFemale = "mpHeist3_Tat_000_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_001",
@@ -3674,7 +3674,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_001_M",
             hashFemale = "mpHeist3_Tat_001_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_002",
@@ -3682,7 +3682,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_002_M",
             hashFemale = "mpHeist3_Tat_002_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_003",
@@ -3690,7 +3690,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_003_M",
             hashFemale = "mpHeist3_Tat_003_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_004",
@@ -3698,7 +3698,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_004_M",
             hashFemale = "mpHeist3_Tat_004_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_005",
@@ -3706,7 +3706,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_005_M",
             hashFemale = "mpHeist3_Tat_005_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_006",
@@ -3714,7 +3714,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_006_M",
             hashFemale = "mpHeist3_Tat_006_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_007",
@@ -3722,7 +3722,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_007_M",
             hashFemale = "mpHeist3_Tat_007_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_008",
@@ -3730,7 +3730,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_008_M",
             hashFemale = "mpHeist3_Tat_008_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_009",
@@ -3738,7 +3738,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_009_M",
             hashFemale = "mpHeist3_Tat_009_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_010",
@@ -3746,7 +3746,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_010_M",
             hashFemale = "mpHeist3_Tat_010_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_011",
@@ -3754,7 +3754,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_011_M",
             hashFemale = "mpHeist3_Tat_011_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_012",
@@ -3762,7 +3762,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_012_M",
             hashFemale = "mpHeist3_Tat_012_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_013",
@@ -3770,7 +3770,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_013_M",
             hashFemale = "mpHeist3_Tat_013_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_014",
@@ -3778,7 +3778,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_014_M",
             hashFemale = "mpHeist3_Tat_014_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_015",
@@ -3786,7 +3786,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_015_M",
             hashFemale = "mpHeist3_Tat_015_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_016",
@@ -3794,7 +3794,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_016_M",
             hashFemale = "mpHeist3_Tat_016_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_017",
@@ -3802,7 +3802,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_017_M",
             hashFemale = "mpHeist3_Tat_017_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_018",
@@ -3810,7 +3810,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_018_M",
             hashFemale = "mpHeist3_Tat_018_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_019",
@@ -3818,7 +3818,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_019_M",
             hashFemale = "mpHeist3_Tat_019_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_020",
@@ -3826,7 +3826,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_020_M",
             hashFemale = "mpHeist3_Tat_020_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_021",
@@ -3834,7 +3834,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_021_M",
             hashFemale = "mpHeist3_Tat_021_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_022",
@@ -3842,7 +3842,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_022_M",
             hashFemale = "mpHeist3_Tat_022_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_042",
@@ -3850,7 +3850,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_042_M",
             hashFemale = "mpHeist3_Tat_042_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_043",
@@ -3858,7 +3858,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_043_M",
             hashFemale = "mpHeist3_Tat_043_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H3_044",
@@ -3866,7 +3866,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_044_M",
             hashFemale = "mpHeist3_Tat_044_F",
             zone = "ZONE_HEAD",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_HP_005",
@@ -3874,7 +3874,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_005",
             hashFemale = "FM_Hip_F_Tat_005",
             zone = "ZONE_HEAD",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_021",
@@ -3882,7 +3882,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_021",
             hashFemale = "FM_Hip_F_Tat_021",
             zone = "ZONE_HEAD",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_FX_001",
@@ -3890,7 +3890,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_001_M",
             hashFemale = "MP_Security_Tat_001_F",
             zone = "ZONE_HEAD",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_002",
@@ -3898,7 +3898,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_002_M",
             hashFemale = "MP_Security_Tat_002_F",
             zone = "ZONE_HEAD",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_027",
@@ -3906,7 +3906,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_027_M",
             hashFemale = "MP_Security_Tat_027_F",
             zone = "ZONE_HEAD",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_SM_011",
@@ -3914,7 +3914,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_011_M",
             hashFemale = "MP_Smuggler_Tattoo_011_F",
             zone = "ZONE_HEAD",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_012",
@@ -3922,7 +3922,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_012_M",
             hashFemale = "MP_Smuggler_Tattoo_012_F",
             zone = "ZONE_HEAD",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_ST_000",
@@ -3930,7 +3930,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_Tat_000_M",
             hashFemale = "MP_MP_Stunt_Tat_000_F",
             zone = "ZONE_HEAD",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_004",
@@ -3938,7 +3938,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_004_M",
             hashFemale = "MP_MP_Stunt_tat_004_F",
             zone = "ZONE_HEAD",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_006",
@@ -3946,7 +3946,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_006_M",
             hashFemale = "MP_MP_Stunt_tat_006_F",
             zone = "ZONE_HEAD",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_017",
@@ -3954,7 +3954,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_017_M",
             hashFemale = "MP_MP_Stunt_tat_017_F",
             zone = "ZONE_HEAD",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_042",
@@ -3962,7 +3962,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_042_M",
             hashFemale = "MP_MP_Stunt_tat_042_F",
             zone = "ZONE_HEAD",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_FM_008",
@@ -3970,7 +3970,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_000",
             hashFemale = "FM_Tat_Award_F_000",
             zone = "ZONE_HEAD",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_SB_000",
@@ -3978,7 +3978,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_000_M",
             hashFemale = "MP_Sum2_Tat_000_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_001",
@@ -3986,7 +3986,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_001_M",
             hashFemale = "MP_Sum2_Tat_001_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_018",
@@ -3994,7 +3994,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_018_M",
             hashFemale = "MP_Sum2_Tat_018_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_019",
@@ -4002,7 +4002,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_019_M",
             hashFemale = "MP_Sum2_Tat_019_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_020",
@@ -4010,7 +4010,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_020_M",
             hashFemale = "MP_Sum2_Tat_020_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_021",
@@ -4018,7 +4018,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_021_M",
             hashFemale = "MP_Sum2_Tat_021_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_022",
@@ -4026,7 +4026,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_022_M",
             hashFemale = "MP_Sum2_Tat_022_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_023",
@@ -4034,7 +4034,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_023_M",
             hashFemale = "MP_Sum2_Tat_023_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_024",
@@ -4042,7 +4042,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_024_M",
             hashFemale = "MP_Sum2_Tat_024_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_025",
@@ -4050,7 +4050,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_025_M",
             hashFemale = "MP_Sum2_Tat_025_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_026",
@@ -4058,7 +4058,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_026_M",
             hashFemale = "MP_Sum2_Tat_026_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_027",
@@ -4066,7 +4066,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_027_M",
             hashFemale = "MP_Sum2_Tat_027_F",
             zone = "ZONE_HEAD",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_X6_010",
@@ -4074,7 +4074,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_010_M",
             hashFemale = "MP_Christmas3_Tat_010_F",
             zone = "ZONE_HEAD",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_011",
@@ -4082,7 +4082,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_011_M",
             hashFemale = "MP_Christmas3_Tat_011_F",
             zone = "ZONE_HEAD",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_012",
@@ -4090,7 +4090,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_012_M",
             hashFemale = "MP_Christmas3_Tat_012_F",
             zone = "ZONE_HEAD",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_013",
@@ -4098,8 +4098,8 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_013_M",
             hashFemale = "MP_Christmas3_Tat_013_F",
             zone = "ZONE_HEAD",
-            collection = "mpchristmas3_overlays"
-        }
+            collection = "mpchristmas3_overlays",
+        },
     },
     ZONE_LEFT_LEG = {
         {
@@ -4108,7 +4108,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Lleg_000",
             hashFemale = "",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BI_002",
@@ -4116,7 +4116,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_002_M",
             hashFemale = "MP_MP_Biker_Tat_002_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_015",
@@ -4124,7 +4124,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_015_M",
             hashFemale = "MP_MP_Biker_Tat_015_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_027",
@@ -4132,7 +4132,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_027_M",
             hashFemale = "MP_MP_Biker_Tat_027_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_036",
@@ -4140,7 +4140,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_036_M",
             hashFemale = "MP_MP_Biker_Tat_036_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_037",
@@ -4148,7 +4148,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_037_M",
             hashFemale = "MP_MP_Biker_Tat_037_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_044",
@@ -4156,7 +4156,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_044_M",
             hashFemale = "MP_MP_Biker_Tat_044_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_056",
@@ -4164,7 +4164,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_056_M",
             hashFemale = "MP_MP_Biker_Tat_056_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_057",
@@ -4172,7 +4172,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_057_M",
             hashFemale = "MP_MP_Biker_Tat_057_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BUS_F_006",
@@ -4180,7 +4180,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_LLeg_000",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_X2_001",
@@ -4188,7 +4188,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_001",
             hashFemale = "MP_Xmas2_F_Tat_001",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_002",
@@ -4196,7 +4196,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_002",
             hashFemale = "MP_Xmas2_F_Tat_002",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_GR_005",
@@ -4204,7 +4204,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_005_M",
             hashFemale = "MP_Gunrunning_Tattoo_005_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_007",
@@ -4212,7 +4212,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_007_M",
             hashFemale = "MP_Gunrunning_Tattoo_007_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_011",
@@ -4220,7 +4220,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_011_M",
             hashFemale = "MP_Gunrunning_Tattoo_011_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_023",
@@ -4228,7 +4228,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_023_M",
             hashFemale = "MP_Gunrunning_Tattoo_023_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_H3_032",
@@ -4236,7 +4236,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_032_M",
             hashFemale = "mpHeist3_Tat_032_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H4_010",
@@ -4244,7 +4244,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_010_M",
             hashFemale = "MP_Heist4_Tat_010_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_024",
@@ -4252,7 +4252,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_024_M",
             hashFemale = "MP_Heist4_Tat_024_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_025",
@@ -4260,7 +4260,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_025_M",
             hashFemale = "MP_Heist4_Tat_025_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_028",
@@ -4268,7 +4268,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_028_M",
             hashFemale = "MP_Heist4_Tat_028_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_029",
@@ -4276,7 +4276,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_029_M",
             hashFemale = "MP_Heist4_Tat_029_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_HP_009",
@@ -4284,7 +4284,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_009",
             hashFemale = "FM_Hip_F_Tat_009",
             zone = "ZONE_LEFT_LEG",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_019",
@@ -4292,7 +4292,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_019",
             hashFemale = "FM_Hip_F_Tat_019",
             zone = "ZONE_LEFT_LEG",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_040",
@@ -4300,7 +4300,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_040",
             hashFemale = "FM_Hip_F_Tat_040",
             zone = "ZONE_LEFT_LEG",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_S2_029",
@@ -4308,7 +4308,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_029_M",
             hashFemale = "MP_LR_Tat_029_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S1_007",
@@ -4316,7 +4316,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_007_M",
             hashFemale = "MP_LR_Tat_007_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_020",
@@ -4324,7 +4324,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_020_M",
             hashFemale = "MP_LR_Tat_020_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_L2_011",
@@ -4332,7 +4332,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_011_M",
             hashFemale = "MP_LUXE_TAT_011_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_LX_000",
@@ -4340,7 +4340,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_000_M",
             hashFemale = "MP_LUXE_TAT_000_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_FX_022",
@@ -4348,7 +4348,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_022_M",
             hashFemale = "MP_Security_Tat_022_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_023",
@@ -4356,7 +4356,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_023_M",
             hashFemale = "MP_Security_Tat_023_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_ST_007",
@@ -4364,7 +4364,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_007_M",
             hashFemale = "MP_MP_Stunt_tat_007_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_013",
@@ -4372,7 +4372,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_013_M",
             hashFemale = "MP_MP_Stunt_tat_013_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_021",
@@ -4380,7 +4380,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_021_M",
             hashFemale = "MP_MP_Stunt_tat_021_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_028",
@@ -4388,7 +4388,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_028_M",
             hashFemale = "MP_MP_Stunt_tat_028_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_031",
@@ -4396,7 +4396,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_031_M",
             hashFemale = "MP_MP_Stunt_tat_031_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_VW_013",
@@ -4404,7 +4404,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_013_M",
             hashFemale = "MP_Vinewood_Tat_013_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_027",
@@ -4412,7 +4412,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_027_M",
             hashFemale = "MP_Vinewood_Tat_027_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_FM_017",
@@ -4420,7 +4420,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_009",
             hashFemale = "FM_Tat_Award_F_009",
             zone = "ZONE_LEFT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_209",
@@ -4428,7 +4428,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_002",
             hashFemale = "FM_Tat_F_002",
             zone = "ZONE_LEFT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_211",
@@ -4436,7 +4436,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_008",
             hashFemale = "FM_Tat_F_008",
             zone = "ZONE_LEFT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_222",
@@ -4444,7 +4444,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_021",
             hashFemale = "FM_Tat_F_021",
             zone = "ZONE_LEFT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_224",
@@ -4452,7 +4452,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_023",
             hashFemale = "FM_Tat_F_023",
             zone = "ZONE_LEFT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_227",
@@ -4460,7 +4460,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_026",
             hashFemale = "FM_Tat_F_026",
             zone = "ZONE_LEFT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_233",
@@ -4468,7 +4468,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_032",
             hashFemale = "FM_Tat_F_032",
             zone = "ZONE_LEFT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_234",
@@ -4476,7 +4476,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_033",
             hashFemale = "FM_Tat_F_033",
             zone = "ZONE_LEFT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_236",
@@ -4484,7 +4484,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_035",
             hashFemale = "FM_Tat_F_035",
             zone = "ZONE_LEFT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_238",
@@ -4492,7 +4492,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_037",
             hashFemale = "FM_Tat_F_037",
             zone = "ZONE_LEFT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_SB_053",
@@ -4500,7 +4500,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_053_M",
             hashFemale = "MP_Sum2_Tat_053_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_054",
@@ -4508,7 +4508,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_054_M",
             hashFemale = "MP_Sum2_Tat_054_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_055",
@@ -4516,7 +4516,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_055_M",
             hashFemale = "MP_Sum2_Tat_055_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_056",
@@ -4524,7 +4524,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_056_M",
             hashFemale = "MP_Sum2_Tat_056_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_002",
@@ -4532,7 +4532,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_002_M",
             hashFemale = "MP_Sum2_Tat_002_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_014",
@@ -4540,7 +4540,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_014_M",
             hashFemale = "MP_Sum2_Tat_014_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_015",
@@ -4548,7 +4548,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_015_M",
             hashFemale = "MP_Sum2_Tat_015_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_016",
@@ -4556,7 +4556,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_016_M",
             hashFemale = "MP_Sum2_Tat_016_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_032",
@@ -4564,7 +4564,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_032_M",
             hashFemale = "MP_Sum2_Tat_032_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_X6_009",
@@ -4572,7 +4572,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_009_M",
             hashFemale = "MP_Christmas3_Tat_009_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_034",
@@ -4580,7 +4580,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_034_M",
             hashFemale = "MP_Christmas3_Tat_034_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_037",
@@ -4588,7 +4588,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_037_M",
             hashFemale = "MP_Christmas3_Tat_037_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_038",
@@ -4596,8 +4596,8 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_038_M",
             hashFemale = "MP_Christmas3_Tat_038_F",
             zone = "ZONE_LEFT_LEG",
-            collection = "mpchristmas3_overlays"
-        }
+            collection = "mpchristmas3_overlays",
+        },
     },
     ZONE_RIGHT_LEG = {
         {
@@ -4606,7 +4606,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_Rleg_000",
             hashFemale = "",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_007",
@@ -4614,7 +4614,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_RLeg_000",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BI_004",
@@ -4622,7 +4622,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_004_M",
             hashFemale = "MP_MP_Biker_Tat_004_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_022",
@@ -4630,7 +4630,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_022_M",
             hashFemale = "MP_MP_Biker_Tat_022_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_028",
@@ -4638,7 +4638,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_028_M",
             hashFemale = "MP_MP_Biker_Tat_028_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_040",
@@ -4646,7 +4646,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_040_M",
             hashFemale = "MP_MP_Biker_Tat_040_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_048",
@@ -4654,7 +4654,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_048_M",
             hashFemale = "MP_MP_Biker_Tat_048_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BUS_F_010",
@@ -4662,7 +4662,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_RLeg_000",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_X2_014",
@@ -4670,7 +4670,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_014",
             hashFemale = "MP_Xmas2_F_Tat_014",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_GR_006",
@@ -4678,7 +4678,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_006_M",
             hashFemale = "MP_Gunrunning_Tattoo_006_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_026",
@@ -4686,7 +4686,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_026_M",
             hashFemale = "MP_Gunrunning_Tattoo_026_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_030",
@@ -4694,7 +4694,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_030_M",
             hashFemale = "MP_Gunrunning_Tattoo_030_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_H3_031",
@@ -4702,7 +4702,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_031_M",
             hashFemale = "mpHeist3_Tat_031_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H4_027",
@@ -4710,7 +4710,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_027_M",
             hashFemale = "MP_Heist4_Tat_027_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_HP_038",
@@ -4718,7 +4718,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_038",
             hashFemale = "FM_Hip_F_Tat_038",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_042",
@@ -4726,7 +4726,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_042",
             hashFemale = "FM_Hip_F_Tat_042",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_S2_030",
@@ -4734,7 +4734,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_030_M",
             hashFemale = "MP_LR_Tat_030_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S1_017",
@@ -4742,7 +4742,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_017_M",
             hashFemale = "MP_LR_Tat_017_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_S1_023",
@@ -4750,7 +4750,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_023_M",
             hashFemale = "MP_LR_Tat_023_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_L2_023",
@@ -4758,7 +4758,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_023_M",
             hashFemale = "MP_LUXE_TAT_023_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_LX_001",
@@ -4766,7 +4766,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_001_M",
             hashFemale = "MP_LUXE_TAT_001_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_FX_003",
@@ -4774,7 +4774,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_003_M",
             hashFemale = "MP_Security_Tat_003_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_021",
@@ -4782,7 +4782,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_021_M",
             hashFemale = "MP_Security_Tat_021_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_SM_020",
@@ -4790,7 +4790,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_020_M",
             hashFemale = "MP_Smuggler_Tattoo_020_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_ST_005",
@@ -4798,7 +4798,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_005_M",
             hashFemale = "MP_MP_Stunt_tat_005_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_015",
@@ -4806,7 +4806,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_015_M",
             hashFemale = "MP_MP_Stunt_tat_015_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_020",
@@ -4814,7 +4814,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_020_M",
             hashFemale = "MP_MP_Stunt_tat_020_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_025",
@@ -4822,7 +4822,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_025_M",
             hashFemale = "MP_MP_Stunt_tat_025_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_032",
@@ -4830,7 +4830,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_032_M",
             hashFemale = "MP_MP_Stunt_tat_032_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_045",
@@ -4838,7 +4838,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_045_M",
             hashFemale = "MP_MP_Stunt_tat_045_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_047",
@@ -4846,7 +4846,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_047_M",
             hashFemale = "MP_MP_Stunt_tat_047_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_VW_020",
@@ -4854,7 +4854,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_020_M",
             hashFemale = "MP_Vinewood_Tat_020_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_FM_014",
@@ -4862,7 +4862,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_006",
             hashFemale = "FM_Tat_Award_F_006",
             zone = "ZONE_RIGHT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_210",
@@ -4870,7 +4870,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_007",
             hashFemale = "FM_Tat_F_007",
             zone = "ZONE_RIGHT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_212",
@@ -4878,7 +4878,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_017",
             hashFemale = "FM_Tat_F_017",
             zone = "ZONE_RIGHT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_223",
@@ -4886,7 +4886,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_022",
             hashFemale = "FM_Tat_F_022",
             zone = "ZONE_RIGHT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_240",
@@ -4894,7 +4894,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_039",
             hashFemale = "FM_Tat_F_039",
             zone = "ZONE_RIGHT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_241",
@@ -4902,7 +4902,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_040",
             hashFemale = "FM_Tat_F_040",
             zone = "ZONE_RIGHT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_243",
@@ -4910,7 +4910,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_042",
             hashFemale = "FM_Tat_F_042",
             zone = "ZONE_RIGHT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_244",
@@ -4918,7 +4918,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_043",
             hashFemale = "FM_Tat_F_043",
             zone = "ZONE_RIGHT_LEG",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_SB_050",
@@ -4926,7 +4926,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_050_M",
             hashFemale = "MP_Sum2_Tat_050_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_051",
@@ -4934,7 +4934,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_051_M",
             hashFemale = "MP_Sum2_Tat_051_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_052",
@@ -4942,7 +4942,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_052_M",
             hashFemale = "MP_Sum2_Tat_052_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_033",
@@ -4950,7 +4950,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_033_M",
             hashFemale = "MP_Sum2_Tat_033_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_034",
@@ -4958,7 +4958,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_034_M",
             hashFemale = "MP_Sum2_Tat_034_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_017",
@@ -4966,7 +4966,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_017_M",
             hashFemale = "MP_Sum2_Tat_017_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_X6_008",
@@ -4974,7 +4974,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_008_M",
             hashFemale = "MP_Christmas3_Tat_008_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_035",
@@ -4982,7 +4982,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_035_M",
             hashFemale = "MP_Christmas3_Tat_035_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_036",
@@ -4990,7 +4990,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_036_M",
             hashFemale = "MP_Christmas3_Tat_036_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_039",
@@ -4998,8 +4998,8 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_039_M",
             hashFemale = "MP_Christmas3_Tat_039_F",
             zone = "ZONE_RIGHT_LEG",
-            collection = "mpchristmas3_overlays"
-        }
+            collection = "mpchristmas3_overlays",
+        },
     },
     ZONE_RIGHT_ARM = {
         {
@@ -5008,7 +5008,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_RArm_000",
             hashFemale = "",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_030",
@@ -5016,7 +5016,7 @@ Config.Tattoos = {
             hashMale = "MP_Bea_M_RArm_001",
             hashFemale = "",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BB_015",
@@ -5024,7 +5024,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Bea_F_RArm_001",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbeach_overlays"
+            collection = "mpbeach_overlays",
         },
         {
             name = "TAT_BI_007",
@@ -5032,7 +5032,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_007_M",
             hashFemale = "MP_MP_Biker_Tat_007_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_014",
@@ -5040,7 +5040,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_014_M",
             hashFemale = "MP_MP_Biker_Tat_014_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_033",
@@ -5048,7 +5048,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_033_M",
             hashFemale = "MP_MP_Biker_Tat_033_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_042",
@@ -5056,7 +5056,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_042_M",
             hashFemale = "MP_MP_Biker_Tat_042_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_046",
@@ -5064,7 +5064,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_046_M",
             hashFemale = "MP_MP_Biker_Tat_046_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_047",
@@ -5072,7 +5072,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_047_M",
             hashFemale = "MP_MP_Biker_Tat_047_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_049",
@@ -5080,7 +5080,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_049_M",
             hashFemale = "MP_MP_Biker_Tat_049_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BI_054",
@@ -5088,7 +5088,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Biker_Tat_054_M",
             hashFemale = "MP_MP_Biker_Tat_054_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbiker_overlays"
+            collection = "mpbiker_overlays",
         },
         {
             name = "TAT_BUS_009",
@@ -5096,7 +5096,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_RightArm_000",
             hashFemale = "",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_010",
@@ -5104,7 +5104,7 @@ Config.Tattoos = {
             hashMale = "MP_Buis_M_RightArm_001",
             hashFemale = "",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_BUS_F_009",
@@ -5112,7 +5112,7 @@ Config.Tattoos = {
             hashMale = "",
             hashFemale = "MP_Buis_F_RArm_000",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpbusiness_overlays"
+            collection = "mpbusiness_overlays",
         },
         {
             name = "TAT_H27_006",
@@ -5120,7 +5120,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_006_M",
             hashFemale = "MP_Christmas2017_Tattoo_006_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_012",
@@ -5128,7 +5128,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_012_M",
             hashFemale = "MP_Christmas2017_Tattoo_012_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_014",
@@ -5136,7 +5136,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_014_M",
             hashFemale = "MP_Christmas2017_Tattoo_014_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_017",
@@ -5144,7 +5144,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_017_M",
             hashFemale = "MP_Christmas2017_Tattoo_017_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_018",
@@ -5152,7 +5152,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_018_M",
             hashFemale = "MP_Christmas2017_Tattoo_018_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_023",
@@ -5160,7 +5160,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_023_M",
             hashFemale = "MP_Christmas2017_Tattoo_023_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_H27_028",
@@ -5168,7 +5168,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas2017_Tattoo_028_M",
             hashFemale = "MP_Christmas2017_Tattoo_028_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2017_overlays"
+            collection = "mpchristmas2017_overlays",
         },
         {
             name = "TAT_X2_003",
@@ -5176,7 +5176,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_003",
             hashFemale = "MP_Xmas2_F_Tat_003",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_004",
@@ -5184,7 +5184,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_004",
             hashFemale = "MP_Xmas2_F_Tat_004",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_008",
@@ -5192,7 +5192,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_008",
             hashFemale = "MP_Xmas2_F_Tat_008",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_022",
@@ -5200,7 +5200,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_022",
             hashFemale = "MP_Xmas2_F_Tat_022",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_023",
@@ -5208,7 +5208,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_023",
             hashFemale = "MP_Xmas2_F_Tat_023",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_026",
@@ -5216,7 +5216,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_026",
             hashFemale = "MP_Xmas2_F_Tat_026",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_X2_027",
@@ -5224,7 +5224,7 @@ Config.Tattoos = {
             hashMale = "MP_Xmas2_M_Tat_027",
             hashFemale = "MP_Xmas2_F_Tat_027",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas2_overlays"
+            collection = "mpchristmas2_overlays",
         },
         {
             name = "TAT_GR_002",
@@ -5232,7 +5232,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_002_M",
             hashFemale = "MP_Gunrunning_Tattoo_002_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_021",
@@ -5240,7 +5240,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_021_M",
             hashFemale = "MP_Gunrunning_Tattoo_021_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_GR_024",
@@ -5248,7 +5248,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Tattoo_024_M",
             hashFemale = "MP_Gunrunning_Tattoo_024_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpgunrunning_overlays"
+            collection = "mpgunrunning_overlays",
         },
         {
             name = "TAT_H3_034",
@@ -5256,7 +5256,7 @@ Config.Tattoos = {
             hashMale = "mpHeist3_Tat_034_M",
             hashFemale = "mpHeist3_Tat_034_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist3_overlays"
+            collection = "mpheist3_overlays",
         },
         {
             name = "TAT_H4_000",
@@ -5264,7 +5264,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_000_M",
             hashFemale = "MP_Heist4_Tat_000_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_001",
@@ -5272,7 +5272,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_001_M",
             hashFemale = "MP_Heist4_Tat_001_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_002",
@@ -5280,7 +5280,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_002_M",
             hashFemale = "MP_Heist4_Tat_002_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_003",
@@ -5288,7 +5288,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_003_M",
             hashFemale = "MP_Heist4_Tat_003_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_005",
@@ -5296,7 +5296,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_005_M",
             hashFemale = "MP_Heist4_Tat_005_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_006",
@@ -5304,7 +5304,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_006_M",
             hashFemale = "MP_Heist4_Tat_006_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_007",
@@ -5312,7 +5312,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_007_M",
             hashFemale = "MP_Heist4_Tat_007_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_008",
@@ -5320,7 +5320,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_008_M",
             hashFemale = "MP_Heist4_Tat_008_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_011",
@@ -5328,7 +5328,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_011_M",
             hashFemale = "MP_Heist4_Tat_011_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_012",
@@ -5336,7 +5336,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_012_M",
             hashFemale = "MP_Heist4_Tat_012_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_026",
@@ -5344,7 +5344,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_026_M",
             hashFemale = "MP_Heist4_Tat_026_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_031",
@@ -5352,7 +5352,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_031_M",
             hashFemale = "MP_Heist4_Tat_031_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_H4_032",
@@ -5360,7 +5360,7 @@ Config.Tattoos = {
             hashMale = "MP_Heist4_Tat_032_M",
             hashFemale = "MP_Heist4_Tat_032_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpheist4_overlays"
+            collection = "mpheist4_overlays",
         },
         {
             name = "TAT_HP_001",
@@ -5368,7 +5368,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_001",
             hashFemale = "FM_Hip_F_Tat_001",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_004",
@@ -5376,7 +5376,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_004",
             hashFemale = "FM_Hip_F_Tat_004",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_008",
@@ -5384,7 +5384,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_008",
             hashFemale = "FM_Hip_F_Tat_008",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_010",
@@ -5392,7 +5392,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_010",
             hashFemale = "FM_Hip_F_Tat_010",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_014",
@@ -5400,7 +5400,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_014",
             hashFemale = "FM_Hip_F_Tat_014",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_017",
@@ -5408,7 +5408,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_017",
             hashFemale = "FM_Hip_F_Tat_017",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_018",
@@ -5416,7 +5416,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_018",
             hashFemale = "FM_Hip_F_Tat_018",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_020",
@@ -5424,7 +5424,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_020",
             hashFemale = "FM_Hip_F_Tat_020",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_022",
@@ -5432,7 +5432,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_022",
             hashFemale = "FM_Hip_F_Tat_022",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_023",
@@ -5440,7 +5440,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_023",
             hashFemale = "FM_Hip_F_Tat_023",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_036",
@@ -5448,7 +5448,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_036",
             hashFemale = "FM_Hip_F_Tat_036",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_044",
@@ -5456,7 +5456,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_044",
             hashFemale = "FM_Hip_F_Tat_044",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_HP_045",
@@ -5464,7 +5464,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Tat_045",
             hashFemale = "FM_Hip_F_Tat_045",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mphipster_overlays"
+            collection = "mphipster_overlays",
         },
         {
             name = "TAT_IE_003",
@@ -5472,7 +5472,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_003_M",
             hashFemale = "MP_MP_ImportExport_Tat_003_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_IE_005",
@@ -5480,7 +5480,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_005_M",
             hashFemale = "MP_MP_ImportExport_Tat_005_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_IE_006",
@@ -5488,7 +5488,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_006_M",
             hashFemale = "MP_MP_ImportExport_Tat_006_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_IE_007",
@@ -5496,7 +5496,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_ImportExport_Tat_007_M",
             hashFemale = "MP_MP_ImportExport_Tat_007_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpimportexport_overlays"
+            collection = "mpimportexport_overlays",
         },
         {
             name = "TAT_S2_003",
@@ -5504,7 +5504,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_003_M",
             hashFemale = "MP_LR_Tat_003_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_028",
@@ -5512,7 +5512,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_028_M",
             hashFemale = "MP_LR_Tat_028_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S2_035",
@@ -5520,7 +5520,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_035_M",
             hashFemale = "MP_LR_Tat_035_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mplowrider2_overlays"
+            collection = "mplowrider2_overlays",
         },
         {
             name = "TAT_S1_015",
@@ -5528,7 +5528,7 @@ Config.Tattoos = {
             hashMale = "MP_LR_Tat_015_M",
             hashFemale = "MP_LR_Tat_015_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mplowrider_overlays"
+            collection = "mplowrider_overlays",
         },
         {
             name = "TAT_L2_010",
@@ -5536,7 +5536,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_010_M",
             hashFemale = "MP_LUXE_TAT_010_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_017",
@@ -5544,7 +5544,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_017_M",
             hashFemale = "MP_LUXE_TAT_017_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_026",
@@ -5552,7 +5552,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_026_M",
             hashFemale = "MP_LUXE_TAT_026_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_L2_030",
@@ -5560,7 +5560,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_030_M",
             hashFemale = "MP_LUXE_TAT_030_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpluxe2_overlays"
+            collection = "mpluxe2_overlays",
         },
         {
             name = "TAT_LX_004",
@@ -5568,7 +5568,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_004_M",
             hashFemale = "MP_LUXE_TAT_004_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_LX_013",
@@ -5576,7 +5576,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_013_M",
             hashFemale = "MP_LUXE_TAT_013_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_LX_019",
@@ -5584,7 +5584,7 @@ Config.Tattoos = {
             hashMale = "MP_LUXE_TAT_019_M",
             hashFemale = "MP_LUXE_TAT_019_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpluxe_overlays"
+            collection = "mpluxe_overlays",
         },
         {
             name = "TAT_FX_000",
@@ -5592,7 +5592,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_000_M",
             hashFemale = "MP_Security_Tat_000_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_005",
@@ -5600,7 +5600,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_005_M",
             hashFemale = "MP_Security_Tat_005_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_007",
@@ -5608,7 +5608,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_007_M",
             hashFemale = "MP_Security_Tat_007_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_009",
@@ -5616,7 +5616,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_009_M",
             hashFemale = "MP_Security_Tat_009_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_012",
@@ -5624,7 +5624,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_012_M",
             hashFemale = "MP_Security_Tat_012_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_FX_020",
@@ -5632,7 +5632,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Tat_020_M",
             hashFemale = "MP_Security_Tat_020_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsecurity_overlays"
+            collection = "mpsecurity_overlays",
         },
         {
             name = "TAT_SM_001",
@@ -5640,7 +5640,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_001_M",
             hashFemale = "MP_Smuggler_Tattoo_001_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_005",
@@ -5648,7 +5648,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_005_M",
             hashFemale = "MP_Smuggler_Tattoo_005_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_SM_023",
@@ -5656,7 +5656,7 @@ Config.Tattoos = {
             hashMale = "MP_Smuggler_Tattoo_023_M",
             hashFemale = "MP_Smuggler_Tattoo_023_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsmuggler_overlays"
+            collection = "mpsmuggler_overlays",
         },
         {
             name = "TAT_ST_003",
@@ -5664,7 +5664,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_003_M",
             hashFemale = "MP_MP_Stunt_tat_003_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_009",
@@ -5672,7 +5672,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_009_M",
             hashFemale = "MP_MP_Stunt_tat_009_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_010",
@@ -5680,7 +5680,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_010_M",
             hashFemale = "MP_MP_Stunt_tat_010_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_016",
@@ -5688,7 +5688,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_016_M",
             hashFemale = "MP_MP_Stunt_tat_016_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_036",
@@ -5696,7 +5696,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_036_M",
             hashFemale = "MP_MP_Stunt_tat_036_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_038",
@@ -5704,7 +5704,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_038_M",
             hashFemale = "MP_MP_Stunt_tat_038_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_ST_049",
@@ -5712,7 +5712,7 @@ Config.Tattoos = {
             hashMale = "MP_MP_Stunt_tat_049_M",
             hashFemale = "MP_MP_Stunt_tat_049_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpstunt_overlays"
+            collection = "mpstunt_overlays",
         },
         {
             name = "TAT_VW_004",
@@ -5720,7 +5720,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_004_M",
             hashFemale = "MP_Vinewood_Tat_004_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_018",
@@ -5728,7 +5728,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_018_M",
             hashFemale = "MP_Vinewood_Tat_018_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_025",
@@ -5736,7 +5736,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_025_M",
             hashFemale = "MP_Vinewood_Tat_025_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_VW_028",
@@ -5744,7 +5744,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Tat_028_M",
             hashFemale = "MP_Vinewood_Tat_028_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpvinewood_overlays"
+            collection = "mpvinewood_overlays",
         },
         {
             name = "TAT_FM_010",
@@ -5752,7 +5752,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_002",
             hashFemale = "FM_Tat_Award_F_002",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_018",
@@ -5760,7 +5760,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_Award_M_010",
             hashFemale = "FM_Tat_Award_F_010",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_204",
@@ -5768,7 +5768,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_000",
             hashFemale = "FM_Tat_F_000",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_205",
@@ -5776,7 +5776,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_001",
             hashFemale = "FM_Tat_F_001",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_206",
@@ -5784,7 +5784,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_003",
             hashFemale = "FM_Tat_F_003",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_207",
@@ -5792,7 +5792,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_014",
             hashFemale = "FM_Tat_F_014",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_208",
@@ -5800,7 +5800,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_018",
             hashFemale = "FM_Tat_F_018",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_228",
@@ -5808,7 +5808,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_027",
             hashFemale = "FM_Tat_F_027",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_229",
@@ -5816,7 +5816,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_028",
             hashFemale = "FM_Tat_F_028",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_239",
@@ -5824,7 +5824,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_038",
             hashFemale = "FM_Tat_F_038",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_FM_247",
@@ -5832,7 +5832,7 @@ Config.Tattoos = {
             hashMale = "FM_Tat_M_047",
             hashFemale = "FM_Tat_F_047",
             zone = "ZONE_RIGHT_ARM",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "TAT_SB_011",
@@ -5840,7 +5840,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_011_M",
             hashFemale = "MP_Sum2_Tat_011_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_012",
@@ -5848,7 +5848,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_012_M",
             hashFemale = "MP_Sum2_Tat_012_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_013",
@@ -5856,7 +5856,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_013_M",
             hashFemale = "MP_Sum2_Tat_013_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_030",
@@ -5864,7 +5864,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_030_M",
             hashFemale = "MP_Sum2_Tat_030_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_031",
@@ -5872,7 +5872,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_031_M",
             hashFemale = "MP_Sum2_Tat_031_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_045",
@@ -5880,7 +5880,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_045_M",
             hashFemale = "MP_Sum2_Tat_045_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_046",
@@ -5888,7 +5888,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_046_M",
             hashFemale = "MP_Sum2_Tat_046_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_047",
@@ -5896,7 +5896,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_047_M",
             hashFemale = "MP_Sum2_Tat_047_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_SB_048",
@@ -5904,7 +5904,7 @@ Config.Tattoos = {
             hashMale = "MP_Sum2_Tat_048_M",
             hashFemale = "MP_Sum2_Tat_048_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpsum2_overlays"
+            collection = "mpsum2_overlays",
         },
         {
             name = "TAT_X6_002",
@@ -5912,7 +5912,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_002_M",
             hashFemale = "MP_Christmas3_Tat_002_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_003",
@@ -5920,7 +5920,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_003_M",
             hashFemale = "MP_Christmas3_Tat_003_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_027",
@@ -5928,7 +5928,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_027_M",
             hashFemale = "MP_Christmas3_Tat_027_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_029",
@@ -5936,7 +5936,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_029_M",
             hashFemale = "MP_Christmas3_Tat_029_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_031",
@@ -5944,7 +5944,7 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_031_M",
             hashFemale = "MP_Christmas3_Tat_031_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas3_overlays"
+            collection = "mpchristmas3_overlays",
         },
         {
             name = "TAT_X6_032",
@@ -5952,8 +5952,8 @@ Config.Tattoos = {
             hashMale = "MP_Christmas3_Tat_032_M",
             hashFemale = "MP_Christmas3_Tat_032_F",
             zone = "ZONE_RIGHT_ARM",
-            collection = "mpchristmas3_overlays"
-        }
+            collection = "mpchristmas3_overlays",
+        },
     },
     ZONE_HAIR = {
         {
@@ -5962,7 +5962,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_003_a",
             hashFemale = "FM_F_Hair_003_a",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-187",
@@ -5970,7 +5970,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_003_b",
             hashFemale = "FM_F_Hair_003_b",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-188",
@@ -5978,7 +5978,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_003_c",
             hashFemale = "FM_F_Hair_003_c",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-189",
@@ -5986,7 +5986,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_003_d",
             hashFemale = "FM_F_Hair_003_d",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-190",
@@ -5994,7 +5994,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_003_e",
             hashFemale = "FM_F_Hair_003_e",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-156",
@@ -6002,7 +6002,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_005_a",
             hashFemale = "FM_F_Hair_005_a",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-157",
@@ -6010,7 +6010,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_005_b",
             hashFemale = "FM_F_Hair_005_b",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-158",
@@ -6018,7 +6018,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_005_c",
             hashFemale = "FM_F_Hair_005_c",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-159",
@@ -6026,7 +6026,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_005_d",
             hashFemale = "FM_F_Hair_005_d",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-160",
@@ -6034,7 +6034,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_005_e",
             hashFemale = "FM_F_Hair_005_e",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-191",
@@ -6042,7 +6042,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_006_a",
             hashFemale = "FM_F_Hair_006_a",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-192",
@@ -6050,7 +6050,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_006_b",
             hashFemale = "FM_F_Hair_006_b",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-193",
@@ -6058,7 +6058,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_006_c",
             hashFemale = "FM_F_Hair_006_c",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-194",
@@ -6066,7 +6066,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_006_d",
             hashFemale = "FM_F_Hair_006_d",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-195",
@@ -6074,7 +6074,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_006_e",
             hashFemale = "FM_F_Hair_006_e",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-166",
@@ -6082,7 +6082,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_013_a",
             hashFemale = "FM_F_Hair_013_a",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-167",
@@ -6090,7 +6090,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_013_b",
             hashFemale = "FM_F_Hair_013_b",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-168",
@@ -6098,7 +6098,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_013_c",
             hashFemale = "FM_F_Hair_013_c",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-169",
@@ -6106,7 +6106,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_013_d",
             hashFemale = "FM_F_Hair_013_d",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-170",
@@ -6114,7 +6114,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_013_e",
             hashFemale = "FM_F_Hair_013_e",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-171",
@@ -6122,7 +6122,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_014_a",
             hashFemale = "FM_F_Hair_014_a",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-172",
@@ -6130,7 +6130,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_014_b",
             hashFemale = "FM_F_Hair_014_b",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-173",
@@ -6138,7 +6138,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_014_c",
             hashFemale = "FM_F_Hair_014_c",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-174",
@@ -6146,7 +6146,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_014_d",
             hashFemale = "FM_F_Hair_014_d",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-175",
@@ -6154,7 +6154,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_014_e",
             hashFemale = "FM_F_Hair_014_e",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-201",
@@ -6162,7 +6162,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_long_a",
             hashFemale = "FM_F_Hair_long_a",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-202",
@@ -6170,7 +6170,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_long_b",
             hashFemale = "FM_F_Hair_long_b",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-203",
@@ -6178,7 +6178,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_long_c",
             hashFemale = "FM_F_Hair_long_c",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-204",
@@ -6186,7 +6186,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_long_d",
             hashFemale = "FM_F_Hair_long_d",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-205",
@@ -6194,7 +6194,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_long_e",
             hashFemale = "FM_F_Hair_long_e",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-181",
@@ -6202,7 +6202,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_001_a",
             hashFemale = "FM_F_Hair_001_a",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-182",
@@ -6210,7 +6210,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_001_b",
             hashFemale = "FM_F_Hair_001_b",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-183",
@@ -6218,7 +6218,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_001_c",
             hashFemale = "FM_F_Hair_001_c",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-184",
@@ -6226,7 +6226,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_001_d",
             hashFemale = "FM_F_Hair_001_d",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-185",
@@ -6234,7 +6234,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_001_e",
             hashFemale = "FM_F_Hair_001_e",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-196",
@@ -6242,7 +6242,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_008_a",
             hashFemale = "FM_F_Hair_008_a",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-197",
@@ -6250,7 +6250,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_008_b",
             hashFemale = "FM_F_Hair_008_b",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-198",
@@ -6258,7 +6258,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_008_c",
             hashFemale = "FM_F_Hair_008_c",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-199",
@@ -6266,7 +6266,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_008_d",
             hashFemale = "FM_F_Hair_008_d",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-200",
@@ -6274,7 +6274,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_008_e",
             hashFemale = "FM_F_Hair_008_e",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-304",
@@ -6282,7 +6282,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_001",
             hashFemale = "NG_F_Hair_001",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-305",
@@ -6290,7 +6290,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_002",
             hashFemale = "NG_F_Hair_002",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-306",
@@ -6298,7 +6298,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_003",
             hashFemale = "NG_F_Hair_003",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-307",
@@ -6306,7 +6306,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_004",
             hashFemale = "NG_F_Hair_004",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-308",
@@ -6314,7 +6314,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_005",
             hashFemale = "NG_F_Hair_005",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-309",
@@ -6322,7 +6322,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_006",
             hashFemale = "NG_F_Hair_006",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-310",
@@ -6330,7 +6330,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_007",
             hashFemale = "NG_F_Hair_007",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-311",
@@ -6338,7 +6338,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_008",
             hashFemale = "NG_F_Hair_008",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-312",
@@ -6346,7 +6346,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_009",
             hashFemale = "NG_F_Hair_009",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-313",
@@ -6354,7 +6354,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_010",
             hashFemale = "NG_F_Hair_010",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-314",
@@ -6362,7 +6362,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_011",
             hashFemale = "NG_F_Hair_011",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-315",
@@ -6370,7 +6370,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_012",
             hashFemale = "NG_F_Hair_012",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-316",
@@ -6378,7 +6378,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_013",
             hashFemale = "NG_F_Hair_013",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-317",
@@ -6386,7 +6386,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_014",
             hashFemale = "NG_F_Hair_014",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-318",
@@ -6394,7 +6394,7 @@ Config.Tattoos = {
             hashMale = "NG_M_Hair_015",
             hashFemale = "NG_F_Hair_015",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-319",
@@ -6402,7 +6402,7 @@ Config.Tattoos = {
             hashMale = "NGBea_M_Hair_000",
             hashFemale = "NGBea_F_Hair_000",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-320",
@@ -6410,7 +6410,7 @@ Config.Tattoos = {
             hashMale = "NGBea_M_Hair_001",
             hashFemale = "NGBea_F_Hair_001",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-321",
@@ -6418,7 +6418,7 @@ Config.Tattoos = {
             hashMale = "NGBus_M_Hair_000",
             hashFemale = "NGBus_F_Hair_000",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-322",
@@ -6426,7 +6426,7 @@ Config.Tattoos = {
             hashMale = "NGBus_M_Hair_001",
             hashFemale = "NGBus_F_Hair_001",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-323",
@@ -6434,7 +6434,7 @@ Config.Tattoos = {
             hashMale = "NGHip_M_Hair_000",
             hashFemale = "NGHip_F_Hair_000",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-324",
@@ -6442,7 +6442,7 @@ Config.Tattoos = {
             hashMale = "NGHip_M_Hair_001",
             hashFemale = "NGHip_F_Hair_001",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-0-325",
@@ -6450,7 +6450,7 @@ Config.Tattoos = {
             hashMale = "NGInd_M_Hair_000",
             hashFemale = "NGInd_F_Hair_000",
             zone = "ZONE_HAIR",
-            collection = "multiplayer_overlays"
+            collection = "multiplayer_overlays",
         },
         {
             name = "hair-3-33",
@@ -6458,7 +6458,7 @@ Config.Tattoos = {
             hashMale = "FM_Hair_Muzz",
             hashFemale = "FM_Hair_Fuzz",
             zone = "ZONE_HAIR",
-            collection = "mpBeach_overlays"
+            collection = "mpBeach_overlays",
         },
         {
             name = "hair-4-30",
@@ -6466,7 +6466,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_a",
             hashFemale = "FM_Bus_F_Hair_a",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-31",
@@ -6474,7 +6474,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_b",
             hashFemale = "FM_Bus_F_Hair_b",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-32",
@@ -6482,7 +6482,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_c",
             hashFemale = "FM_Bus_F_Hair_c",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-33",
@@ -6490,7 +6490,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_d",
             hashFemale = "FM_Bus_F_Hair_d",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-34",
@@ -6498,7 +6498,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_e",
             hashFemale = "FM_Bus_F_Hair_e",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-35",
@@ -6506,7 +6506,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_000_a",
             hashFemale = "FM_Bus_F_Hair_000_a",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-36",
@@ -6514,7 +6514,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_000_b",
             hashFemale = "FM_Bus_F_Hair_000_b",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-37",
@@ -6522,7 +6522,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_000_c",
             hashFemale = "FM_Bus_F_Hair_000_c",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-38",
@@ -6530,7 +6530,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_000_d",
             hashFemale = "FM_Bus_F_Hair_000_d",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-39",
@@ -6538,7 +6538,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_000_e",
             hashFemale = "FM_Bus_F_Hair_000_e",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-40",
@@ -6546,7 +6546,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_001_a",
             hashFemale = "FM_Bus_F_Hair_001_a",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-41",
@@ -6554,7 +6554,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_001_b",
             hashFemale = "FM_Bus_F_Hair_001_b",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-42",
@@ -6562,7 +6562,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_001_c",
             hashFemale = "FM_Bus_F_Hair_001_c",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-43",
@@ -6570,7 +6570,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_001_d",
             hashFemale = "FM_Bus_F_Hair_001_d",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-4-44",
@@ -6578,7 +6578,7 @@ Config.Tattoos = {
             hashMale = "FM_Bus_M_Hair_001_e",
             hashFemale = "FM_Bus_F_Hair_001_e",
             zone = "ZONE_HAIR",
-            collection = "mpBusiness_overlays"
+            collection = "mpBusiness_overlays",
         },
         {
             name = "hair-9-10",
@@ -6586,7 +6586,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Hair_000_a",
             hashFemale = "FM_Hip_F_Hair_000_a",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-11",
@@ -6594,7 +6594,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Hair_000_b",
             hashFemale = "FM_Hip_F_Hair_000_b",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-12",
@@ -6602,7 +6602,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Hair_000_c",
             hashFemale = "FM_Hip_F_Hair_000_c",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-13",
@@ -6610,7 +6610,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Hair_000_d",
             hashFemale = "FM_Hip_F_Hair_000_d",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-14",
@@ -6618,7 +6618,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Hair_000_e",
             hashFemale = "FM_Hip_F_Hair_000_e",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-5",
@@ -6626,7 +6626,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Hair_001_a",
             hashFemale = "FM_Hip_F_Hair_001_a",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-6",
@@ -6634,7 +6634,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Hair_001_b",
             hashFemale = "FM_Hip_F_Hair_001_b",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-7",
@@ -6642,7 +6642,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Hair_001_c",
             hashFemale = "FM_Hip_F_Hair_001_c",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-8",
@@ -6650,7 +6650,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Hair_001_d",
             hashFemale = "FM_Hip_F_Hair_001_d",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-9",
@@ -6658,7 +6658,7 @@ Config.Tattoos = {
             hashMale = "FM_Hip_M_Hair_001_e",
             hashFemale = "FM_Hip_F_Hair_001_e",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-187",
@@ -6666,7 +6666,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_017_a",
             hashFemale = "FM_F_Hair_017_a",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-188",
@@ -6674,7 +6674,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_017_b",
             hashFemale = "FM_F_Hair_017_b",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-189",
@@ -6682,7 +6682,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_017_c",
             hashFemale = "FM_F_Hair_017_c",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-190",
@@ -6690,7 +6690,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_017_d",
             hashFemale = "FM_F_Hair_017_d",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-191",
@@ -6698,7 +6698,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_017_e",
             hashFemale = "FM_F_Hair_017_e",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-192",
@@ -6706,7 +6706,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_020_a",
             hashFemale = "FM_F_Hair_020_a",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-193",
@@ -6714,7 +6714,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_020_b",
             hashFemale = "FM_F_Hair_020_b",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-194",
@@ -6722,7 +6722,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_020_c",
             hashFemale = "FM_F_Hair_020_c",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-195",
@@ -6730,7 +6730,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_020_d",
             hashFemale = "FM_F_Hair_020_d",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-196",
@@ -6738,7 +6738,7 @@ Config.Tattoos = {
             hashMale = "FM_M_Hair_020_e",
             hashFemale = "FM_F_Hair_020_e",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-197",
@@ -6746,7 +6746,7 @@ Config.Tattoos = {
             hashMale = "FM_Disc_M_Hair_001_a",
             hashFemale = "FM_Disc_F_Hair_001_a",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-198",
@@ -6754,7 +6754,7 @@ Config.Tattoos = {
             hashMale = "FM_Disc_M_Hair_001_b",
             hashFemale = "FM_Disc_F_Hair_001_b",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-199",
@@ -6762,7 +6762,7 @@ Config.Tattoos = {
             hashMale = "FM_Disc_M_Hair_001_c",
             hashFemale = "FM_Disc_F_Hair_001_c",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-200",
@@ -6770,7 +6770,7 @@ Config.Tattoos = {
             hashMale = "FM_Disc_M_Hair_001_d",
             hashFemale = "FM_Disc_F_Hair_001_d",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-9-201",
@@ -6778,7 +6778,7 @@ Config.Tattoos = {
             hashMale = "FM_Disc_M_Hair_001_e",
             hashFemale = "FM_Disc_F_Hair_001_e",
             zone = "ZONE_HAIR",
-            collection = "mpHipster_overlays"
+            collection = "mpHipster_overlays",
         },
         {
             name = "hair-18-81",
@@ -6786,7 +6786,7 @@ Config.Tattoos = {
             hashMale = "LR_M_Hair_000",
             hashFemale = "LR_F_Hair_000",
             zone = "ZONE_HAIR",
-            collection = "mpLowrider_overlays"
+            collection = "mpLowrider_overlays",
         },
         {
             name = "hair-18-82",
@@ -6794,7 +6794,7 @@ Config.Tattoos = {
             hashMale = "LR_M_Hair_001",
             hashFemale = "LR_F_Hair_001",
             zone = "ZONE_HAIR",
-            collection = "mpLowrider_overlays"
+            collection = "mpLowrider_overlays",
         },
         {
             name = "hair-18-83",
@@ -6802,7 +6802,7 @@ Config.Tattoos = {
             hashMale = "LR_M_Hair_002",
             hashFemale = "LR_F_Hair_002",
             zone = "ZONE_HAIR",
-            collection = "mpLowrider_overlays"
+            collection = "mpLowrider_overlays",
         },
         {
             name = "hair-19-88",
@@ -6810,7 +6810,7 @@ Config.Tattoos = {
             hashMale = "LR_M_Hair_003",
             hashFemale = "LR_F_Hair_003",
             zone = "ZONE_HAIR",
-            collection = "mpLowrider2_overlays"
+            collection = "mpLowrider2_overlays",
         },
         {
             name = "hair-19-91",
@@ -6818,7 +6818,7 @@ Config.Tattoos = {
             hashMale = "LR_M_Hair_004",
             hashFemale = "LR_F_Hair_004",
             zone = "ZONE_HAIR",
-            collection = "mpLowrider2_overlays"
+            collection = "mpLowrider2_overlays",
         },
         {
             name = "hair-19-93",
@@ -6826,7 +6826,7 @@ Config.Tattoos = {
             hashMale = "LR_M_Hair_006",
             hashFemale = "LR_F_Hair_006",
             zone = "ZONE_HAIR",
-            collection = "mpLowrider2_overlays"
+            collection = "mpLowrider2_overlays",
         },
         {
             name = "hair-19-92",
@@ -6834,7 +6834,7 @@ Config.Tattoos = {
             hashMale = "LR_M_Hair_005",
             hashFemale = "LR_F_Hair_005",
             zone = "ZONE_HAIR",
-            collection = "mpLowrider2_overlays"
+            collection = "mpLowrider2_overlays",
         },
         {
             name = "hair-24-5",
@@ -6842,7 +6842,7 @@ Config.Tattoos = {
             hashMale = "MP_Biker_Hair_000_M",
             hashFemale = "MP_Biker_Hair_000_F",
             zone = "ZONE_HAIR",
-            collection = "mpBiker_overlays"
+            collection = "mpBiker_overlays",
         },
         {
             name = "hair-24-7",
@@ -6850,7 +6850,7 @@ Config.Tattoos = {
             hashMale = "MP_Biker_Hair_001_M",
             hashFemale = "MP_Biker_Hair_001_F",
             zone = "ZONE_HAIR",
-            collection = "mpBiker_overlays"
+            collection = "mpBiker_overlays",
         },
         {
             name = "hair-24-9",
@@ -6858,7 +6858,7 @@ Config.Tattoos = {
             hashMale = "MP_Biker_Hair_002_M",
             hashFemale = "MP_Biker_Hair_002_F",
             zone = "ZONE_HAIR",
-            collection = "mpBiker_overlays"
+            collection = "mpBiker_overlays",
         },
         {
             name = "hair-24-11",
@@ -6866,7 +6866,7 @@ Config.Tattoos = {
             hashMale = "MP_Biker_Hair_003_M",
             hashFemale = "MP_Biker_Hair_003_F",
             zone = "ZONE_HAIR",
-            collection = "mpBiker_overlays"
+            collection = "mpBiker_overlays",
         },
         {
             name = "hair-24-13",
@@ -6874,7 +6874,7 @@ Config.Tattoos = {
             hashMale = "MP_Biker_Hair_004_M",
             hashFemale = "MP_Biker_Hair_004_F",
             zone = "ZONE_HAIR",
-            collection = "mpBiker_overlays"
+            collection = "mpBiker_overlays",
         },
         {
             name = "hair-24-15",
@@ -6882,7 +6882,7 @@ Config.Tattoos = {
             hashMale = "MP_Biker_Hair_005_M",
             hashFemale = "MP_Biker_Hair_005_F",
             zone = "ZONE_HAIR",
-            collection = "mpBiker_overlays"
+            collection = "mpBiker_overlays",
         },
         {
             name = "hair-24-17",
@@ -6890,7 +6890,7 @@ Config.Tattoos = {
             hashMale = "MP_Biker_Hair_006_M",
             hashFemale = "MP_Biker_Hair_006_F",
             zone = "ZONE_HAIR",
-            collection = "mpBiker_overlays"
+            collection = "mpBiker_overlays",
         },
         {
             name = "hair-25-52",
@@ -6898,7 +6898,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Hair_M_000_M",
             hashFemale = "MP_Gunrunning_Hair_F_000_M",
             zone = "ZONE_HAIR",
-            collection = "mpGunrunning_overlays"
+            collection = "mpGunrunning_overlays",
         },
         {
             name = "hair-25-53",
@@ -6906,7 +6906,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Hair_M_001_M",
             hashFemale = "MP_Gunrunning_Hair_F_001_M",
             zone = "ZONE_HAIR",
-            collection = "mpGunrunning_overlays"
+            collection = "mpGunrunning_overlays",
         },
         {
             name = "hair-25-54",
@@ -6914,7 +6914,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Hair_M_000_F",
             hashFemale = "MP_Gunrunning_Hair_F_000_F",
             zone = "ZONE_HAIR",
-            collection = "mpGunrunning_overlays"
+            collection = "mpGunrunning_overlays",
         },
         {
             name = "hair-25-55",
@@ -6922,7 +6922,7 @@ Config.Tattoos = {
             hashMale = "MP_Gunrunning_Hair_M_001_F",
             hashFemale = "MP_Gunrunning_Hair_F_001_F",
             zone = "ZONE_HAIR",
-            collection = "mpGunrunning_overlays"
+            collection = "mpGunrunning_overlays",
         },
         {
             name = "hair-29-0",
@@ -6930,7 +6930,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Hair_M_000_M",
             hashFemale = "MP_Vinewood_Hair_F_000_M",
             zone = "ZONE_HAIR",
-            collection = "mpVinewood_overlays"
+            collection = "mpVinewood_overlays",
         },
         {
             name = "hair-29-1",
@@ -6938,7 +6938,7 @@ Config.Tattoos = {
             hashMale = "MP_Vinewood_Hair_M_000_F",
             hashFemale = "MP_Vinewood_Hair_F_000_F",
             zone = "ZONE_HAIR",
-            collection = "mpVinewood_overlays"
+            collection = "mpVinewood_overlays",
         },
         {
             name = "hair-31-0",
@@ -6946,7 +6946,7 @@ Config.Tattoos = {
             hashMale = "MP_Tuner_Hair_000_M",
             hashFemale = "MP_Tuner_Hair_000_F",
             zone = "ZONE_HAIR",
-            collection = "mpTuner_overlays"
+            collection = "mpTuner_overlays",
         },
         {
             name = "hair-31-1",
@@ -6954,7 +6954,7 @@ Config.Tattoos = {
             hashMale = "MP_Tuner_Hair_001_M",
             hashFemale = "MP_Tuner_Hair_001_F",
             zone = "ZONE_HAIR",
-            collection = "mpTuner_overlays"
+            collection = "mpTuner_overlays",
         },
         {
             name = "hair-32-4",
@@ -6962,7 +6962,7 @@ Config.Tattoos = {
             hashMale = "MP_Security_Hair_000_M",
             hashFemale = "MP_Security_Hair_000_F",
             zone = "ZONE_HAIR",
-            collection = "mpSecurity_overlays"
-        }
-    }
+            collection = "mpSecurity_overlays",
+        },
+    },
 }

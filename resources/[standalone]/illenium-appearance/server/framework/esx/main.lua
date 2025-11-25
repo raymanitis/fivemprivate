@@ -1,4 +1,6 @@
-if not Framework.ESX() then return end
+if not Framework.ESX() then
+    return
+end
 
 local ESX = exports["es_extended"]:getSharedObject()
 
@@ -31,7 +33,7 @@ end
 
 function normalizeGrade(job)
     job.grade = {
-        level = job.grade
+        level = job.grade,
     }
     return job
 end

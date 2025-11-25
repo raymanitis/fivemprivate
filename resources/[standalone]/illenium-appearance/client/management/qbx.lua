@@ -1,13 +1,17 @@
-if not Config.BossManagedOutfits then return end
+if not Config.BossManagedOutfits then
+    return
+end
 
-if not Management.IsQBX() then return end
+if not Management.IsQBX() then
+    return
+end
 
 function Management.AddItems()
     local menuItem = {
         title = _L("outfitManagement.title"),
         icon = "fa-solid fa-shirt",
         event = "illenium-appearance:client:OutfitManagementMenu",
-        args = {}
+        args = {},
     }
     menuItem.description = _L("outfitManagement.jobText")
     menuItem.args.type = "Job"
