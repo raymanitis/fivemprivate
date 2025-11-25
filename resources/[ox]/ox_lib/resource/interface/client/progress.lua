@@ -189,11 +189,10 @@ function lib.progressCircle(data)
 
     if not interruptProgress(data) then
         SendNUIMessage({
-            action = 'circleProgress',
+            action = 'progress',
             data = {
-                duration = data.duration,
-                position = data.position,
-                label = data.label
+                label = data.label,
+                duration = data.duration
             }
         })
 
