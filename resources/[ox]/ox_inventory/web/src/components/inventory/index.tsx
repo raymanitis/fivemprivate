@@ -15,6 +15,7 @@ import InventoryContext from './InventoryContext';
 import { closeContextMenu } from '../../store/contextMenu';
 import Fade from '../utils/transitions/Fade';
 import { useConfig } from '../..//hooks/useConfig'
+import CharacterPreview from './CharacterPreview';
 import bg1 from '../../img/bg1.png';
 import bg2 from '../../img/bg2.png';
 
@@ -54,6 +55,7 @@ const Inventory: React.FC = () => {
         <div className="inventory-wrapper" style={{
           backgroundImage: `url(${cloth ? bg1 : bg2})`,
         }}>
+          <CharacterPreview />
           <TopLeft />
           <LeftInventory />
           <InventoryControl />

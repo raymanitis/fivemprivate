@@ -87,6 +87,136 @@ local defaultInventory = {
 
 local currentInventory = defaultInventory
 
+-- Character preview rendering using render target
+local characterPreviewCam = nil
+local characterPreviewPed = nil
+local characterPreviewTxd = nil
+local characterPreviewDui = nil
+
+local function createCharacterPreview()
+	if characterPreviewCam then return end
+
+	local ped = playerPed
+	local model = GetEntityModel(ped)
+	
+	-- Request model if needed
+	if not IsModelInCdimage(model) then return end
+	RequestModel(model)
+	local timeout = 0
+	while not HasModelLoaded(model) and timeout < 100 do
+		Wait(10)
+		timeout = timeout + 1
+	end
+	
+	if not HasModelLoaded(model) then return end
+	
+	-- Create a clone of the player ped for preview (positioned off-screen)
+	local pedCoords = GetEntityCoords(ped)
+	characterPreviewPed = ClonePed(ped, false, false, true)
+	
+	-- Position ped off-screen but visible to camera
+	SetEntityCoords(characterPreviewPed, pedCoords.x, pedCoords.y, pedCoords.z - 100.0, false, false, false, false)
+	FreezeEntityPosition(characterPreviewPed, true)
+	SetEntityInvincible(characterPreviewPed, true)
+	SetBlockingOfNonTemporaryEvents(characterPreviewPed, true)
+	SetEntityAlpha(characterPreviewPed, 255, false)
+	SetEntityCollision(characterPreviewPed, false, false)
+	
+	-- Set ped to idle animation
+	TaskPlayAnim(characterPreviewPed, 'amb@world_human_cop_idles@male@idle_a', 'idle_a', 8.0, -8.0, -1, 49, 0, false, false, false)
+	
+	-- Create camera pointing at the ped
+	characterPreviewCam = CreateCam('DEFAULT_SCRIPTED_CAMERA', true)
+	local previewCoords = GetEntityCoords(characterPreviewPed)
+	local camCoords = previewCoords + vector3(0.0, 1.0, 0.5)
+	SetCamCoord(characterPreviewCam, camCoords.x, camCoords.y, camCoords.z)
+	PointCamAtEntity(characterPreviewCam, characterPreviewPed, 0.0, 0.0, 0.0, true)
+	SetCamFov(characterPreviewCam, 50.0)
+	SetCamActive(characterPreviewCam, true)
+	RenderCam(true, true, 500, true, true)
+	
+	-- Create DUI and texture for rendering
+	characterPreviewTxd = CreateRuntimeTxd('inventory_preview')
+	characterPreviewDui = CreateDui('https://nui://ox_inventory/web/character_preview.html', 512, 512)
+	local duiHandle = GetDuiHandle(characterPreviewDui)
+	local tx = CreateRuntimeTextureFromDuiHandle(characterPreviewTxd, 'preview', duiHandle)
+	
+	-- Wait a bit for texture to be ready
+	Wait(100)
+	
+	-- Send texture URL to NUI
+	SendNUIMessage({
+		action = 'setCharacterPreview',
+		data = {
+			url = 'nui://ox_inventory/inventory_preview/preview'
+		}
+	})
+	
+	-- Render loop to update camera and sync ped
+	CreateThread(function()
+		while characterPreviewCam and invOpen do
+			Wait(0)
+			if characterPreviewCam and characterPreviewPed and DoesEntityExist(characterPreviewPed) then
+				-- Update camera to follow ped
+				local pedCoords = GetEntityCoords(characterPreviewPed)
+				local camCoords = pedCoords + vector3(0.0, 1.0, 0.5)
+				SetCamCoord(characterPreviewCam, camCoords.x, camCoords.y, camCoords.z)
+				PointCamAtEntity(characterPreviewCam, characterPreviewPed, 0.0, 0.0, 0.0, true)
+				
+				-- Sync ped appearance periodically
+				if GetGameTimer() % 1000 < 50 then
+					-- Sync model
+					local playerModel = GetEntityModel(playerPed)
+					if GetEntityModel(characterPreviewPed) ~= playerModel then
+						SetEntityModel(characterPreviewPed, playerModel)
+					end
+					
+					-- Sync components/clothing
+					for i = 0, 11 do
+						local drawable = GetPedDrawableVariation(playerPed, i)
+						local texture = GetPedTextureVariation(playerPed, i)
+						SetPedComponentVariation(characterPreviewPed, i, drawable, texture, 0)
+					end
+					
+					-- Sync props
+					for i = 0, 2 do
+						local prop = GetPedPropIndex(playerPed, i)
+						local propTexture = GetPedPropTextureIndex(playerPed, i)
+						if prop ~= -1 then
+							SetPedPropIndex(characterPreviewPed, i, prop, propTexture, true)
+						else
+							ClearPedProp(characterPreviewPed, i)
+						end
+					end
+				end
+			end
+		end
+	end)
+end
+
+local function destroyCharacterPreview()
+	if characterPreviewCam then
+		SetCamActive(characterPreviewCam, false)
+		DestroyCam(characterPreviewCam, false)
+		RenderCam(false, false, 0, false, false)
+		characterPreviewCam = nil
+	end
+	
+	if characterPreviewPed and DoesEntityExist(characterPreviewPed) then
+		DeleteEntity(characterPreviewPed)
+		characterPreviewPed = nil
+	end
+	
+	if characterPreviewDui then
+		DestroyDui(characterPreviewDui)
+		characterPreviewDui = nil
+	end
+	
+	characterPreviewTxd = nil
+	
+	SendNUIMessage({ action = 'setCharacterPreview', data = { url = nil } })
+end
+
 local function closeTrunk()
 	if currentInventory?.type == 'trunk' then
 		local coords = GetEntityCoords(playerPed, true)
@@ -282,6 +412,9 @@ function client.openInventory(inv, data)
             rightInventory = currentInventory
         }
     })
+
+    -- Create character preview
+    createCharacterPreview()
 
     if not currentInventory.coords and not inv == 'container' then
         currentInventory.coords = GetEntityCoords(playerPed)
@@ -887,6 +1020,7 @@ function client.closeInventory(server)
 		SetNuiFocusKeepInput(false)
 		Utils.blurOut()
 		closeTrunk()
+		destroyCharacterPreview()
 		SendNUIMessage({ action = 'closeInventory' })
 		SetInterval(client.interval, 200)
 		Wait(200)
