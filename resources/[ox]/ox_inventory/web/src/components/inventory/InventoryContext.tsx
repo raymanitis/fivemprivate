@@ -107,8 +107,8 @@ const InventoryContext: React.FC<InventoryContextProps> = ({ setSplitItem }) => 
 
   return (
     <Menu>
-      <MenuItem onClick={() => handleClick({ action: 'use' })} label={Locale.ui_use || 'Brug'} />
-      <MenuItem onClick={() => handleClick({ action: 'give' })} label={Locale.ui_give || 'Giv'} />
+      <MenuItem onClick={() => handleClick({ action: 'use' })} label={Locale.ui_use || 'Use'} />
+      <MenuItem onClick={() => handleClick({ action: 'give' })} label={Locale.ui_give || 'Give'} />
 
       {item && item.count > 1 && (
         <MenuItem onClick={() => handleClick({ action: 'split' })} label={Locale.ui_split || 'Split'} />
@@ -163,7 +163,7 @@ const InventoryContext: React.FC<InventoryContextProps> = ({ setSplitItem }) => 
       )}
 
 
-      <MenuItem onClick={() => handleClick({ action: 'drop' })} label={Locale.ui_drop || 'Smid'} />
+      <MenuItem onClick={() => handleClick({ action: 'drop' })} label={Locale.ui_drop || 'Drop'} />
     </Menu>
   );
 };

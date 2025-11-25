@@ -63,7 +63,7 @@ const LeftInventory: React.FC = () => {
           <div
             className={`backpack-collapse${backpackVisible ? ' open' : ''}`}
             style={{
-              maxHeight: backpackVisible ? 400 : 0,
+              maxHeight: backpackVisible ? '50vh' : 0,
               opacity: backpackVisible ? 1 : 0,
               overflow: 'hidden',
               transition: 'max-height 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s cubic-bezier(0.4,0,0.2,1)',

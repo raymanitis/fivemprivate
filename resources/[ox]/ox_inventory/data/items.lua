@@ -385,4 +385,15 @@ return {
 		description = 'Computer til Boosting',
 		rarity = 'epic',
 	},
+
+	['small_backpack'] = {
+		label = 'Small Backpack',
+		weight = 500,
+		image = 'backpack.png',
+		stack = false,
+		useable = false,
+		close = false,
+		description = 'A small backpack that provides extra storage space',
+		rarity = 'uncommon',
+	},
 }

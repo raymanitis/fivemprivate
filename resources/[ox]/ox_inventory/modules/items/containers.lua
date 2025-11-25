@@ -48,6 +48,7 @@ local function setContainerProperties(itemName, properties)
 		size = { properties.slots, properties.maxWeight },
 		blacklist = blacklist,
 		whitelist = whitelist,
+		side = properties.side,
 	}
 end
 

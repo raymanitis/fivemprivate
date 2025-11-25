@@ -474,8 +474,8 @@ button:active {
   display: flex;
   flex-direction: row;
   position: absolute;
-  left: 0;
-  top: calc(0.9vh + 6px);
+  right: 0;
+  top: calc(0.8vh + 6px);
   white-space: normal;       /* allow wrapping */
   word-wrap: break-word;     /* break long words if needed */
   word-break: break-word;    /* extra safety */

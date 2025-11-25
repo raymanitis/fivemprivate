@@ -195,6 +195,10 @@ function Items.Metadata(inv, item, metadata, count)
 			count = 1
 			metadata.container = metadata.container or GenerateText(3)..os.time()
 			metadata.size = container.size
+			-- Set isBackpack flag for backpack items (items with side = 'left' property)
+			if container.side == 'left' or item.name == 'small_backpack' then
+				metadata.isBackpack = true
+			end
 		elseif not next(metadata) then
 			if item.name == 'identification' then
 				count = 1
