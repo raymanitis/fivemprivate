@@ -1,0 +1,10 @@
+/cache
+/db
+.idea
+.replxx_history
+server.cfg.bkp
+server.cfg
+db-prod.cfg
+resources-prod.cfg
+node_modules
+resources/*assets*/*maps*
