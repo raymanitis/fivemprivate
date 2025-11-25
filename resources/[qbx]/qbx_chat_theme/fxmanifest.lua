@@ -1,5 +1,6 @@
 fx_version 'cerulean'
 game 'common'
+lua54 'yes'
 
 name 'qbx_chat_theme'
 description 'mantine-styled theme for the chat resource.'
