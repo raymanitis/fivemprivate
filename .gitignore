@@ -7,4 +7,4 @@ server.cfg
 db-prod.cfg
 resources-prod.cfg
 node_modules
-resources/*assets*/*maps*
+resources/*assets*/*
