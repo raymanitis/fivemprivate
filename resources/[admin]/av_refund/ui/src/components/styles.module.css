@@ -1,0 +1,21 @@
+.container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.panel {
+  position: relative;
+  background-color: #1c1c1e;
+  width: 40vw;
+  min-width: 600px;
+  height: 45vh;
+  min-height: 400px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.33);
+  border: solid 1.25px #3a3a3c;
+  overflow: hidden;
+}

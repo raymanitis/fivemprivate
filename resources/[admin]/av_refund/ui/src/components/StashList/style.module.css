@@ -1,0 +1,5 @@
+.content {
+  position: relative;
+  height: calc(45vh - 85px);
+  min-height: 320px;
+}

@@ -1,0 +1,22 @@
+{
+  "title": "AV Refund",
+  "stash_updated": "Stash Updated",
+  "items_tab": "Items",
+  "stash_tab": "Stash",
+  "close": "Close",
+  "you_have": "You have",
+  "items": "items in your server.",
+  "search": "Search..",
+  "add_item": "Add Item",
+  "amount": "Amount",
+  "metadata_button": "Add Metadata Field",
+  "save_item": "Save Item",
+  "refund_stash": "Refund Stash",
+  "items_refund": "item(s) to refund.",
+  "generate_code": "Generate Code",
+  "metadata": "Metadata",
+  "yes": "Yes",
+  "no": "No",
+  "remove": "Remove",
+  "edit_item": "Edit Item"
+}
