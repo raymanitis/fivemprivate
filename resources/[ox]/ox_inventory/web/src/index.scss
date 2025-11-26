@@ -1,14 +1,23 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-$mainColor: #22232c;
-$textColor: #c1c2c5;
-$mainFont: Geist;
+// ox_lib Color Palette
+$borderColor: #373737;
+$buttonBg: #3D3D3D;
+$buttonHover: #4A4A4A;
+$textPrimary: #FFF;
+$textSecondary: #8C8C8C;
+$textSecondaryAlt: rgba(255, 255, 255, 0.38);
+$progressFill: #AAAAAA;
+$borderWidth: 0.0926vh;
+$borderRadiusSm: 0.5556vh;
+$borderRadiusMd: 0.9259vh;
+$transitionSpeed: 0.25s;
 
-$secondaryColor: rgba(30, 30, 30, 0.85);
-$secondaryColorHighlight: #33343F;
-$secondaryColorLight: rgba(0, 0, 0, 0.5);
-$secondaryColorDark: rgba(12, 12, 12, 0.8);
+// Main background gradient
+$mainBgGradient: radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%);
+
+$mainFont: Inter;
 
 $gridCols: 4;
 $gridRows: 3;
@@ -18,7 +27,7 @@ $containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gr
 
 body {
   margin: 0;
-  font-family: 'Geist', sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -36,26 +45,34 @@ code {
 }
 
 input {
-  border-radius: 4px;
+  border-radius: $borderRadiusSm;
   width: 8vh;
   padding: 8px;
-  border: 1px solid transparent; /* necessary for gradient border */
-
-  background-color: rgba(0,0,0,0.5);
-  color: white;
+  border: $borderWidth solid rgba(255, 255, 255, 0.10);
+  background: rgba(66, 66, 66, 0.32);
+  color: $textPrimary;
   outline: none;
+  transition: border $transitionSpeed ease;
+  
+  &:focus {
+    border-color: rgba(255, 255, 255, 0.50);
+  }
 }
 
 .split-button {
-  border-radius: 4px;
+  border-radius: $borderRadiusSm;
   padding: 8px;
-  border: 1px solid transparent; /* necessary for gradient border */
-
-  background: 
-  linear-gradient(45deg, #161616da, #00000079) padding-box, /* your original background */
-  linear-gradient(90deg, rgba(255, 255, 255, 0.336), rgba(0, 0, 0, 0.589)) border-box;
-  color: white;
+  border: $borderWidth solid rgba(255, 255, 255, 0.40);
+  background: $buttonBg;
+  color: $textPrimary;
   outline: none;
+  opacity: 0.75;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease;
+  
+  &:hover {
+    opacity: 1;
+    background: $buttonHover;
+  }
 }
 
 ::-webkit-search-cancel-button {
@@ -67,14 +84,18 @@ input {
 }
 
 ::-webkit-scrollbar-track {
-  background: #161616bb;
+  background: rgba(55, 55, 55, 0.3);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #77deb9;
+  background: $textSecondary;
   border-radius: 3px;
+  transition: background $transitionSpeed ease;
   
+  &:hover {
+    background: $textPrimary;
+  }
 }
 
 p {
@@ -93,19 +114,16 @@ input[type='number']::-webkit-outer-spin-button {
 .app-wrapper {
   height: 100%;
   width: 100%;
-  color: white;
+  color: $textPrimary;
 }
 
 .context-menu-list {
   min-width: 100px;
-  border-radius: 4px;
+  border-radius: $borderRadiusMd;
   padding: 8px;
-  border: 1px solid transparent; /* necessary for gradient border */
-
-  background: 
-  linear-gradient(45deg, #161616da, #000000e0) padding-box, /* your original background */
-  linear-gradient(90deg, rgba(255, 255, 255, 0.336), rgba(0, 0, 0, 0.589)) border-box;
-  color: white;
+  border: $borderWidth solid $borderColor;
+  background: $mainBgGradient;
+  color: $textPrimary;
   outline: none;
   display: flex;
   flex-direction: column;
@@ -118,15 +136,19 @@ input[type='number']::-webkit-outer-spin-button {
   border: none;
   font-size: 1.2vh;
   font-weight: 500;
-  color: #aca5b4;
+  color: $textSecondaryAlt;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: color $transitionSpeed ease, background $transitionSpeed ease;
+  border-radius: $borderRadiusSm;
+  
   &:active {
     transform: none;
   }
   &:hover {
-    color: white;
+    color: $textPrimary;
+    background: $buttonHover;
     cursor: pointer;
   }
 }
@@ -147,39 +169,36 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .tooltip-description {
-  border-radius: 4px;
+  border-radius: $borderRadiusMd;
   padding: 8px;
-  border: 1px solid transparent; /* necessary for gradient border */
-
-  background: 
-  linear-gradient(45deg, #161616da, #000000e0) padding-box, /* your original background */
-  linear-gradient(90deg, rgba(255, 255, 255, 0.336), rgba(0, 0, 0, 0.589)) border-box;
+  border: $borderWidth solid $borderColor;
+  background: $mainBgGradient;
 }
 
 .tooltip-ammo {
   margin-top: 0.5rem;
   width: 100%;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255,255,255,0.10);
   padding-top: 0.5rem;
   padding-bottom: 0.25rem;
-  color: rgba(255,255,255,0.7);
+  color: $textSecondaryAlt;
 }
 
 .tooltip-ammo a {
   font-size: 1.2vh;
-  color: white;
+  color: $textPrimary;
 }
 
 .tooltip-durability {
   margin-top: 0.5rem;
   width: 100%;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255,255,255,0.10);
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  color: rgba(255,255,255,0.7);
+  color: $textSecondaryAlt;
   a {
-    color: white;
-    font-weight: 700;
+    color: $textPrimary;
+    font-weight: 600;
     font-size: 1.2vh;
     display: flex;
     margin-top: 8px;
@@ -232,22 +251,23 @@ button:active {
 }
 
 .useful-controls-dialog {
-  background-color: $mainColor;
+  background: $mainBgGradient;
+  border: $borderWidth solid $borderColor;
+  border-radius: $borderRadiusMd;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: $textColor;
+  color: $textPrimary;
   width: 450px;
   display: flex;
   flex-direction: column;
   padding: 16px;
-  border-radius: 4px;
   gap: 16px;
 }
 
 .useful-controls-dialog-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .useful-controls-dialog-title {
@@ -265,10 +285,13 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 4px;
-  fill: $textColor;
+  border-radius: $borderRadiusSm;
+  fill: $textSecondary;
+  transition: background $transitionSpeed ease, fill $transitionSpeed ease;
+  
   &:hover {
-    background-color: $secondaryColorHighlight;
+    background-color: $buttonHover;
+    fill: $textPrimary;
     cursor: pointer;
   }
 }
@@ -282,26 +305,29 @@ button:active {
 .divider {
   width: 100%;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.10);
 }
 
 .useful-controls-button {
   position: absolute !important;
   bottom: 25px;
   right: 25px;
-  transition: 200ms !important;
-  border: none;
-  color: white;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease !important;
+  border: $borderWidth solid rgba(255, 255, 255, 0.40) !important;
+  color: $textPrimary !important;
   width: 52px;
   height: 52px;
   display: flex;
   justify-content: center;
   align-items: center;
-  fill: white;
-  border-radius: 5% !important;
-  background-color: $secondaryColor !important;
+  fill: $textPrimary !important;
+  border-radius: $borderRadiusSm !important;
+  background-color: $buttonBg !important;
+  opacity: 0.75 !important;
+  
   &:hover {
-    background-color: $secondaryColorDark !important;
+    background-color: $buttonHover !important;
+    opacity: 1 !important;
     cursor: pointer;
   }
 }
@@ -310,8 +336,13 @@ button:active {
   position: absolute !important;
   right: 8px;
   top: 8px;
-  border-radius: 2.5% !important;
-  color: grey !important;
+  border-radius: $borderRadiusSm !important;
+  color: $textSecondary !important;
+  transition: color $transitionSpeed ease;
+  
+  &:hover {
+    color: $textPrimary !important;
+  }
 }
 
 // Dialog is used fro useful controls window
@@ -319,13 +350,13 @@ button:active {
 
 // inventory grids
 .inventory-grid-wrapper {
-  background-color: rgba(30, 30, 30, 0.75);
-  border: 2px solid #7e7e7e5b;
+  background: $mainBgGradient;
+  border: $borderWidth solid $borderColor;
   padding-left: 2.5vh;
   padding-right: 2.5vh;
   padding-top: 1vh;
   padding-bottom:2vh;
-  border-radius: 1vh;
+  border-radius: $borderRadiusMd;
   display: flex;
   flex-direction: column;
   gap: calc($gridGap * 1);
@@ -334,7 +365,8 @@ button:active {
 .inventory-grid-header-wrapper2 {
   h1 {
     font-size: 1.5vh;
-    font-weight: 700;
+    font-weight: 600;
+    color: $textPrimary;
   }
   align-items: center;
   display: flex;
@@ -343,7 +375,8 @@ button:active {
 }
 .inventory-grid-header-wrapper p, i {
   font-size: 1.3vh;
-  font-weight: 400;
+  font-weight: 500;
+  color: $textSecondary;
 }
 
 .inventory-grid-header-wrapper {
@@ -401,20 +434,23 @@ button:active {
 // inventory slots
 .inventory-slot {
   padding: 10px;
-  background-color: $secondaryColor;
+  background: $mainBgGradient;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 5%;
+  border-radius: $borderRadiusSm;
+  border: $borderWidth solid $borderColor;
   image-rendering: -webkit-optimize-contrast;
   position: relative;
-  color: $textColor;
-  border-style: inset;
-  border-width: 1px;
+  color: $textPrimary;
+  transition: border-color $transitionSpeed ease, background $transitionSpeed ease;
+  
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.20);
+  }
 }
 
 .inventory-slot-label-box {
-  // background-color: $mainColor;
-  color: $textColor;
+  color: $textPrimary;
   align-items:end;
   justify-content: space-between;
   display: flex;
@@ -423,9 +459,10 @@ button:active {
 .inventory-slot-label-text {
   text-transform: capitalize;
   overflow: hidden;
-  font-weight: 900;
+  font-weight: 600;
   font-family: $mainFont;
   font-size: 1vh;
+  color: $textPrimary;
   white-space: normal;       /* allow wrapping */
   word-wrap: break-word;     /* break long words if needed */
   word-break: break-word;    /* extra safety */
@@ -434,12 +471,13 @@ button:active {
 
 .inventory-slot-rarity {
   padding: 3px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   border-top-left-radius: 0.25vh;
   border-bottom-right-radius: 0.25vh;
   font-size: 0.8vh;
   font-family: $mainFont;
+  color: $textPrimary;
   margin-left: auto;
 }
 
@@ -470,7 +508,7 @@ button:active {
 }
 
 .item-slot-info-wrapper {
-  color: #ffffff83;
+  color: $textSecondaryAlt;
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -484,6 +522,7 @@ button:active {
   gap: 3px;
   p {
     font-size: 0.8vh;
+    font-weight: 500;
   }
 }
 
@@ -495,6 +534,8 @@ button:active {
   padding-right: 3px;
   p {
     font-size: 14px;
+    font-weight: 600;
+    color: $textPrimary;
     text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
   }
 }
@@ -506,42 +547,40 @@ button:active {
   padding-right: 3px;
   p {
     font-size: 14px;
+    font-weight: 600;
+    color: $textPrimary;
     text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
   }
 }
 
 
 .tooltip-wrapper {
-  border-radius: 4px;
+  border-radius: $borderRadiusMd;
   padding: 8px;
-  border: 1px solid transparent; /* necessary for gradient border */
-
-  background: 
-  linear-gradient(45deg, #161616da, #000000e0) padding-box, /* your original background */
-  linear-gradient(90deg, rgba(255, 255, 255, 0.336), rgba(0, 0, 0, 0.589)) border-box;
-  color: white;
-
+  border: $borderWidth solid $borderColor;
+  background: $mainBgGradient;
+  color: $textPrimary;
   pointer-events: none;
   display: flex;
   width: 28vh;
   max-width: calc(15% - 20px);
   flex-direction: column;
   min-width: 200px;
-  color: $textColor;
   font-family: $mainFont;
   p {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
+    color: $textSecondary;
   }
 }
 
 .tooltip-header-wrapper {
-  color: white;
+  color: $textPrimary;
   display: flex;
   flex-direction: row;
   p {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
   }
 }
 
@@ -552,9 +591,12 @@ button:active {
   justify-content: center;
   svg {
     padding-right: 3px;
+    fill: $textSecondary;
   }
   p {
     font-size: 14px;
+    font-weight: 500;
+    color: $textSecondary;
   }
 }
 
@@ -565,13 +607,10 @@ button:active {
 }
 
 .tooltip-ingredient {
-  border-radius: 4px;
+  border-radius: $borderRadiusSm;
   padding: 8px;
-  border: 1px solid transparent; /* necessary for gradient border */
-
-  background: 
-  linear-gradient(45deg, #161616da, #000000e0) padding-box, /* your original background */
-  linear-gradient(90deg, rgba(255, 255, 255, 0.336), rgba(0, 0, 0, 0.589)) border-box;
+  border: $borderWidth solid $borderColor;
+  background: $mainBgGradient;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -595,9 +634,10 @@ button:active {
 
 .inventory-slot-number {
   position: absolute;
-  color: $secondaryColor;
+  color: $textPrimary;
+  background: rgba(61, 61, 61, 0.9);
   padding-top: 2px;
-  font-weight: 800;
+  font-weight: 600;
   padding-left: 4px;
   padding-right: 4px;
   padding-bottom: 2px;
@@ -606,6 +646,7 @@ button:active {
   font-size: 0.9vh;
   left: 0;
   top: 0;
+  border: $borderWidth solid rgba(255, 255, 255, 0.20);
 }
 
 .hotbar-item-slot {
@@ -643,7 +684,7 @@ button:active {
 }
 
 .durability-bar {
-  // background: rgba(0, 0, 0, 0.5);
+  background: rgba(217, 217, 217, 0.24);
   height: 4px;
   overflow: hidden;
   position: absolute;
@@ -655,11 +696,23 @@ button:active {
 }
 
 .weight-bar {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1.5px solid rgba(124, 124, 124, 0.493);
+  background: rgba(217, 217, 217, 0.24);
+  border: $borderWidth solid rgba(255, 255, 255, 0.10);
   border-radius: 10rem;
   height: 0.8vh;
   overflow: hidden;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: $progressFill;
+    box-shadow: 0 0 1.463vh 0 rgba(170, 170, 170, 0.8);
+    transition: width 0.3s ease;
+  }
 }
 
 .transition-fade-enter {
@@ -706,7 +759,7 @@ button:active {
 
 .right-inventories-container {
   display: flex;
-  background-color: white;
+  background: transparent;
   flex-direction: column;
   max-height: 100vh;
   overflow-y: auto;
@@ -728,17 +781,18 @@ button:active {
 }
 
 .right-inventories-scrollable::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(55, 55, 55, 0.3);
   border-radius: 4px;
 }
 
 .right-inventories-scrollable::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
+  background: $textSecondary;
   border-radius: 4px;
+  transition: background $transitionSpeed ease;
 }
 
 .right-inventories-scrollable::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: $textPrimary;
 }
 
 .inventory-item {
@@ -776,45 +830,49 @@ button:active {
   display: flex;
   align-items: center;
   gap: 8px;
-
-  border-radius: 4px;
+  border-radius: $borderRadiusSm;
   padding-left: 18px;
   padding-right: 18px;
-  border: 1px solid transparent; /* necessary for gradient border */
-
-  background: 
-  linear-gradient(45deg, #161616a1, #000000b6) padding-box, /* your original background */
-  linear-gradient(90deg, rgba(255, 255, 255, 0.336), rgba(0, 0, 0, 0.589)) border-box;
-
+  border: $borderWidth solid rgba(255, 255, 255, 0.40);
+  background: $buttonBg;
   font-size: 1vh;
-  color: white;
+  color: $textPrimary;
   font-weight: 500;
+  opacity: 0.75;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease;
+  
+  &:hover {
+    opacity: 1;
+    background: $buttonHover;
+  }
 }
 
 .inventory-switch-btn {
   font-size: 1vh;
-  border-radius: 4px;
+  border-radius: $borderRadiusSm;
   width: 25px;
   height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid transparent; /* necessary for gradient border */
-
-  background: 
-  linear-gradient(45deg, #161616a1, #000000b6) padding-box, /* your original background */
-  linear-gradient(90deg, rgba(255, 255, 255, 0.336), rgba(0, 0, 0, 0.589)) border-box;
-
+  border: $borderWidth solid rgba(255, 255, 255, 0.40);
+  background: $buttonBg;
+  transition: background $transitionSpeed ease;
+  
+  &:hover {
+    background: $buttonHover;
+  }
 }
+
 .inventory-switch:focus {
   outline: none;
   appearance: none;
 }
 
 .inventory-switch.active {
-  background: 
-  linear-gradient(45deg, #161616a1, rgba(119, 222, 185, 0.5)) padding-box, /* your original background */
-  linear-gradient(90deg, rgba(255, 255, 255, 0.336), rgba(154, 221, 47, 0.222)) border-box;
+  background: $buttonHover;
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.50);
 }
 
 
@@ -830,18 +888,22 @@ button:active {
 /* Shopping cart */
 .shopping-cart {
   min-height: 20vh;
-  // transition: all 0.3s ease;
   max-height: 30vh;
+  border: $borderWidth solid $borderColor;
+  border-radius: $borderRadiusMd;
+  background: $mainBgGradient;
+  padding: 1vh;
+  transition: border-color $transitionSpeed ease;
 }
 
 /* Highlight when dragging over */
 .shopping-cart.highlight {
-  border: 1px dashed #77deb9;
+  border: $borderWidth dashed rgba(255, 255, 255, 0.50);
 }
 
 /* Empty message */
 .shopping-cart p {
-  color: #ffffff;
+  color: $textPrimary;
   font-weight: 500;
 }
 
@@ -852,20 +914,21 @@ button:active {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  color: #ccc;
+  color: $textSecondary;
 
   i {
     font-size: 5vh;
-    color: #cccccc65;
+    color: $textSecondaryAlt;
   }
 
   p {
     display: flex;
     flex-direction: column;
+    color: $textSecondary;
 
     a {
       font-size: 1vh;
-      color: #cccccc65;
+      color: $textSecondaryAlt;
     }
   }
 }
@@ -875,12 +938,17 @@ button:active {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #00000093;
+  background: rgba(61, 61, 61, 0.5);
   padding: 0.5rem;
-  border-radius: 6px;
-  border: transparent 1px solid;
+  border-radius: $borderRadiusSm;
+  border: $borderWidth solid rgba(255, 255, 255, 0.10);
   gap: 0.5rem;
-  transition: background 0.2s, transform 0.1s;
+  transition: background $transitionSpeed ease, border-color $transitionSpeed ease, transform 0.1s;
+  
+  &:hover {
+    background: rgba(74, 74, 74, 0.6);
+    border-color: rgba(255, 255, 255, 0.20);
+  }
 }
 
 .cart-item-grid {
@@ -922,26 +990,28 @@ button:active {
 }
 
 .cart-controls button {
-  background: #000000;
-  color: #fff;
-  border: none;
+  background: $buttonBg;
+  color: $textPrimary;
+  border: $borderWidth solid rgba(255, 255, 255, 0.40);
   padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+  border-radius: $borderRadiusSm;
   cursor: pointer;
   font-weight: 600;
   font-size: 1rem;
-  transition: background 0.2s;
-}
-
-.cart-controls button:hover {
-  background: #555;
+  opacity: 0.75;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease;
+  
+  &:hover {
+    background: $buttonHover;
+    opacity: 1;
+  }
 }
 
 /* Cart footer */
 .cart-footer {
   margin-top: auto;
   padding-top: 0.5rem;
-  border-top: 1px solid #555;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -949,27 +1019,152 @@ button:active {
 
 .cart-footer p {
   margin: 0;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1rem;
   text-align: right;
+  color: $textPrimary;
 }
 
 .cart-footer button {
-  border-radius: 4px;
+  border-radius: $borderRadiusSm;
   padding: 8px;
-  border: 1px solid transparent; /* necessary for gradient border */
-
-  background: 
-  linear-gradient(45deg, #161616da, #00000046) padding-box, /* your original background */
-  linear-gradient(90deg, rgba(255, 255, 255, 0.151), rgba(0, 0, 0, 0.404)) border-box;
-  color: white;
+  border: $borderWidth solid rgba(255, 255, 255, 0.40);
+  background: $buttonBg;
+  color: $textPrimary;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s;
+  font-weight: 600;
+  opacity: 0.75;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease;
+  
+  &:hover {
+    background: $buttonHover;
+    opacity: 1;
+  }
+}
+
+// General button styles
+button {
+  border-radius: $borderRadiusSm;
+  border: $borderWidth solid rgba(255, 255, 255, 0.40);
+  background: $buttonBg;
+  color: $textPrimary;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: $mainFont;
+  opacity: 0.75;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease;
+  
+  &:hover {
+    background: $buttonHover;
+    opacity: 1;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.50);
+  }
+}
+
+// Cancel/Secondary button style
+button.cancel,
+button.secondary {
+  background: rgba(153, 153, 153, 0.13);
+  color: $textSecondaryAlt;
+  border: $borderWidth solid rgba(255, 255, 255, 0.10);
+  
+  &:hover {
+    background: $buttonBg;
+    color: $textPrimary;
+  }
+}
+
+// Crafting styles
+.crafting-grid {
+  background: $mainBgGradient;
+  border: $borderWidth solid $borderColor;
+  border-radius: $borderRadiusMd;
+  
+  &.highlight {
+    border: $borderWidth dashed rgba(255, 255, 255, 0.50);
+  }
+}
+
+.recipe-item {
+  background: transparent;
+  border: $borderWidth solid rgba(255, 255, 255, 0.10);
+  border-radius: $borderRadiusSm;
+  transition: background $transitionSpeed ease, border-color $transitionSpeed ease;
+  cursor: pointer;
+  
+  &:hover {
+    background: rgba(61, 61, 61, 0.3);
+    border-color: rgba(255, 255, 255, 0.20);
+  }
+  
+  &.selected {
+    background: rgba(74, 74, 74, 0.6);
+    border-color: rgba(255, 255, 255, 0.50);
+  }
+}
+
+.recipe-details {
+  color: $textPrimary;
+  
+  h3, h4 {
+    color: $textPrimary;
+    font-weight: 600;
+  }
+  
+  p {
+    color: $textSecondary;
+    font-weight: 500;
+  }
+}
+
+.crafting-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+// Crafting quantity controls
+.crafting-quantity-controls {
+  background: rgba(66, 66, 66, 0.32);
+  border: $borderWidth solid rgba(255, 255, 255, 0.10);
+  border-radius: $borderRadiusSm;
+  padding: 0.5rem;
+  
+  button {
+    background: transparent;
+    border: none;
+    color: $textPrimary;
+    opacity: 1;
+    
+    &:hover {
+      background: rgba(74, 74, 74, 0.5);
+    }
+  }
+}
+
+// Crafting queue button
+.crafting-add-button {
+  background: $buttonBg;
+  border: $borderWidth solid rgba(255, 255, 255, 0.40);
+  color: $textPrimary;
+  border-radius: $borderRadiusSm;
+  padding: 1.5rem;
+  font-size: 1.25vh;
+  font-weight: 600;
+  opacity: 0.75;
+  
+  &:hover {
+    background: $buttonHover;
+    opacity: 1;
+  }
 }
 
 

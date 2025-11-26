@@ -293,8 +293,6 @@ const RightInventory: React.FC = () => {
                                         key={i}
                                         className={`recipe-item ${selectedRecipe?.name === recipe.name ? "selected" : ""}`}
                                         style={{
-                                            backgroundColor: selectedRecipe?.name === recipe.name ? 'rgba(119,222,185,0.2)' : 'transparent',
-                                            border: selectedRecipe?.name === recipe.name ? '1px solid #77deb9' : '1px solid rgba(255, 255, 255, 0.1)',
                                             display: 'flex',
                                             justifyContent: 'center',
                                             alignItems: 'center',
@@ -392,15 +390,16 @@ const RightInventory: React.FC = () => {
                                         }}>
                                             CRAFTING TIME:
                                             <a style={{
-                                                color: 'rgba(255,255,255)',
+                                                color: '#FFF',
                                                 fontSize: '1.25vh',
-                                                backgroundColor: 'rgba(119,222,185,0.2)',
+                                                backgroundColor: 'rgba(61, 61, 61, 0.75)',
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
                                                 padding: '0.5rem 0.85rem',
                                                 borderRadius: '0.35rem',
-                                                border: '1px solid rgba(119,222,185)',
+                                                border: '0.0926vh solid rgba(255, 255, 255, 0.40)',
+                                                fontWeight: '600',
                                             }}>
                                                 {selectedRecipe.duration / 1000}s
                                             </a>
@@ -480,15 +479,10 @@ const RightInventory: React.FC = () => {
                                                 </div>
                                             </div>
 
-                                            <button onClick={addToQueue} style={{
-                                                color: 'rgba(255,255,255)',
+                                            <button onClick={addToQueue} className="crafting-add-button" style={{
                                                 width: '60%',
-                                                backgroundColor: 'rgba(119,222,185,0.2)',
-                                                border: '1px solid #77deb9',
-                                                borderRadius: '0.5rem',
                                                 padding: '1.5rem',
                                                 fontSize: '1.25vh',
-                                                fontWeight: '600',
                                             }}>
                                                 Add To Queue
                                             </button>

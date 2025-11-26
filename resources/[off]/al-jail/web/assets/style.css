@@ -1,0 +1,95 @@
+@font-face {
+    font-family: "Nexa-Book";
+    src: url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.eot");
+    src: url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.svg#Nexa-Book") format("svg");
+}
+
+
+body {
+    user-select: none;
+    font-family: 'Nexa-Book', sans-serif;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-color: transparent;
+    transition: all 250ms ease-in-out;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.text-container {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    top: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+}
+
+.inner-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.default_text {
+    font-family: "Nexa-Book", sans-serif;
+    font-size: 2vh;
+}
+
+.default_text a {
+    font-weight: 700;
+}
+
+.default_text h1 {
+    font-weight: 800;
+    font-size: 3vh;
+}
+
+.time-counter-container {
+    display: none;
+    position: absolute;
+    background-color: #0764AC;
+    bottom: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    width: 12vw;
+    height: fit-content;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.25vw;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.time {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.misc_time {
+    font-weight: 700;
+}
+
+#random-button {
+    z-index: 999999999;
+    display: none;
+    font-family: "Nexa-Book", sans-serif;
+    font-weight: 500;
+    position: absolute;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
