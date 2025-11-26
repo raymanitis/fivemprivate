@@ -1,0 +1,8 @@
+{
+  "sit_occupied": "This sit is occupied",
+  "table_not_exist": "Table doesnt exist",
+  "game_started": "Game started, you need to wait",
+  "missing_chips": "You need %s chips more",
+  "enter_table": "Press ~INPUT_PICKUP~ to play",
+  "sit": "Sit"
+}

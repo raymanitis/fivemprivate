@@ -1,0 +1,14 @@
+{
+    "not_enough_chips": "You don't have enough chips",
+    "bets_closing": "Bets are closing in %s seconds",
+    "win_blackjack": "You have a BLACKJACK, you won!",
+    "lose": "You lost",
+    "win": "You won",
+    "draw": "It's a draw",
+    "your_hand": "Your cards are %s",
+    "cant_hit": "You can't take a card",
+    "cant_stand": "You can't stand",
+    "cant_doubledown": "You can't double down",
+    "cant_split": "You can't split the bet",
+    "sit": "Sit"
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.1.1/css/pro.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <title>Slots</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+    * {
+        box-sizing: border-box;
+        user-select: none;
+        font-family: 'Bai Jamjuree', sans-serif;
+    }
+
+    :root {
+        font-size: min(.83333333vw, 1.8009478673vh);
+        transition: font-size .15s linear;
+        --item-color: #c2f4f91e;
+        --bg-color: #121a1ce3;
+        --main-color: #C2F4F9;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        overflow: hidden;
+        color: #fff;
+    }
+    
+    .app-wrapper {
+        position: absolute;
+        bottom: 1rem; right: -35rem; align-items: flex-end;
+        display: none; flex-direction: column; gap: .5rem;
+        opacity: 0.0;
+        transform: scale(0.9); transform-origin: bottom right;
+    }
+
+    .main-wrapper {
+        padding: .75rem 1rem;
+        border-radius: .25rem;
+        background-color: #121a1cde;
+        display: flex; align-items: center; gap: 1rem;
+        width: fit-content;
+    }
+
+    .key-wrapper img {
+        width: 1.25rem;
+    }
+
+    .key-wrapper {
+        background-color: #384f524f;
+        border: .0625rem solid #c2f4f967;
+        width: 2.25rem; height: 2.25rem; border-radius: .15rem;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1rem;
+    }
+
+    .help-wrapper {
+        display: flex; align-items: center; gap: .25rem;
+    }
+
+    .help-wrapper:not(:last-child) {
+        border-right: .0625rem solid #ffffff14;
+        padding-right: 1rem;
+    }
+
+    .help-wrapper > span {
+        margin-left: .5rem;
+        font-size: .9rem;
+    }
+
+    .info-row {
+        display: flex; flex-direction: column;
+        width: 6.5rem;
+    }
+
+    .info-row > span:first-child {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: .75rem;
+    }
+
+    .info-row > span:last-child {
+        font-size: 1.25rem;
+    }
+</style>
+<body>
+    <div class="app-wrapper">
+        <div class="main-wrapper info-wrapper">
+            <div class="info-row">
+                <span>Dealer hand</span>
+                <span id="dealer-hand">0</span>
+            </div>
+            <div class="info-row">
+                <span>Player hand</span>
+                <span id="player-hand">0</span>
+            </div>
+            <div class="info-row">
+                <span>Split hand</span>
+                <span id="split-hand">0</span>
+            </div>
+        </div>
+        <div class="main-wrapper info-wrapper">
+            <div class="info-row">
+                <span>Bet</span>
+                <span id="bet">0</span>
+            </div>
+            <div class="info-row">
+                <span>Chips</span>
+                <span id="chips">0</span>
+            </div>
+            <div class="info-row">
+                <span>Time remaining</span>
+                <span id="time">00:00</span>
+            </div>
+            <div class="info-row">
+                <span>Last win</span>
+                <span id="lastWin">0</span>
+            </div>
+        </div>
+        <div class="main-wrapper">
+            <div class="help-wrapper">
+                <div class="key-wrapper">
+                    <span>X</span>
+                </div>
+                <span>Leave</span>
+            </div>
+            <div class="help-wrapper">
+                <div class="key-wrapper">
+                    <img src="img/arrow-up.svg" alt="">
+                </div>
+                <div class="key-wrapper">
+                    <img src="img/arrow-down.svg" alt="">
+                </div>
+                <span>Change bet</span>
+            </div>
+            <div class="help-wrapper">
+                <div class="key-wrapper">
+                    <img src="img/enter.svg" alt="">
+                </div>
+                <span>Bet</span>
+            </div>
+            <div class="help-wrapper">
+                <div class="key-wrapper">
+                    <span>Q</span>
+                </div>
+                <span>Hit</span>
+            </div>
+            <div class="help-wrapper">
+                <div class="key-wrapper">
+                    <span>W</span>
+                </div>
+                <span>Stand</span>
+            </div>
+            <div class="help-wrapper">
+                <div class="key-wrapper">
+                    <span>E</span>
+                </div>
+                <span>Double Down</span>
+            </div>
+            <div class="help-wrapper">
+                <div class="key-wrapper">
+                    <span>R</span>
+                </div>
+                <span>Split</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.addEventListener("message", (event) => {
+        const data = event.data;
+        switch(data.action) {
+            case 'ToggleMenu':
+                if (data.state) {
+                    $('.app-wrapper').css('display', 'flex');
+                    $('.app-wrapper').animate({
+                        right: '1rem',
+                        opacity: '1.0'
+                    }, 800);
+                } else {
+                    $('.app-wrapper').animate({
+                        right: '-35rem',
+                        opacity: '0.0'
+                    }, 800, () => {
+                        $('.app-wrapper').hide();
+                    });
+                }
+                break;
+            case 'setupMenu':
+                $('#chips').text(data.chips);
+                $('#bet, #time, #lastWin').text('0');
+                break;
+            case 'UpdateMenu':
+                if (data.field == 'time') {
+                    data.value = formatTime(data.value);
+                }
+                $(`#${data.field}`).text(data.value);
+                break;
+        }
+    })
+
+    const formatTime = ((time) => {
+        let minutes = Math.floor(time / 60);
+        let seconds = time - (minutes * 60);
+        return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+    })
+</script>
+</html>

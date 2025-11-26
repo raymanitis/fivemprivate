@@ -1,0 +1,10 @@
+{
+  "sit_occupied": "To miejsce jest zajęte",
+  "table_not_exist": "Stół nie istnieje",
+  "game_started": "Gra wystartowała, odczekaj",
+  "missing_chips": "Brakuje ci %s żetonów",
+  "enter_table": "Naciśnij ~INPUT_PICKUP~ aby zagrać",
+  "sit": "Usiądź",
+  "wrong_bet": "Twój zakład jest zbyt niski lub zbyt wysoki na ten stół",
+  "no_bet": "Twój zakład musi być większy niż 0"
+}

@@ -1,0 +1,14 @@
+{
+    "not_enough_chips": "Nie masz tylu żetonów",
+    "bets_closing": "Zakłady zamykają się za %s sekund",
+    "win_blackjack": "Masz BLACKJACKa, wygrałeś!",
+    "lose": "Przegrałeś",
+    "win": "Wygrałeś",
+    "draw": "Zremisowałeś",
+    "your_hand": "Twoje karty %s",
+    "cant_hit": "Nie możesz wziąć karty",
+    "cant_stand": "Nie możesz spasować",
+    "cant_doubledown": "Nie możesz podwoić zakładu",
+    "cant_split": "Nie możesz rozdzielić zakładu",
+    "sit": "Usiądź"
+}

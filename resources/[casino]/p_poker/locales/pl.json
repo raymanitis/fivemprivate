@@ -1,0 +1,19 @@
+{
+  "sit_occupied": "To miejsce jest zajęte",
+  "table_not_exist": "Stół nie istnieje",
+  "game_started": "Gra wystartowała, odczekaj",
+  "missing_chips": "Brakuje ci %s żetonów",
+  "enter_table": "Naciśnij ~INPUT_PICKUP~ aby zagrać",
+  "sit": "Usiądź",
+  "already_bet": "Już postawiłeś",
+  "not_enough_chips": "Nie możesz postawić takiej ilości żetonów, ponieważ nie wystarczyłoby Ci na rozegranie swojej ręki",
+  "not_enough_chips_next": "Nie masz wystarczającej ilości żetonów, aby postawić zakład na Pair Plus, ponieważ nie miałbyś wystarczającej liczby żetonów do gry",
+  "pair_win": "Wygrałeś %s żetonów z twoim zakładem Pair Plus (Mnożnik: x%s)",
+  "player_win": "Twoje rozdanie wygrało, wygrałeś %s żetonów",
+  "player_ante_win": "Twoje rozdanie wygrało, wygrałeś %s żetonów (Mnożnik ante: x%s)",
+  "dealer_not_qual": "Remis, Krupier nie zakwalifikował się do gry. Dostałeś %s żetonów.",
+  "dealer_ante_not_qual": "Remis, Krupier nie zakwalifikował się do gry. Dostałeś %s żetonów (Mnożnik ante: x%s)",
+  "no_respond": "Nie odpowiedziałeś krupierowi na czas. Spasowałeś swoje karty",
+  "player_lost": "Twoje rozdanie przegrało",
+  "no_bet": "Zakład musi być większy niż 0"
+}

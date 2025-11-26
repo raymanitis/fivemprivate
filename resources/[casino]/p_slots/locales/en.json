@@ -1,0 +1,8 @@
+{
+    "play": "Play",
+    "play_icon": "fa-solid fa-coins",
+    "slot_occupied": "Someone is already playing on this slots",
+    "too_far": "You are too far from slots",
+    "not_enough_chips": "You need %s chips more",
+    "enter_slots": "Press ~INPUT_PICKUP~ to play"
+}

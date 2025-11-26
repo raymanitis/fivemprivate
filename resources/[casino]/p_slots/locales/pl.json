@@ -1,0 +1,8 @@
+{
+    "play": "Zagraj",
+    "play_icon": "fa-solid fa-coins",
+    "slot_occupied": "Już ktoś gra na tej maszynie",
+    "too_far": "Jesteś za daleko od maszyny",
+    "not_enough_chips": "Brakuje ci %s żetonów",
+    "enter_slots": "Naciśnij ~INPUT_PICKUP~ aby zagrać"
+}
