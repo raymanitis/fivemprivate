@@ -143,8 +143,6 @@ CreateThread(function()
     if GetGameBuildNumber() >= 2060 then
         DiamondCasino.LoadDefault() -- 1100.000, 220.000, -50.000
         DiamondPenthouse.LoadDefault() -- 976.636, 70.295, 115.164
-        DiamondArcade.LoadDefault() -- 2732.000, -380.000, -50.000
-        DiamondArcadeBasement.LoadDefault() -- 2710.0, -360.780, -56.0
     end
 
     -- ====================================================================
@@ -182,7 +180,7 @@ CreateThread(function()
     -- =------------------- [DLC: The Criminal Enterprise] ---------------------=
     -- ====================================================================
     if GetGameBuildNumber() >= 2699 then
-        CriminalEnterpriseSmeonFix.LoadDefault() -- -50.2248, -1098.8325, 26.049742
+        -- CriminalEnterpriseSmeonFix.LoadDefault() -- -50.2248, -1098.8325, 26.049742
         CriminalEnterpriseVehicleWarehouse.LoadDefault() -- 800.13696, -3001.4297, -65.14074
         CriminalEnterpriseWarehouse.LoadDefault() -- 849.1047, -3000.209, -45.974354
     end
@@ -233,12 +231,7 @@ CreateThread(function()
         AgentsHangarDoor.LoadDefault() -- -2632.43, 2963.23, 8.5
     end
 
-    -- ====================================================================
-    -- =----------------------- [DLC: Money Fronts] ----------------------=
-    -- ====================================================================
-    if GetGameBuildNumber() >= 3570 then
-        MoneyCarwash.LoadDefault() -- 26.074, -1398.979, -75.0
-        MoneyOffice.LoadDefault() -- -1160.493, -1538.932, -50.0
-        MoneyConstruction.LoadDefault()
-    end
+
+    MercenariesFixes = exports['bob74_ipl']:GetMercenariesFixesObject()
+    MercenariesFixes.Enable(false)
 end)
