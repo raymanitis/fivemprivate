@@ -168,18 +168,18 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
         borderRadius: '4px',
         padding: '8px',
         border: isOver
-          ? '1px dashed rgba(255,255,255,0.4)'
+          ? '1px dashed rgba(194, 244, 249, 0.67)'
           : rarityColor
-          ? `1px solid ${withAlpha(rarityColor, 0.7)}`
-          : '1px solid rgba(0, 0, 0, 0.8)',
+          ? `1px solid ${withAlpha(rarityColor, 0.4)}`
+          : '1px solid rgba(194, 244, 249, 0.40)',
         background: isOver
           ? `
               ${item?.name ? `url(${getItemUrl(item as SlotWithItem)}) center / 5vh no-repeat padding-box,` : ''}
-              linear-gradient(45deg, #161616bb, #000000b4) padding-box
+              rgba(18, 26, 28, 0.89) padding-box
             `
           : `
               ${item?.name ? `url(${getItemUrl(item as SlotWithItem)}) center / 5vh no-repeat padding-box,` : ''}
-              linear-gradient(45deg, #161616bb, #000000b4) padding-box
+              rgba(18, 26, 28, 0.89) padding-box
             `,
         filter:
           !canPurchaseItem(item, { type: inventoryType, groups: inventoryGroups }) ||
@@ -188,10 +188,10 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
             : undefined,
         opacity: isDragging ? 0.4 : 1.0,
         boxShadow: isOver
-          ? 'inset 0px 0px 40px -20px rgba(255,255,255, 0.1)'
+          ? 'inset 0px 0px 40px -20px rgba(194, 244, 249, 0.2)'
           : rarityColor
-          ? `inset 0px 0px 3vh -2vh ${withAlpha(rarityColor, 1)}`
-          : 'inset 0px 0px 2vh -1vh rgba(0,0,0, 1)',
+          ? `inset 0px 0px 3vh -2vh ${withAlpha(rarityColor, 0.6)}`
+          : 'inset 0px 0px 2vh -1vh rgba(194, 244, 249, 0.1)',
         ...style,
       }}
     >
@@ -275,7 +275,7 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
                     {item.price > 0 && (
                       <div
                         className="item-slot-price-wrapper"
-                        style={{ color: '#12b886' }} // Mantine teal[6] for all prices
+                        style={{ color: '#C2F4F9' }} // Cyan accent for all prices
                       >
                         <p>
                           {Locale.$ || '$'}

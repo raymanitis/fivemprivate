@@ -14,38 +14,38 @@ const colorMixer = (rgbA: number[], rgbB: number[], amountToMix: number) => {
 };
 
 const COLORS = {
-  // Mantine Teal Theme Colors
-  tealPrimary: [18, 184, 134], // Mantine teal[6] (#12b886) - Main accent
-  tealHover: [32, 201, 151], // Mantine teal[5] (#20c997) - Hover
-  tealLight: [38, 198, 148], // Mantine teal[4] - Lighter teal
-  tealDark: [15, 166, 117], // Mantine teal[7] - Darker teal
+  // Cyan Gaming Theme Colors
+  cyanPrimary: [194, 244, 249], // Main accent (#C2F4F9)
+  cyanHover: [200, 247, 252], // Lighter cyan for hover
+  cyanLight: [227, 251, 255], // Light cyan (#E3FBFF)
+  cyanDark: [157, 212, 224], // Darker cyan (#9dd4e0)
 };
 
 const WeightBar: React.FC<{ percent: number; durability?: boolean }> = ({ percent, durability }) => {
   const { color, shadowColor } = useMemo(
     () => {
       if (durability) {
-        // Durability bar: teal gradient based on durability (Mantine teal[6])
+        // Durability bar: cyan gradient based on durability
         const durabilityColor = percent < 50
-          ? colorMixer(COLORS.tealDark, COLORS.tealPrimary, percent / 100)
-          : colorMixer(COLORS.tealPrimary, COLORS.tealHover, percent / 100);
-        return { color: durabilityColor, shadowColor: 'rgba(18, 184, 134, 0.46)' };
+          ? colorMixer(COLORS.cyanDark, COLORS.cyanPrimary, percent / 100)
+          : colorMixer(COLORS.cyanPrimary, COLORS.cyanHover, percent / 100);
+        return { color: durabilityColor, shadowColor: 'rgba(194, 244, 249, 0.46)' };
       } else {
-        // Weight bar: teal gradient based on weight percentage
-        // Uses teal colors throughout - lighter teal for low weight, darker teal for high weight
+        // Weight bar: cyan gradient based on weight percentage
+        // Uses cyan colors throughout - lighter cyan for low weight, darker cyan for high weight
         let weightColor: string;
         let shadow: string;
         
         if (percent <= 50) {
-          // Light to medium weight: lighter teal
+          // Light to medium weight: lighter cyan
           const normalizedPercent = percent / 50; // 0-1 range for 0-50%
-          weightColor = colorMixer(COLORS.tealLight, COLORS.tealPrimary, normalizedPercent);
-          shadow = 'rgba(18, 184, 134, 0.3)';
+          weightColor = colorMixer(COLORS.cyanLight, COLORS.cyanPrimary, normalizedPercent);
+          shadow = 'rgba(194, 244, 249, 0.3)';
         } else {
-          // Medium to heavy weight: darker teal
+          // Medium to heavy weight: darker cyan
           const normalizedPercent = (percent - 50) / 50; // 0-1 range for 50-100%
-          weightColor = colorMixer(COLORS.tealPrimary, COLORS.tealDark, normalizedPercent);
-          shadow = 'rgba(15, 166, 117, 0.4)';
+          weightColor = colorMixer(COLORS.cyanPrimary, COLORS.cyanDark, normalizedPercent);
+          shadow = 'rgba(157, 212, 224, 0.4)';
         }
         
         return { color: weightColor, shadowColor: shadow };

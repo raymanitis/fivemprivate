@@ -196,9 +196,9 @@ const SplitControl: React.FC<SplitControlProps> = ({ item, amount, infoVisible, 
               style={{
                 height: "100%",
                 width: maxSplit > minSplit ? `${((splitAmount - minSplit) / (maxSplit - minSplit)) * 100}%` : '0%',
-                background: "#12b886", // Mantine teal[6]
+                background: "#C2F4F9", // Cyan accent
                 borderRadius: "8px",
-                boxShadow: "0 0 1.2685vh 0 rgba(18, 184, 134, 0.46)",
+                boxShadow: "0 0 1.2685vh 0 rgba(194, 244, 249, 0.46)",
                 transition: isDragging ? 'none' : 'width 0.1s ease',
                 pointerEvents: 'none',
               }}
@@ -212,10 +212,10 @@ const SplitControl: React.FC<SplitControlProps> = ({ item, amount, infoVisible, 
                 transform: "translate(-50%, -50%)",
                 width: "24px",
                 height: "24px",
-                background: "#0d9488", // Darker teal
+                background: "#9dd4e0", // Darker cyan
                 borderRadius: "50%",
-                border: "3px solid #12b886",
-                boxShadow: "0 0 10px rgba(18, 184, 134, 0.8)",
+                border: "3px solid #C2F4F9",
+                boxShadow: "0 0 10px rgba(194, 244, 249, 0.8)",
                 cursor: isDragging ? 'grabbing' : 'grab',
                 pointerEvents: 'auto',
                 zIndex: 10,

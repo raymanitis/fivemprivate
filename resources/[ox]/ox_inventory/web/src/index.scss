@@ -1,39 +1,72 @@
-// Nexa-Book Font Face
-@font-face {
-  font-family: "Nexa-Book";
-  src: url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.eot");
-  src: url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.svg#Nexa-Book")format("svg");
+// Import Bai Jamjuree font from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200;300;400;500;600;700&display=swap');
+
+// Design System Color Palette - Cyan Gaming Theme
+:root {
+  // Primary Colors
+  --main-accent: #C2F4F9;
+  --main-accent-dark: #7BC4D1; // Darker cyan for button backgrounds (better text contrast)
+  --bg-primary: rgba(18, 26, 28, 0.89);
+  --bg-secondary: rgba(194, 244, 249, 0.12);
+  --bg-button: rgba(56, 79, 82, 0.31);
+  --border-color: rgba(194, 244, 249, 0.40);
+  --border-color-light: rgba(194, 244, 249, 0.67);
+  --divider-color: rgba(255, 255, 255, 0.08);
+  
+  // Text Colors
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.5);
+  --icon-stroke: #E3FBFF;
+  
+  // Spacing
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  
+  // Border Radius
+  --radius-sm: 0.15rem;
+  --radius-md: 0.25rem;
+  
+  // Font Sizes
+  --font-label: 0.75rem;
+  --font-body: 0.9rem;
+  --font-base: 1rem;
+  --font-large: 1.25rem;
+  
+  // Base font size (responsive)
+  --base-font-size: min(0.83333333vw, 1.8009478673vh);
 }
 
-// Mantine Teal Color Palette (teal[6] = #12b886)
-$tealPrimary: #12b886;      // Mantine teal[6] - Main accent color
-$tealHover: #20c997;        // Mantine teal[5] - Hover state (lighter)
-$tealLight: rgba(18, 184, 134, 0.2);  // Light background
-$tealMedium: rgba(18, 184, 134, 0.3); // Medium background
-$tealDark: rgba(20, 21, 23, 0.95);     // Dark gray (Mantine dark[9]) - For rarity badge
-$tealShadow: rgba(18, 184, 134, 0.46); // Shadow color
+// SCSS Variables for compatibility
+$mainAccent: #C2F4F9;
+$mainAccentDark: #7BC4D1; // Darker cyan for button backgrounds
+$bgPrimary: rgba(18, 26, 28, 0.89);
+$bgSecondary: rgba(194, 244, 249, 0.12);
+$bgButton: rgba(56, 79, 82, 0.31);
+$borderColor: rgba(194, 244, 249, 0.40);
+$borderColorLight: rgba(194, 244, 249, 0.67);
+$dividerColor: rgba(255, 255, 255, 0.08);
+$textPrimary: #ffffff;
+$textSecondary: rgba(255, 255, 255, 0.5);
+$iconStroke: #E3FBFF;
 
-// ox_lib Color Palette
-$borderColor: #373737;
-$buttonBg: #3D3D3D;
-$buttonHover: #4A4A4A;
-$textPrimary: #FFF;
-$textSecondary: #8C8C8C;
-$textSecondaryAlt: rgba(255, 255, 255, 0.38);
-$progressFill: $tealPrimary;  // Use teal[6] for progress
-$borderWidth: 0.0926vh;
-$borderRadiusSm: 0.5556vh;
-$borderRadiusMd: 0.9259vh;
-$transitionSpeed: 0.25s;
+// Legacy compatibility (mapped to new colors)
+$tealPrimary: $mainAccent;
+$tealHover: lighten($mainAccent, 5%);
+$tealLight: $bgSecondary;
+$tealMedium: rgba(194, 244, 249, 0.20);
+$tealDark: rgba(18, 26, 28, 0.95);
+$tealShadow: rgba(194, 244, 249, 0.46);
 
-// Main background gradient
-$mainBgGradient: radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%);
+$borderWidth: 0.0625rem;
+$borderRadiusSm: var(--radius-sm);
+$borderRadiusMd: var(--radius-md);
+$transitionSpeed: 0.2s;
 
-$mainFont: "Nexa-Book", sans-serif;
+// Main background - dark teal with transparency
+$mainBgGradient: $bgPrimary;
+
+$mainFont: 'Bai Jamjuree', sans-serif;
 
 $gridCols: 4;
 $gridRows: 3;
@@ -43,13 +76,15 @@ $containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gr
 
 body {
   margin: 0;
-  font-family: "Nexa-Book", sans-serif;
+  font-family: var(--main-font, 'Bai Jamjuree'), sans-serif;
+  font-size: var(--base-font-size, min(0.83333333vw, 1.8009478673vh));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   background: none !important;
   overflow: hidden !important;
   user-select: none;
+  color: var(--text-primary);
 }
 
 #root {
@@ -61,47 +96,50 @@ code {
 }
 
 input {
-  border-radius: $borderRadiusSm;
+  border-radius: var(--radius-sm);
   width: 8vh;
   padding: 8px;
-  border: $borderWidth solid rgba(255, 255, 255, 0.10);
-  background: rgba(66, 66, 66, 0.32);
-  color: $textPrimary;
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  background: var(--bg-button);
+  color: var(--text-primary);
+  font-family: $mainFont;
   outline: none;
-  transition: border $transitionSpeed ease;
+  transition: border var(--transition-speed, 0.2s) ease, background var(--transition-speed, 0.2s) ease;
   
   &:focus {
-    border-color: $tealPrimary;
+    border-color: var(--border-color-light);
+    background: rgba(56, 79, 82, 0.45);
   }
 }
 
 .split-button {
-  border-radius: $borderRadiusSm;
+  border-radius: var(--radius-sm);
   padding: 10px;
-  border: $borderWidth solid $tealPrimary;
-  background: $tealPrimary;
-  color: #FFFFFF !important;
+  border: var(--border-width, 0.0625rem) solid var(--main-accent-dark);
+  background: var(--main-accent-dark);
+  color: var(--text-primary) !important;
   outline: none;
   opacity: 1;
   font-family: $mainFont;
   font-weight: 600;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease;
+  font-size: var(--font-body);
+  transition: all var(--transition-speed, 0.2s) ease;
   
   &:hover {
     opacity: 1;
-    background: $tealHover;
-    border-color: $tealHover;
+    background: lighten($mainAccentDark, 8%);
+    border-color: var(--main-accent);
   }
   
   &.cancel {
-    background: rgba(153, 153, 153, 0.13);
-    border-color: rgba(255, 255, 255, 0.10);
-    color: $textSecondaryAlt;
+    background: var(--bg-button);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
     
     &:hover {
-      background: $buttonBg;
-      color: $textPrimary;
-      border-color: rgba(255, 255, 255, 0.20);
+      background: rgba(56, 79, 82, 0.45);
+      color: var(--text-primary);
+      border-color: var(--border-color-light);
     }
   }
 }
@@ -115,17 +153,17 @@ input {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(55, 55, 55, 0.3);
+  background: rgba(18, 26, 28, 0.5);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $textSecondary;
+  background: var(--text-secondary);
   border-radius: 3px;
-  transition: background $transitionSpeed ease;
+  transition: background var(--transition-speed, 0.2s) ease;
   
   &:hover {
-    background: $tealPrimary;
+    background: var(--main-accent);
   }
 }
 
@@ -150,14 +188,15 @@ input[type='number']::-webkit-outer-spin-button {
 
 .context-menu-list {
   min-width: 100px;
-  border-radius: $borderRadiusMd;
+  border-radius: var(--radius-md);
   padding: 8px;
-  border: $borderWidth solid $borderColor;
-  background: $mainBgGradient;
-  color: $textPrimary;
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   outline: none;
   display: flex;
   flex-direction: column;
+  font-family: $mainFont;
 }
 
 .context-menu-item  {
@@ -165,21 +204,22 @@ input[type='number']::-webkit-outer-spin-button {
   background-color: transparent;
   outline: none;
   border: none;
-  font-size: 1.2vh;
+  font-size: var(--font-body);
   font-weight: 500;
-  color: $textSecondaryAlt;
+  color: var(--text-secondary);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: color $transitionSpeed ease, background $transitionSpeed ease;
-  border-radius: $borderRadiusSm;
+  transition: color var(--transition-speed, 0.2s) ease, background var(--transition-speed, 0.2s) ease;
+  border-radius: var(--radius-sm);
+  font-family: $mainFont;
   
   &:active {
     transform: none;
   }
   &:hover {
-    color: $tealPrimary;
-    background: $tealLight;
+    color: var(--main-accent);
+    background: var(--bg-secondary);
     cursor: pointer;
   }
 }
@@ -200,37 +240,40 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .tooltip-description {
-  border-radius: $borderRadiusMd;
+  border-radius: var(--radius-md);
   padding: 8px;
-  border: $borderWidth solid $borderColor;
-  background: $mainBgGradient;
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  background: var(--bg-primary);
+  font-family: $mainFont;
 }
 
 .tooltip-ammo {
   margin-top: 0.5rem;
   width: 100%;
-  border-top: 1px solid rgba(255,255,255,0.10);
+  border-top: 1px solid var(--divider-color);
   padding-top: 0.5rem;
   padding-bottom: 0.25rem;
-  color: $textSecondaryAlt;
+  color: var(--text-secondary);
+  font-family: $mainFont;
 }
 
 .tooltip-ammo a {
-  font-size: 1.2vh;
-  color: $textPrimary;
+  font-size: var(--font-body);
+  color: var(--text-primary);
 }
 
 .tooltip-durability {
   margin-top: 0.5rem;
   width: 100%;
-  border-top: 1px solid rgba(255,255,255,0.10);
+  border-top: 1px solid var(--divider-color);
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  color: $textSecondaryAlt;
+  color: var(--text-secondary);
+  font-family: $mainFont;
   a {
-    color: $textPrimary;
+    color: var(--text-primary);
     font-weight: 600;
-    font-size: 1.2vh;
+    font-size: var(--font-body);
     display: flex;
     margin-top: 8px;
   }
@@ -241,7 +284,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 button:active {
-  transform: translateY(3px);
+  transform: scale(0.98);
 }
 
 .item-drag-preview {
@@ -282,19 +325,20 @@ button:active {
 }
 
 .useful-controls-dialog {
-  background: $mainBgGradient;
-  border: $borderWidth solid $borderColor;
-  border-radius: $borderRadiusMd;
+  background: var(--bg-primary);
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  border-radius: var(--radius-md);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: $textPrimary;
+  color: var(--text-primary);
   width: 450px;
   display: flex;
   flex-direction: column;
   padding: 16px;
   gap: 16px;
+  font-family: $mainFont;
 }
 
 .useful-controls-dialog-overlay {
@@ -316,13 +360,13 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: $borderRadiusSm;
-  fill: $textSecondary;
-  transition: background $transitionSpeed ease, fill $transitionSpeed ease;
+  border-radius: var(--radius-sm);
+  fill: var(--text-secondary);
+  transition: background var(--transition-speed, 0.2s) ease, fill var(--transition-speed, 0.2s) ease;
   
   &:hover {
-    background-color: $tealLight;
-    fill: $tealPrimary;
+    background-color: var(--bg-secondary);
+    fill: var(--main-accent);
     cursor: pointer;
   }
 }
@@ -336,30 +380,31 @@ button:active {
 .divider {
   width: 100%;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.10);
+  background-color: var(--divider-color);
 }
 
 .useful-controls-button {
   position: absolute !important;
   bottom: 25px;
   right: 25px;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease, fill $transitionSpeed ease !important;
-  border: $borderWidth solid rgba(255, 255, 255, 0.40) !important;
-  color: $textPrimary !important;
-  width: 52px;
-  height: 52px;
+  transition: opacity var(--transition-speed, 0.2s) ease, background var(--transition-speed, 0.2s) ease, border-color var(--transition-speed, 0.2s) ease, fill var(--transition-speed, 0.2s) ease !important;
+  border: var(--border-width, 0.0625rem) solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  width: 2.25rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  fill: $textPrimary !important;
-  border-radius: $borderRadiusSm !important;
-  background-color: $buttonBg !important;
+  fill: var(--icon-stroke) !important;
+  border-radius: var(--radius-sm) !important;
+  background-color: var(--bg-button) !important;
   opacity: 0.75 !important;
+  font-family: $mainFont;
   
   &:hover {
-    background-color: $tealLight !important;
-    border-color: $tealPrimary !important;
-    fill: $tealPrimary !important;
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color-light) !important;
+    fill: var(--main-accent) !important;
     opacity: 1 !important;
     cursor: pointer;
   }
@@ -369,12 +414,13 @@ button:active {
   position: absolute !important;
   right: 8px;
   top: 8px;
-  border-radius: $borderRadiusSm !important;
-  color: $textSecondary !important;
-  transition: color $transitionSpeed ease;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-secondary) !important;
+  transition: color var(--transition-speed, 0.2s) ease;
+  font-family: $mainFont;
   
   &:hover {
-    color: $tealPrimary !important;
+    color: var(--main-accent) !important;
   }
 }
 
@@ -383,23 +429,25 @@ button:active {
 
 // inventory grids
 .inventory-grid-wrapper {
-  background: $mainBgGradient;
-  border: $borderWidth solid $borderColor;
+  background: var(--bg-primary);
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
   padding-left: 2.5vh;
   padding-right: 2.5vh;
   padding-top: 1vh;
-  padding-bottom:2vh;
-  border-radius: $borderRadiusMd;
+  padding-bottom: 2vh;
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   gap: calc($gridGap * 1);
+  font-family: $mainFont;
 }
 
 .inventory-grid-header-wrapper2 {
   h1 {
-    font-size: 1.5vh;
+    font-size: var(--font-large);
     font-weight: 600;
-    color: $textPrimary;
+    color: var(--text-primary);
+    font-family: $mainFont;
   }
   align-items: center;
   display: flex;
@@ -407,9 +455,10 @@ button:active {
   padding-bottom: 2px;
 }
 .inventory-grid-header-wrapper p, i {
-  font-size: 1.3vh;
+  font-size: var(--font-body);
   font-weight: 500;
-  color: $textSecondary;
+  color: var(--text-secondary);
+  font-family: $mainFont;
 }
 
 .inventory-grid-header-wrapper {
@@ -467,19 +516,20 @@ button:active {
 // inventory slots
 .inventory-slot {
   padding: 10px;
-  background: $mainBgGradient;
+  background: var(--bg-primary);
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: $borderRadiusSm;
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: var(--radius-sm);
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
   image-rendering: -webkit-optimize-contrast;
   position: relative;
-  color: $textPrimary;
-  transition: border-color $transitionSpeed ease, background $transitionSpeed ease;
+  color: var(--text-primary);
+  transition: border-color var(--transition-speed, 0.2s) ease, background var(--transition-speed, 0.2s) ease;
+  font-family: $mainFont;
   
   &:hover {
-    border-color: $tealPrimary;
-    background: $tealLight;
+    border-color: var(--border-color-light);
+    background: var(--bg-secondary);
   }
 }
 
@@ -495,8 +545,8 @@ button:active {
   overflow: hidden;
   font-weight: 600;
   font-family: $mainFont;
-  font-size: 1vh;
-  color: $textPrimary;
+  font-size: var(--font-base);
+  color: var(--text-primary);
   white-space: normal;       /* allow wrapping */
   word-wrap: break-word;     /* break long words if needed */
   word-break: break-word;    /* extra safety */
@@ -507,17 +557,17 @@ button:active {
   padding: 3px 6px;
   font-weight: 500;
   text-transform: uppercase;
-  border-top-left-radius: 0.25vh;
-  border-bottom-right-radius: 0.25vh;
-  font-size: 0.8vh;
+  border-top-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+  font-size: var(--font-label);
   font-family: $mainFont;
-  color: $textPrimary;
+  color: var(--text-primary);
   margin-left: auto;
   position: absolute;
   top: 0.4vh;
   right: 0.4vh;
-  background: $tealDark;
-  border-bottom-left-radius: 0.25vh;
+  background: var(--bg-primary);
+  border-bottom-left-radius: var(--radius-sm);
 }
 
 .item-slot-wrapper {
@@ -547,7 +597,7 @@ button:active {
 }
 
 .item-slot-info-wrapper {
-  color: $textSecondaryAlt;
+  color: var(--text-secondary);
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -559,8 +609,9 @@ button:active {
   overflow-wrap: anywhere;   /* modern property */
   padding: 3px;
   gap: 3px;
+  font-family: $mainFont;
   p {
-    font-size: 0.8vh;
+    font-size: var(--font-label);
     font-weight: 500;
   }
 }
@@ -571,10 +622,11 @@ button:active {
   justify-content: flex-end;
   align-items: center;
   padding-right: 3px;
+  font-family: $mainFont;
   p {
-    font-size: 14px;
+    font-size: var(--font-base);
     font-weight: 600;
-    color: $textPrimary;
+    color: var(--text-primary);
     text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
   }
 }
@@ -584,21 +636,22 @@ button:active {
   flex-direction: row;
   justify-content: flex-end;
   padding-right: 3px;
+  font-family: $mainFont;
   p {
-    font-size: 14px;
+    font-size: var(--font-base);
     font-weight: 600;
-    color: $tealPrimary; // Mantine teal[6] for shop prices
+    color: var(--main-accent);
     text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
   }
 }
 
 
 .tooltip-wrapper {
-  border-radius: $borderRadiusMd;
+  border-radius: var(--radius-md);
   padding: 8px;
-  border: $borderWidth solid $borderColor;
-  background: $mainBgGradient;
-  color: $textPrimary;
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   pointer-events: none;
   display: flex;
   width: 28vh;
@@ -607,18 +660,19 @@ button:active {
   min-width: 200px;
   font-family: $mainFont;
   p {
-    font-size: 14px;
+    font-size: var(--font-base);
     font-weight: 500;
-    color: $textSecondary;
+    color: var(--text-secondary);
   }
 }
 
 .tooltip-header-wrapper {
-  color: $textPrimary;
+  color: var(--text-primary);
   display: flex;
   flex-direction: row;
+  font-family: $mainFont;
   p {
-    font-size: 18px;
+    font-size: var(--font-large);
     font-weight: 600;
   }
 }
@@ -628,14 +682,15 @@ button:active {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-family: $mainFont;
   svg {
     padding-right: 3px;
-    fill: $textSecondary;
+    fill: var(--text-secondary);
   }
   p {
-    font-size: 14px;
+    font-size: var(--font-base);
     font-weight: 500;
-    color: $textSecondary;
+    color: var(--text-secondary);
   }
 }
 
@@ -646,13 +701,14 @@ button:active {
 }
 
 .tooltip-ingredient {
-  border-radius: $borderRadiusSm;
+  border-radius: var(--radius-sm);
   padding: 8px;
-  border: $borderWidth solid $borderColor;
-  background: $mainBgGradient;
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  background: var(--bg-primary);
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: $mainFont;
   img {
     width: 28px;
     height: 28px;
@@ -673,20 +729,21 @@ button:active {
 
 .inventory-slot-number {
   position: absolute;
-  color: $textPrimary;
-  background: rgba(0, 0, 0, 0.85);
+  color: var(--text-primary);
+  background: var(--bg-button);
   padding-top: 2px;
   font-weight: 600;
   padding-left: 4px;
   padding-right: 4px;
   padding-bottom: 2px;
-  border-top-left-radius: 2px;
-  border-bottom-right-radius: 6px;
-  font-size: 0.9vh;
+  border-top-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+  font-size: var(--font-body);
   left: 0;
   top: 0;
-  border: $borderWidth solid rgba(255, 255, 255, 0.20);
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  font-family: $mainFont;
 }
 
 .hotbar-item-slot {
@@ -732,28 +789,28 @@ button:active {
   width: 100%;
   left: 0;
   bottom: 0px;
-  border-bottom-left-radius: 3.5px;
-  border-bottom-right-radius: 3.5px;
+  border-bottom-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
   
   > div {
-    background: $tealPrimary !important;
-    box-shadow: 0 0 1.2685vh 0 $tealShadow !important;
+    background: var(--main-accent) !important;
+    box-shadow: 0 0 1.2685vh 0 rgba(194, 244, 249, 0.46) !important;
   }
 }
 
 .weight-bar {
   background: rgba(217, 217, 217, 0.24);
-  border: $borderWidth solid rgba(255, 255, 255, 0.10);
+  border: var(--border-width, 0.0625rem) solid var(--divider-color);
   border-radius: 10rem;
   height: 0.8vh;
   overflow: hidden;
   position: relative;
   
   // The color is now handled dynamically by the WeightBar component
-  // This allows for weight-based color gradients (teal -> yellow -> orange/red)
+  // This allows for weight-based color gradients (cyan -> yellow -> orange/red)
   > div {
     transition: width 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 0 1.2685vh 0 rgba(18, 184, 134, 0.3);
+    box-shadow: 0 0 1.2685vh 0 rgba(194, 244, 249, 0.3);
   }
 }
 
@@ -828,13 +885,13 @@ button:active {
 }
 
 .right-inventories-scrollable::-webkit-scrollbar-thumb {
-  background: $textSecondary;
+  background: var(--text-secondary);
   border-radius: 4px;
-  transition: background $transitionSpeed ease;
+  transition: background var(--transition-speed, 0.2s) ease;
 }
 
 .right-inventories-scrollable::-webkit-scrollbar-thumb:hover {
-  background: $tealPrimary;
+  background: var(--main-accent);
 }
 
 .inventory-item {
@@ -872,40 +929,42 @@ button:active {
   display: flex;
   align-items: center;
   gap: 8px;
-  border-radius: $borderRadiusSm;
+  border-radius: var(--radius-sm);
   padding-left: 18px;
   padding-right: 18px;
-  border: $borderWidth solid rgba(255, 255, 255, 0.40);
-  background: $buttonBg;
-  font-size: 1vh;
-  color: $textPrimary;
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  background: var(--bg-button);
+  font-size: var(--font-body);
+  color: var(--text-primary);
   font-weight: 500;
   opacity: 0.75;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease, color $transitionSpeed ease;
+  transition: opacity var(--transition-speed, 0.2s) ease, background var(--transition-speed, 0.2s) ease, border-color var(--transition-speed, 0.2s) ease, color var(--transition-speed, 0.2s) ease;
+  font-family: $mainFont;
   
   &:hover {
     opacity: 1;
-    background: $tealLight;
-    border-color: $tealPrimary;
-    color: $tealPrimary;
+    background: var(--bg-secondary);
+    border-color: var(--border-color-light);
+    color: var(--main-accent);
   }
 }
 
 .inventory-switch-btn {
-  font-size: 1vh;
-  border-radius: $borderRadiusSm;
+  font-size: var(--font-body);
+  border-radius: var(--radius-sm);
   width: 25px;
   height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: $borderWidth solid rgba(255, 255, 255, 0.40);
-  background: $buttonBg;
-  transition: background $transitionSpeed ease, border-color $transitionSpeed ease;
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  background: var(--bg-button);
+  transition: background var(--transition-speed, 0.2s) ease, border-color var(--transition-speed, 0.2s) ease;
+  font-family: $mainFont;
   
   &:hover {
-    background: $tealLight;
-    border-color: $tealPrimary;
+    background: var(--bg-secondary);
+    border-color: var(--border-color-light);
   }
 }
 
@@ -915,10 +974,10 @@ button:active {
 }
 
 .inventory-switch.active {
-  background: $tealLight;
+  background: var(--bg-secondary);
   opacity: 1;
-  border-color: $tealPrimary;
-  color: $tealPrimary;
+  border-color: var(--border-color-light);
+  color: var(--main-accent);
 }
 
 
@@ -935,46 +994,48 @@ button:active {
 .shopping-cart {
   min-height: 20vh;
   max-height: 30vh;
-  border: $borderWidth solid $borderColor;
-  border-radius: $borderRadiusMd;
-  background: $mainBgGradient;
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
   padding: 1vh;
-  transition: border-color $transitionSpeed ease;
+  transition: border-color var(--transition-speed, 0.2s) ease;
+  font-family: $mainFont;
 }
 
 /* Highlight when dragging over */
 .shopping-cart.highlight {
-  border: $borderWidth dashed $tealPrimary;
+  border: var(--border-width, 0.0625rem) dashed var(--main-accent);
 }
 
 /* Empty message */
 .shopping-cart p {
-  color: $textPrimary;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
 .no-items {
   text-align: center;
   justify-content: center;
-  font-size: 1.75vh;
+  font-size: var(--font-large);
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  color: $textSecondary;
+  color: var(--text-secondary);
+  font-family: $mainFont;
 
   i {
     font-size: 5vh;
-    color: $textSecondaryAlt;
+    color: var(--text-secondary);
   }
 
   p {
     display: flex;
     flex-direction: column;
-    color: $textSecondary;
+    color: var(--text-secondary);
 
     a {
-      font-size: 1vh;
-      color: $textSecondaryAlt;
+      font-size: var(--font-base);
+      color: var(--text-secondary);
     }
   }
 }
@@ -984,16 +1045,17 @@ button:active {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(61, 61, 61, 0.5);
+  background: var(--bg-button);
   padding: 0.5rem;
-  border-radius: $borderRadiusSm;
-  border: $borderWidth solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-sm);
+  border: var(--border-width, 0.0625rem) solid var(--divider-color);
   gap: 0.5rem;
-  transition: background $transitionSpeed ease, border-color $transitionSpeed ease, transform 0.1s;
+  transition: background var(--transition-speed, 0.2s) ease, border-color var(--transition-speed, 0.2s) ease, transform 0.1s;
+  font-family: $mainFont;
   
   &:hover {
-    background: $tealLight;
-    border-color: $tealPrimary;
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
   }
 }
 
@@ -1036,21 +1098,22 @@ button:active {
 }
 
 .cart-controls button {
-  background: $buttonBg;
-  color: $textPrimary;
-  border: $borderWidth solid rgba(255, 255, 255, 0.40);
+  background: var(--bg-button);
+  color: var(--text-primary);
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
   padding: 0.2rem 0.5rem;
-  border-radius: $borderRadiusSm;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: var(--font-base);
   opacity: 0.75;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease, color $transitionSpeed ease;
+  transition: opacity var(--transition-speed, 0.2s) ease, background var(--transition-speed, 0.2s) ease, border-color var(--transition-speed, 0.2s) ease, color var(--transition-speed, 0.2s) ease;
+  font-family: $mainFont;
   
   &:hover {
-    background: $tealLight;
-    border-color: $tealPrimary;
-    color: $tealPrimary;
+    background: var(--bg-secondary);
+    border-color: var(--border-color-light);
+    color: var(--main-accent);
     opacity: 1;
   }
 }
@@ -1074,64 +1137,67 @@ button:active {
 }
 
 .cart-footer button {
-  border-radius: $borderRadiusSm;
+  border-radius: var(--radius-sm);
   padding: 8px;
-  border: $borderWidth solid $tealPrimary;
-  background: $tealPrimary;
-  color: #FFFFFF !important;
+  border: var(--border-width, 0.0625rem) solid var(--main-accent-dark);
+  background: var(--main-accent-dark);
+  color: var(--text-primary) !important;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   font-weight: 600;
+  font-size: var(--font-body);
   opacity: 1;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease;
+  transition: opacity var(--transition-speed, 0.2s) ease, background var(--transition-speed, 0.2s) ease, border-color var(--transition-speed, 0.2s) ease;
+  font-family: $mainFont;
   
   &:hover {
-    background: $tealHover;
-    border-color: $tealHover;
+    background: lighten($mainAccentDark, 8%);
+    border-color: var(--main-accent);
     opacity: 1;
   }
 }
 
 // General button styles
 button {
-  border-radius: $borderRadiusSm;
-  border: $borderWidth solid rgba(255, 255, 255, 0.40);
-  background: $buttonBg;
-  color: $textPrimary;
+  border-radius: var(--radius-sm);
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  background: var(--bg-button);
+  color: var(--text-primary);
   cursor: pointer;
   font-weight: 600;
   font-family: $mainFont;
+  font-size: var(--font-body);
   opacity: 0.75;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease, color $transitionSpeed ease;
+  transition: opacity var(--transition-speed, 0.2s) ease, background var(--transition-speed, 0.2s) ease, border-color var(--transition-speed, 0.2s) ease, color var(--transition-speed, 0.2s) ease;
   
   &:hover {
-    background: $tealLight;
-    border-color: $tealPrimary;
-    color: $tealPrimary;
+    background: var(--bg-secondary);
+    border-color: var(--border-color-light);
+    color: var(--main-accent);
     opacity: 1;
   }
   
   &:focus {
     outline: none;
-    border-color: $tealPrimary;
+    border-color: var(--border-color-light);
   }
   
-  // Primary buttons with teal background
+  // Primary buttons with cyan background
   &[class*="crafting"], 
   &[class*="cart-footer"],
   &.primary {
-    background: $tealPrimary;
-    border-color: $tealPrimary;
-    color: #FFFFFF !important;
+    background: var(--main-accent-dark);
+    border-color: var(--main-accent-dark);
+    color: var(--text-primary) !important;
     opacity: 1;
     
     &:hover {
-      background: $tealHover;
-      border-color: $tealHover;
-      color: #FFFFFF !important;
+      background: lighten($mainAccentDark, 8%);
+      border-color: var(--main-accent);
+      color: var(--text-primary) !important;
     }
   }
 }
@@ -1139,55 +1205,58 @@ button {
 // Cancel/Secondary button style
 button.cancel,
 button.secondary {
-  background: rgba(153, 153, 153, 0.13);
-  color: $textSecondaryAlt;
-  border: $borderWidth solid rgba(255, 255, 255, 0.10);
+  background: var(--bg-button);
+  color: var(--text-secondary);
+  border: var(--border-width, 0.0625rem) solid var(--divider-color);
   
   &:hover {
-    background: $buttonBg;
-    color: $textPrimary;
+    background: rgba(56, 79, 82, 0.45);
+    color: var(--text-primary);
   }
 }
 
 // Crafting styles
 .crafting-grid {
-  background: $mainBgGradient;
-  border: $borderWidth solid $borderColor;
-  border-radius: $borderRadiusMd;
+  background: var(--bg-primary);
+  border: var(--border-width, 0.0625rem) solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family: $mainFont;
   
   &.highlight {
-    border: $borderWidth dashed $tealPrimary;
+    border: var(--border-width, 0.0625rem) dashed var(--main-accent);
   }
 }
 
 .recipe-item {
   background: transparent;
-  border: $borderWidth solid rgba(255, 255, 255, 0.10);
-  border-radius: $borderRadiusSm;
-  transition: background $transitionSpeed ease, border-color $transitionSpeed ease, color $transitionSpeed ease;
+  border: var(--border-width, 0.0625rem) solid var(--divider-color);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-speed, 0.2s) ease, border-color var(--transition-speed, 0.2s) ease, color var(--transition-speed, 0.2s) ease;
   cursor: pointer;
+  font-family: $mainFont;
   
   &:hover {
-    background: $tealLight;
-    border-color: $tealPrimary;
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
   }
   
   &.selected {
-    background: $tealMedium;
-    border-color: $tealPrimary;
+    background: var(--bg-secondary);
+    border-color: var(--border-color-light);
   }
 }
 
 .recipe-details {
-  color: $textPrimary;
+  color: var(--text-primary);
+  font-family: $mainFont;
   
   h3, h4 {
-    color: $textPrimary;
+    color: var(--text-primary);
     font-weight: 600;
   }
   
   p {
-    color: $textSecondary;
+    color: var(--text-secondary);
     font-weight: 500;
   }
 }
@@ -1200,40 +1269,42 @@ button.secondary {
 
 // Crafting quantity controls
 .crafting-quantity-controls {
-  background: rgba(66, 66, 66, 0.32);
-  border: $borderWidth solid rgba(255, 255, 255, 0.10);
-  border-radius: $borderRadiusSm;
+  background: var(--bg-button);
+  border: var(--border-width, 0.0625rem) solid var(--divider-color);
+  border-radius: var(--radius-sm);
   padding: 0.5rem;
+  font-family: $mainFont;
   
   button {
     background: transparent;
     border: none;
-    color: $textPrimary;
+    color: var(--text-primary);
     opacity: 1;
-    transition: background $transitionSpeed ease, color $transitionSpeed ease;
+    transition: background var(--transition-speed, 0.2s) ease, color var(--transition-speed, 0.2s) ease;
     
     &:hover {
-      background: $tealLight;
-      color: $tealPrimary;
+      background: var(--bg-secondary);
+      color: var(--main-accent);
     }
   }
 }
 
 // Crafting queue button
 .crafting-add-button {
-  background: $tealPrimary;
-  border: $borderWidth solid $tealPrimary;
-  color: #FFFFFF !important;
-  border-radius: $borderRadiusSm;
+  background: var(--main-accent-dark);
+  border: var(--border-width, 0.0625rem) solid var(--main-accent-dark);
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm);
   padding: 1.5rem;
-  font-size: 1.25vh;
+  font-size: var(--font-large);
   font-weight: 600;
   opacity: 1;
-  transition: background $transitionSpeed ease, border-color $transitionSpeed ease, transform 0.1s ease;
+  transition: background var(--transition-speed, 0.2s) ease, border-color var(--transition-speed, 0.2s) ease, transform 0.1s ease;
+  font-family: $mainFont;
   
   &:hover {
-    background: $tealHover;
-    border-color: $tealHover;
+    background: lighten($mainAccentDark, 8%);
+    border-color: var(--main-accent);
     opacity: 1;
     transform: translateY(-1px);
   }
