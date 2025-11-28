@@ -20,9 +20,9 @@
     :root {
         font-size: min(.83333333vw, 1.8009478673vh);
         transition: font-size .15s linear;
-        --item-color: #12b8861e;
-        --bg-color: #25262bde;
-        --main-color: #12b886;
+        --item-color: #c2f4f91e;
+        --bg-color: #121a1ce3;
+        --main-color: #C2F4F9;
     }
 
     body {
@@ -30,7 +30,7 @@
         padding: 0;
         background: transparent;
         overflow: hidden;
-        color: #c1c2c5;
+        color: #fff;
     }
     
     .app-wrapper {
@@ -43,7 +43,7 @@
     .main-wrapper {
         padding: .75rem 1rem;
         border-radius: .25rem;
-        background-color: #25262bde;
+        background-color: #121a1cde;
         display: flex; align-items: center; gap: 1rem;
         width: fit-content;
     }
@@ -53,8 +53,8 @@
     }
 
     .key-wrapper {
-        background-color: #373a404f;
-        border: .0625rem solid #12b88667;
+        background-color: #384f524f;
+        border: .0625rem solid #c2f4f967;
         width: 2.25rem; height: 2.25rem; border-radius: .15rem;
         display: flex; align-items: center; justify-content: center;
         font-size: 1rem;
@@ -65,7 +65,7 @@
     }
 
     .help-wrapper:not(:last-child) {
-        border-right: .0625rem solid #373a4014;
+        border-right: .0625rem solid #ffffff14;
         padding-right: 1rem;
     }
 
@@ -80,7 +80,7 @@
     }
 
     .info-row > span:first-child {
-        color: #909296;
+        color: rgba(255, 255, 255, 0.5);
         font-size: .75rem;
     }
 
@@ -175,7 +175,7 @@
                 $('#bet').text(data.bet);
                 break;
             case 'UpdateWin':
-                $('#lastWin').text(data.reward);
+                $('#last-win').text(data.reward);
                 break;
             case 'UpdateTime':
                 $('#time').text(formatTime(data.time));
