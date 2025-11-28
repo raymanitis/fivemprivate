@@ -110,7 +110,7 @@ const SettingsModal = () => {
           },
         }}
       >
-        <Tabs value={activeTab} onChange={setActiveTab} variant="pills" color="blue.4">
+        <Tabs value={activeTab} onChange={setActiveTab} variant="pills" color="teal.6">
           <Tabs.List grow>
             <Tabs.Tab value="player">Player</Tabs.Tab>
             <Tabs.Tab value="vehicle">Vehicle</Tabs.Tab>

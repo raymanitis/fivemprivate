@@ -22,7 +22,7 @@ const useStyles = createStyles((theme) => ({
     strokeWidth: 1,
     transition: 'fill 0.35s',
     '&:hover': {
-      fill: "#4A4A4A",
+      fill: "#0ca678",
       cursor: 'pointer',
       '& ~ g text': {
         fill: '#fff',

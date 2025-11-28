@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "Nexa-Book";
+    src: url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.eot");
+    src: url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.svg#Nexa-Book") format("svg");
+}
+
+:root {
+    --mantine-color-white: #fff;
+    --mantine-color-black: #000;
+    --mantine-color-dark-6: rgba(26, 27, 30, 0.05);
+    --mantine-color-dark-5: rgba(37, 38, 43, 0.1);
+    --mantine-color-dark-4: rgba(47, 48, 53, 0.15);
+    --mantine-color-default: #cfd2da;
+    --mantine-color-success: #40c057;
+    --mantine-color-success-light: rgba(64, 192, 87, 0.15);
+    --mantine-font-family: 'Nexa-Book', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    --mantine-font-size-sm: 0.875rem;
+    --mantine-transition-timing: 200ms;
+    --mantine-radius-sm: 4px;
+    --mantine-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --mantine-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --mantine-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.mantine-Button-root {
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 8px 12px;
+    appearance: none;
+    font-size: var(--mantine-font-size-sm);
+    background-color: transparent;
+    text-align: left;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: var(--mantine-font-family);
+    transition: all var(--mantine-transition-timing) ease;
+    height: 34px;
+    border-radius: var(--mantine-radius-sm);
+    color: var(--mantine-color-default);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--mantine-shadow-xs);
+}
+
+.mantine-Button-filled {
+    background-color: transparent;
+    transform-origin: left center;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.mantine-Button-filled:hover {
+    background-color: var(--mantine-color-dark-5);
+    color: var(--mantine-color-white);
+    box-shadow: var(--mantine-shadow-sm);
+    transform: translateX(2px) translateZ(0);
+}
+
+.mantine-Button-filled:active {
+    background-color: var(--mantine-color-dark-4);
+    transform: translateX(2px) scale(0.98) translateZ(0);
+} 

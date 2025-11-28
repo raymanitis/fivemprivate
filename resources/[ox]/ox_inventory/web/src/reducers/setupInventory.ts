@@ -32,6 +32,7 @@ export const setupInventoryReducer: CaseReducer<
         return {
           ...rawItem,
           durability: itemDurability(rawItem.metadata, curTime),
+          rarity: rawItem.rarity || 'common', // Default to "common" if rarity is not specified
         };
       }),
     };
@@ -55,6 +56,7 @@ export const setupInventoryReducer: CaseReducer<
         return {
           ...rawItem,
           durability: itemDurability(rawItem.metadata, curTime),
+          rarity: rawItem.rarity || 'common', // Default to "common" if rarity is not specified
         };
       }),
     };
@@ -78,6 +80,7 @@ export const setupInventoryReducer: CaseReducer<
         return {
           ...rawItem,
           durability: itemDurability(rawItem.metadata, curTime),
+          rarity: rawItem.rarity || 'common', // Default to "common" if rarity is not specified
         };
       }),
     };

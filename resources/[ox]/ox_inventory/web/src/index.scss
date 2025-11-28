@@ -1,5 +1,21 @@
+// Nexa-Book Font Face
+@font-face {
+  font-family: "Nexa-Book";
+  src: url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.eot");
+  src: url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.svg#Nexa-Book")format("svg");
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+// Mantine Teal Color Palette (teal[6] = #12b886)
+$tealPrimary: #12b886;      // Mantine teal[6] - Main accent color
+$tealHover: #20c997;        // Mantine teal[5] - Hover state (lighter)
+$tealLight: rgba(18, 184, 134, 0.2);  // Light background
+$tealMedium: rgba(18, 184, 134, 0.3); // Medium background
+$tealDark: rgba(20, 21, 23, 0.95);     // Dark gray (Mantine dark[9]) - For rarity badge
+$tealShadow: rgba(18, 184, 134, 0.46); // Shadow color
 
 // ox_lib Color Palette
 $borderColor: #373737;
@@ -8,7 +24,7 @@ $buttonHover: #4A4A4A;
 $textPrimary: #FFF;
 $textSecondary: #8C8C8C;
 $textSecondaryAlt: rgba(255, 255, 255, 0.38);
-$progressFill: #AAAAAA;
+$progressFill: $tealPrimary;  // Use teal[6] for progress
 $borderWidth: 0.0926vh;
 $borderRadiusSm: 0.5556vh;
 $borderRadiusMd: 0.9259vh;
@@ -17,7 +33,7 @@ $transitionSpeed: 0.25s;
 // Main background gradient
 $mainBgGradient: radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%);
 
-$mainFont: Inter;
+$mainFont: "Nexa-Book", sans-serif;
 
 $gridCols: 4;
 $gridRows: 3;
@@ -27,7 +43,7 @@ $containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gr
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Nexa-Book", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -55,23 +71,38 @@ input {
   transition: border $transitionSpeed ease;
   
   &:focus {
-    border-color: rgba(255, 255, 255, 0.50);
+    border-color: $tealPrimary;
   }
 }
 
 .split-button {
   border-radius: $borderRadiusSm;
-  padding: 8px;
-  border: $borderWidth solid rgba(255, 255, 255, 0.40);
-  background: $buttonBg;
-  color: $textPrimary;
+  padding: 10px;
+  border: $borderWidth solid $tealPrimary;
+  background: $tealPrimary;
+  color: #FFFFFF !important;
   outline: none;
-  opacity: 0.75;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease;
+  opacity: 1;
+  font-family: $mainFont;
+  font-weight: 600;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease;
   
   &:hover {
     opacity: 1;
-    background: $buttonHover;
+    background: $tealHover;
+    border-color: $tealHover;
+  }
+  
+  &.cancel {
+    background: rgba(153, 153, 153, 0.13);
+    border-color: rgba(255, 255, 255, 0.10);
+    color: $textSecondaryAlt;
+    
+    &:hover {
+      background: $buttonBg;
+      color: $textPrimary;
+      border-color: rgba(255, 255, 255, 0.20);
+    }
   }
 }
 
@@ -94,7 +125,7 @@ input {
   transition: background $transitionSpeed ease;
   
   &:hover {
-    background: $textPrimary;
+    background: $tealPrimary;
   }
 }
 
@@ -147,8 +178,8 @@ input[type='number']::-webkit-outer-spin-button {
     transform: none;
   }
   &:hover {
-    color: $textPrimary;
-    background: $buttonHover;
+    color: $tealPrimary;
+    background: $tealLight;
     cursor: pointer;
   }
 }
@@ -290,8 +321,8 @@ button:active {
   transition: background $transitionSpeed ease, fill $transitionSpeed ease;
   
   &:hover {
-    background-color: $buttonHover;
-    fill: $textPrimary;
+    background-color: $tealLight;
+    fill: $tealPrimary;
     cursor: pointer;
   }
 }
@@ -312,7 +343,7 @@ button:active {
   position: absolute !important;
   bottom: 25px;
   right: 25px;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease !important;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease, fill $transitionSpeed ease !important;
   border: $borderWidth solid rgba(255, 255, 255, 0.40) !important;
   color: $textPrimary !important;
   width: 52px;
@@ -326,7 +357,9 @@ button:active {
   opacity: 0.75 !important;
   
   &:hover {
-    background-color: $buttonHover !important;
+    background-color: $tealLight !important;
+    border-color: $tealPrimary !important;
+    fill: $tealPrimary !important;
     opacity: 1 !important;
     cursor: pointer;
   }
@@ -341,7 +374,7 @@ button:active {
   transition: color $transitionSpeed ease;
   
   &:hover {
-    color: $textPrimary !important;
+    color: $tealPrimary !important;
   }
 }
 
@@ -438,14 +471,15 @@ button:active {
   background-repeat: no-repeat;
   background-position: center;
   border-radius: $borderRadiusSm;
-  border: $borderWidth solid $borderColor;
+  border: 1px solid rgba(0, 0, 0, 0.8);
   image-rendering: -webkit-optimize-contrast;
   position: relative;
   color: $textPrimary;
   transition: border-color $transitionSpeed ease, background $transitionSpeed ease;
   
   &:hover {
-    border-color: rgba(255, 255, 255, 0.20);
+    border-color: $tealPrimary;
+    background: $tealLight;
   }
 }
 
@@ -470,7 +504,7 @@ button:active {
 }
 
 .inventory-slot-rarity {
-  padding: 3px;
+  padding: 3px 6px;
   font-weight: 500;
   text-transform: uppercase;
   border-top-left-radius: 0.25vh;
@@ -479,6 +513,11 @@ button:active {
   font-family: $mainFont;
   color: $textPrimary;
   margin-left: auto;
+  position: absolute;
+  top: 0.4vh;
+  right: 0.4vh;
+  background: $tealDark;
+  border-bottom-left-radius: 0.25vh;
 }
 
 .item-slot-wrapper {
@@ -548,7 +587,7 @@ button:active {
   p {
     font-size: 14px;
     font-weight: 600;
-    color: $textPrimary;
+    color: $tealPrimary; // Mantine teal[6] for shop prices
     text-shadow: 0.1vh 0.1vh 0 rgba(0, 0, 0, 0.7);
   }
 }
@@ -635,7 +674,7 @@ button:active {
 .inventory-slot-number {
   position: absolute;
   color: $textPrimary;
-  background: rgba(61, 61, 61, 0.9);
+  background: rgba(0, 0, 0, 0.85);
   padding-top: 2px;
   font-weight: 600;
   padding-left: 4px;
@@ -647,12 +686,14 @@ button:active {
   left: 0;
   top: 0;
   border: $borderWidth solid rgba(255, 255, 255, 0.20);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .hotbar-item-slot {
   @extend .inventory-slot;
   width: 9vh;
   height: 9vh;
+  position: relative;
 }
 
 .hotbar-slot-header-wrapper {
@@ -693,6 +734,11 @@ button:active {
   bottom: 0px;
   border-bottom-left-radius: 3.5px;
   border-bottom-right-radius: 3.5px;
+  
+  > div {
+    background: $tealPrimary !important;
+    box-shadow: 0 0 1.2685vh 0 $tealShadow !important;
+  }
 }
 
 .weight-bar {
@@ -703,15 +749,11 @@ button:active {
   overflow: hidden;
   position: relative;
   
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: $progressFill;
-    box-shadow: 0 0 1.463vh 0 rgba(170, 170, 170, 0.8);
-    transition: width 0.3s ease;
+  // The color is now handled dynamically by the WeightBar component
+  // This allows for weight-based color gradients (teal -> yellow -> orange/red)
+  > div {
+    transition: width 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 0 1.2685vh 0 rgba(18, 184, 134, 0.3);
   }
 }
 
@@ -792,7 +834,7 @@ button:active {
 }
 
 .right-inventories-scrollable::-webkit-scrollbar-thumb:hover {
-  background: $textPrimary;
+  background: $tealPrimary;
 }
 
 .inventory-item {
@@ -839,11 +881,13 @@ button:active {
   color: $textPrimary;
   font-weight: 500;
   opacity: 0.75;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease, color $transitionSpeed ease;
   
   &:hover {
     opacity: 1;
-    background: $buttonHover;
+    background: $tealLight;
+    border-color: $tealPrimary;
+    color: $tealPrimary;
   }
 }
 
@@ -857,10 +901,11 @@ button:active {
   justify-content: center;
   border: $borderWidth solid rgba(255, 255, 255, 0.40);
   background: $buttonBg;
-  transition: background $transitionSpeed ease;
+  transition: background $transitionSpeed ease, border-color $transitionSpeed ease;
   
   &:hover {
-    background: $buttonHover;
+    background: $tealLight;
+    border-color: $tealPrimary;
   }
 }
 
@@ -870,9 +915,10 @@ button:active {
 }
 
 .inventory-switch.active {
-  background: $buttonHover;
+  background: $tealLight;
   opacity: 1;
-  border-color: rgba(255, 255, 255, 0.50);
+  border-color: $tealPrimary;
+  color: $tealPrimary;
 }
 
 
@@ -898,7 +944,7 @@ button:active {
 
 /* Highlight when dragging over */
 .shopping-cart.highlight {
-  border: $borderWidth dashed rgba(255, 255, 255, 0.50);
+  border: $borderWidth dashed $tealPrimary;
 }
 
 /* Empty message */
@@ -946,8 +992,8 @@ button:active {
   transition: background $transitionSpeed ease, border-color $transitionSpeed ease, transform 0.1s;
   
   &:hover {
-    background: rgba(74, 74, 74, 0.6);
-    border-color: rgba(255, 255, 255, 0.20);
+    background: $tealLight;
+    border-color: $tealPrimary;
   }
 }
 
@@ -999,10 +1045,12 @@ button:active {
   font-weight: 600;
   font-size: 1rem;
   opacity: 0.75;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease, color $transitionSpeed ease;
   
   &:hover {
-    background: $buttonHover;
+    background: $tealLight;
+    border-color: $tealPrimary;
+    color: $tealPrimary;
     opacity: 1;
   }
 }
@@ -1028,20 +1076,21 @@ button:active {
 .cart-footer button {
   border-radius: $borderRadiusSm;
   padding: 8px;
-  border: $borderWidth solid rgba(255, 255, 255, 0.40);
-  background: $buttonBg;
-  color: $textPrimary;
+  border: $borderWidth solid $tealPrimary;
+  background: $tealPrimary;
+  color: #FFFFFF !important;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   font-weight: 600;
-  opacity: 0.75;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease;
+  opacity: 1;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease;
   
   &:hover {
-    background: $buttonHover;
+    background: $tealHover;
+    border-color: $tealHover;
     opacity: 1;
   }
 }
@@ -1056,16 +1105,34 @@ button {
   font-weight: 600;
   font-family: $mainFont;
   opacity: 0.75;
-  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease;
+  transition: opacity $transitionSpeed ease, background $transitionSpeed ease, border-color $transitionSpeed ease, color $transitionSpeed ease;
   
   &:hover {
-    background: $buttonHover;
+    background: $tealLight;
+    border-color: $tealPrimary;
+    color: $tealPrimary;
     opacity: 1;
   }
   
   &:focus {
     outline: none;
-    border-color: rgba(255, 255, 255, 0.50);
+    border-color: $tealPrimary;
+  }
+  
+  // Primary buttons with teal background
+  &[class*="crafting"], 
+  &[class*="cart-footer"],
+  &.primary {
+    background: $tealPrimary;
+    border-color: $tealPrimary;
+    color: #FFFFFF !important;
+    opacity: 1;
+    
+    &:hover {
+      background: $tealHover;
+      border-color: $tealHover;
+      color: #FFFFFF !important;
+    }
   }
 }
 
@@ -1089,7 +1156,7 @@ button.secondary {
   border-radius: $borderRadiusMd;
   
   &.highlight {
-    border: $borderWidth dashed rgba(255, 255, 255, 0.50);
+    border: $borderWidth dashed $tealPrimary;
   }
 }
 
@@ -1097,17 +1164,17 @@ button.secondary {
   background: transparent;
   border: $borderWidth solid rgba(255, 255, 255, 0.10);
   border-radius: $borderRadiusSm;
-  transition: background $transitionSpeed ease, border-color $transitionSpeed ease;
+  transition: background $transitionSpeed ease, border-color $transitionSpeed ease, color $transitionSpeed ease;
   cursor: pointer;
   
   &:hover {
-    background: rgba(61, 61, 61, 0.3);
-    border-color: rgba(255, 255, 255, 0.20);
+    background: $tealLight;
+    border-color: $tealPrimary;
   }
   
   &.selected {
-    background: rgba(74, 74, 74, 0.6);
-    border-color: rgba(255, 255, 255, 0.50);
+    background: $tealMedium;
+    border-color: $tealPrimary;
   }
 }
 
@@ -1143,27 +1210,36 @@ button.secondary {
     border: none;
     color: $textPrimary;
     opacity: 1;
+    transition: background $transitionSpeed ease, color $transitionSpeed ease;
     
     &:hover {
-      background: rgba(74, 74, 74, 0.5);
+      background: $tealLight;
+      color: $tealPrimary;
     }
   }
 }
 
 // Crafting queue button
 .crafting-add-button {
-  background: $buttonBg;
-  border: $borderWidth solid rgba(255, 255, 255, 0.40);
-  color: $textPrimary;
+  background: $tealPrimary;
+  border: $borderWidth solid $tealPrimary;
+  color: #FFFFFF !important;
   border-radius: $borderRadiusSm;
   padding: 1.5rem;
   font-size: 1.25vh;
   font-weight: 600;
-  opacity: 0.75;
+  opacity: 1;
+  transition: background $transitionSpeed ease, border-color $transitionSpeed ease, transform 0.1s ease;
   
   &:hover {
-    background: $buttonHover;
+    background: $tealHover;
+    border-color: $tealHover;
     opacity: 1;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0px);
   }
 }
 

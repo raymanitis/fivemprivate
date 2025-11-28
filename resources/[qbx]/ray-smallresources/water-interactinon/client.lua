@@ -1,0 +1,75 @@
+-- local lib = lib or exports.ox_lib
+
+-- local function notifySwimmingBlock()
+--     if lib and lib.notify then
+--         lib.notify({
+--             title = 'Warning',
+--             description = 'You cannot use your radio or phone while swimming!',
+--             type = 'error',
+--             duration = 3000
+--         })
+--     end
+-- end
+
+-- local wasSwimming = false
+
+-- -- Prevent radio join while swimming by blocking the control and command
+-- local function blockRadioWhileSwimming()
+--     -- Block the radio open control (CAPSLOCK by default)
+--     DisableControlAction(0, 137, true)
+--     -- Optionally, block the command if you know it (e.g., /radio)
+--     -- You can also listen for the event or export and cancel if wasSwimming is true
+-- end
+
+-- -- Optionally, override the radio open event if possible
+-- RegisterNetEvent('mm_radio:tryOpenRadio', function()
+--     if wasSwimming then
+--         notifySwimmingBlock()
+--         return -- Block opening radio
+--     end
+-- end)
+
+-- CreateThread(function()
+--     while true do
+--         local ped = PlayerPedId()
+--         local swimming = IsPedSwimming(ped)
+--         if swimming and not wasSwimming then
+--             -- Just started swimming
+--             if exports.yseries:IsOpen() then
+--                 exports.yseries:ToggleOpen(false)
+--             end
+--             if not exports.yseries:IsDisabled() then
+--                 exports.yseries:ToggleDisabled(true)
+--             end
+--             exports["mm_radio"]:LeaveRadio()
+--             notifySwimmingBlock()
+--             wasSwimming = true
+--         elseif not swimming and wasSwimming then
+--             -- Just stopped swimming
+--             if exports.yseries:IsDisabled() then
+--                 exports.yseries:ToggleDisabled(false)
+--             end
+--             wasSwimming = false
+--         end
+--         -- Only check every 2s if not swimming, every 200ms if swimming
+--         Wait(swimming and 200 or 2000)
+--     end
+-- end)
+
+-- -- Block controls every frame while swimming
+-- CreateThread(function()
+--     while true do
+--         Wait(0)
+--         if wasSwimming then
+--             DisableControlAction(0, 137, true) -- Radio (CAPSLOCK)
+--             DisableControlAction(0, 27, true)  -- Phone (Arrow Up)
+--             blockRadioWhileSwimming()
+--         end
+--     end
+-- end)
+
+-- --[[
+-- This script now uses yphone (yseries) and mm_radio client exports for best compatibility and performance.
+-- It also blocks attempts to rejoin the radio while swimming.
+-- You may also want to adjust the key codes if your server uses custom bindings.
+-- ]]

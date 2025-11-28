@@ -4,44 +4,27 @@ local disableControls = config.disable.controls
 local displayAmmo = config.disable.displayAmmo
 
 CreateThread(function()
-    for i = 1, #disableHudComponents do
-        SetHudComponentSize(disableHudComponents[i],0.0,0.0)
-    end
-
     while true do
+        for i = 1, #disableHudComponents do
+            HideHudComponentThisFrame(disableHudComponents[i])
+        end
+
         for i = 1, #disableControls do
             DisableControlAction(2, disableControls[i], true)
         end
+
+        DisplayAmmoThisFrame(displayAmmo)
         Wait(0)
     end
 end)
-
-if config.disable.recticle then
-    lib.onCache('weapon', function(weapon)
-        if not weapon then return end
-
-        CreateThread(function()
-            while cache.weapon ~= weapon do Wait(1) end -- Wait for cache.weapon to update
-
-            while cache.weapon == weapon do
-                if not IsFirstPersonAimCamActive() then
-                    HideHudComponentThisFrame(14)
-                end
-                Wait(0)
-            end
-        end)
-    end)
-end
 
 local function addDisableHudComponents(hudComponents)
     local hudComponentsType = type(hudComponents)
     if hudComponentsType == 'number' then
         disableHudComponents[#disableHudComponents+1] = hudComponents
-        SetHudComponentSize(hudComponents,0.0,0.0)
     elseif hudComponentsType == 'table' and table.type(hudComponents) == 'array' then
         for i = 1, #hudComponents do
             disableHudComponents[#disableHudComponents+1] = hudComponents[i]
-            SetHudComponentSize(hudComponents,0.0,0.0)
         end
     end
 end
@@ -56,7 +39,6 @@ local function removeDisableHudComponents(hudComponents)
         for i = 1, #disableHudComponents do
             if disableHudComponents[i] == hudComponents then
                 table.remove(disableHudComponents, i)
-                ResetHudComponentValues(i)
                 break
             end
         end
@@ -64,7 +46,7 @@ local function removeDisableHudComponents(hudComponents)
         for i = 1, #disableHudComponents do
             for i2 = 1, #hudComponents do
                 if disableHudComponents[i] == hudComponents[i2] then
-                    ResetHudComponentValues(i)
+                    table.remove(disableHudComponents, i)
                 end
             end
         end

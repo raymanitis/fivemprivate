@@ -3,6 +3,7 @@ import { createTheme } from "@mantine/core";
 const theme = createTheme({
   defaultRadius: "xs",
   fontFamily: "Nexa-Book, sans-serif",
+  primaryColor: "teal",
 
   colors: {
     dark:[

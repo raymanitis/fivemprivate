@@ -1,30 +1,35 @@
 import { fetchNui } from "./fetchNui.js";
 
-const optionsWrapper = document.getElementById("options-wrapper");
+const $optionsWrapper = $("#options-wrapper");
 
-function onClick() {
-  // when nuifocus is disabled after a click, the hover event is never released
-  this.style.pointerEvents = "none";
-
-  fetchNui("select", [this.targetType, this.targetId, this.zoneId]);
-  // is there a better way to handle this? probably
-  setTimeout(() => (this.style.pointerEvents = "auto"), 100);
+function onClick(){
+    const $this = $(this);
+    $this.css("pointer-events", "none");
+    fetchNui("select", [$this.data("type"), $this.data("id"), $this.data("zone")]);
+    setTimeout(() => $this.css("pointer-events", "auto"), 100);
 }
 
-export function createOptions(type, data, id, zoneId) {
-  if (data.hide) return;
+export function createOptions(type, data, id, zoneId){
+    if (data.hide) return;
 
-  const option = document.createElement("div");
-  const iconElement = `<i class="fa-fw ${data.icon} option-icon" ${
-    data.iconColor ? `style = color:${data.iconColor} !important` : null
-  }"></i>`;
-
-  option.innerHTML = `${iconElement}<p class="option-label">${data.label}</p>`;
-  option.className = "option-container";
-  option.targetType = type;
-  option.targetId = id;
-  option.zoneId = zoneId;
-
-  option.addEventListener("click", onClick);
-  optionsWrapper.appendChild(option);
+    const iconColor = data.iconColor ? `style="color:${data.iconColor} !important"` : "";
+    const $option = $("<div>", {
+        html: `
+            <i class="fa-fw ${data.icon} option-icon" ${iconColor}></i>
+            <p class="option-label">${data.label}</p>
+        `,
+        class: "option-container mantine-Button-root mantine-Button-filled",
+        css: { opacity: 0 }
+    })
+        .data({
+            type: type,
+            id: id,
+            zone: zoneId
+        })
+        .on("click", onClick)
+        .appendTo($optionsWrapper)
+        .animate({ opacity: 1 }, {
+            duration: 90,
+            queue: false
+        });
 }

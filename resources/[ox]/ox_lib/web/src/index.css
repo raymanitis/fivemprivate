@@ -138,8 +138,8 @@ code {
   font-weight: 600;
   
   color: #FFF;
-  border: 0.0926vh solid rgba(255, 255, 255, 0.40);
-  background: #3D3D3D;
+  border: 0.0926vh solid rgba(32, 201, 151, 0.60);
+  background: #20C997;
   opacity: .75;
   transition: opacity .3s;
 }
@@ -367,8 +367,8 @@ code {
 .progressBar {
   height: .55vh;
   border-radius: 2.3148vh;
-  background: #4EFFA7;
-  box-shadow: 0 0 1.2685vh 0 rgba(78, 255, 167, 0.46);
+  background: #20C997;
+  box-shadow: 0 0 1.2685vh 0 rgba(32, 201, 151, 0.46);
 }
 
 .progressRoot {
@@ -382,8 +382,8 @@ code {
 .progressBar2 {
   height: .55vh;
   border-radius: 2.3148vh;
-  background: #4EFFA7;
-  box-shadow: 0 0 1.2685vh 0 rgba(78, 255, 167, 0.46);
+  background: #20C997;
+  box-shadow: 0 0 1.2685vh 0 rgba(32, 201, 151, 0.46);
 }
 
 .progressRoot2 {
@@ -535,8 +535,8 @@ code {
   align-items: center;
   border-radius: 0.5556vh;
   border: 0.0926vh solid rgba(255, 255, 255, 0.10);
-  border-color: rgba(255, 255, 255, 0.40);
-  background: #3D3D3D;
+  border-color: rgba(32, 201, 151, 0.60);
+  background: #20C997;
   color: #FFF;
   text-align: center;
   font-family: Inter;
@@ -858,9 +858,9 @@ code {
 .thumb {
   width: 1.25vh;
   height: 1.25vh;
-  background: #3D3D3D;
+  background: #20C997;
   border: 0.1852vh solid rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 1.2685vh 0 rgba(61, 61, 61, 0.46);
+  box-shadow: 0 0 1.2685vh 0 rgba(32, 201, 151, 0.46);
 }
 
 .sliderRoot {
@@ -870,8 +870,8 @@ code {
 }
 
 .sliderBar {
-  background: #3D3D3D;
-  box-shadow: 0 0 1.2685vh 0 rgba(61, 61, 61, 0.46);
+  background: #20C997;
+  box-shadow: 0 0 1.2685vh 0 rgba(32, 201, 151, 0.46);
 }
 
 .marks {
@@ -1076,10 +1076,10 @@ code {
   align-items: center;
   position: absolute !important;
   border-radius: 4.9074vh;
-  background: rgba(255, 78, 98, 0.20);
+  background: rgba(32, 201, 151, 0.20);
 
   padding-top: .2vh;
-  color: #FF4E62;
+  color: #20C997;
   font-family: Inter;
   font-size: 1vh;
   letter-spacing: .2vh;

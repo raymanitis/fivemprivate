@@ -42,11 +42,12 @@ RegisterNetEvent('hospital:server:emergencyAlert', function()
 	alertAmbulance(src, locale('info.ems_down', player.PlayerData.charinfo.lastname))
 end)
 
-RegisterNetEvent('qbx_medical:server:onPlayerLaststand', function()
-	if GetInvokingResource() then return end
-	local src = source
-	alertAmbulance(src, locale('info.civ_down'))
-end)
+-- Disabled automatic alert on laststand - alerts only sent when player presses H
+-- RegisterNetEvent('qbx_medical:server:onPlayerLaststand', function()
+-- 	if GetInvokingResource() then return end
+-- 	local src = source
+-- 	alertAmbulance(src, locale('info.civ_down'))
+-- end)
 
 ---@param playerId number
 RegisterNetEvent('hospital:server:TreatWounds', function(playerId)
@@ -171,11 +172,12 @@ exports.qbx_core:CreateUseableItem('firstaid', function(source, item)
 	triggerItemEventOnPlayer(source, item, 'hospital:client:UseFirstAid')
 end)
 
-RegisterNetEvent('qbx_medical:server:playerDied', function()
-	if GetInvokingResource() then return end
-	local src = source
-	alertAmbulance(src, locale('info.civ_died'))
-end)
+-- Disabled automatic alert on death - alerts only sent when player presses H
+-- RegisterNetEvent('qbx_medical:server:playerDied', function()
+-- 	if GetInvokingResource() then return end
+-- 	local src = source
+-- 	alertAmbulance(src, locale('info.civ_died'))
+-- end)
 
 AddEventHandler('onResourceStart', function(resource)
     if resource ~= GetCurrentResourceName() then return end

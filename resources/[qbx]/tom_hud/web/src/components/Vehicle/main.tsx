@@ -51,12 +51,14 @@ export default function VehicleHud() {
     const colorMap: Record<string, string> = {
       red: 'var(--mantine-color-red-light-hover)',
       blue: 'var(--mantine-color-blue-light-hover)',
+      teal: 'var(--mantine-color-teal-light-hover)',
       green: 'var(--mantine-color-green-light-hover)',
       yellow: 'var(--mantine-color-yellow-light-hover)',
       cyan: 'var(--mantine-color-cyan-light-hover)',
+      orange: 'var(--mantine-color-orange-light-hover)',
     };
   
-    const progressColor = colorMap[color] || 'var(--mantine-color-blue-light-hover)';
+    const progressColor = colorMap[color] || 'var(--mantine-color-teal-light-hover)';
   
     return (
       <div style={{ 
@@ -152,7 +154,7 @@ export default function VehicleHud() {
                       position: 'relative',
                     }}>
                     <Box
-                      bg={'var(--mantine-color-blue-light)'}
+                      bg={'var(--mantine-color-teal-light)'}
                       style={{
                         width: '100%',
                         height: '100%',
@@ -165,10 +167,10 @@ export default function VehicleHud() {
                       size="2.5rem"
                       radius="xs"
                       variant="light"
-                      color={'blue'}
+                      color={'teal'}
                       style={{
                         borderRadius: theme.radius.xs,
-                        boxShadow: `0 0 10px var(--mantine-color-blue-light-hover)`,
+                        boxShadow: `0 0 10px var(--mantine-color-teal-light-hover)`,
                         position: 'relative',
                         zIndex: 1,
                       }}

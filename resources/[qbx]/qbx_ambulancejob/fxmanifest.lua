@@ -32,7 +32,12 @@ files {
 	'locales/*.json',
 	'config/client.lua',
 	'config/shared.lua',
+	'web/build/index.html',
+	'web/build/assets/*.js',
+	'web/build/assets/*.css',
 }
+
+ui_page 'web/build/index.html'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'

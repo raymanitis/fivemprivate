@@ -41,7 +41,7 @@ const useStyles = createStyles((theme, params: { difficultyOffset: number }) => 
   },
   skillArea: {
     fill: 'transparent',
-    stroke: "#FF4E62",
+    stroke: "#20C997",
     strokeWidth: 8,
     r: 50,
     cx: 250,
@@ -203,11 +203,11 @@ const SkillCheck: React.FC = () => {
 
             <div className="inText">Skill Check</div>
             <div className="inCount">{currentStage}/{totalStages}</div>
-            <div className="inDesc">Hit Button when the <span style={{color: "#fff"}}>white dot</span> hits the <span style={{ color: "#FF4E62" }}>red zone</span></div>
+            <div className="inDesc">Hit Button when the <span style={{color: "#fff"}}>white dot</span> hits the <span style={{ color: "#20C997" }}>teal zone</span></div>
 
             <svg className='inSvg' xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
               <g filter="url(#filter0_d_40_160)">
-                <circle cx="18.7002" cy="18.7" r="5" fill="#FF4E62"/>
+                <circle cx="18.7002" cy="18.7" r="5" fill="#20C997"/>
               </g>
               <defs>
                 <filter id="filter0_d_40_160" x="0.000195503" y="1.23978e-05" width="37.4" height="37.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -216,7 +216,7 @@ const SkillCheck: React.FC = () => {
                   <feOffset/>
                   <feGaussianBlur stdDeviation="6.85"/>
                   <feComposite in2="hardAlpha" operator="out"/>
-                  <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.305882 0 0 0 0 0.384314 0 0 0 0.35 0"/>
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.12549 0 0 0 0 0.788235 0 0 0 0 0.592157 0 0 0 0 0.35 0"/>
                   <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_40_160"/>
                   <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_40_160" result="shape"/>
                 </filter>

@@ -1,6 +1,9 @@
 RegisterNetEvent('tackle:server:TacklePlayer', function(target)
+    if target == nil then
+        return
+    end
     local src = source
-    
+
     local srcCoords = GetEntityCoords(GetPlayerPed(src))
     local targetCoords = GetEntityCoords(GetPlayerPed(target))
 

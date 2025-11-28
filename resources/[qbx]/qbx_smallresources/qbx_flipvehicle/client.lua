@@ -30,9 +30,9 @@ local function flipVehicle(vehicle, flipTest)
         },
     }) then
         SetVehicleOnGroundProperly(vehicle)
-        exports.qbx_core:Notify(locale('success.flipped_car'), 'success')
+        exports.qbx_core:Notify(locale('You flipped the vehicle'), 'success')
     else
-        exports.qbx_core:Notify(locale('error.canceled'), 'error')
+        exports.qbx_core:Notify(locale('Error flipping the vehicle'), 'error')
     end
 end
 

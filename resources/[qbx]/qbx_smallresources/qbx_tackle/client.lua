@@ -5,20 +5,16 @@ lib.addKeybind({
     onReleased = function(self)
         if cache.vehicle then return end
         if QBX.PlayerData.metadata.ishandcuffed then return end
-        if IsPedSprinting(cache.ped) or IsPedRunning(cache.ped) then
+        if IsPedSprinting(cache.ped) then
             local coords = GetEntityCoords(cache.ped)
-            local targetId, targetPed, _ = lib.getClosestPlayer(coords, 1.6, false)
+            local targetId, targetPed, _ = lib.getClosestPlayer(coords, 2.0, false)
             if not targetPed then return end
-            if IsPedInAnyVehicle(targetPed, true) then return end
             self:disable(true)
-            TriggerServerEvent('tackle:server:TacklePlayer', GetPlayerServerId(targetId))
-            lib.requestAnimDict('swimming@first_person@diving')
-            TaskPlayAnim(cache.ped, 'swimming@first_person@diving', 'dive_run_fwd_-45_loop', 3.0, 3.0, -1, 49, 0, false, false, false)
-            Wait(250)
-            ClearPedTasks(cache.ped)
-            SetPedToRagdoll(cache.ped, 150, 150, 0, 0, 0, 0)
-            RemoveAnimDict('swimming@first_person@diving')
-            SetTimeout(1000, function ()
+            if math.random(1, 100) <= 65 then -- 65% chance to tackle someone 
+                TriggerServerEvent('tackle:server:TacklePlayer', GetPlayerServerId(targetId))
+            end
+            SetPedToRagdoll(cache.ped, 250, 250, 0, 0, 0, 0)
+            SetTimeout(5500, function ()
                 self:disable(false)
             end)
         end
@@ -26,5 +22,6 @@ lib.addKeybind({
 })
 
 RegisterNetEvent('tackle:client:GetTackled', function()
-    SetPedToRagdoll(cache.ped, 7000, 7000, 0, 0, 0, 0)
+    local tackleTime = math.random(1500, 2500)
+    SetPedToRagdoll(cache.ped, tackleTime, tackleTime, 0, 0, 0, 0)
 end)

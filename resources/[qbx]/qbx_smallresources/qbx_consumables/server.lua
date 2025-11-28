@@ -49,25 +49,26 @@ local function addThirst(source, amount)
     setThirst(source, thirst + amount)
 end
 
----Relieve a random amount of stress from the player's state
----@param source number
----@param min number lower limit for random generation
----@param max number upper limit for rancom generation
-local function relieveStress(source, min, max)
-    local playerState = Player(source).state
-    local verifiedMin = (type(min) == "number" and min) or config.defaultStressRelief.min
-    local verifiedMax = max or config.defaultStressRelief.max
-    local amount = math.random(verifiedMin, verifiedMax)
-    local newStress = (playerState.stress or 0) - amount
-    newStress = lib.math.clamp(newStress, 0, 100)
+-- ---Relieve a random amount of stress from the player's state
+-- ---@param source number
+-- ---@param min number lower limit for random generation
+-- ---@param max number upper limit for rancom generation
+-- local function relieveStress(source, min, max)
+--     local playerState = Player(source).state
+--     local verifiedMin = (type(min) == "number" and min) or config.defaultStressRelief.min
+--     local verifiedMax = max or config.defaultStressRelief.max
+--     local amount = math.random(verifiedMin, verifiedMax)
+--     local newStress = (playerState.stress or 0) - amount
+--     newStress = lib.math.clamp(newStress, 0, 100)
 
-    playerState:set("stress", newStress, true)
-    if amount < 0 then
-        exports.qbx_core:Notify(source, locale('error.stress_gain'), 'inform', 2500, nil, nil, { '#141517', '#ffffff' }, 'brain', '#C53030')
-    else
-        exports.qbx_core:Notify(source, locale('success.stress_relief'), 'inform', 2500, nil, nil, { '#141517', '#ffffff' }, 'brain', '#0F52BA')
-    end
-end
+--     playerState:set("stress", newStress, true)
+--     if amount < 0 then
+--         exports.qbx_core:Notify(source, locale('error.stress_gain'), 'inform', 2500, nil, nil, { '#141517', '#ffffff' }, 'brain', '#C53030')
+--     else
+--         exports.qbx_core:Notify(source, locale('success.stress_relief'), 'inform', 2500, nil, nil, { '#141517', '#ffffff' }, 'brain', '#0F52BA')
+--     end
+-- end
+
 
 for alcohol, params in pairs(config.consumables.alcohol) do
     exports.qbx_core:CreateUseableItem(alcohol, function(source, item)
@@ -76,7 +77,7 @@ for alcohol, params in pairs(config.consumables.alcohol) do
         if not exports.ox_inventory:RemoveItem(source, item.name, 1, nil, item.slot) then return end
 
         local sustenance = math.random(params.min, params.max)
-        relieveStress(source, params.stressRelief.min, params.stressRelief.max)
+        -- relieveStress(source, params.stressRelief.min, params.stressRelief.max)
 
         addThirst(source, sustenance)
     end)
@@ -89,7 +90,7 @@ for drink, params in pairs(config.consumables.drink) do
         if not exports.ox_inventory:RemoveItem(source, item.name, 1, nil, item.slot) then return end
 
         local sustenance = math.random(params.min, params.max)
-        relieveStress(source, params.stressRelief.min, params.stressRelief.max)
+        -- relieveStress(source, params.stressRelief.min, params.stressRelief.max)
 
         addThirst(source, sustenance)
     end)
@@ -102,15 +103,18 @@ for food, params in pairs(config.consumables.food) do
         if not exports.ox_inventory:RemoveItem(source, item.name, 1, nil, item.slot) then return end
 
         local sustenance = math.random(params.min, params.max)
-        relieveStress(source, params.stressRelief.min, params.stressRelief.max)
+        -- relieveStress(source, params.stressRelief.min, params.stressRelief.max)
 
         addHunger(source, sustenance)
     end)
 end
 
-exports.qbx_core:CreateUseableItem('joint', function(source)
-    TriggerClientEvent('consumables:client:UseJoint', source)
-end)
+
+
+
+-- exports.qbx_core:CreateUseableItem('joint', function(source)
+--     TriggerClientEvent('consumables:client:UseJoint', source)
+-- end)
 
 exports.qbx_core:CreateUseableItem('cokebaggy', function(source)
     TriggerClientEvent('consumables:client:Cokebaggy', source)
@@ -124,9 +128,9 @@ exports.qbx_core:CreateUseableItem('xtcbaggy', function(source)
     TriggerClientEvent('consumables:client:EcstasyBaggy', source)
 end)
 
-exports.qbx_core:CreateUseableItem('oxy', function(source)
-    TriggerClientEvent('consumables:client:oxy', source)
-end)
+-- exports.qbx_core:CreateUseableItem('oxy', function(source)
+--     TriggerClientEvent('consumables:client:oxy', source)
+-- end)
 
 exports.qbx_core:CreateUseableItem('meth', function(source)
     TriggerClientEvent('consumables:client:meth', source)
@@ -142,12 +146,49 @@ exports.qbx_core:CreateUseableItem('advancedlockpick', function(source)
     TriggerEvent('lockpicks:UseLockpick', source, true)
 end)
 
+exports.qbx_core:CreateUseableItem('meth', function(source, item)
+    TriggerClientEvent('qb-printer:client:UseDocument', source, item)
+end)
+
+
+exports.qbx_core:CreateUseableItem('vodka', function(source)
+    TriggerClientEvent('consumables:client:ApplyAlcoholEffect', source, 2, 'vodka')
+end)
+
+exports.qbx_core:CreateUseableItem('beer', function(source)
+    TriggerClientEvent('consumables:client:ApplyAlcoholEffect', source, 1, 'beer')
+end)
+
+exports.qbx_core:CreateUseableItem('whiskey', function(source)
+    TriggerClientEvent('consumables:client:ApplyAlcoholEffect', source, 2, 'whiskey')
+end)
+-- item laiva
+
+exports.qbx_core:CreateUseableItem('pd_laiva', function(source)
+    TriggerClientEvent('my_boatitem:spawnBoat', source)
+end)
+
 lib.callback.register('consumables:server:usedItem', function(source, item)
     local player = exports.qbx_core:GetPlayer(source)
     if not player then return end
 
     return exports.ox_inventory:RemoveItem(source, item, 1)
 end)
+
+-- exports.qbx_core:CreateUseableItem('armor', function(source)
+--     TriggerClientEvent('consumables:client:armor', source)
+-- end)
+
+-- exports.qbx_core:CreateUseableItem('pd_armor', function(source)
+--     TriggerClientEvent('consumables:client:pd_armor', source)
+-- end)
+
+
+-- -- Register the "treasure_chest" as a usable item
+-- exports.qbx_core:CreateUsableItem('treasure_chest', function(source)
+--     TriggerClientEvent('treasure:openChest', source)
+-- end)
+
 
 ---Set player's hunger state to 'amount'
 ---@param amount number

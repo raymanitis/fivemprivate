@@ -8,8 +8,7 @@
       "stress_gain": "Vous vous sentez plus stressé !",
       "no_vehicle_nearby": "Aucun véhicule à proximité pour le retourner.",
       "is_handcuffed": "Vous êtes menotté.",
-      "is_fastened": "Vous portez une ceinture de sécurité.",
-      "vehicle_radio_off": "Radio du véhicule éteinte"
+      "is_fastened": "Vous portez une ceinture de sécurité."
    },
    "success": {
       "cruise_control_enabled": "Régulateur de vitesse activé",
@@ -17,8 +16,7 @@
       "stopped_recording": "Enregistrement arrêté !",
       "saved_recording": "Enregistrement sauvegardé !",
       "stress_relief": "Vous vous sentez plus détendu !",
-      "flipped_car": "Véhicule retourné avec succès !",
-      "vehicle_radio_on": "Radio du véhicule allumée"
+      "flipped_car": "Véhicule retourné avec succès !"
    },
    "progress": {
       "eating": "En train de manger..",
@@ -35,9 +33,7 @@
    "info": {
       "minutes": "minutes",
       "seconds": "secondes..",
-      "shuffleSeat": "Changer de siège",
-      "teleport_level_select": "Go To Level #%s",
-      "teleport_current_level_indication": "(You're Here)"
+      "shuffleSeat": "Changer de siège"
    },
    "actions": {
       "push_vehicle": "Appuyez sur [~g~MAJ~w~] et [~g~E~w~] pour pousser le véhicule jusqu'à relâchement de [~g~MAJ~w~]",

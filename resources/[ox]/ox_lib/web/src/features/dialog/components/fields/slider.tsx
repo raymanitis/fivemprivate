@@ -26,6 +26,7 @@ const SliderField: React.FC<Props> = (props) => {
           root: "sliderRoot",
           bar: "sliderBar"
         }}
+        color="teal"
         mb={"1.8519vh"}
         value={controller.field.value}
         name={controller.field.name}

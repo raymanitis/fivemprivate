@@ -132,14 +132,14 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
         ta="center"
         style={{
           textShadow: digit !== '0' || speed >= Math.pow(10, 2 - index) || speedStr.length > (2 - index)
-            ? `0 0 10px ${theme.colors.blue[4]}`
+            ? `0 0 10px ${theme.colors.teal[6]}`
             : `0 0 10px ${theme.colors.gray[6]}`,
           display: 'inline-block',
         }}
         fw={500}
         ff="digital-7"
         c={(digit !== '0' || speed >= Math.pow(10, 2 - index) || speedStr.length > (2 - index))
-            ? theme.colors.blue[4]
+            ? theme.colors.teal[6]
             : theme.colors.gray[6]}
       >
         {digit}
@@ -157,11 +157,11 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
         ff="digital-7"
         style={{
           textShadow: digit !== '0' || distance >= Math.pow(10, 5 - index) 
-            ? `0 0 5px ${theme.colors.blue[4]}` 
+            ? `0 0 5px ${theme.colors.teal[6]}` 
             : `0 0 5px ${theme.colors.gray[6]}`,
         }}
         c={(digit !== '0' || distance >= Math.pow(10, 5 - index)) 
-          ? theme.colors.blue[4] 
+          ? theme.colors.teal[6] 
           : theme.colors.gray[6]}
       >
         {digit}
@@ -200,7 +200,7 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
             strokeWidth="5"
             className="speedometer-active-arc"
             style={{
-              stroke: smoothRpm >= 90 ? theme.colors.red[4] : theme.colors.blue[4],
+              stroke: smoothRpm >= 90 ? theme.colors.red[4] : theme.colors.teal[6],
             }}
           />
         </g>

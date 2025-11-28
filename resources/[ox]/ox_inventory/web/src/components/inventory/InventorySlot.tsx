@@ -37,8 +37,10 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
   const timerRef = useRef<number | null>(null);
 
   const rarityColors = Rarity;
-  const rarityKey = (item?.rarity ?? '').toLowerCase();
-  const rarityColor = rarityColors[rarityKey];
+  // Default to "common" if rarity is not specified
+  const itemRarity = item?.rarity || 'common';
+  const rarityKey = itemRarity.toLowerCase();
+  const rarityColor = rarityColors[rarityKey] || rarityColors['common'];
 
   const withAlpha = (color: string, alpha: number) => {
     return color.replace(/rgba?\(([^)]+)\)/, (match, contents) => {
@@ -167,23 +169,17 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
         padding: '8px',
         border: isOver
           ? '1px dashed rgba(255,255,255,0.4)'
-          : '1px solid transparent',
+          : rarityColor
+          ? `1px solid ${withAlpha(rarityColor, 0.7)}`
+          : '1px solid rgba(0, 0, 0, 0.8)',
         background: isOver
           ? `
               ${item?.name ? `url(${getItemUrl(item as SlotWithItem)}) center / 5vh no-repeat padding-box,` : ''}
-              linear-gradient(45deg, #161616bb, #000000b4) padding-box,
-              linear-gradient(90deg, rgba(255,255,255,0.336), rgba(0,0,0,0.589)) border-box
-            `
-          : rarityColor
-          ? `
-              ${item?.name ? `url(${getItemUrl(item as SlotWithItem)}) center / 5vh no-repeat padding-box,` : ''}
-              linear-gradient(45deg, #161616bb, #000000b4) padding-box,
-              linear-gradient(-45deg, rgba(255,255,255,0), ${withAlpha(rarityColor, 1)}) border-box
+              linear-gradient(45deg, #161616bb, #000000b4) padding-box
             `
           : `
               ${item?.name ? `url(${getItemUrl(item as SlotWithItem)}) center / 5vh no-repeat padding-box,` : ''}
-              linear-gradient(45deg, #161616bb, #000000b4) padding-box,
-              linear-gradient(135deg, rgba(255,255,255,0.336), rgba(0,0,0,0.589)) border-box
+              linear-gradient(45deg, #161616bb, #000000b4) padding-box
             `,
         filter:
           !canPurchaseItem(item, { type: inventoryType, groups: inventoryGroups }) ||
@@ -228,11 +224,6 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
             {inventoryType === 'player' && item.slot <= 4 && 
               <div 
               className="inventory-slot-number"
-              style={{
-                background: rarityColor
-                  ? `${withAlpha(rarityColor, 1)}`
-                  : `linear-gradient(135deg, rgba(255,255,255,0.336), rgba(0,0,0,0.589))`,
-              }}
               >
                 {item.slot}
               </div>
@@ -244,18 +235,23 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
               <div className="hotbar-slot-header-wrapper">
                 <div
                   className="inventory-slot-number"
-                  style={{
-                    background: rarityColor
-                      ? `${withAlpha(rarityColor, 1)}`
-                      : `linear-gradient(135deg, rgba(255,255,255,0.336), rgba(0,0,0,0.589))`,
-                  }}
                 >
                   {item.slot}
                 </div>
               </div>
             )}
-            <div className="inventory-slot-rarity">{item.rarity}</div>
           </div>
+          {/* Always show rarity in top right of slot, default to "common" */}
+          {isSlotWithItem(item) && (
+            <div 
+              className="inventory-slot-rarity"
+              style={{
+                color: rarityColor || Rarity['common'],
+              }}
+            >
+              {itemRarity}
+            </div>
+          )}
           <div>
             {inventoryType === 'shop' && item?.price !== undefined && (
               <>
@@ -279,7 +275,7 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
                     {item.price > 0 && (
                       <div
                         className="item-slot-price-wrapper"
-                        style={{ color: item.currency === 'money' || !item.currency ? '#2ECC71' : '#E74C3C' }}
+                        style={{ color: '#12b886' }} // Mantine teal[6] for all prices
                       >
                         <p>
                           {Locale.$ || '$'}

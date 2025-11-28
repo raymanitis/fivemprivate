@@ -31,33 +31,25 @@ return {
     consumables = {
         ---@type table<string, consumable>
         food = {
-            sandwich = {
-                min = 35,
-                max = 54,
+            food_burger = {
+                min = 20,
+                max = 21,
                 stressRelief = {
                     min = 1,
                     max = 4
                 },
             },
-            tosti = {
-                min = 40,
-                max = 50,
+            food_bread = {
+                min = 20,
+                max = 21,
                 stressRelief = {
                     min = 1,
                     max = 4
                 },
             },
-            twerks_candy = {
-                min = 35,
-                max = 54,
-                stressRelief = {
-                    min = 1,
-                    max = 4
-                },
-            },
-            snikkel_candy = {
-                min = 40,
-                max = 50,
+            food_croissant = {
+                min = 10,
+                max = 15,
                 stressRelief = {
                     min = 1,
                     max = 4
@@ -67,65 +59,46 @@ return {
 
         ---@type table<string, consumable>
         drink = {
-            water_bottle = {
-                min = 35,
-                max = 54,
+            drink_cola = {
+                min = 10,
+                max = 15,
                 stressRelief = {
                     min = 1,
                     max = 4
                 },
             },
-            kurkakola = {
-                min = 35,
-                max = 54,
+            drink_frappuccino = {
+                min = 10,
+                max = 15,
                 stressRelief = {
                     min = 1,
                     max = 4
                 },
             },
-            coffee = {
-                min = 40,
-                max = 50,
-                anim = {
-                    clip = 'idle_c',
-                    dict = 'amb@world_human_drinking@coffee@male@idle_a',
-                    flag = 49
-                },
-                prop = {
-                    model = 'p_amb_coffeecup_01',
-                    bone = 28422,
-                    pos = {x = 0.0, y = 0.0, z = 0.0},
-                    rot = {x = 0.0, y = 0.0, z = 0.0}
-                },
+            drink_energy = {
+                min = 10,
+                max = 15,
                 stressRelief = {
-                    min = -10,
-                    max = -1
+                    min = 1,
+                    max = 4
                 },
             },
         },
 
         ---@type table<string, consumableAlcohol>
         alcohol = {
-            whiskey = {
-                min = 20,
-                max = 30,
-                stressRelief = {
-                    min = 1,
-                    max = 4
-                },
-            },
-            beer = {
-                min = 30,
-                max = 40,
+            drink_beer = {
+                min = 10,
+                max = 15,
                 stressRelief = {
                     min = 1,
                     max = 4
                 },
                 alcoholLevel = 0.25
             },
-            vodka = {
-                min = 20,
-                max = 40,
+            drink_vodka = {
+                min = 10,
+                max = 15,
                 stressRelief = {
                     min = 1,
                     max = 4

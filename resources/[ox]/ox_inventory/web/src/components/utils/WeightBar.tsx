@@ -14,22 +14,43 @@ const colorMixer = (rgbA: number[], rgbB: number[], amountToMix: number) => {
 };
 
 const COLORS = {
-  // Colors used - https://materialui.co/flatuicolors
-  primaryColor: [255, 28, 108], // Red (Pomegranate)
-  secondColor: [119, 222, 185], // Green (Nephritis)
-  accentColor: [255, 172, 28], // Orange (Oragne)
+  // Mantine Teal Theme Colors
+  tealPrimary: [18, 184, 134], // Mantine teal[6] (#12b886) - Main accent
+  tealHover: [32, 201, 151], // Mantine teal[5] (#20c997) - Hover
+  tealLight: [38, 198, 148], // Mantine teal[4] - Lighter teal
+  tealDark: [15, 166, 117], // Mantine teal[7] - Darker teal
 };
 
 const WeightBar: React.FC<{ percent: number; durability?: boolean }> = ({ percent, durability }) => {
-  const color = useMemo(
-    () =>
-      durability
-        ? percent < 50
-          ? colorMixer(COLORS.accentColor, COLORS.primaryColor, percent / 100)
-          : colorMixer(COLORS.secondColor, COLORS.accentColor, percent / 100)
-        : percent > 50
-        ? colorMixer(COLORS.primaryColor, COLORS.accentColor, percent / 100)
-        : colorMixer(COLORS.accentColor, COLORS.secondColor, percent / 50),
+  const { color, shadowColor } = useMemo(
+    () => {
+      if (durability) {
+        // Durability bar: teal gradient based on durability (Mantine teal[6])
+        const durabilityColor = percent < 50
+          ? colorMixer(COLORS.tealDark, COLORS.tealPrimary, percent / 100)
+          : colorMixer(COLORS.tealPrimary, COLORS.tealHover, percent / 100);
+        return { color: durabilityColor, shadowColor: 'rgba(18, 184, 134, 0.46)' };
+      } else {
+        // Weight bar: teal gradient based on weight percentage
+        // Uses teal colors throughout - lighter teal for low weight, darker teal for high weight
+        let weightColor: string;
+        let shadow: string;
+        
+        if (percent <= 50) {
+          // Light to medium weight: lighter teal
+          const normalizedPercent = percent / 50; // 0-1 range for 0-50%
+          weightColor = colorMixer(COLORS.tealLight, COLORS.tealPrimary, normalizedPercent);
+          shadow = 'rgba(18, 184, 134, 0.3)';
+        } else {
+          // Medium to heavy weight: darker teal
+          const normalizedPercent = (percent - 50) / 50; // 0-1 range for 50-100%
+          weightColor = colorMixer(COLORS.tealPrimary, COLORS.tealDark, normalizedPercent);
+          shadow = 'rgba(15, 166, 117, 0.4)';
+        }
+        
+        return { color: weightColor, shadowColor: shadow };
+      }
+    },
     [durability, percent]
   );
 
@@ -42,7 +63,8 @@ const WeightBar: React.FC<{ percent: number; durability?: boolean }> = ({ percen
           width: `${percent}%`,
           borderRadius: '10rem',
           backgroundColor: color,
-          transition: `background ${0.3}s ease, width ${0.3}s ease`,
+          boxShadow: `0 0 1.2685vh 0 ${shadowColor}`,
+          transition: `background-color ${0.3}s ease, width ${0.3}s ease, box-shadow ${0.3}s ease`,
         }}
       ></div>
     </div>

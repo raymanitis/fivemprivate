@@ -8,8 +8,7 @@
       "stress_gain": "Te simți mai stresat!",
       "no_vehicle_nearby": "Nu există niciun vehicul în apropiere pentru a-l răsturna.",
       "is_handcuffed": "Ești încătușat.",
-      "is_fastened": "Porți centura de siguranță.",
-      "vehicle_radio_off": "Radio vehicul oprit"
+      "is_fastened": "Porți centura de siguranță."
    },
    "success": {
       "cruise_control_enabled": "Pilot automat activat",
@@ -17,8 +16,7 @@
       "stopped_recording": "Înregistrare oprită!",
       "saved_recording": "Înregistrare salvată!",
       "stress_relief": "Te simți mai relaxat!",
-      "flipped_car": "Vehicul răsturnat cu succes!",
-      "vehicle_radio_on": "Radio vehicul pornit"
+      "flipped_car": "Vehicul răsturnat cu succes!"
    },
    "progress": {
       "eating": "Mănânci..",
@@ -35,12 +33,10 @@
    "info": {
       "minutes": "minute",
       "seconds": "secunde..",
-      "shuffleSeat": "Schimbă locul",
-      "teleport_level_select": "Go To Level #%s",
-      "teleport_current_level_indication": "(You're Here)"
+      "shuffleSeat": "Schimbă locul"
    },
    "actions": {
-      "push_vehicle": "Apasa [~g~SHIFT~w~] si [~g~E~w~] pentru a impinge vehiculul pana la eliberarea [~g~SHIFT~w~]",
+      "push_vehicle": "Apasă [~g~SHIFT~w~] și [~g~E~w~] pentru a împinge vehiculul până la eliberarea [~g~SHIFT~w~]",
       "toggle_cruise_control": "Comută pilotul automat"
    }
 }

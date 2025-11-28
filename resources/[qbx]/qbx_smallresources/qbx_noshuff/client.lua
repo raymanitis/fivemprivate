@@ -32,9 +32,9 @@ local function shuffleSeat(self)
     self:disable(false)
 end
 
-lib.addKeybind({
-    name = 'shuffleSeat',
-    description = locale('info.shuffleSeat'),
-    defaultKey = config.shuffleSeatKey,
-    onPressed = shuffleSeat
-})
+--lib.addKeybind({
+--    name = 'shuffleSeat',
+--    description = locale('info.shuffleSeat'),
+--    defaultKey = config.shuffleSeatKey,
+--    onPressed = shuffleSeat
+--})

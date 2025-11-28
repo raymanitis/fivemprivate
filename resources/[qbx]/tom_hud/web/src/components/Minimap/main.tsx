@@ -70,12 +70,12 @@ export const MinimapBorder = () => {
             <Flex gap="xs" align="center" flex="row"> 
             <Flex direction="column" align="center">
             <Flex
-              bg={'var(--mantine-color-blue-light)'}
+              bg={'var(--mantine-color-teal-light)'}
               style={{
                 borderRadius: theme.radius.xs,
                 padding: '0.4rem',
-                color: 'var(--mantine-color-blue-light-color)',
-                boxShadow: `0 0 10px var(--mantine-color-blue-light-hover)`,
+                color: 'var(--mantine-color-teal-light-color)',
+                boxShadow: `0 0 10px var(--mantine-color-teal-light-hover)`,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -91,10 +91,10 @@ export const MinimapBorder = () => {
           </Flex>
               <Flex direction="column" align="flex-start">
               <Flex direction="row" align="center" gap="xs">
-              <ThemeIcon color="blue" variant="light" size="sm" style={{ borderRadius: theme.radius.xs, boxShadow: `0 0 10px var(--mantine-color-blue-light-hover)`, }} >
+              <ThemeIcon color="teal" variant="light" size="sm" style={{ borderRadius: theme.radius.xs, boxShadow: `0 0 10px var(--mantine-color-teal-light-hover)`, }} >
                 <BiCurrentLocation size={16} />
               </ThemeIcon>
-              <Text size="sm" fw={700} c="blue.4" style={{ textShadow: `0 0 5px ${theme.colors.blue[4]}`}} truncate>
+              <Text size="sm" fw={700} c="teal.6" style={{ textShadow: `0 0 5px ${theme.colors.teal[6]}`}} truncate>
                 {currentStreet}
               </Text>
               </Flex>

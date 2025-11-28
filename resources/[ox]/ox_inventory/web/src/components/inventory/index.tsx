@@ -24,9 +24,15 @@ const Inventory: React.FC = () => {
   const [activePanel, setActivePanel] = useState<'utils' | 'inventory'>('inventory');
   const dispatch = useAppDispatch();
 
-  useNuiEvent<boolean>('setInventoryVisible', setInventoryVisible);
+  useNuiEvent<boolean>('setInventoryVisible', (visible) => {
+    setInventoryVisible(visible);
+    if (!visible) {
+      setSplitItem(null);
+    }
+  });
   useNuiEvent<false>('closeInventory', () => {
     setInventoryVisible(false);
+    setSplitItem(null);
     dispatch(closeContextMenu());
     dispatch(closeTooltip());
   });
@@ -36,7 +42,10 @@ const Inventory: React.FC = () => {
     'setupInventory',
     (data) => {
       dispatch(setupInventory(data));
-      !inventoryVisible && setInventoryVisible(true);
+      if (!inventoryVisible) {
+        setInventoryVisible(true);
+        setSplitItem(null); // Reset split when opening inventory
+      }
     }
   );
 
@@ -61,6 +70,7 @@ const Inventory: React.FC = () => {
     amount={splitItem.amount}
     infoVisible={infoVisible}
     setInfoVisible={setInfoVisible}
+    setSplitItem={setSplitItem}
   />
 )}
 

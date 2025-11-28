@@ -7,6 +7,7 @@ import { useAppSelector } from '../../store';
 import { selectLeftInventory } from '../../store/inventory';
 import { SlotWithItem } from '../../typings';
 import SlideUp from '../utils/transitions/SlideUp';
+import { Rarity } from '../../store/rarity';
 
 const InventoryHotbar: React.FC = () => {
   const [hotbarVisible, setHotbarVisible] = useState(false);
@@ -24,14 +25,7 @@ const InventoryHotbar: React.FC = () => {
     }
   });
 
-  const rarityColors: Record<string, string> = {
-    common: 'rgba(171, 171, 171, 1)',
-    uncommon: 'rgba(162, 202, 49, 1)',
-    rare: 'rgba(54, 196, 174, 1)',
-    epic: 'rgba(179, 64, 220, 1)',
-    legendary: 'rgba(255, 173, 0, 1)',
-    mythic: 'rgba(255, 0, 82, 1)',
-  };
+  const rarityColors = Rarity;
 
   const withAlpha = (color: string, alpha: number) => {
     return color.replace(/rgba?\(([^)]+)\)/, (match, contents) => {
@@ -50,8 +44,10 @@ const InventoryHotbar: React.FC = () => {
     <SlideUp in={hotbarVisible}>
       <div className="hotbar-container">
         {items.map((item) => {
-          const rarityKey = (item?.rarity ?? '').toLowerCase();
-          const rarityColor = rarityColors[rarityKey];
+          // Default to "common" if rarity is not specified
+          const itemRarity = item?.rarity || 'common';
+          const rarityKey = itemRarity.toLowerCase();
+          const rarityColor = rarityColors[rarityKey] || rarityColors['common'];
 
           return (
             <div
@@ -84,33 +80,19 @@ const InventoryHotbar: React.FC = () => {
                   <div className="hotbar-slot-header-wrapper">
                     <div
                       className="inventory-slot-number"
-                      style={{
-                        background: rarityColor
-                          ? `
-                  ${withAlpha(rarityColor, 1)}
-                `
-                          : `
-                  linear-gradient(135deg, rgba(255,255,255,0.336), rgba(0,0,0,0.589))
-                `,
-                      }}
                     >{item.slot}</div>
                     <div className="item-slot-info-wrapper">
                       <p>{item.count ? item.count.toLocaleString('en-us') + `x` : ''}</p>
                     </div>
-                    <div
-                      className="inventory-slot-rarity"
-                      style={{
-                        color: rarityColor
-                          ? `
-              ${withAlpha(rarityColor, 1)}
-            `
-                          : `
-              linear-gradient(135deg, rgba(255,255,255,0.336), rgba(0,0,0,0.589))
-            `,
-                      }}
-                    >
-                      {item.rarity}
-                    </div>
+                  </div>
+                  {/* Rarity badge positioned same as main inventory */}
+                  <div 
+                    className="inventory-slot-rarity"
+                    style={{
+                      color: rarityColor || Rarity['common'],
+                    }}
+                  >
+                    {itemRarity}
                   </div>
                   <div>
                     {item?.durability !== undefined && (

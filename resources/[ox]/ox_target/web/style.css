@@ -1,91 +1,91 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap");
-
 :root {
-  --color-default: #cfd2da;
-  --color-hover: white;
+    --eye-default-color: #818181;
+    --eye-hover-color: #099268;
 }
 
 body {
-  visibility: hidden;
-  user-select: none;
-  white-space: nowrap;
-  margin: 0;
-  user-select: none;
-  overflow: hidden;
+    visibility: hidden;
+    user-select: none;
+    white-space: nowrap;
+    margin: 0;
+    overflow: hidden;
+    font-family: Nexa-Book, 'sans-serif';
+    background-color: transparent;
 }
 
 p {
-  margin: 0;
+    margin: 0;
 }
 
 .material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 40;
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 40;
 }
 
 #eye {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 22pt;
-  fill: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    color: var(--eye-default-color);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .eye-hover {
-  fill: var(--color-default);
+    transition: filter 90ms linear;
+    color: var(--eye-hover-color) !important;
+    filter: drop-shadow(0 0 10px var(--eye-hover-color)) !important;
 }
 
 #options-wrapper {
-  position: absolute;
-  top: calc(48.4%);
-  left: calc(50% + 18pt);
+    position: absolute;
+    top: calc(48.6%);
+    left: calc(50% + 18pt);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
 }
 
 .option-container {
-  color: var(--color-default);
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  font-family: "Nunito";
-  background: linear-gradient(
-    90deg,
-    rgba(20, 20, 20, 0.7) 0%,
-    rgba(20, 20, 20, 0.6) 66%,
-    rgba(47, 48, 53, 0) 100%
-  );
-  font-size: 11pt;
-  line-height: 22pt;
-  vertical-align: middle;
-  margin: 2pt;
-  transition: 300ms;
-  transform-origin: left top;
-  scale: 1;
-  height: 22pt;
-  width: 150pt;
-  top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 1.35;
+    vertical-align: middle;
+    min-width: 160px;
+    max-width: 240px;
+    width: auto;
+    background: #25262b;
+    border: 1px solid #373A40;
+    transition: background-color 90ms ease-in-out, transform 90ms ease-in-out, color 90ms ease-in-out;;
 }
 
 .option-container:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(30, 30, 30, 0.7) 0%,
-    rgba(30, 30, 30, 0.6) 66%,
-    rgba(57, 58, 63, 0) 100%
-  );
-  transform-origin: left top;
-  color: var(--color-hover);
-  margin-left: 4pt;
+    background: #2C2E33;
+    text-shadow: 0 0 10px var(--eye-hover-color);
 }
 
 .option-icon {
-  font-size: 12pt;
-  line-height: 22pt;
-  width: 14pt;
-  margin: 5pt;
-  color: var(--color-default);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    font-size: 14px;
 }
 
-.option-label {
-  font-weight: 500;
+.option-label{
+    font-weight: 500;
+    letter-spacing: -0.1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.option-container:hover > .option-label, .option-container:hover > .option-icon {
+    text-shadow: 0 0 10px var(--eye-hover-color);
+    color: var(--eye-hover-color) !important;
 }

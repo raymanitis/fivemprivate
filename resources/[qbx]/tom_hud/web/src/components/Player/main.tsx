@@ -26,12 +26,14 @@ const StatIndicator = ({
   const colorMap: Record<string, string> = {
     red: 'var(--mantine-color-red-light-hover)',
     blue: 'var(--mantine-color-blue-light-hover)',
+    teal: 'var(--mantine-color-teal-light-hover)',
     green: 'var(--mantine-color-green-light-hover)',
     yellow: 'var(--mantine-color-yellow-light-hover)',
     cyan: 'var(--mantine-color-cyan-light-hover)',
+    orange: 'var(--mantine-color-orange-light-hover)',
   };
 
-  const progressColor = colorMap[color] || 'var(--mantine-color-blue-light-hover)';
+  const progressColor = colorMap[color] || 'var(--mantine-color-teal-light-hover)';
 
   return (
     <div style={{ 
@@ -136,12 +138,12 @@ export default function PlayerHud() {
             <Flex align="center" justify="center" direction="row" gap="sm">
             <StatBox 
               value={getVoiceProgress(smoothVoice)} 
-              color={'blue'} 
+              color={'teal'} 
               Icon={() => <VoiceIcon voiceLevel={voice} talking={talking} />}
             />
             <StatBox value={smoothHealth} color={'red'} Icon={health > 0 ? FaHeartbeat : FaSkull} />
             <StatBox value={smoothArmor} color={'blue'} Icon={FaShieldAlt} />
-            <StatBox value={smoothHunger} color={'green'} Icon={IoRestaurant} />
+            <StatBox value={smoothHunger} color={'orange'} Icon={IoRestaurant} />
             <StatBox value={smoothThirst} color={'cyan'} Icon={RiDrinks2Fill} />
             <StatBox value={smoothStress} color={'yellow'} Icon={PiBrainFill} />
             </Flex>
@@ -151,7 +153,7 @@ export default function PlayerHud() {
           >
             <Progress
               value={smoothStamina}
-              color="blue"
+              color="teal"
               size="sm"
               transitionDuration={200}
               radius={0}
@@ -161,8 +163,8 @@ export default function PlayerHud() {
                   boxShadow: `0 0 10px ${theme.colors.dark[6]}`,
                 },
                 section: {
-                  backgroundColor: theme.colors.blue[4],
-                  boxShadow: `0 0 10px ${theme.colors.blue[4]}`,
+                  backgroundColor: theme.colors.teal[6],
+                  boxShadow: `0 0 10px ${theme.colors.teal[6]}`,
                 }
               }}
             />

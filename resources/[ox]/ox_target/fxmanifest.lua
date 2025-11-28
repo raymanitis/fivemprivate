@@ -7,38 +7,38 @@ game 'gta5'
 -- Resource Information
 name 'ox_target'
 author 'Overextended'
-version '1.17.3'
-repository 'https://github.com/communityox/ox_target'
+version '1.17.2'
+repository 'https://github.com/overextended/ox_target'
 description ''
 
 -- Manifest
 ui_page 'web/index.html'
 
 shared_scripts {
-	'@ox_lib/init.lua',
+    '@ox_lib/init.lua',
 }
 
 client_scripts {
-	'client/main.lua',
+    'client/main.lua',
 }
 
 server_scripts {
-	'server/main.lua'
+    'server/main.lua'
 }
 
 files {
-	'web/**',
-	'locales/*.json',
-	'client/api.lua',
-	'client/utils.lua',
-	'client/state.lua',
-	'client/debug.lua',
-	'client/defaults.lua',
-	'client/framework/nd.lua',
-	'client/framework/ox.lua',
-	'client/framework/esx.lua',
-	'client/framework/qbx.lua',
-	'client/compat/qtarget.lua',
+    'web/**',
+    'locales/*.json',
+    'client/api.lua',
+    'client/utils.lua',
+    'client/state.lua',
+    'client/debug.lua',
+    'client/defaults.lua',
+    'client/framework/nd.lua',
+    'client/framework/ox.lua',
+    'client/framework/esx.lua',
+    'client/framework/qbx.lua',
+    'client/compat/qtarget.lua',
 }
 
 provide 'qtarget'
