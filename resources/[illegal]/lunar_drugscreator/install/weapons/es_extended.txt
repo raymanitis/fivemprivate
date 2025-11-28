@@ -1,0 +1,4 @@
+WEAPON_HACKINGDEVICE is registered in ESX by default, I recommend renaming it to "Plant Scanner"
+If it doesn't work check your inventory script and see if the weapon is added there.
+
+Relevant file: es_extended/shared/config/weapons.lua

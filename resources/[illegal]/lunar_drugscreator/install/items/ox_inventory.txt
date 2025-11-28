@@ -1,0 +1,398 @@
+['ammonia'] = {
+    label = 'Ammonia',
+    weight = 500,
+    stack = true,
+},
+
+['sodium_benzoate'] = {
+    label = 'Sodium benzoate',
+    weight = 750,
+    stack = true,
+},
+
+['meth_tray'] = {
+    label = 'Meth tray',
+    weight = 1000,
+    stack = true,
+},
+
+['meth'] = {
+    label = 'Meth',
+    weight = 1,
+    stack = true,
+},
+
+['meth_bag'] = {
+    label = 'Meth bag',
+    weight = 50,
+    stack = true,
+},
+
+['plastic_bag'] = {
+    label = 'Plastic bag',
+    weight = 40,
+    stack = true,
+},
+
+['meth_syringe'] = {
+    label = 'Meth syringe',
+    weight = 75,
+    stack = true,
+},
+
+-- Cocaine related items
+['coke_seed'] = {
+    label = 'Cocaine seed',
+    weight = 10,
+    stack = true,
+},
+
+['coke_leaf'] = {
+    label = 'Cocaine leaf',
+    weight = 50,
+    stack = true,
+},
+
+['coke_paste'] = {
+    label = 'Cocaine paste',
+    weight = 150,
+    stack = true,
+},
+
+['coke'] = {
+    label = 'Cocaine',
+    weight = 1,
+    stack = true,
+},
+
+['coke_bag'] = {
+    label = 'Cocaine bag',
+    weight = 50,
+    stack = true,
+},
+
+['coke_brick'] = {
+    label = 'Cocaine brick',
+    weight = 200,
+    stack = true,
+},
+
+['coke_doll'] = {
+    label = 'Cocaine doll',
+    weight = 500,
+    stack = true,
+},
+
+-- Weed related items
+['weed_seed'] = {
+    label = 'Weed seed',
+    weight = 5,
+    stack = true,
+},
+
+['weed_pot'] = {
+    label = 'Flower Pot',
+    weight = 500,
+    stack = true,
+},
+
+['trowel'] = {
+    label = 'Trowel',
+    weight = 150,
+    stack = true,
+},
+
+['weed_bud'] = {
+    label = 'Weed bud',
+    weight = 25,
+    stack = true,
+},
+
+['clean_weed_bud'] = {
+    label = 'Clean weed bud',
+    weight = 20,
+    stack = true,
+},
+
+['cookie_dough'] = {
+    label = 'Cookie dough',
+    weight = 200,
+    stack = true
+},
+
+['weed_cookie'] = {
+    label = 'Weed cookie',
+    weight = 50,
+    stack = true
+},
+
+['weed_bag'] = {
+    label = 'Weed bag',
+    weight = 50,
+    stack = true,
+},
+
+['weed_joint'] = {
+    label = 'Weed joint',
+    weight = 15,
+    stack = true,
+},
+
+['weed_papers'] = {
+    label = 'Weed papers',
+    weight = 5,
+    stack = true,
+},
+
+-- Heroin related items
+['poppy_seeds'] = {
+    label = 'Poppy seeds',
+    weight = 5,
+    stack = true,
+},
+
+['poppy_plant'] = {
+    label = 'Poppy plant',
+    weight = 100,
+    stack = true,
+},
+
+['opium'] = {
+    label = 'Opium',
+    weight = 1,
+    stack = true,
+},
+
+['heroin'] = {
+    label = 'Heroin',
+    weight = 1,
+    stack = true,
+},
+
+['heroin_bag'] = {
+    label = 'Heroin bag',
+    weight = 50,
+    stack = true,
+},
+
+['heroin_syringe'] = {
+    label = 'Heroin syringe',
+    weight = 75,
+    stack = true,
+},
+
+['syringe'] = {
+    label = 'Syringe',
+    weight = 25,
+    stack = true,
+},
+
+-- LSD related items
+['ergot_fungus'] = {
+    label = 'Ergot fungus',
+    weight = 50,
+    stack = true,
+},
+
+['generic_leaf'] = {
+    label = 'Leaf',
+    weight = 20,
+    stack = true,
+},
+
+['lsd_liquid'] = {
+    label = 'LSD liquid',
+    weight = 25,
+    stack = true,
+},
+
+['lsd'] = {
+    label = 'LSD',
+    weight = 1,
+    stack = true,
+},
+
+['art_papers'] = {
+    label = 'Art papers',
+    weight = 5,
+    stack = true,
+},
+
+-- Ecstasy related items
+['safrole_oil'] = {
+    label = 'Safrole oil',
+    weight = 300,
+    stack = true,
+},
+
+['ecstasy_crystals'] = {
+    label = 'Ecstasy crystals',
+    weight = 1,
+    stack = true,
+},
+
+['ecstasy_pill'] = {
+    label = 'Ecstasy pill',
+    weight = 15,
+    stack = true,
+},
+
+-- Mushroom related items
+['mushrooms'] = {
+    label = 'Mushrooms',
+    weight = 1,
+    stack = true,
+},
+
+['mushroom_powder'] = {
+    label = 'Mushroom powder',
+    weight = 1,
+    stack = true,
+},
+
+['chocolate_chips'] = {
+    label = 'Chocolate chips',
+    weight = 30,
+    stack = true,
+},
+
+['mushroom_chocolate'] = {
+    label = 'Mushroom chocolate',
+    weight = 45,
+    stack = true,
+},
+
+-- Ketamine related items
+['anesthetic'] = {
+    label = 'anesthetic',
+    weight = 200,
+    stack = true,
+},
+
+['ketamine'] = {
+    label = 'Ketamine',
+    weight = 1,
+    stack = true,
+},
+
+['ketamine_bag'] = {
+    label = 'Ketamine bag',
+    weight = 50,
+    stack = true,
+},
+
+-- Crack related items
+['baking_soda'] = {
+    label = 'Baking soda',
+    weight = 100,
+    stack = true,
+},
+
+['crack'] = {
+    label = 'Crack',
+    weight = 1,
+    stack = true,
+},
+
+['crack_bag'] = {
+    label = 'Crack bag',
+    weight = 50,
+    stack = true,
+},
+
+['crack_pipe'] = {
+    label = 'Crack pipe',
+    weight = 150,
+    stack = true,
+},
+
+['crack_syringe'] = {
+    label = 'Crack syringe',
+    weight = 75,
+    stack = true,
+},
+
+['pipe'] = {
+    label = 'Pipe',
+    weight = 100,
+    stack = true,
+},
+
+-- Fentanyl related items
+['npp_chemical'] = {
+    label = 'NPP chemical',
+    weight = 300,
+    stack = true,
+},
+
+['aniline_solution'] = {
+    label = 'Aniline solution',
+    weight = 250,
+    stack = true,
+},
+
+['fentanyl'] = {
+    label = 'Fentanyl',
+    weight = 1,
+    stack = true,
+},
+
+['fentanyl_bag'] = {
+    label = 'Fentanyl bag',
+    weight = 25,
+    stack = true,
+},
+
+['meth_table'] = {
+    label = 'Meth table',
+    weight = 2250,
+    stack = false
+},
+
+['coke_table'] = {
+    label = 'Coke table',
+    weight = 2250,
+    stack = false
+},
+
+['weed_table'] = {
+    label = 'Weed table',
+    weight = 2250,
+    stack = false
+},
+
+['chem_table'] = {
+    label = 'Chemistry table',
+    weight = 2250,
+    stack = false
+},
+
+['burner_phone'] = {
+    label = 'Burner phone',
+    weight = 200,
+    stack = true
+},
+
+['light1'] = {
+    label = 'Portable Lamp',
+    weight = 2000,
+    stack = true
+},
+
+['light2'] = {
+    label = 'Portable Lamp',
+    weight = 2000,
+    stack = true
+},
+
+['fertilizer'] = {
+    label = 'Fertilizer',
+    weight = 250,
+    stack = true
+},
+
+['water_can'] = {
+    label = 'Watering can',
+    weight = 250,
+    stack = true
+},

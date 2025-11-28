@@ -1,0 +1,1 @@
+[`weapon_hackingdevice`]                = { name = 'weapon_hackingdevice', label = 'Plant Scanner', weapontype = 'Miscellaneous', ammotype = nil, damagereason = '' },
