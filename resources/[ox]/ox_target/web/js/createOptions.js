@@ -19,7 +19,7 @@ export function createOptions(type, data, id, zoneId){
             <p class="option-label">${data.label}</p>
         `,
         class: "option-container mantine-Button-root mantine-Button-filled",
-        css: { opacity: 0 }
+        css: { opacity: 0, transform: 'scale(0.9) translateY(10px)' }
     })
         .data({
             type: type,
@@ -27,9 +27,10 @@ export function createOptions(type, data, id, zoneId){
             zone: zoneId
         })
         .on("click", onClick)
-        .appendTo($optionsWrapper)
-        .animate({ opacity: 1 }, {
-            duration: 90,
-            queue: false
-        });
+        .appendTo($optionsWrapper);
+    
+    // Trigger animation after a brief delay to ensure DOM is ready
+    setTimeout(() => {
+        $option.addClass("animate-in");
+    }, 10);
 }

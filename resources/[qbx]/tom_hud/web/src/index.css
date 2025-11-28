@@ -1,9 +1,4 @@
-@font-face {
-  font-family: 'Nexa-Book';
-  src: url('./fonts/Nexa-Book.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200;300;400;500;600;700&display=swap');
 
 @font-face {
   font-family: 'digital-7';
@@ -12,16 +7,43 @@
   font-style: normal;
 }
 
+:root {
+  --main-accent: #C2F4F9;
+  --bg-primary: rgba(18, 26, 28, 0.89);
+  --bg-secondary: rgba(194, 244, 249, 0.12);
+  --bg-button: rgba(56, 79, 82, 0.31);
+  --border-color: rgba(194, 244, 249, 0.40);
+  --border-color-light: rgba(194, 244, 249, 0.67);
+  --divider-color: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.5);
+  --icon-stroke: #E3FBFF;
+  
+  --radius-sm: 0.15rem;
+  --radius-md: 0.25rem;
+  
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  
+  --font-label: 0.75rem;
+  --font-body: 0.9rem;
+  --font-base: 1rem;
+  --font-large: 1.25rem;
+  
+  --base-font-size: min(0.83333333vw, 1.8009478673vh);
+}
 
 html {
   color-scheme: normal !important;
+  font-size: var(--base-font-size);
 }
 
 body {
   margin: 0;
   background: none !important;
   overflow: hidden !important;
-  font-family: 'Nexa-Book', sans-serif;
+  font-family: 'Bai Jamjuree', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -36,7 +58,6 @@ body {
 }
 
 code {
-
   overflow: hidden;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

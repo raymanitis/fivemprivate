@@ -2,33 +2,44 @@ export const theme = {
     colorScheme: 'dark',
     colors: {
         default: [
-            '#cfd2da', '#cfd2da', '#cfd2da', '#cfd2da', '#cfd2da', '#cfd2da', '#cfd2da', '#cfd2da', '#cfd2da', '#cfd2da'
+            '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'
+        ],
+        accent: [
+            '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9'
         ],
         success: [
-            '#00c972', '#00c972', '#00c972', '#00c972', '#00c972', '#00c972', '#00c972', '#00c972', '#00c972', '#00c972'
+            '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9', '#C2F4F9'
         ]
     },
     shadows: {
-        sm: '0 1px 3px rgba(0, 0, 0, 0.1)',
-        md: '0 4px 6px rgba(0, 0, 0, 0.1)',
-        lg: '0 10px 15px rgba(0, 0, 0, 0.1)'
+        sm: '0 0 4px rgba(194, 244, 249, 0.2)',
+        md: '0 0 8px rgba(194, 244, 249, 0.3)',
+        lg: '0 0 12px rgba(194, 244, 249, 0.4)'
     },
-    fontFamily: 'Nexa-Book, sans-serif',
+    fontFamily: "'Bai Jamjuree', sans-serif",
     fontSizes: {
-        xs: '10pt',
-        sm: '11pt',
-        md: '12pt',
-        lg: '14pt',
-        xl: '16pt'
+        xs: '0.75rem',
+        sm: '0.9rem',
+        md: '1rem',
+        lg: '1.25rem',
+        xl: '1.5rem'
     },
     radius: {
-        xs: '2px',
-        sm: '4px',
-        md: '8px',
-        lg: '16px',
-        xl: '32px'
+        xs: '0.15rem',
+        sm: '0.25rem',
+        md: '0.4rem',
+        lg: '0.6rem',
+        xl: '0.8rem'
     },
     other: {
-        transitionTiming: '300ms'
+        transitionTiming: '200ms',
+        mainAccent: '#C2F4F9',
+        bgPrimary: 'rgba(18, 26, 28, 0.89)',
+        bgSecondary: 'rgba(194, 244, 249, 0.12)',
+        bgButton: 'rgba(56, 79, 82, 0.31)',
+        borderColor: 'rgba(194, 244, 249, 0.40)',
+        textPrimary: '#ffffff',
+        textSecondary: 'rgba(255, 255, 255, 0.5)',
+        iconStroke: '#E3FBFF'
     }
-}; 
+};

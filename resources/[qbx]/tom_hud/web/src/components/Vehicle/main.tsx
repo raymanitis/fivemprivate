@@ -49,28 +49,29 @@ export default function VehicleHud() {
     const theme = useMantineTheme();
     
     const colorMap: Record<string, string> = {
-      red: 'var(--mantine-color-red-light-hover)',
-      blue: 'var(--mantine-color-blue-light-hover)',
-      teal: 'var(--mantine-color-teal-light-hover)',
-      green: 'var(--mantine-color-green-light-hover)',
-      yellow: 'var(--mantine-color-yellow-light-hover)',
-      cyan: 'var(--mantine-color-cyan-light-hover)',
-      orange: 'var(--mantine-color-orange-light-hover)',
+      red: 'rgba(255, 68, 68, 0.3)',
+      blue: 'rgba(68, 136, 255, 0.3)',
+      teal: 'rgba(194, 244, 249, 0.3)',
+      green: 'rgba(68, 255, 136, 0.3)',
+      yellow: 'rgba(255, 221, 68, 0.3)',
+      cyan: 'rgba(194, 244, 249, 0.3)',
+      orange: 'rgba(255, 136, 68, 0.3)',
+      violet: 'rgba(170, 68, 255, 0.3)',
     };
   
-    const progressColor = colorMap[color] || 'var(--mantine-color-teal-light-hover)';
+    const progressColor = colorMap[color] || 'rgba(194, 244, 249, 0.3)';
   
     return (
       <div style={{ 
         position: 'relative',
       }}>
         <Box
-          bg={progressColor}
           style={{
             width: '100%',
             height: '100%',
             position: 'absolute',
             borderRadius: theme.radius.xs,
+            backgroundColor: progressColor,
             transform: `scaleY(${value / 100})`,
             transformOrigin: 'bottom',
             transition: 'transform 0.5s ease-in-out',
@@ -146,20 +147,20 @@ export default function VehicleHud() {
                   speedUnit={"KPH"} />
                 <Flex p="0.3rem" align="center" justify="center" direction="row" gap="sm" mt="md" w="fit-content"
                 style={{
-                  backgroundColor: theme.colors.dark[8],
-                  boxShadow: `0 0 10px ${theme.colors.dark[8]}`,
+                  backgroundColor: 'var(--bg-primary)',
+                  boxShadow: `0 0 10px var(--bg-primary)`,
                   borderRadius: theme.radius.xs,
                 }}>
                   <div style={{ 
                       position: 'relative',
                     }}>
                     <Box
-                      bg={'var(--mantine-color-teal-light)'}
                       style={{
                         width: '100%',
                         height: '100%',
                         position: 'absolute',
                         borderRadius: theme.radius.xs,
+                        backgroundColor: 'rgba(194, 244, 249, 0.3)',
                         zIndex: 0,
                       }}
                     />
@@ -170,7 +171,7 @@ export default function VehicleHud() {
                       color={'teal'}
                       style={{
                         borderRadius: theme.radius.xs,
-                        boxShadow: `0 0 10px var(--mantine-color-teal-light-hover)`,
+                        boxShadow: `0 0 10px rgba(194, 244, 249, 0.3)`,
                         position: 'relative',
                         zIndex: 1,
                       }}

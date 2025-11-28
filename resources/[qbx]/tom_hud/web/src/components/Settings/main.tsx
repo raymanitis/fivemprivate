@@ -103,10 +103,19 @@ const SettingsModal = () => {
           title: {
             fontWeight: 700,
             fontSize: '1.5rem',
+            color: 'var(--text-primary)',
+            fontFamily: "'Bai Jamjuree', sans-serif",
           },
           body: {
-            backgroundColor: theme.colors.dark[8],
-            boxShadow: `0 0 10px ${theme.colors.dark[8]}`,
+            backgroundColor: 'var(--bg-primary)',
+            borderRadius: 'var(--radius-md)',
+          },
+          content: {
+            backgroundColor: 'var(--bg-primary)',
+          },
+          header: {
+            backgroundColor: 'var(--bg-primary)',
+            borderBottom: '0.0625rem solid var(--divider-color)',
           },
         }}
       >
@@ -121,7 +130,7 @@ const SettingsModal = () => {
 
           <Tabs.Panel value="player" pt="md">
             <Stack>
-              <Text size="sm" c="dimmed">
+              <Text size="sm" style={{ color: 'var(--text-secondary)' }}>
                 Player UI settings coming soon
               </Text>
             </Stack>
@@ -129,7 +138,7 @@ const SettingsModal = () => {
 
           <Tabs.Panel value="vehicle" pt="md">
             <Stack>
-              <Text size="sm" c="dimmed">
+              <Text size="sm" style={{ color: 'var(--text-secondary)' }}>
                 Vehicle UI settings coming soon
               </Text>
             </Stack>
@@ -139,8 +148,8 @@ const SettingsModal = () => {
             <Stack gap="xl">
               <Group justify="space-between" align="flex-end">
                 <Stack gap={0}>
-                  <Title order={4}>Cinematic Bars</Title>
-                  <Text size="sm" c="dimmed">
+                  <Title order={4} style={{ color: 'var(--text-primary)' }}>Cinematic Bars</Title>
+                  <Text size="sm" style={{ color: 'var(--text-secondary)' }}>
                     Add black bars for cinematic effect
                   </Text>
                 </Stack>
@@ -158,35 +167,39 @@ const SettingsModal = () => {
                   style={{ width: '180px' }}
                   styles={{
                     input: {
-                      backgroundColor: theme.colors.dark[6],
-                      borderColor: theme.colors.dark[4],
+                      backgroundColor: 'var(--bg-button)',
+                      borderColor: 'var(--border-color)',
+                      color: 'var(--text-primary)',
+                      fontFamily: "'Bai Jamjuree', sans-serif",
                     },
                     dropdown: {
-                      backgroundColor: theme.colors.dark[6],
-                      borderColor: theme.colors.dark[4],
+                      backgroundColor: 'var(--bg-primary)',
+                      borderColor: 'var(--border-color)',
                     },
                     option: {
                       '&[data-selected]': {
-                        backgroundColor: theme.colors.dark[4],
-                        color: theme.colors.gray[0],
+                        backgroundColor: 'var(--bg-secondary)',
+                        color: 'var(--text-primary)',
                       },
                       '&:hover': {
-                        backgroundColor: theme.colors.dark[5],
+                        backgroundColor: 'var(--bg-button)',
                       },
+                      color: 'var(--text-primary)',
                     },
                   }}
                 />
               </Group>
               
               <Box>
-                <Title order={5} mb="xs">Preview</Title>
+                <Title order={5} mb="xs" style={{ color: 'var(--text-primary)' }}>Preview</Title>
                 <Box 
                   style={{
                     height: '150px',
-                    backgroundColor: theme.colors.dark[6],
-                    borderRadius: theme.radius.sm,
+                    backgroundColor: 'var(--bg-button)',
+                    borderRadius: 'var(--radius-md)',
                     position: 'relative',
                     overflow: 'hidden',
+                    border: '0.0625rem solid var(--border-color)',
                   }}
                 >
                   <Box
@@ -196,7 +209,7 @@ const SettingsModal = () => {
                       left: 0,
                       right: 0,
                       height: `${barsHeight}%`,
-                      backgroundColor: theme.colors.dark[9],
+                      backgroundColor: '#000000',
                       transition: 'height 0.3s ease',
                     }}
                   />
@@ -207,7 +220,7 @@ const SettingsModal = () => {
                       left: 0,
                       right: 0,
                       height: `${barsHeight}%`,
-                      backgroundColor: theme.colors.dark[9],
+                      backgroundColor: '#000000',
                       transition: 'height 0.3s ease',
                     }}
                   />
@@ -219,7 +232,7 @@ const SettingsModal = () => {
                       height: '100%',
                     }}
                   >
-                    <Text c="dimmed">Cinematic preview</Text>
+                    <Text style={{ color: 'var(--text-secondary)' }}>Cinematic preview</Text>
                   </Box>
                 </Box>
               </Box>

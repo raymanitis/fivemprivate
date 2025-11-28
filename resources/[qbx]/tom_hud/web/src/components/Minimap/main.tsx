@@ -42,8 +42,8 @@ export const MinimapBorder = () => {
               top: top + "%",
               width: width + "px",
               height: height + "px",
-              outline: '0.3vh solid #141517',
-              boxShadow: `0 0 10px ${theme.colors.dark[8]}`,
+              outline: '0.3vh solid var(--bg-primary)',
+              boxShadow: `0 0 10px var(--bg-primary)`,
               borderRadius: 0,
               pointerEvents: 'none',
               zIndex: 999,
@@ -57,10 +57,10 @@ export const MinimapBorder = () => {
               left: `calc(${left}% - 3px)`,
               top: `calc(${top}% - 55px)`,
               width: `calc(${width}px + 6px)`, 
-              backgroundColor: theme.colors.dark[8],
+              backgroundColor: 'var(--bg-primary)',
               padding: '0.4rem',
               borderRadius: theme.radius.xxs,
-              boxShadow: `0 0 10px ${theme.colors.dark[8]}`,
+              boxShadow: `0 0 10px var(--bg-primary)`,
               pointerEvents: 'none',
               zIndex: 999,
               transition: 'all 0.3s ease-out',
@@ -70,12 +70,12 @@ export const MinimapBorder = () => {
             <Flex gap="xs" align="center" flex="row"> 
             <Flex direction="column" align="center">
             <Flex
-              bg={'var(--mantine-color-teal-light)'}
               style={{
                 borderRadius: theme.radius.xs,
                 padding: '0.4rem',
-                color: 'var(--mantine-color-teal-light-color)',
-                boxShadow: `0 0 10px var(--mantine-color-teal-light-hover)`,
+                backgroundColor: 'rgba(194, 244, 249, 0.3)',
+                color: 'var(--main-accent)',
+                boxShadow: `0 0 10px rgba(194, 244, 249, 0.3)`,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -84,17 +84,17 @@ export const MinimapBorder = () => {
                 position: 'relative',
               }}
             >
-              <Text size="md" fw={700}>
+              <Text size="md" fw={700} style={{ color: 'var(--main-accent)' }}>
                 {direction}
               </Text>
             </Flex>
           </Flex>
               <Flex direction="column" align="flex-start">
               <Flex direction="row" align="center" gap="xs">
-              <ThemeIcon color="teal" variant="light" size="sm" style={{ borderRadius: theme.radius.xs, boxShadow: `0 0 10px var(--mantine-color-teal-light-hover)`, }} >
-                <BiCurrentLocation size={16} />
+              <ThemeIcon color="cyan" variant="light" size="sm" style={{ borderRadius: theme.radius.xs, boxShadow: `0 0 10px rgba(194, 244, 249, 0.3)` }} >
+                <BiCurrentLocation size={16} style={{ color: 'var(--icon-stroke)' }} />
               </ThemeIcon>
-              <Text size="sm" fw={700} c="teal.6" style={{ textShadow: `0 0 5px ${theme.colors.teal[6]}`}} truncate>
+              <Text size="sm" fw={700} style={{ color: 'var(--main-accent)', textShadow: `0 0 5px var(--main-accent)` }} truncate>
                 {currentStreet}
               </Text>
               </Flex>

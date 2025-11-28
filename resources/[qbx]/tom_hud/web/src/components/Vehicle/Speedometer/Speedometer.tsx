@@ -113,7 +113,7 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
         <path
           key={`gear-${i}`}
           d={createGearLine(0, 0, 46, 40, angle)}
-          stroke="#dee2e6"
+          stroke="var(--divider-color)"
           strokeWidth="0.1"
           opacity="100"
           strokeLinecap="round"
@@ -132,15 +132,15 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
         ta="center"
         style={{
           textShadow: digit !== '0' || speed >= Math.pow(10, 2 - index) || speedStr.length > (2 - index)
-            ? `0 0 10px ${theme.colors.teal[6]}`
-            : `0 0 10px ${theme.colors.gray[6]}`,
+            ? `0 0 10px var(--main-accent)`
+            : `0 0 10px var(--text-secondary)`,
           display: 'inline-block',
         }}
         fw={500}
         ff="digital-7"
         c={(digit !== '0' || speed >= Math.pow(10, 2 - index) || speedStr.length > (2 - index))
-            ? theme.colors.teal[6]
-            : theme.colors.gray[6]}
+            ? 'var(--main-accent)'
+            : 'var(--text-secondary)'}
       >
         {digit}
       </Text>
@@ -157,12 +157,12 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
         ff="digital-7"
         style={{
           textShadow: digit !== '0' || distance >= Math.pow(10, 5 - index) 
-            ? `0 0 5px ${theme.colors.teal[6]}` 
-            : `0 0 5px ${theme.colors.gray[6]}`,
+            ? `0 0 5px var(--main-accent)` 
+            : `0 0 5px var(--text-secondary)`,
         }}
         c={(digit !== '0' || distance >= Math.pow(10, 5 - index)) 
-          ? theme.colors.teal[6] 
-          : theme.colors.gray[6]}
+          ? 'var(--main-accent)' 
+          : 'var(--text-secondary)'}
       >
         {digit}
       </Text>
@@ -189,7 +189,7 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
           <path
             d={arcPath}
             fill="none" 
-            stroke={theme.colors.dark[8]} 
+            stroke="var(--bg-button)" 
             strokeWidth="5" 
           />
           <path 
@@ -200,7 +200,7 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
             strokeWidth="5"
             className="speedometer-active-arc"
             style={{
-              stroke: smoothRpm >= 90 ? theme.colors.red[4] : theme.colors.teal[6],
+              stroke: smoothRpm >= 90 ? '#ff4444' : 'var(--main-accent)',
             }}
           />
         </g>
@@ -219,9 +219,9 @@ const Speedometer: React.FC<SpeedometerProps> = React.memo(function Speedometer(
             h="fit-content" 
             w="120px" 
             style={{
-              backgroundColor: theme.colors.dark[8],
-              boxShadow: `0 0 10px ${theme.colors.dark[8]}`,
-              borderRadius: theme.radius.xs,
+              backgroundColor: 'var(--bg-primary)',
+              borderRadius: 'var(--radius-md)',
+              padding: '0.5rem',
             }}
           >
             {distanceDisplay}
