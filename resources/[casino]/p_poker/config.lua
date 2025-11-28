@@ -42,8 +42,8 @@ end
 
 Config.Tables = {
     {
-        coords = vector3(996.17, 51.69, 68.45),
-        rotation = 318.91,
+        coords = vector3(892.1545, 14.6512, 77.8951),
+        rotation = 189.3211,
         maxBet = 2500,
         minBet = 50
     },

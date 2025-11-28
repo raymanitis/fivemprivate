@@ -17,7 +17,7 @@ Config.Tables = {
 
 Config.CustomTables = { -- you can set custom tables, table prop and ped will spawn
     {
-        coords = vector4(967.33, 32.0191, 115.1742, -122.0),
+        coords = vector4(892.1842, 13.0579, 77.8943, 62.3079),
         highStakes = false,
         color = 1, -- 0 Green, 1 Red, 2 Blue, 3 Purple
     },
