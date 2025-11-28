@@ -18,16 +18,19 @@ const useStyles = createStyles((theme) => ({
   titleContainer: {
     borderRadius: "0.3704vh",
     flex: '1 85%',
-    backgroundColor: theme.colors.dark[6],
+    backgroundColor: 'rgba(18, 26, 28, 0.89)',
+    border: '0.0926vh solid rgba(194, 244, 249, 0.40)',
   },
   titleText: {
-    color: theme.colors.dark[0],
+    color: '#ffffff',
     padding: "0.5556vh",
     textAlign: 'center',
+    fontFamily: "Inter",
   },
   buttonsContainer: {
-    height: "51.8519vh",
-    overflowY: 'scroll',
+    height: 'auto',
+    maxHeight: "51.8519vh",
+    overflowY: 'auto',
   },
   buttonsFlexWrapper: {
     gap: "0.3389vh",
@@ -41,6 +44,11 @@ const ContextMenu: React.FC = () => {
     title: '',
     options: { '': { description: '', metadata: [] } },
   });
+
+  // Ensure menu is hidden on mount (especially for dev mode refreshes)
+  useEffect(() => {
+    setVisible(false);
+  }, []);
 
   const closeContext = () => {
     if (contextMenu.canClose === false) return;
@@ -70,6 +78,10 @@ const ContextMenu: React.FC = () => {
     setContextMenu(data);
     setVisible(true);
   });
+
+  if (!visible) {
+    return null;
+  }
 
   return (
     <div className={"container"}>

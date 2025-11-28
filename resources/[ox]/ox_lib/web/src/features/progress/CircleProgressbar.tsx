@@ -18,11 +18,11 @@ const useStyles = createStyles((theme, params: { position: 'middle' | 'bottom'; 
     bottom: "8.7037vh",
     left: "69.05vh",
     position: 'absolute',
-    borderRadius: "0.9259vh",
+    borderRadius: "0.25rem",
     width: "40vh",
     height: "8.2778vh",
-    border: "0.0926vh solid #373737",
-    background: "radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%)"
+    border: "0.0625rem solid rgba(194, 244, 249, 0.40)",
+    background: "rgba(18, 26, 28, 0.89)"
   },
   progress: {
     marginTop: "0vh",
@@ -47,24 +47,24 @@ const useStyles = createStyles((theme, params: { position: 'middle' | 'bottom'; 
       transition: 'none',
       animation: `${progressCircle} linear forwards`,
       animationDuration: `${params.duration}ms`,
-      stroke: "#20C997",
-      boxShadow: "0 0 1.463vh 0 rgba(32, 201, 151, 0.8)"
+      stroke: "#C2F4F9",
+      boxShadow: "0 0 1.463vh 0 rgba(194, 244, 249, 0.8)"
     },
   },
   value: {
     textAlign: 'center',
-    fontFamily: 'Inter',
+    fontFamily: "Inter",
     textShadow: theme.shadows.sm,
-    color: theme.colors.gray[3],
+    color: 'rgba(255, 255, 255, 0.5)',
   },
   label: {
     position: 'absolute',
     textAlign: "left",
     marginTop: "-1.75vh",
     marginLeft: "-13.25vh",
-    color: "#fff",
+    color: "#ffffff",
     fontFamily: "Inter",
-    fontSize: "1.4vh",
+    fontSize: "1.25rem",
     fontWeight: 600
   },
   wrapper: {

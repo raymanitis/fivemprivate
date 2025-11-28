@@ -15,7 +15,7 @@ const useStyles = createStyles((theme) => ({
   },
   heading: {
     paddingTop: "0.5556vh",
-    fontSize: "1.35vh",
+    fontSize: "1.5vh",
     fontWeight: 600,
     color: "#FFF",
     fontFamily: "Inter",

@@ -17,32 +17,37 @@ const useStyles = createStyles((theme) => ({
     transform: 'translate(-50%, -50%)',
   },
   hex: {
-    fill: "#161616ff",
-    stroke: "#373737",
+    fill: "rgba(18, 26, 28, 0.89)",
+    stroke: "rgba(194, 244, 249, 0.40)",
     strokeWidth: 1,
-    transition: 'fill 0.35s',
+    transition: 'all 0.2s ease',
     '&:hover': {
-      fill: "#0ca678",
+      fill: "rgba(56, 79, 82, 0.85)",
+      stroke: "rgba(194, 244, 249, 0.67)",
       cursor: 'pointer',
       '& ~ g text': {
-        fill: '#fff',
+        fill: '#ffffff',
       },
       '& ~ g svg path': {
-        fill: '#fff',
+        fill: '#E3FBFF',
       },
     },
   },
   centerHex: {
-    opacity: ".9",
-    fill: "#3D3D3D",
-    transition: 'opacity 0.3s',
+    opacity: "1",
+    fill: "rgba(56, 79, 82, 0.31)",
+    stroke: "rgba(194, 244, 249, 0.40)",
+    strokeWidth: 1,
+    transition: 'all 0.2s ease',
     '&:hover': {
       opacity: "1",
+      fill: "rgba(56, 79, 82, 0.60)",
+      stroke: "rgba(194, 244, 249, 0.67)",
       cursor: 'pointer',
     },
   },
   iconText: {
-    fill: '#fff',
+    fill: '#ffffff',
     pointerEvents: 'none',
     textAnchor: 'middle',
     fontFamily: "Inter",
@@ -57,7 +62,7 @@ const useStyles = createStyles((theme) => ({
     pointerEvents: 'none',
   },
   centerIcon: {
-    color: '#fff',
+    color: '#E3FBFF',
   },
 }));
 

@@ -21,14 +21,14 @@ const useStyles = createStyles((theme, params: { position?: TextUiPosition }) =>
       params.position === 'left-center' ? 'flex-start' : 'center',
   },
   container: {
-    padding: 12,
+    padding: '0.75rem 1rem',
     margin: 8,
-    borderRadius: "0.9259vh",
-    border: "0.0926vh solid #373737",
-    background: "radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%)",
-    color: "#FFF",
+    borderRadius: '0.25rem',
+    border: '0.0625rem solid rgba(194, 244, 249, 0.40)',
+    background: 'rgba(18, 26, 28, 0.89)',
+    color: '#ffffff',
     fontFamily: "Inter",
-    fontSize: 14,
+    fontSize: '1rem',
     fontWeight: 500
   },
 }));

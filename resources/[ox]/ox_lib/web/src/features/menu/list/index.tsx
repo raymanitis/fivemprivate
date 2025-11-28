@@ -11,8 +11,8 @@ import LibIcon from '../../../components/LibIcon';
 const useStyles = createStyles((theme, params: { position?: MenuPosition; itemCount: number; selected: number }) => ({
   tooltip: {
     borderRadius: "0.9259vh",
-    border: "0.0926vh solid #373737",
-    background: "radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%)",
+    border: "0.0926vh solid rgba(194, 244, 249, 0.40)",
+    background: "rgba(18, 26, 28, 0.89)",
     maxWidth: "32.4074vh",
     whiteSpace: 'normal',
     color: "rgba(170, 170, 170, 0.73)",
@@ -23,7 +23,8 @@ const useStyles = createStyles((theme, params: { position?: MenuPosition; itemCo
   container: {
     borderRadius: "0.9259vh",
     position: 'absolute',
-    background: "radial-gradient(140.75% 140.75% at 50% 50%, rgba(21, 22, 24, 1) 0%, rgba(8, 8, 9, 0.9) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%)",
+    background: "rgba(18, 26, 28, 0.89)",
+    border: "0.0926vh solid rgba(194, 244, 249, 0.40)",
     pointerEvents: 'none',
     marginTop: params.position === 'top-left' || params.position === 'top-right' ? "0.463vh" : "0vh",
     marginLeft: params.position === 'top-left' || params.position === 'bottom-left' ? "0.463vh" : "0vh",
@@ -46,12 +47,12 @@ const useStyles = createStyles((theme, params: { position?: MenuPosition; itemCo
   scrollArrow: {
     borderBottomLeftRadius: "0.463vh",
     borderBottomRightRadius: "0.463vh",
-    background: "rgba(201, 201, 201, 0.07)",
+    background: "rgba(194, 244, 249, 0.12)",
     textAlign: 'center',
     height: "2.3148vh",
   },
   scrollArrowIcon: {
-    color: "rgba(255, 255, 255, 0.25)",
+    color: "rgba(227, 251, 255, 0.5)",
     fontSize: "1.8519vh",
   },
 }));
@@ -69,6 +70,11 @@ const ListMenu: React.FC = () => {
   const listRefs = useRef<Array<HTMLDivElement | null>>([]);
   const firstRenderRef = useRef(false);
   const { classes } = useStyles({ position: menu.position, itemCount: menu.items.length, selected });
+
+  // Ensure menu is hidden on mount (especially for dev mode)
+  useEffect(() => {
+    setVisible(false);
+  }, []);
 
   const closeMenu = (ignoreFetch?: boolean, keyPressed?: string, forceClose?: boolean) => {
     if (menu.canClose === false && !forceClose) return;

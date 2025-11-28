@@ -59,7 +59,11 @@ const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
     width: "1.95vh",
     height: "2vh",
     borderRadius: "0.2778vh",
-    background: "#3D3D3D"
+    background: "rgba(56, 79, 82, 0.31)",
+    border: "0.0926vh solid rgba(194, 244, 249, 0.40)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   scrollIndexValue: {
     paddingTop: ".35vh",
@@ -67,12 +71,16 @@ const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
     width: "3.2407vh",
     height: "2.2222vh",
     borderRadius: "0.2778vh",
-    background: "rgba(217, 217, 217, 0.18)",
+    background: "rgba(194, 244, 249, 0.12)",
+    border: "0.0926vh solid rgba(194, 244, 249, 0.40)",
     color: "#FFF",
     fontFamily: "Inter",
     fontSize: "0.9259vh",
     fontWeight: 600,
-    letterSpacing: ".1vh"
+    letterSpacing: ".1vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   progressStack: {
     width: '100%',
@@ -127,19 +135,15 @@ const ListItem = forwardRef<Array<HTMLDivElement | null>, Props>(({ item, index,
                   : item.values[scrollIndex]}
               </Text>
             </Stack>
-            <Group spacing={1} position="center">
-              <Box className={classes.chevronIcon} style={{
-                marginRight: "0.2778vh"
-              }}>
-                <LibIcon icon="chevron-left" style={{ display: "flex", marginTop: ".45vh", color: "#3D3D3D", paddingLeft: ".6vh", fontSize: "1.15vh" }} />
+            <Group spacing={1} position="center" align="center">
+              <Box className={classes.chevronIcon}>
+                <LibIcon icon="chevron-left" style={{ color: "#E3FBFF", fontSize: "1.15vh" }} />
               </Box>
               <Text className={classes.scrollIndexValue}>
                 {scrollIndex + 1}/{item.values.length}
               </Text>
-              <Box className={classes.chevronIcon} style={{
-                marginLeft: "0.2778vh"
-              }}>
-                <LibIcon icon="chevron-right" style={{ display: "flex", marginTop: ".45vh", color: "#3D3D3D", paddingLeft: ".6vh", fontSize: "1.15vh" }} />
+              <Box className={classes.chevronIcon}>
+                <LibIcon icon="chevron-right" style={{ color: "#E3FBFF", fontSize: "1.15vh" }} />
               </Box>
             </Group>
           </Group>

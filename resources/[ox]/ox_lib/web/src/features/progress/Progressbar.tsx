@@ -12,7 +12,7 @@ const useStyles = createStyles((theme) => ({
     overflow: 'hidden',
     marginTop: "4.75vh",
     borderRadius: "5.5556vh",
-    background: "rgba(217, 217, 217, 0.24)"
+    background: "rgba(255, 255, 255, 0.08)"
   },
   wrapper: {
     display: 'flex',
@@ -21,32 +21,35 @@ const useStyles = createStyles((theme) => ({
     bottom: "8.7037vh",
     left: "69.05vh",
     position: 'absolute',
-    borderRadius: "0.9259vh",
+    borderRadius: "0.25rem",
     width: "40vh",
     height: "8.2778vh",
-    border: "0.0926vh solid #373737",
-    background: "radial-gradient(140.75% 140.75% at 50% 50%, rgba(26, 27, 30, 0.97) 0%, rgba(8, 8, 9, 0.87) 100%), linear-gradient(156deg, rgba(255, 255, 255, 0.00) 38.82%, rgba(255, 255, 255, 0.10) 131.78%)"
+    border: "0.0625rem solid rgba(194, 244, 249, 0.40)",
+    background: "rgba(18, 26, 28, 0.89)"
   },
   bar: {
     height: '100%',
-    background: "#20C997",
+    background: "#C2F4F9",
     borderRadius: "5.5556vh",
-    boxShadow: "0 0 1.463vh 0 rgba(32, 201, 151, 0.8)",
+    boxShadow: "0 0 1.463vh 0 rgba(194, 244, 249, 0.8)",
   },
   labelWrapper: {
     position: 'absolute',
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     width: "38.8889vh",
     height: "3.5vh",
-    marginTop: "-2.25vh",
-    marginLeft: "2.5vh",
+    top: "0.9259vh",
+    left: "2.5vh",
   },
   label: {
-    color: "#fff",
-    marginLeft: ".35vh",
+    color: "#ffffff",
     fontFamily: "Inter",
-    fontSize: "1.4vh",
-    fontWeight: 600
+    fontSize: "1.2963vh",
+    fontWeight: 600,
+    lineHeight: 1.2,
+    whiteSpace: 'nowrap'
   },
 }));
 

@@ -41,7 +41,7 @@ const useStyles = createStyles((theme, params: { difficultyOffset: number }) => 
   },
   skillArea: {
     fill: 'transparent',
-    stroke: "#20C997",
+    stroke: "#C2F4F9",
     strokeWidth: 8,
     r: 50,
     cx: 250,
@@ -56,10 +56,10 @@ const useStyles = createStyles((theme, params: { difficultyOffset: number }) => 
     },
   },
   indicator: {
-    stroke: '#FFF',
+    stroke: '#E3FBFF',
     strokeWidth: "1.75vh",
     fill: 'transparent',
-    filter: "drop-shadow(0 0 14.3px rgba(255, 255, 255, 0.57))",
+    filter: "drop-shadow(0 0 14.3px rgba(227, 251, 255, 0.57))",
     r: 50,
     cx: 250,
     cy: 250,
@@ -77,19 +77,19 @@ const useStyles = createStyles((theme, params: { difficultyOffset: number }) => 
     left: '20%',
     top: '50%',
     transform: 'translate(-50%, -50%)',
-    width: "3.1481vh",
-    height: "3.1481vh",
+    width: "2.25rem",
+    height: "2.25rem",
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: "0.463vh",
-    border: "0.0926vh solid rgba(255, 255, 255, 0.18)",
-    backgroundColor: "rgba(217, 217, 217, 0.20)",
-    color: "#FFF",
+    borderRadius: "0.15rem",
+    border: "0.0625rem solid rgba(194, 244, 249, 0.40)",
+    backgroundColor: "rgba(56, 79, 82, 0.31)",
+    color: "#ffffff",
     textAlign: "center",
-    textShadow: "0 0 2.2315vh rgba(255, 255, 255, 0.79)",
+    textShadow: "0 0 2.2315vh rgba(194, 244, 249, 0.79)",
     fontFamily: "Inter",
-    fontSize: "1.4815vh",
+    fontSize: "1.25rem",
     fontWeight: 600,
   },
 }));
@@ -203,11 +203,11 @@ const SkillCheck: React.FC = () => {
 
             <div className="inText">Skill Check</div>
             <div className="inCount">{currentStage}/{totalStages}</div>
-            <div className="inDesc">Hit Button when the <span style={{color: "#fff"}}>white dot</span> hits the <span style={{ color: "#20C997" }}>teal zone</span></div>
+            <div className="inDesc">Hit Button when the <span style={{color: "#E3FBFF"}}>white dot</span> hits the <span style={{ color: "#C2F4F9" }}>cyan zone</span></div>
 
             <svg className='inSvg' xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
               <g filter="url(#filter0_d_40_160)">
-                <circle cx="18.7002" cy="18.7" r="5" fill="#20C997"/>
+                <circle cx="18.7002" cy="18.7" r="5" fill="#C2F4F9"/>
               </g>
               <defs>
                 <filter id="filter0_d_40_160" x="0.000195503" y="1.23978e-05" width="37.4" height="37.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
