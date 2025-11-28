@@ -3,7 +3,7 @@ Config = {}
 Config.Language = 'en' -- pl / en 
 
 Config.Interactions = 'ox_target' -- ox_target / standalone
-Config.Framework = 'ESX'
+Config.Framework = 'QB'
 Config.RouletteStart = 25
 
 Config.Tables = {

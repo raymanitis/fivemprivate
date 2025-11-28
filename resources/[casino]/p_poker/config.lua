@@ -1,7 +1,7 @@
 Config = {}
 
 Config.Language = 'en' -- pl / en
-Config.Framework = 'ESX' -- ESX / QB
+Config.Framework = 'QB' -- ESX / QB
 Config.Debug = false -- prints in console
 
 Config.StartTime = 20 -- dealer will start game after 20 seconds when player bet

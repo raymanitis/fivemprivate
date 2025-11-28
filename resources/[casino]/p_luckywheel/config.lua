@@ -21,14 +21,14 @@ Config.Creator = {
 ---@class Config.Wheel
 Config.Wheel = {
     requiredItems = {
-        ['casino_chips'] = {
-            amount = 100,
-            remove = true
-        },
-        -- ['money'] = {
-        --     amount = 500,
+        -- ['casino_chips'] = {
+        --     amount = 100,
         --     remove = true
-        -- }
+        -- },
+        ['money'] = {
+            amount = 500,
+            remove = true
+        }
     },
     cooldownPerWheel = 60, -- minutes [for player, not everyone]
     cooldownGlobal = 0, -- minutes [for player, not everyone]

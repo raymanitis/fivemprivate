@@ -1,7 +1,7 @@
 Config = {}
 
 Config.Language = 'en' -- pl / en
-Config.Framework = 'ESX' -- ESX / QB
+Config.Framework = 'QB' -- ESX / QB
 Config.BetsTime = 30 -- 30 seconds
 
 Config.Tables = {
