@@ -1,59 +1,59 @@
 {
     "supplystore": {
-        "cod": {
-            "item": "cod",
-            "price": 120,
-            "sales": []
-        },
-        "gayfish": {
-            "item": "gayfish",
-            "price": 150,
-            "sales": []
-        },
-        "catfish": {
-            "item": "catfish",
-            "price": 85,
-            "sales": []
+        "sparling": {
+            "item": "sparling",
+            "sales": [],
+            "price": 75
         },
         "bream": {
             "item": "bream",
-            "price": 60,
-            "sales": []
+            "sales": [],
+            "price": 60
+        },
+        "largemouthbass": {
+            "item": "largemouthbass",
+            "sales": [],
+            "price": 125
+        },
+        "redfish": {
+            "item": "redfish",
+            "sales": [],
+            "price": 115
+        },
+        "pike": {
+            "item": "pike",
+            "sales": [],
+            "price": 75
+        },
+        "eal": {
+            "item": "eal",
+            "sales": [],
+            "price": 100
+        },
+        "gayfish": {
+            "item": "gayfish",
+            "sales": [],
+            "price": 150
         },
         "salmon": {
             "item": "salmon",
-            "price": 900,
             "sales": [
                 {
                     "amount": 7,
                     "timeStamp": 1703962038
                 }
-            ]
+            ],
+            "price": 900
         },
-        "redfish": {
-            "item": "redfish",
-            "price": 115,
-            "sales": []
+        "cod": {
+            "item": "cod",
+            "sales": [],
+            "price": 120
         },
-        "pike": {
-            "item": "pike",
-            "price": 75,
-            "sales": []
-        },
-        "sparling": {
-            "item": "sparling",
-            "price": 75,
-            "sales": []
-        },
-        "eal": {
-            "item": "eal",
-            "price": 100,
-            "sales": []
-        },
-        "largemouthbass": {
-            "item": "largemouthbass",
-            "price": 125,
-            "sales": []
+        "catfish": {
+            "item": "catfish",
+            "sales": [],
+            "price": 85
         }
     }
 }

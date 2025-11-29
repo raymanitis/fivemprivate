@@ -19,7 +19,7 @@ shared_scripts {
 }
 
 client_scripts {
-    -- '@qbx_core/modules/playerdata.lua', -- uncomment this if you use QBox
+    '@qbx_core/modules/playerdata.lua', -- uncomment this if you use QBox
     'client/custom/**',
     'client/utils/**',
     'client/modules/**',

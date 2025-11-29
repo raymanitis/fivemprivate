@@ -11,7 +11,7 @@ lua54 'yes'
 ui_page 'nui/dist/index.html'
 
 shared_scripts {
-    -- '@ox_lib/init.lua', -- uncomment this if you use QBox
+    '@ox_lib/init.lua', -- uncomment this if you use QBox
     'config/config.lua',
     'shared/init.lua',
     'shared/utils.lua',
@@ -19,7 +19,7 @@ shared_scripts {
 }
 
 client_scripts {
-    -- '@qbx_core/modules/playerdata.lua', -- uncomment this if you use QBox
+    '@qbx_core/modules/playerdata.lua', -- uncomment this if you use QBox
     'client/custom/**',
     'client/utils/**',
     'client/modules/**',
