@@ -1,0 +1,59 @@
+{
+    "supplystore": {
+        "cod": {
+            "item": "cod",
+            "price": 120,
+            "sales": []
+        },
+        "gayfish": {
+            "item": "gayfish",
+            "price": 150,
+            "sales": []
+        },
+        "catfish": {
+            "item": "catfish",
+            "price": 85,
+            "sales": []
+        },
+        "bream": {
+            "item": "bream",
+            "price": 60,
+            "sales": []
+        },
+        "salmon": {
+            "item": "salmon",
+            "price": 900,
+            "sales": [
+                {
+                    "amount": 7,
+                    "timeStamp": 1703962038
+                }
+            ]
+        },
+        "redfish": {
+            "item": "redfish",
+            "price": 115,
+            "sales": []
+        },
+        "pike": {
+            "item": "pike",
+            "price": 75,
+            "sales": []
+        },
+        "sparling": {
+            "item": "sparling",
+            "price": 75,
+            "sales": []
+        },
+        "eal": {
+            "item": "eal",
+            "price": 100,
+            "sales": []
+        },
+        "largemouthbass": {
+            "item": "largemouthbass",
+            "price": 125,
+            "sales": []
+        }
+    }
+}

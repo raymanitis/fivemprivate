@@ -1,0 +1,48 @@
+{
+    "notify_equip_fishing_rod": "Paimta %s",
+    "notify_unequip_fishing_rod": "Neįsigijęs meškerės",
+    "notify_already_equipped_rod": "Jau turite įrengtą lazdą",
+    "notify_no_water_at_spot": "Ten nėra vandens",
+    "notify_broke_fishing_rod": "Meškere sulūžo!",
+    "notify_sale_success_title": "Sėkmingai parduota",
+    "notify_sale_success_description": "Sėkmingai pardavėte prekę už $%s",
+    "notify_buy_success_title": "Sėkmingai nupirkta",
+    "notify_buy_success_description": "Sėkmingai įsigijote prekę už $%s",
+    "notify_not_enough_items": "Neturite pakankamai daiktų",
+    "notify_not_enough_money": "Neturite pakankamai pinigų",
+    "notify_rewarded_fish": "Jūs pagavote %s kuris sveria %sg",
+    "notify_rewarded_item": "Sugavote plastika %s %sx",
+    "notify_rewarded_money": "Sugavote piniginę ir radote $%s",
+    "notify_no_reward": "Jūs sugavote keletą šiukšlių",
+    "notify_couldnt_weight_fish": "Šios žuvies negalima pasverti ",
+
+    "ui_throw_line": "Mesti valą",
+    "ui_change_bait": "Pakeiskite masalą",
+    "ui_unequip_rod": "Pasideti meškerė",
+    "ui_equippedBait": "Masalas",
+    "ui_pullTheLine": "Ištraukite valą",
+    "ui_hold": "Laikykite ",
+    "ui_toCastTheLine": " norint mesti valą",
+
+
+    "keybind_unequip_rod": "Pasiimk meškerė",
+    "keybind_throw_line": "Mesti valą",
+    "keybind_change_bait": "Pakeiskite masalą",
+    "keybind_cancel_fishing": "Atšaukti žvejybą",
+
+    "target_shop_ped": "Žvejybos parduotuvė",
+
+    "shop_menu_title": "Žvejybos parduotuvė",
+    "shop_menu_buy": "Pirkimo elementai",
+    "shop_menu_buy_description": "Įvairių žvejybos reikmenų įsigijimas",
+    "shop_menu_sell": "Parduoti žuvį",
+    "shop_menu_sell_description": "Parduokite sugautas žuvis",
+    "shop_menu_price": "Kaina: $%s",
+    "shop_menu_fish_title": "%s %sg",
+
+    "input_amount": "Kiekis",
+    "input_invalid_input": "Netinkama įvestis, bandykite dar kartą",
+
+    "bait_menu_title": "Pasirinkite masalą",
+    "bait_menu_no_bait": "Nė vienas"
+}

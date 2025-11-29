@@ -1,398 +1,744 @@
 return {
 
-	['bandage'] = {
-		label = 'Bandage',
-		weight = 115,
-		rarity = 'common',
-		client = {
-			anim = { dict = 'missheistdockssetup1clipboard@idle_a', clip = 'idle_a', flag = 49 },
-			prop = { model = `prop_rolled_sock_02`, pos = vec3(-0.14, -0.14, -0.08), rot = vec3(-50.0, -50.0, 0.0) },
-			disable = { move = true, car = true, combat = true },
-			usetime = 2500,
-		}
-	},
+	-- pikis 
 
 	['money'] = {
 		label = 'Money',
 		rarity = 'rare',
 	},
 
-
 	['black_money'] = {
 		label = 'Dirty Money',
 		rarity = 'rare',
 	},
 
-	['handcuffs'] = {
-		label = 'Håndjern',
-		weight = 250,
-		useable = true,
-		close = false,
-		description = 'Bruges til at sætte folk i håndjern',
+	['id_card'] = {
+		label = 'ID Card',
+		weight = 100,
 		rarity = 'common',
+		description = 'Identity card needed to identify yourself',
 	},
 
-	['burger'] = {
-		label = 'Burger',
-		weight = 220,
+	-- licenzes visas
+
+	['driver_license'] = {
+		label = 'Driver License',
+		weight = 100,
 		rarity = 'common',
-		client = {
-			status = { hunger = 200000 },
-			anim = 'eating',
-			prop = 'burger',
-			usetime = 2500,
-			notification = 'You ate a delicious burger'
-		},
+		description = 'Needed to drive a vehicle',
 	},
 
-	['sprunk'] = {
-		label = 'Sprunk',
-		weight = 350,
+	['weapon_license'] = {
+		label = 'Weapon License',
+		weight = 100,
 		rarity = 'common',
-		client = {
-			status = { thirst = 200000 },
-			anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
-			prop = { model = `prop_ld_can_01`, pos = vec3(0.01, 0.01, 0.06), rot = vec3(5.0, 5.0, -180.5) },
-			usetime = 2500,
-			notification = 'You quenched your thirst with a sprunk'
-		}
+		description = 'Needed to buy a weapon',
 	},
 
-	['parachute'] = {
-		label = 'Parachute',
-		weight = 8000,
-		stack = false,
-		rarity = 'epic',
-		client = {
-			anim = { dict = 'clothingshirt', clip = 'try_shirt_positive_d' },
-			usetime = 1500
-		}
-	},
+	-- edamais
 
-	['garbage'] = {
-		label = 'Garbage',
-		rarity = 'common',
-	},
-
-	['paperbag'] = {
-		label = 'Paper Bag',
+	['baconburger'] = {
+		label = 'Baconburger',
 		weight = 1,
-		stack = false,
-		close = false,
-		consume = 0,
 		rarity = 'common',
+		description = 'A delicious baconburger',
 	},
 
-	['panties'] = {
-		label = 'Knickers',
-		weight = 10,
-		consume = 0,
-		rarity = 'rare',
-		client = {
-			status = { thirst = -100000, stress = -25000 },
-			anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
-			prop = { model = `prop_cs_panties_02`, pos = vec3(0.03, 0.0, 0.02), rot = vec3(0.0, -13.5, -1.5) },
-			usetime = 2500,
-		}
+	['bagel'] = {
+		label = 'Bagel',
+		weight = 1,
+		rarity = 'common',
+		description = 'A delicious bagel',
 	},
 
-	['lockpick'] = {
-		label = 'Lockpick',
-		weight = 160,
-		rarity = 'uncommon',
-		description = 'Lås op for nye veje og muligheder',
+	["brownie"] = {
+		label = "Brownie",
+		weight = 1,
+		rarity = 'common',
+		description = 'A delicious brownie',
+		stack = true,
 	},
+
+	-- dzeramais
+
+
+	["bubbletea"] = {
+		label = "Bubbletea",
+		weight = 1,
+		rarity = 'common',
+		description = 'A delicious bubbletea',
+		stack = true,
+	},
+
+
+	["coffee_frappuccino"] = {
+		label = "Coffee Frappuccino",
+		weight = 1,
+		rarity = 'common',
+		description = 'A delicious coffee frappuccino',
+		stack = true,
+	},
+
+
+	["water_bottle"] = {
+		label = "Water Bottle",
+		weight = 1,
+		rarity = 'common',
+		description = 'A delicious water bottle',
+		stack = true,
+	},
+
+	-- alcohol
+
+	["beer"] = {
+		label = "Beer",
+		weight = 1,
+		rarity = 'common',
+		description = 'A delicious beer',
+		stack = true,
+	},
+
+	["vodka"] = {
+		label = "Vodka",
+		weight = 1,
+		rarity = 'common',
+		description = 'A delicious vodka',
+		stack = true,
+	},
+
+	-- elektronika
 
 	['phone'] = {
 		label = 'Phone',
-		weight = 190,
-		stack = false,
-		consume = 0,
-		rarity = 'uncommon',
-		client = {
-			add = function(total)
-				if total > 0 then pcall(function() return exports.npwd:setPhoneDisabled(false) end) end
-			end,
-			remove = function(total)
-				if total < 1 then pcall(function() return exports.npwd:setPhoneDisabled(true) end) end
-			end
-		}
-	},
-
-	['mustard'] = {
-		label = 'Mustard',
-		weight = 500,
-		rarity = 'uncommon',
-		client = {
-			status = { hunger = 25000, thirst = 25000 },
-			anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
-			prop = { model = `prop_food_mustard`, pos = vec3(0.01, 0.0, -0.07), rot = vec3(1.0, 1.0, -1.5) },
-			usetime = 2500,
-			notification = 'You.. drank mustard'
-		}
-	},
-
-	-- Drikkevarer
-
-	['whiskey'] = {
-		label = 'Whiskey',
-		weight = 500,
-		rarity = 'mythic',
-		client = {
-			status = { thirst = -1000000 },
-			anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
-			prop = { model = `ba_prop_battle_whiskey_bottle_s`, pos = vec3(0.03, 0.03, 0.02), rot = vec3(0.0, 0.0, -1.5) },
-			usetime = 2500,
-			cancel = true,
-			notification = 'Du er alkoholiker'
-		},
-		description = 'Det siges at alkohol gør dig mere tørstig...',
-	},
-
-	['water'] = {
-		label = 'Water',
-		weight = 500,
-		rarity = 'common',
-		client = {
-			status = { thirst = 200000 },
-			anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
-			prop = { model = `prop_ld_flow_bottle`, pos = vec3(0.03, 0.03, 0.02), rot = vec3(0.0, 0.0, -1.5) },
-			usetime = 2500,
-			cancel = true,
-			notification = 'You drank some refreshing water'
-		}
-	},
-
-	['radio'] = {
-		label = 'Radio',
-		weight = 1000,
-		stack = false,
-		allowArmed = true,
-		rarity = 'uncommon',
-	},
-
-	['armor'] = {
-		label = 'Skudsikker Vest',
-		weight = 1000,
-		stack = false,
-		rarity = 'uncommon',
-		client = {
-			anim = { dict = 'clothingshirt', clip = 'try_shirt_positive_d' },
-			usetime = 3500
-		},
-		description = 'Giver dig ekstra beskyttelse mod skader fra skud, knivstik og slag.',
-	},
-
-	['clothing'] = {
-		label = 'Clothing',
-		consume = 0,
-		rarity = 'uncommon',
-	},
-
-	['mastercard'] = {
-		label = 'Fleeca Card',
-		stack = false,
-		weight = 10,
-		rarity = 'rare',
-		client = { image = 'card_bank.png' }
-	},
-
-	['scrapmetal'] = {
-		label = 'Scrap Metal',
-		weight = 80,
-		rarity = 'common',
-	},
-
-	['id_card'] = {
-		label = 'ID Kort',
-		weight = 10,
-		rarity = 'common',
-	},
-	
-	['pd_badge'] = {
-		label = 'Politiskilt',
-		weight = 50,
-		image = 'pd_badge.png',
-		stack = false,
-		useable = true,
-		close = true,
-		rarity = 'rare',
-	},
-	
-	['medkit'] = {
-		label = 'Førstehjælpskit',
-		weight = 1000,
-		image = 'medkit.png',
-		stack = false,
-		useable = true,
-		close = true,
-		rarity = 'rare',
-		description = 'Bruges til at hele alvorlige skader',
-	},
-	
-	['painkillers'] = {
-		label = 'Smertestillende',
-		weight = 250,
-		image = 'painkillers.png',
-		stack = false,
-		useable = true,
-		close = true,
-		rarity = 'uncommon',
-	},
-	
-	['thermite'] = {
-		label = 'Thermite',
-		weight = 750,
-		image = 'thermite.png',
-		stack = true,
-		useable = true,
-		close = true,
-		description = 'Kan fremstille en ekstrem varme på omkring 2.500°C',
-		rarity = 'epic',
-	},
-	
-	['nitrousoxide'] = {
-		label = 'Nitrous Oxide',
-		weight = 1500,
-		image = 'nitrousoxide.png',
-		stack = true,
-		useable = true,
-		close = true,
-		rarity = 'epic',
-	},
-	
-	['pickaxe'] = {
-		label = 'Hakke',
-		weight = 4000,
-		image = 'pickaxe.png',
-		stack = true,
-		useable = true,
-		close = true,
-		rarity = 'uncommon',
-	},
-	
-	['turbo'] = {
-		label = 'Turbo',
-		weight = 2000,
-		image = 'turbo.png',
-		stack = true,
-		useable = true,
-		close = true,
-		description = 'Bruges til at installere turboer i biler',
-		rarity = 'legendary',
-	},
-	
-	['nokia_burner'] = {
-		label = 'Nokia 3310',
 		weight = 1,
-		image = 'phone.png',
-		stack = false,
-		useable = true,
-		close = true,
-		description = 'Telefon som er værd at miste',
-		rarity = 'rare',
-	},
-
--- crafting
-
-	['metalscrap'] = {
-		label = 'Metal Skrot',
-		weight = 350,
-		image = 'metalscrap.png',
-		stack = true,
-		useable = false,
-		close = false,
 		rarity = 'common',
-	},
-
-	['electronickit'] = {
-		label = 'Elektronik Sæt',
-		weight = 350,
-		image = 'electronickit.png',
+		description = 'A phone',
 		stack = true,
-		useable = true,
-		close = true,
-		rarity = 'rare',
 	},
 
-	['steel'] = {
-		label = 'Stål',
-		weight = 350,
-		image = 'steel.png',
-		stack = true,
-		useable = false,
-		close = false,
-		rarity = 'uncommon',
-	},
-
-	['aluminum'] = {
-		label = 'Aluminium',
-		weight = 350,
-		image = 'aluminum.png',
-		stack = true,
-		useable = false,
-		close = false,
-		rarity = 'uncommon',
-	},
-
-	['glass'] = {
-		label = 'Glas',
-		weight = 350,
-		image = 'glass.png',
-		stack = true,
-		useable = false,
-		close = false,
-		rarity = 'common',
-	},
-
-	['plastic'] = {
-		label = 'Plastik',
-		weight = 350,
-		image = 'plastic.png',
-		stack = true,
-		useable = false,
-		close = false,
-		rarity = 'common',
-	},
-
-	['scrapiron'] = {
-		label = 'Jernklumper',
+	["racing_tablet"] = {
+		label = "Tablet",
 		weight = 500,
-		image = 'iron_nugget.png',
-		stack = true,
-		useable = false,
-		close = false,
-		rarity = 'common',
-	},
-
-	['copper'] = {
-		label = 'Kobber',
-		weight = 350,
-		image = 'copper.png',
-		stack = true,
-		useable = true,
-		close = true,
-		rarity = 'uncommon',
-	},
-
-	['boosting-laptop'] = {
-		label = 'Computer',
-		weight = 3500,
-		image = 'laptop.png',
 		stack = false,
-		useable = false,
+		close = true,
+		client = {
+		   image = "racing_tablet.png",
+		   export = "nx_racing.openTablet"
+		}
+	 },
+
+	 ['radio'] = {
+		label = 'Radar',
+		weight = 1,
+		rarity = 'common',
+		description = 'A radar',
+		stack = true,
+	},
+
+	-- fishing prikoli visi
+
+	['basicfishingrod'] = {
+		label = 'Basic fishing rod',
+		description = "A fishing rod for bigginer fisherman",
+		rarity = 'common',
+		weight = 250,
+		stack = true
+	},
+
+	['advancedfishingrod'] = {
+		label = 'Advanced fishing rod',
+		description = "A fishing rod for advanced fisherman",
+		rarity = 'uncommon',
+		weight = 350,
+		stack = true
+	},
+
+	['profishingrod'] = {
+		label = 'Proffesional fishing rod',
+		description = "A fishing rod for proffesional fisherman",
+		rarity = 'rare',
+		weight = 450,
+		stack = true
+	},
+	
+	['basicbait'] = {
+		label = 'Basic fishing bait',
+		description = "Fishing bait for bigginer fisherman",
+		rarity = 'common',
+		weight = 250,
+		stack = true
+	},
+
+	['probait'] = {
+		label = 'Advanced fishing bait',
+		description = "Fishing bait for advanced fisherman",
+		rarity = 'uncommon',
+		weight = 350,
+		stack = true
+	},
+
+	['salmon'] = {
+		label = 'Salmon',
+		weight = 0,
+		stack = false,
 		close = false,
-		description = 'Computer til Boosting',
+		description = '',
+		rarity = 'mythic',
+	},
+
+	['catfish'] = {
+		label = 'Catfish',
+		weight = 0,
+		stack = false,
+		close = false,
+		description = '',
+		rarity = 'rare',
+	},
+
+	['redfish'] = {
+		label = 'Red sea bass',
+		weight = 0,
+		stack = false,
+		close = false,
+		description = '',
 		rarity = 'epic',
 	},
 
-	['bag'] = {
-		label = 'Bag',
-		weight = 500,
+	['largemouthbass'] = {
+		label = 'Largemouth bass',
+		weight = 0,
 		stack = false,
-		useable = false,
 		close = false,
-		description = 'A small bag that provides extra storage space',
+		description = '',
+		rarity = 'epic',
+	},
+
+	['pike'] = {
+		label = 'Pike',
+		weight = 0,
+		stack = false,
+		close = false,
+		description = '',
 		rarity = 'uncommon',
 	},
+
+	['bream'] = {
+		label = 'Bream',
+		weight = 0,
+		stack = false,
+		close = false,
+		description = '',
+		rarity = 'common',
+	},
+
+	['eal'] = {
+		label = 'Eal',
+		weight = 0,
+		stack = false,
+		close = false,
+		description = '',
+		rarity = 'rare',
+	},
+
+	['cod'] = {
+		label = 'Cod',
+		weight = 0,
+		stack = false,
+		close = false,
+		description = '',
+		rarity = 'epic',
+	},
+
+	['sparling'] = {
+		label = 'Sparling',
+		weight = 0,
+		stack = false,
+		close = false,
+		description = '',
+		rarity = 'uncommon',
+	},
+
+	-- hacking prikkoli
+
+	['lockpick'] = {
+		label = 'Lockpick',
+		weight = 150,
+		rarity = 'common',
+		description = 'Used to lockpick something',
+	},
+
+	['advancedlockpick'] = {
+		label = 'Advanced Lockpick',
+		weight = 300,
+		rarity = 'uncommon',
+		description = 'More durable than a regular lockpick',
+	},
+
+	-- drugs visi itemi
+
+	['ammonia'] = {
+		label = 'Ammonia',
+		weight = 500,
+		stack = true,
+		rarity = 'common',
+	},
+	
+	['sodium_benzoate'] = {
+		label = 'Sodium benzoate',
+		weight = 750,
+		stack = true,
+		rarity = 'common',
+	},
+	
+	['meth_tray'] = {
+		label = 'Meth tray',
+		weight = 1000,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['meth'] = {
+		label = 'Meth',
+		weight = 1,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['meth_bag'] = {
+		label = 'Meth bag',
+		weight = 50,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['plastic_bag'] = {
+		label = 'Plastic bag',
+		weight = 40,
+		stack = true,
+		rarity = 'common',
+	},
+	
+	['meth_syringe'] = {
+		label = 'Meth syringe',
+		weight = 75,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	-- Cocaine related items
+	['coke_seed'] = {
+		label = 'Cocaine seed',
+		weight = 10,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['coke_leaf'] = {
+		label = 'Cocaine leaf',
+		weight = 50,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['coke_paste'] = {
+		label = 'Cocaine paste',
+		weight = 150,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['coke'] = {
+		label = 'Cocaine',
+		weight = 1,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['coke_bag'] = {
+		label = 'Cocaine bag',
+		weight = 50,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['coke_brick'] = {
+		label = 'Cocaine brick',
+		weight = 200,
+		stack = true,
+		rarity = 'epic',
+	},
+	
+	['coke_doll'] = {
+		label = 'Cocaine doll',
+		weight = 500,
+		stack = true,
+		rarity = 'mythic',
+	},
+	
+	-- Weed related items
+	['weed_seed'] = {
+		label = 'Weed seed',
+		weight = 5,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['weed_pot'] = {
+		label = 'Flower Pot',
+		weight = 500,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['trowel'] = {
+		label = 'Trowel',
+		weight = 150,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['weed_bud'] = {
+		label = 'Weed bud',
+		weight = 25,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['clean_weed_bud'] = {
+		label = 'Clean weed bud',
+		weight = 20,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['cookie_dough'] = {
+		label = 'Cookie dough',
+		weight = 200,
+		stack = true,
+		rarity = 'epic',
+	},
+	
+	['weed_cookie'] = {
+		label = 'Weed cookie',
+		weight = 50,
+		stack = true,
+		rarity = 'epic',
+	},
+	
+	['weed_bag'] = {
+		label = 'Weed bag',
+		weight = 50,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['weed_joint'] = {
+		label = 'Weed joint',
+		weight = 15,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['weed_papers'] = {
+		label = 'Weed papers',
+		weight = 5,
+		stack = true,
+		rarity = 'common',
+	},
+	
+	-- Heroin related items
+	['poppy_seeds'] = {
+		label = 'Poppy seeds',
+		weight = 5,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['poppy_plant'] = {
+		label = 'Poppy plant',
+		weight = 100,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['opium'] = {
+		label = 'Opium',
+		weight = 1,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['heroin'] = {
+		label = 'Heroin',
+		weight = 1,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['heroin_bag'] = {
+		label = 'Heroin bag',
+		weight = 50,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['heroin_syringe'] = {
+		label = 'Heroin syringe',
+		weight = 75,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['syringe'] = {
+		label = 'Syringe',
+		weight = 25,
+		stack = true,
+		rarity = 'common',
+	},
+	
+	-- LSD related items
+	['ergot_fungus'] = {
+		label = 'Ergot fungus',
+		weight = 50,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['generic_leaf'] = {
+		label = 'Leaf',
+		weight = 20,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['lsd_liquid'] = {
+		label = 'LSD liquid',
+		weight = 25,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['lsd'] = {
+		label = 'LSD',
+		weight = 1,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['art_papers'] = {
+		label = 'Art papers',
+		weight = 5,
+		stack = true,
+		rarity = 'common',
+	},
+	
+	-- Ecstasy related items
+	['safrole_oil'] = {
+		label = 'Safrole oil',
+		weight = 300,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['ecstasy_crystals'] = {
+		label = 'Ecstasy crystals',
+		weight = 1,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['ecstasy_pill'] = {
+		label = 'Ecstasy pill',
+		weight = 15,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	-- Mushroom related items
+	['mushrooms'] = {
+		label = 'Mushrooms',
+		weight = 1,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['mushroom_powder'] = {
+		label = 'Mushroom powder',
+		weight = 1,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['chocolate_chips'] = {
+		label = 'Chocolate chips',
+		weight = 30,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['mushroom_chocolate'] = {
+		label = 'Mushroom chocolate',
+		weight = 45,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	-- Ketamine related items
+	['anesthetic'] = {
+		label = 'anesthetic',
+		weight = 200,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['ketamine'] = {
+		label = 'Ketamine',
+		weight = 1,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['ketamine_bag'] = {
+		label = 'Ketamine bag',
+		weight = 50,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	-- Crack related items
+	['baking_soda'] = {
+		label = 'Baking soda',
+		weight = 100,
+		stack = true,
+		rarity = 'common',
+	},
+	
+	['crack'] = {
+		label = 'Crack',
+		weight = 1,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['crack_bag'] = {
+		label = 'Crack bag',
+		weight = 50,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['crack_pipe'] = {
+		label = 'Crack pipe',
+		weight = 150,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['crack_syringe'] = {
+		label = 'Crack syringe',
+		weight = 75,
+		stack = true,
+		rarity = 'rare',
+	},
+	
+	['pipe'] = {
+		label = 'Pipe',
+		weight = 100,
+		stack = true,
+		rarity = 'common',
+	},
+	
+	-- Fentanyl related items
+	['npp_chemical'] = {
+		label = 'NPP chemical',
+		weight = 300,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['aniline_solution'] = {
+		label = 'Aniline solution',
+		weight = 250,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['fentanyl'] = {
+		label = 'Fentanyl',
+		weight = 1,
+		stack = true,
+		rarity = 'epic',
+	},
+	
+	['fentanyl_bag'] = {
+		label = 'Fentanyl bag',
+		weight = 25,
+		stack = true,
+		rarity = 'epic',
+	},
+	
+	['meth_table'] = {
+		label = 'Meth table',
+		weight = 2250,
+		stack = false,
+		rarity = 'epic',
+	},
+	
+	['coke_table'] = {
+		label = 'Coke table',
+		weight = 2250,
+		stack = false,
+		rarity = 'epic',
+	},
+	
+	['weed_table'] = {
+		label = 'Weed table',
+		weight = 2250,
+		stack = false,
+		rarity = 'epic',
+	},
+	
+	['chem_table'] = {
+		label = 'Chemistry table',
+		weight = 2250,
+		stack = false,
+		rarity = 'epic',
+	},
+	
+	['burner_phone'] = {
+		label = 'Burner phone',
+		weight = 200,
+		stack = true,
+		rarity = 'common',
+	},
+	
+	['light1'] = {
+		label = 'Portable Lamp',
+		weight = 2000,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['light2'] = {
+		label = 'Portable Lamp',
+		weight = 2000,
+		stack = true,
+		rarity = 'uncommon',
+	},
+	
+	['fertilizer'] = {
+		label = 'Fertilizer',
+		weight = 250,
+		stack = true,
+		rarity = 'common',
+	},
+	
+	['water_can'] = {
+		label = 'Watering can',
+		weight = 250,
+		stack = true,
+		rarity = 'common',
+	},
+
+	
 }

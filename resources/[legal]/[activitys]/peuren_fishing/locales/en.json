@@ -1,0 +1,47 @@
+{
+    "notify_equip_fishing_rod": "Equipped a %s",
+    "notify_unequip_fishing_rod": "Unequipped the fishing rod",
+    "notify_already_equipped_rod": "You already have an equipped rod",
+    "notify_no_water_at_spot": "There's no water there",
+    "notify_broke_fishing_rod": "The rod broke!",
+    "notify_sale_success_title": "Succesfully Sold",
+    "notify_sale_success_description": "You succesfully sold an item for $%s",
+    "notify_buy_success_title": "Succesfully Bought",
+    "notify_buy_success_description": "You succesfully bought an item for $%s",
+    "notify_not_enough_items": "You don't have enough items",
+    "notify_not_enough_money": "You don't have enough cash",
+    "notify_rewarded_fish": "You caught a %s that weighs %sg",
+    "notify_rewarded_item": "You caught a bag and found %s %sx",
+    "notify_rewarded_money": "You caught a wallet and found $%s",
+    "notify_no_reward": "You caught some trash",
+    "notify_couldnt_weight_fish": "The fisherman couldn't weight the fish :/",
+
+    "ui_throw_line": "Throw the line",
+    "ui_change_bait": "Change the bait",
+    "ui_unequip_rod": "Unequip the rod",
+    "ui_equippedBait": "Equipped bait",
+    "ui_pullTheLine": "Pull the Line",
+    "ui_hold": "Hold ",
+    "ui_toCastTheLine": " to cast the line",
+
+    "keybind_unequip_rod": "Unequip the rod",
+    "keybind_throw_line": "Throw the line",
+    "keybind_change_bait": "Change the bait",
+    "keybind_cancel_fishing": "Cancel fishing",
+
+    "target_shop_ped": "Fishing Shop",
+
+    "shop_menu_title": "Fishing Shop",
+    "shop_menu_buy": "Purchase Items",
+    "shop_menu_buy_description": "Purchase various fishing supplies",
+    "shop_menu_sell": "Sell Fish",
+    "shop_menu_sell_description": "Sell your caught goods",
+    "shop_menu_price": "Price: $%s",
+    "shop_menu_fish_title": "%s %sg",
+
+    "input_amount": "Amount",
+    "input_invalid_input": "Invalid input, try again",
+
+    "bait_menu_title": "Select the bait",
+    "bait_menu_no_bait": "None"
+}
