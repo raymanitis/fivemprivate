@@ -1,7 +1,7 @@
 Config = Config or {}
 
 Config.Debug = false
-Config.Framework = 'auto' -- auto, esx, qb-core, qbox, standalone
+Config.Framework = 'qbox' -- auto, esx, qb-core, qbox, standalone
 Config.WhitelistedJobs = { 'ambulance' } -- jobs allowed to open the mdt
 Config.RequireDuty = false -- require the cop to be on duty to open the mdt (configure this in server/custom/functions/duty.lua)
 Config.UseLogs = false -- configure in server/custom/functions/logs.lua
