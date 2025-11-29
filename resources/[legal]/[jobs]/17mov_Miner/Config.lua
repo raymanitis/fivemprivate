@@ -1,10 +1,10 @@
 Config = {}
-Config.UseTarget = false
-Config.UseBuiltInNotifications = true
+Config.UseTarget = true
+Config.UseBuiltInNotifications = false
 
 Config.RequiredItem = "none"                            -- Set it to anything you want, to require players to have an item in their inventory before they start the job
 Config.RequireItemFromWholeTeam = true                  -- If it's false, then only the host needs to have the required item, otherwise entire team needs it.
-Config.RequiredJob = "none"                             -- Set to "none" if you dont want to use jobs. If you are using target, you have to set "job" parameter inside every export in target.lua
+Config.RequiredJob = "miner"                             -- Set to "none" if you dont want to use jobs. If you are using target, you have to set "job" parameter inside every export in target.lua
 Config.RequireJobAlsoForFriends = true                  -- If it's false, then only the host needs to have the job, if it's true, then everybody from the group needs to have the Config.RequiredJob
 Config.RequireOneFriendMinimum = false                  -- Set to true if you want to force players to create teams
 Config.letBossSplitReward = true                        -- If it's true, then boss can manage whole party rewards percent in menu. If set to false, then everybody will get same amount. Avalible only in modern UI
