@@ -135,6 +135,17 @@ return {
 		stack = true,
 	},
 
+	["racing_tablet"] = {
+		label = "Tablet",
+        weight = 500,
+        stack = false,
+        close = true,
+        client = {
+           image = "racing_tablet.png",
+           export = "nx_racing.openTablet"
+        }
+    },
+
 	-- fishing prikoli visi
 
 	['basicfishingrod'] = {
