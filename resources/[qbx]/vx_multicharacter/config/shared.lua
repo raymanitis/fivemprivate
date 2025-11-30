@@ -27,7 +27,7 @@ return {
 	locale = "en",
 
 	--- Set to true if you would like the "Welcome, {full_name}" transition/animation to only appear when creating a new character.
-	transition_only_when_char_is_new = true,
+	transition_only_when_char_is_new = false,
 
 	--- Configuration for character creation/registration
 	registration_options = {
