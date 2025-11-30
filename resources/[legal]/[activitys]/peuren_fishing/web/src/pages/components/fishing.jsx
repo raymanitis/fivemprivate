@@ -11,7 +11,7 @@ function Fishing({breakLine}) {
     useEffect(() => {
         function handleKeyDown(e) {
             if (spacePressed.current) return;;
-            if (e.key == " ") {
+            if (e.key == "e" || e.key == "E") {
                 spacePressed.current = true;
                 fetchNui("windFishingRod");
             }
@@ -19,7 +19,7 @@ function Fishing({breakLine}) {
 
         function handleKeyUp(e) {
             if (!spacePressed.current) return;
-            if (e.key == " ") {
+            if (e.key == "e" || e.key == "E") {
                 spacePressed.current = false;
                 fetchNui("unwindFishingRod");
             }
@@ -65,8 +65,8 @@ function Fishing({breakLine}) {
 
     return <div className="absolute bottom-12 left-1/2 -translate-x-1/2 p-4 rounded-lg flex flex-col gap-4 justify-center items-center">
         <div className="flex justify-start items-center gap-2">
-            <div className="bg-[#384f524f] border border-[#c2f4f967] w-16 h-9 rounded-[0.15rem] flex items-center justify-center text-base">
-                <span>SPACE</span>
+            <div className="bg-[#384f524f] border border-[#c2f4f967] w-9 h-9 rounded-[0.15rem] flex items-center justify-center text-base">
+                <span>E</span>
             </div>
             <p className="text-md font-medium leading-none">{globalState.settings.locale.pullTheLine}</p>
         </div>
