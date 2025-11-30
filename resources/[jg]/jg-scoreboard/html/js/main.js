@@ -1,4 +1,17 @@
-let scoreboard = false;
+let scoreboard = {
+  element: null,
+  show: function() {
+    if (this.element) {
+      this.element.classList.add('show');
+    }
+  },
+  hide: function() {
+    if (this.element) {
+      this.element.classList.remove('show');
+      closeNUI();
+    }
+  }
+};
 
 async function closeNUI() {
   await fetch(`https://jg-scoreboard/close`, {
@@ -17,18 +30,20 @@ function main() {
         break;
       case "closeScoreboard":
         closeScoreboard();
+        break;
       default:
         break;
     }
   });
 
-  scoreboard = new bootstrap.Modal(document.getElementById("scoreboard-modal"));
-
-  document.querySelectorAll(".modal").forEach((modal) => {
-    modal.addEventListener("hidden.bs.modal", () => {
-      closeNUI();
-    });
+  // Handle ESC key to close scoreboard
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && scoreboard.element && scoreboard.element.classList.contains('show')) {
+      closeScoreboard();
+    }
   });
+
+  scoreboard.element = document.getElementById("scoreboard-wrapper");
 }
 
 main();
