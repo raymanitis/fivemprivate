@@ -1,0 +1,359 @@
+return {
+
+    -- Used in Renewed-Fuel
+    -- oilbarrel = {
+    --     slowMovement = 10, -- Slow playermovement by percentage, 100 = cant walk, 0 = normal speed. (recommend 10-20)
+    --     model = `prop_barrel_exp_01a`,
+    --     pos = vec3(0.01, -0.27, 0.27),
+    --     rot = vec3(3.0, 0.0, 0.0),
+    --     bone = 28422,
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --         disableSprint = true,
+    --         disableJump = true,
+    --         disableAttack = true,
+    --         disableDriving = true,
+    --         disableVehicleEnter = true
+    --     }
+    -- },
+
+
+    -- -- Used in Renewed-Garbagejob
+    -- trashbag = {
+    --     model = `prop_cs_rub_binbag_01`,
+    --     pos = vec3(0.0, 0.0, 0.0),
+    --     rot = vec3(180.0, 200.0, 80.0),
+    --     bone = 28422,
+    --     dict = 'anim@heists@narcotics@trash',
+    --     anim = 'walk',
+    --     disableKeys = {
+    --         disableSprint = false,
+    --         disableJump = true,
+    --         disableAttack = true,
+    --         disableVehicle = true
+    --     }
+    -- },
+
+    -- microwave = {
+    --     model = `prop_microwave_1`,
+    --     pos = vec3(0.01, -0.17, -0.15),
+    --     rot = vec3(3.0, 0.0, 0.0),
+    --     bone = 28422,
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'walk',
+    --     disableKeys = {
+    --         disableSprint = true,
+    --         disableJump = true,
+    --         disableAttack = true,
+    --         disableVehicle = true
+    --     }
+    -- },
+
+    -- peak_laptop = {
+    --     model = `prop_laptop_02_closed`,
+    --     pos = vec3(0.0, 0.0, -0.2),
+    --     rot = vec3(0.0, 0.0, 2.0),
+    --     bone = 28422,
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --         disableSprint = true,
+    --         disableJump = true,
+    --         disableAttack = true,
+    --         disableDriving = true,
+    --         disableVehicleEnter = true
+    --     }
+    -- },
+ 
+    -- peak_pcspeaker = {
+    --     model = `v_res_pcspeaker`,
+    --     pos = vec3(0.0, 0.0, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     bone = 28422,
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --         disableSprint = true,
+    --         disableJump = true,
+    --         disableAttack = true,
+    --         disableDriving = true,
+    --         disableVehicleEnter = true
+    --     }
+    -- },
+ 
+    -- peak_toaster = {
+    --     model = `prop_toaster_01`,
+    --     pos = vec3(0.0, 0.0, -0.05),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     bone = 28422,
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --         disableSprint = true,
+    --         disableJump = true,
+    --         disableAttack = true,
+    --         disableDriving = true,
+    --         disableVehicleEnter = true
+    --     }
+    -- },
+ 
+    -- peak_tv = {
+    --     model = `prop_tv_flat_michael`,
+    --     pos = vec3(0.0, -0.1, 0.0),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     bone = 28422,
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --         disableSprint = true,
+    --         disableJump = true,
+    --         disableAttack = true,
+    --         disableDriving = true,
+    --         disableVehicleEnter = true
+    --     }
+    -- },
+
+    -- atm1 = {
+    --     model = `ep_atm_03`,
+    --     pos = vec3(0.0, -0.25, -0.51),
+    --     rot = vec3(3.0, 0.0, 0.0),
+    --     bone = 28422,
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --         disableSprint = true,
+    --         disableJump = true,
+    --         disableAttack = true,
+    --         disableVehicle = true
+    --     }
+    -- },
+     
+    -- atm2 = {
+    --     model = `ep_atm_02`,
+    --     pos = vec3(0.0, -0.25, -0.61),
+    --     rot = vec3(3.0, 0.0, 0.0),
+    --     bone = 28422,
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --         disableSprint = true,
+    --         disableJump = true,
+    --         disableAttack = true,
+    --         disableVehicle = true
+    --     }
+    -- },
+     
+    -- atm3 = {
+    --     model = `ep_fleeca_atm`,
+    --     pos = vec3(0.0, -0.25, -0.51),
+    --     rot = vec3(3.0, 0.0, 0.0),
+    --     bone = 28422,
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --         disableSprint = true,
+    --         disableJump = true,
+    --         disableAttack = true,
+    --         disableVehicle = true
+    --     }
+    -- },
+
+    -- microwave = {
+    --     model = 'prop_micro_02',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   toaster = {
+    --     model = 'prop_toaster_01',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   small_tv = {
+    --     model = 'prop_tv_flat_03',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   old_tv = {
+    --     model = 'prop_tv_03',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   old_phone = {
+    --     model = 'v_res_j_phone',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   kettle = {
+    --     model = 'prop_kettle',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   coffee_machine = {
+    --     model = 'prop_coffee_mac_02',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   tape_player = {
+    --     model = 'prop_tapeplayer_01',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.0),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   telescope = {
+    --     model = 'prop_t_telescope_01b',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.0),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   monitor = {
+    --     model = 'prop_monitor_w_large',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   -- printer = {
+    --   --   model = 'prop_printer_01',
+    --   --   bone = 28422,
+    --   --   pos = vec3(0.01, -0.02, -0.2),
+    --   --   rot = vec3(0.0, 0.0, 0.0),
+    --   --   dict = 'anim@heists@box_carry@',
+    --   --   anim = 'idle',
+    --   --   disableKeys = {
+    --   --     disableAttack = true,
+    --   --     disableVehicleEnter = true,
+    --   --     disableSprint = true,
+    --   --     disableJump = true,
+    --   --     disableDriving = true
+    --   --   }
+    --   -- },
+    --   golfbag = {
+    --     model = 'prop_golf_bag_01b',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+    --   tv = {
+    --     model = 'prop_tv_flat_01',
+    --     bone = 28422,
+    --     pos = vec3(0.01, -0.02, -0.2),
+    --     rot = vec3(0.0, 0.0, 0.0),
+    --     dict = 'anim@heists@box_carry@',
+    --     anim = 'idle',
+    --     disableKeys = {
+    --       disableAttack = true,
+    --       disableVehicleEnter = true,
+    --       disableSprint = true,
+    --       disableJump = true,
+    --       disableDriving = true
+    --     }
+    --   },
+        
+}
+

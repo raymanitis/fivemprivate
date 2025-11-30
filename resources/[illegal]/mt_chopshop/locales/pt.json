@@ -1,0 +1,12 @@
+{
+    "textui_key_press": "[E]",
+    "textui_dismantle_vehicle": "Desmantelar veiculo",
+    "textui_dettacht_vehicle": "Tirar veiculo",
+
+    "target_remove_part": "Remover",
+    "target_use_machine": "Usar máquina",
+
+    "notify_cant_dismatle_vehicle": "Não podes desmantelar este veiculo",
+    "notify_vehicle_dismatled": "Veiculo desmantelado!",
+    "notify_machine_in_use": "Esta máquina já está em uso"
+}

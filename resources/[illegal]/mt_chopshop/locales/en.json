@@ -1,0 +1,16 @@
+{
+    "target": {
+        "use_machine": "Use machine",
+        "remove_part": "Remove %s"
+    },
+    "notify": {
+        "cant_dismantle_vehicle": "You can't use this vehicle",
+        "vehicle_dismantled": "Vehicle broked!",
+        "machine_in_use": "This machine is already in use"
+    },
+    "textui": {
+        "key_press": "[E]",
+        "dismantle_vehicle": "Broke vehicle",
+        "dettacht_vehicle": "Dettatch vehicle"
+    }
+}

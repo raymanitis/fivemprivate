@@ -1,0 +1,12 @@
+{
+    "Lua.diagnostics.globals": [
+        "lib",
+        "MySQL",
+        "locale",
+        "minigame",
+        "notify",
+        "policeAlert",
+        "progressBar",
+        "cache"
+    ]
+}
