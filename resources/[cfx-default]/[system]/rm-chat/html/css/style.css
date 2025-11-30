@@ -1,0 +1,248 @@
+@import url('https://use.fontawesome.com/releases/v7.0.1/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* Theme Color Palette */
+:root {
+    --item-color: #c2f4f91e;
+    --bg-color: #121a1ce3;
+    --main-color: #C2F4F9;
+    --border-color: #c2f4f967;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.5);
+    --text-muted: rgba(255, 255, 255, 0.3);
+}
+
+/* Legacy color classes updated with theme palette */
+.color-0 {
+    color: var(--text-primary);
+}
+
+.color-1 {
+    color: #fa5252;
+}
+
+.color-2 {
+    color: #51cf66;
+}
+
+.color-3 {
+    color: #fcc419;
+}
+
+.color-4 {
+    color: #339af0;
+}
+
+.color-5 {
+    color: var(--main-color);
+}
+
+.color-6 {
+    color: #845ef7;
+}
+
+.color-8 {
+    color: #c92a2a;
+}
+
+.color-9 {
+    color: #e64980;
+}
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+    font-family: 'Bai Jamjuree', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.no-grow {
+    flex-grow: 0;
+}
+
+em {
+    font-style: normal;
+}
+
+#app {
+    font-family: 'Bai Jamjuree', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--text-primary);
+    background-color: transparent;
+}
+
+.chat-window {
+    position: absolute;
+    left: 15px;
+    width: 32vw;
+    height: 20vh;
+    background-color: transparent;
+    top: 5vh;
+    animation-duration: 2s;
+}
+
+.chat-messages {
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-input {
+    position: absolute;
+    font-size: 1.1vh;
+    top: 27vh;
+    left: 15px;
+    width: 28vw;
+    box-sizing: border-box;
+}
+
+textarea {
+    font-family: 'Bai Jamjuree', sans-serif !important;
+    font-size: 14px;
+    display: block;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+    width: 80%;
+    min-height: 42px;
+    max-height: 42px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    resize: none;
+    border-radius: 0.25rem;
+    border: 0.0625rem solid var(--border-color);
+    transition: border-color 100ms ease;
+}
+
+textarea:focus, input:focus {
+    outline: none;
+    border-color: var(--main-color);
+}
+
+.msg {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+p {
+    margin-block-end: 0em;
+}
+
+.suggestions {
+    font-family: 'Bai Jamjuree', sans-serif !important;
+    list-style-type: none;
+    padding: 12px 16px;
+    font-size: 12px;
+    box-sizing: border-box;
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+    width: 80%;
+    border-radius: 0.25rem;
+    border: 0.0625rem solid var(--border-color);
+}
+
+.help {
+    margin-top: -10px;
+    color: var(--text-secondary);
+}
+
+.disabled {
+    margin-top: -10px;
+    color: var(--text-muted);
+}
+
+.suggestion {
+    margin-bottom: 5px;
+    color: var(--text-primary);
+}
+
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.55;
+    padding: 10px 12px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    border-radius: 0.25rem;
+    border: 0.0625rem solid var(--border-color);
+    border-left-width: 3px;
+    transition: border-color 150ms ease, background-color 150ms ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Message Tag Styles */
+.message-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 22px;
+    padding: 0 10px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    color: var(--text-primary);
+    background-color: #384f524f;
+    border: 0.0625rem solid var(--border-color);
+}
+
+.message-content {
+    flex: 1;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%
+}
+
+.message-content span {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Message type variants using theme colors */
+.warning {
+    border-left-color: #fd7e14;
+    background-color: var(--item-color);
+}
+
+.normal {
+    border-left-color: var(--main-color);
+    background-color: var(--item-color);
+}
+
+.error {
+    border-left-color: #fa5252;
+    background-color: var(--item-color);
+}
+
+/* Scrollbar styling to match Mantine dark theme */
+.chat-messages::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    display: none;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    display: none;
+}
