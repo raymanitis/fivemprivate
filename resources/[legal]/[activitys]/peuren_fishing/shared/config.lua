@@ -89,7 +89,7 @@ Config.Shops = { --Don't touch this
             sprite = 356, --Sprite of the blip. https://docs.fivem.net/docs/game-references/blips/#blips
             color = 43, --Color of the blip https://docs.fivem.net/docs/game-references/blips/#blip-colors
             size = 1.0,  --Size of the  blip
-            pos = vector3(727.05, 4169.28, 41.71)--Blip position
+            pos = vector3(-1597.7391, 5197.6714, 4.3806)--Blip position
         },
         Currency = {--Currency that is used to pay/purchase things at the shop
             account = 'cash',-- Supported types: black_money, bank, cash
@@ -100,8 +100,8 @@ Config.Shops = { --Don't touch this
         },
         Ped = {
             model = 's_m_m_ammucountry',--Ped model, model names can be found @ https://docs.fivem.net/docs/game-references/ped-models/
-            pos = vector3(727.05, 4169.28, 39.69),--Ped position
-            heading = 7.56,--Ped heading
+            pos = vector3(-1600.6545, 5195.7842, 3.3735),--Ped position
+            heading = 296.3280,--Ped heading
             animation = {--This controls the peds animation, if you don't want this, make it to: animation = false
                 --Supported anim data format:
                     -- anim = ''
@@ -123,6 +123,8 @@ Config.Shops = { --Don't touch this
             { name = "basicfishingrod", price = 1000 },
             { name = "advancedfishingrod", price = 2000 },
             { name = "profishingrod", price = 3000 },
+            { name = "basicbait", price = 100},
+            { name = "probait", price = 200},
         },
         Sell = { --Fish that can  be sold in this shop
             -- {name = "fish item spawn name", min = min kg price, max = max kg price },

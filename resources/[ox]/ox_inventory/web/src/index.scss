@@ -545,12 +545,11 @@ button:active {
   overflow: hidden;
   font-weight: 600;
   font-family: $mainFont;
-  font-size: var(--font-base);
+  font-size: 1.2vh;
   color: var(--text-primary);
-  white-space: normal;       /* allow wrapping */
-  word-wrap: break-word;     /* break long words if needed */
-  word-break: break-word;    /* extra safety */
-  overflow-wrap: anywhere;   /* modern property */
+  white-space: nowrap;       /* prevent wrapping */
+  text-overflow: ellipsis;   /* show ellipsis for overflow */
+  max-width: 100%;
 }
 
 .inventory-slot-rarity {
@@ -599,20 +598,22 @@ button:active {
 .item-slot-info-wrapper {
   color: var(--text-secondary);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: flex-end;
   position: absolute;
   right: 0;
   top: calc(0.8vh + 6px);
-  white-space: normal;       /* allow wrapping */
-  word-wrap: break-word;     /* break long words if needed */
-  word-break: break-word;    /* extra safety */
-  overflow-wrap: anywhere;   /* modern property */
   padding: 3px;
-  gap: 3px;
+  gap: 2px;
   font-family: $mainFont;
   p {
     font-size: var(--font-label);
     font-weight: 500;
+    line-height: 1.2;
+  }
+  .item-weight-text {
+    font-size: 0.9vh;
+    margin-top: 2px;
   }
 }
 

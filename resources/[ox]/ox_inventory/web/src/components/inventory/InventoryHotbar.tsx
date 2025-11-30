@@ -83,6 +83,17 @@ const InventoryHotbar: React.FC = () => {
                     >{item.slot}</div>
                     <div className="item-slot-info-wrapper">
                       <p>{item.count ? item.count.toLocaleString('en-us') + `x` : ''}</p>
+                      {item.weight > 0 && (
+                        <p className="item-weight-text">
+                          {item.weight >= 1000
+                            ? `${(item.weight / 1000).toLocaleString('en-us', {
+                                minimumFractionDigits: 2,
+                              })}kg`
+                            : `${item.weight.toLocaleString('en-us', {
+                                minimumFractionDigits: 0,
+                              })}g`}
+                        </p>
+                      )}
                     </div>
                   </div>
                   {/* Rarity badge positioned same as main inventory */}
@@ -104,19 +115,6 @@ const InventoryHotbar: React.FC = () => {
                           ? item.metadata.label
                           : Items[item.name]?.label || item.name}
                       </div>
-                      <p style={{
-                        fontSize: '0.8vh',
-                      }}>
-                        {item.weight > 0
-                          ? item.weight >= 1000
-                            ? `${(item.weight / 1000).toLocaleString('en-us', {
-                              minimumFractionDigits: 2,
-                            })}kg `
-                            : `${item.weight.toLocaleString('en-us', {
-                              minimumFractionDigits: 0,
-                            })}g `
-                          : ''}
-                      </p>
                     </div>
                   </div>
                 </div>

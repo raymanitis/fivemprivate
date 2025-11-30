@@ -204,12 +204,12 @@ Config.Camera.UseEffect = true -- Whether or not to use the camera effect (Timec
 -- Color Scheme
 -- You can find HSL colors here: https://www.w3schools.com/colors/colors_hsl.asp
 Config.Colors = {
-    ['background'] = '0 0% 3.9%',
-    ['secondary'] = '0 0% 14.9%',
-    ['foreground'] = '0 0% 98%',
-    ['muted-foreground'] = '0 0% 63.9%',
-    ['primary-foreground'] = '0 85.7% 97.3%',
-    ['primary'] = '0 72.2% 50.6%',
-    ['destructive'] = '0 62.8% 30.6%',
-    ['ring'] = '0 72.2% 50.6%'
+    ['background'] = '220 5% 10.6%',           -- #1a1b1e (Mantine dark background)
+    ['secondary'] = '220 6% 15.3%',             -- #25262b (Mantine surface/card)
+    ['foreground'] = '220 3% 77%',               -- #c1c2c5 (Mantine primary text)
+    ['muted-foreground'] = '220 4% 58%',        -- #909296 (Mantine muted text)
+    ['primary-foreground'] = '162 81% 20%',     -- Dark teal for text on primary backgrounds
+    ['primary'] = '162 81% 40%',                -- #12b886 (Mantine teal[6] accent)
+    ['destructive'] = '0 62.8% 30.6%',          -- Red for destructive actions
+    ['ring'] = '210 7% 24%'                     -- #373a40 (Mantine border/ring color)
 }

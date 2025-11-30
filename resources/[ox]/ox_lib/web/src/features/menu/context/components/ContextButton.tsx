@@ -23,7 +23,7 @@ const useStyles = createStyles((theme, params: { disabled?: boolean; readOnly?: 
     maxWidth: '2.3148vh',
   },
   buttonStack: {
-    gap: "0.1852vh",
+    gap: "0.5556vh",
     flex: '1',
   },
   buttonGroup: {

@@ -55,3 +55,5 @@ Redesign the web interface colors to match Mantine UI's default dark theme color
 - Ensure color contrast meets accessibility standards for readability
 
 
+
+

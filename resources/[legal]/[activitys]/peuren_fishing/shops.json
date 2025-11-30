@@ -1,59 +1,59 @@
 {
     "supplystore": {
+        "eal": {
+            "price": 100,
+            "sales": [],
+            "item": "eal"
+        },
         "sparling": {
-            "item": "sparling",
+            "price": 75,
             "sales": [],
-            "price": 75
-        },
-        "bream": {
-            "item": "bream",
-            "sales": [],
-            "price": 60
-        },
-        "largemouthbass": {
-            "item": "largemouthbass",
-            "sales": [],
-            "price": 125
+            "item": "sparling"
         },
         "redfish": {
-            "item": "redfish",
+            "price": 115,
             "sales": [],
-            "price": 115
+            "item": "redfish"
         },
-        "pike": {
-            "item": "pike",
+        "catfish": {
+            "price": 85,
             "sales": [],
-            "price": 75
+            "item": "catfish"
         },
-        "eal": {
-            "item": "eal",
+        "largemouthbass": {
+            "price": 125,
             "sales": [],
-            "price": 100
+            "item": "largemouthbass"
         },
         "gayfish": {
-            "item": "gayfish",
+            "price": 150,
             "sales": [],
-            "price": 150
+            "item": "gayfish"
+        },
+        "cod": {
+            "price": 120,
+            "sales": [],
+            "item": "cod"
+        },
+        "bream": {
+            "price": 60,
+            "sales": [],
+            "item": "bream"
         },
         "salmon": {
-            "item": "salmon",
+            "price": 900,
             "sales": [
                 {
                     "amount": 7,
                     "timeStamp": 1703962038
                 }
             ],
-            "price": 900
+            "item": "salmon"
         },
-        "cod": {
-            "item": "cod",
+        "pike": {
+            "price": 75,
             "sales": [],
-            "price": 120
-        },
-        "catfish": {
-            "item": "catfish",
-            "sales": [],
-            "price": 85
+            "item": "pike"
         }
     }
 }
