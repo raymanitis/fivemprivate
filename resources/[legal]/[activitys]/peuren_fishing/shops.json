@@ -1,59 +1,64 @@
 {
     "supplystore": {
         "eal": {
-            "price": 100,
+            "item": "eal",
             "sales": [],
-            "item": "eal"
-        },
-        "sparling": {
-            "price": 75,
-            "sales": [],
-            "item": "sparling"
+            "price": 100
         },
         "redfish": {
-            "price": 115,
-            "sales": [],
-            "item": "redfish"
-        },
-        "catfish": {
-            "price": 85,
-            "sales": [],
-            "item": "catfish"
-        },
-        "largemouthbass": {
-            "price": 125,
-            "sales": [],
-            "item": "largemouthbass"
-        },
-        "gayfish": {
-            "price": 150,
-            "sales": [],
-            "item": "gayfish"
-        },
-        "cod": {
-            "price": 120,
-            "sales": [],
-            "item": "cod"
-        },
-        "bream": {
-            "price": 60,
-            "sales": [],
-            "item": "bream"
-        },
-        "salmon": {
-            "price": 900,
+            "item": "redfish",
             "sales": [
                 {
-                    "amount": 7,
-                    "timeStamp": 1703962038
+                    "timeStamp": 1764475606,
+                    "amount": 321
                 }
             ],
-            "item": "salmon"
+            "price": 115
+        },
+        "largemouthbass": {
+            "item": "largemouthbass",
+            "sales": [],
+            "price": 125
+        },
+        "sparling": {
+            "item": "sparling",
+            "sales": [],
+            "price": 75
+        },
+        "salmon": {
+            "item": "salmon",
+            "sales": [
+                {
+                    "timeStamp": 1703962038,
+                    "amount": 7
+                }
+            ],
+            "price": 900
         },
         "pike": {
-            "price": 75,
+            "item": "pike",
             "sales": [],
-            "item": "pike"
+            "price": 75
+        },
+        "cod": {
+            "item": "cod",
+            "sales": [],
+            "price": 120
+        },
+        "bream": {
+            "item": "bream",
+            "sales": [],
+            "price": 60
+        },
+        "gayfish": {
+            "item": "gayfish",
+            "sales": [],
+            "price": 150
+        },
+        "catfish": {
+            "item": "catfish",
+            "sales": [],
+            "price": 85
         }
     }
 }

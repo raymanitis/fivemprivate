@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 @font-face {
   font-family: "Nexa-Book";
   src: url("https://db.onlinewebfonts.com/t/2eccf178aa2ce410df13a179ba3b3761.eot");
@@ -18,12 +20,20 @@ body {
   margin: 0;
   background: none !important;
   overflow: hidden !important;
-  font-family: 'Nexa-Book', sans-serif;
+  font-family: 'Bai Jamjuree', 'Nexa-Book', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   box-sizing: border-box;
   user-select: none;
+}
+
+:root {
+  font-size: min(.83333333vw, 1.8009478673vh);
+  transition: font-size .15s linear;
+  --item-color: #c2f4f91e;
+  --bg-color: #121a1ce3;
+  --main-color: #C2F4F9;
 }
 
 #root {

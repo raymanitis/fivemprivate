@@ -18,7 +18,6 @@ function formatTime(seconds: number): string {
 }
 
 export function UI() {
-  const theme = useMantineTheme();
   const isBrowser = isEnvBrowser();
   const [isVisible, setIsVisible] = useState(isBrowser);
   const [respawnTimer, setRespawnTimer] = useState<number | null>(isBrowser ? 900 : null);
@@ -29,7 +28,6 @@ export function UI() {
   useEffect(() => {
     const handleMessage = (event: MessageEvent<AmbulanceMessage>) => {
       const data = event.data;
-      
 
       if (data.type === 'ambulance_reset') {
         setIsVisible(false);
@@ -42,15 +40,15 @@ export function UI() {
         }
       } else if (data.type === 'eliminated' || data.type === 'knocked_down') {
         setIsVisible(true);
-        setRespawnTimer(data.timer ?? 900); // Default 15 minutes
-        setCanCallHelp(true); // Always allow showing help text
+        setRespawnTimer(data.timer ?? 900);
+        setCanCallHelp(true);
         setHelpCooldown(data.helpCooldown ?? null);
       } else if (data.type === 'update_respawn_timer') {
         setRespawnTimer(data.timer ?? null);
       } else if (data.type === 'update_respawn_available') {
         setRespawnTimer(0);
       } else if (data.type === 'help_called') {
-        setHelpCooldown(data.helpCooldown ?? 300); // 5 minutes cooldown
+        setHelpCooldown(data.helpCooldown ?? 300);
       } else if (data.type === 'update_help_cooldown') {
         setHelpCooldown(data.helpCooldown ?? null);
       }
@@ -133,73 +131,86 @@ export function UI() {
             }}
           >
             <Stack gap="xs" align="center" style={{ width: '100%', maxWidth: '450px' }}>
-              {/* Help Call Prompt or Cooldown - Always show one message */}
+              {/* Help Call Prompt or Cooldown */}
               <Card
                 p="sm"
                 style={{
-                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                  border: `1px solid ${theme.colors.dark[6]}`,
-                  borderRadius: theme.radius.md,
+                  backgroundColor: '#121a1cde',
+                  border: '1px solid #c2f4f967',
+                  borderRadius: '0.25rem',
                   boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
                   width: 'fit-content',
                   maxWidth: '100%',
+                  padding: '0.75rem 1rem',
                 }}
               >
-                <Text
-                  size="sm"
-                  fw={600}
-                  ta="center"
-                  c="white"
-                  style={{
-                    fontFamily: 'Nexa-Book, sans-serif',
-                    textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {helpCooldown !== null && helpCooldown > 0 ? (
-                    <>
-                      Help already called. Available again in{' '}
-                      <Text
-                        component="span"
-                        c="red"
-                        fw={700}
-                        style={{
-                          backgroundColor: 'rgba(0,0,0,0.3)',
-                          padding: '2px 6px',
-                          borderRadius: '4px',
-                        }}
-                      >
-                        {formatTime(helpCooldown)}
-                      </Text>
-                    </>
-                  ) : (
-                    <>
-                      Press{' '}
-                      <Text
-                        component="span"
-                        c="red"
-                        fw={700}
-                        style={{
-                          backgroundColor: 'rgba(0,0,0,0.3)',
-                          padding: '2px 6px',
-                          borderRadius: '4px',
-                        }}
-                      >
-                        [H]
-                      </Text>{' '}
+                {helpCooldown !== null && helpCooldown > 0 ? (
+                  <Text
+                    size="sm"
+                    fw={600}
+                    ta="center"
+                    c="#fff"
+                    style={{
+                      fontFamily: "'Bai Jamjuree', sans-serif",
+                      textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    Help already called. Available again in{' '}
+                    <Text
+                      component="span"
+                      c="#C2F4F9"
+                      fw={700}
+                      style={{
+                        backgroundColor: 'rgba(0,0,0,0.3)',
+                        padding: '2px 6px',
+                        borderRadius: '4px',
+                      }}
+                    >
+                      {formatTime(helpCooldown)}
+                    </Text>
+                  </Text>
+                ) : (
+                  <Flex align="center" gap="0.25rem" style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}>
+                    <span style={{ fontSize: '0.9rem', color: '#fff' }}>Press</span>
+                    <div
+                      style={{
+                        backgroundColor: '#384f524f',
+                        border: '0.0625rem solid #c2f4f967',
+                        width: '2rem',
+                        height: '2rem',
+                        borderRadius: '0.15rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '0.9rem',
+                        color: '#C2F4F9',
+                        fontWeight: 600,
+                        fontFamily: "'Bai Jamjuree', sans-serif",
+                      }}
+                    >
+                      H
+                    </div>
+                    <span
+                      style={{
+                        fontSize: '0.9rem',
+                        color: '#fff',
+                        fontFamily: "'Bai Jamjuree', sans-serif",
+                      }}
+                    >
                       to call for help
-                    </>
-                  )}
-                </Text>
+                    </span>
+                  </Flex>
+                )}
               </Card>
 
-              {/* Main Timer Panel - Always the same */}
+              {/* Main Timer Panel */}
               <Card
                 p="sm"
                 style={{
-                  backgroundColor: theme.colors.dark[8],
-                  border: `1px solid ${theme.colors.dark[6]}`,
-                  borderRadius: theme.radius.md,
+                  backgroundColor: '#121a1cde',
+                  border: '1px solid #c2f4f967',
+                  borderRadius: '0.25rem',
                   minWidth: '280px',
                   maxWidth: '320px',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
@@ -210,7 +221,7 @@ export function UI() {
                   {/* Left Icon */}
                   <HeartPulse
                     size={20}
-                    color={theme.colors.red[6]}
+                    color="#C2F4F9"
                     style={{ flexShrink: 0 }}
                   />
 
@@ -218,7 +229,7 @@ export function UI() {
                   <Text
                     size="xl"
                     fw={700}
-                    c="white"
+                    c="#C2F4F9"
                     style={{
                       fontFamily: 'monospace',
                       fontSize: '1.5rem',
@@ -231,7 +242,7 @@ export function UI() {
                   {/* Right Icon */}
                   <Cross
                     size={20}
-                    color={theme.colors.red[6]}
+                    color="#C2F4F9"
                     style={{ flexShrink: 0 }}
                   />
                 </Flex>
@@ -250,13 +261,13 @@ export function UI() {
           p="md"
           style={{
             zIndex: 10000,
-            backgroundColor: theme.colors.dark[8],
-            border: `1px solid ${theme.colors.dark[6]}`,
+            backgroundColor: '#121a1cde',
+            border: '1px solid #c2f4f967',
             minWidth: '280px',
           }}
         >
           <Stack gap="xs">
-            <Text size="sm" fw={600} c="white">
+            <Text size="sm" fw={600} c="#fff" style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}>
               🔧 Dev Controls
             </Text>
             <Button
@@ -268,6 +279,12 @@ export function UI() {
                 setHelpCooldown(null);
                 setIsVisible(true);
               }}
+              style={{
+                backgroundColor: '#384f524f',
+                border: '1px solid #c2f4f967',
+                color: '#C2F4F9',
+                fontFamily: "'Bai Jamjuree', sans-serif",
+              }}
             >
               Show UI (15min)
             </Button>
@@ -277,6 +294,12 @@ export function UI() {
               onClick={() => {
                 setCanCallHelp(false);
                 setHelpCooldown(300);
+              }}
+              style={{
+                backgroundColor: '#384f524f',
+                border: '1px solid #c2f4f967',
+                color: '#C2F4F9',
+                fontFamily: "'Bai Jamjuree', sans-serif",
               }}
             >
               Call Help (5min cooldown)
@@ -290,6 +313,12 @@ export function UI() {
                 setRespawnTimer(null);
                 setCanCallHelp(true);
                 setHelpCooldown(null);
+              }}
+              style={{
+                backgroundColor: '#384f524f',
+                border: '1px solid #c2f4f967',
+                color: '#C2F4F9',
+                fontFamily: "'Bai Jamjuree', sans-serif",
               }}
             >
               Reset/Hide

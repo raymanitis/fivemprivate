@@ -174,7 +174,7 @@ const InputDialog: React.FC = () => {
                 <button
                   type="button"
                   className="cancelButton2"
-                  onClick={() => handleClose()}
+                  onClick={() => handleClose(true)}
                   disabled={fields.options?.allowCancel === false}
                 >
                   {locale.ui.cancel}

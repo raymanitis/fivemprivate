@@ -1,6 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+:root {
+  font-size: min(.83333333vw, 1.8009478673vh);
+  transition: font-size .15s linear;
+  --item-color: #c2f4f91e;
+  --bg-color: #121a1ce3;
+  --main-color: #C2F4F9;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+  color: #fff;
+  font-family: 'Bai Jamjuree', sans-serif;
+}
  
 @layer base {
   :root {
@@ -13,7 +38,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
  
-    --primary: 240 5.9% 10%;
+    --primary: 194 100% 88%;
     --primary-foreground: 0 0% 98%;
  
     --secondary: 240 4.8% 95.9%;
@@ -36,33 +61,33 @@
   }
  
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 18 25% 10%;
     --foreground: 0 0% 98%;
  
-    --card: 240 10% 3.9%;
+    --card: 18 25% 10%;
     --card-foreground: 0 0% 98%;
  
-    --popover: 240 10% 3.9%;
+    --popover: 18 25% 10%;
     --popover-foreground: 0 0% 98%;
  
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 194 100% 88%;
+    --primary-foreground: 18 25% 10%;
  
-    --secondary: 240 3.7% 15.9%;
+    --secondary: 18 25% 15%;
     --secondary-foreground: 0 0% 98%;
  
-    --muted: 240 3.7% 15.9%;
+    --muted: 18 25% 15%;
     --muted-foreground: 240 5% 64.9%;
  
-    --accent: 240 3.7% 15.9%;
+    --accent: 18 25% 15%;
     --accent-foreground: 0 0% 98%;
  
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 194 100% 40%;
+    --input: 18 25% 15%;
+    --ring: 194 100% 88%;
   }
 }
  
@@ -71,6 +96,6 @@
     @apply border-border;
   }
   body {
-    @apply /*bg-background*/ text-foreground;
+    @apply text-foreground;
   }
 }

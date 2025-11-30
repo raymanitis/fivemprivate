@@ -1,5 +1,4 @@
 import { Progress } from "@/components/ui/progress";
-import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
 import { fetchNui } from "@/src/utils/fetchNui";
 import { useGlobalState } from "@/src/providers/StateProvider";
@@ -45,15 +44,15 @@ function LineDistance() {
         }
     }, [progressState]);
 
-    return <div className="absolute bottom-12 w-96 flex flex-col gap-4 items-center justify-center">
+    return <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-96 flex flex-col gap-4 items-center justify-center">
         <div className="flex justify-start items-center gap-2">
             <p className="text-md font-medium leading-none">{globalState.settings.locale.hold} </p>
-            <Button variant="outline" className="w-10 h-10">
-                E
-            </Button>
+            <div className="bg-[#384f524f] border border-[#c2f4f967] w-9 h-9 rounded-[0.15rem] flex items-center justify-center text-base">
+                <span>E</span>
+            </div>
             <p className="text-md font-medium leading-none"> {globalState.settings.locale.toCastTheLine}</p>
         </div>
-        <Progress value={progressState}/> 
+        <Progress value={progressState} className="bg-[#121a1c] [&>div]:bg-[#C2F4F9]"/> 
     </div>
 }
 

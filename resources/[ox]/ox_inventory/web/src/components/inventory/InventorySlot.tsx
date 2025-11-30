@@ -228,18 +228,34 @@ const InventorySlot: React.ForwardRefRenderFunction<HTMLDivElement, SlotProps> =
                 {item.slot}
               </div>
             }
-            <div className="item-slot-info-wrapper">
-              <p>{item.count ? item.count.toLocaleString('en-us') + `x` : ''}</p>
-              {item.weight > 0 && (
-                <p className="item-weight-text">
-                  {item.weight >= 1000
-                    ? `${(item.weight / 1000).toLocaleString('en-us', {
-                        minimumFractionDigits: 2,
-                      })}kg`
-                    : `${item.weight.toLocaleString('en-us', {
-                        minimumFractionDigits: 0,
-                      })}g`}
-                </p>
+            <div className={`item-slot-info-wrapper ${inventoryType === 'player' && item.slot <= 4 ? `with-slot-number slot-${item.slot}` : ''}`}>
+              {item.count && item.count > 1 ? (
+                <>
+                  <p>{item.count.toLocaleString('en-us') + `x`}</p>
+                  {item.weight > 0 && (
+                    <p className="item-weight-text">
+                      {item.weight >= 1000
+                        ? `${(item.weight / 1000).toLocaleString('en-us', {
+                            minimumFractionDigits: 2,
+                          })}kg`
+                        : `${item.weight.toLocaleString('en-us', {
+                            minimumFractionDigits: 0,
+                          })}g`}
+                    </p>
+                  )}
+                </>
+              ) : (
+                item.weight > 0 && (
+                  <p className="item-weight-text">
+                    {item.weight >= 1000
+                      ? `${(item.weight / 1000).toLocaleString('en-us', {
+                          minimumFractionDigits: 2,
+                        })}kg`
+                      : `${item.weight.toLocaleString('en-us', {
+                          minimumFractionDigits: 0,
+                        })}g`}
+                  </p>
+                )
               )}
             </div>
             {inventoryType === 'utility' && item.slot <= 4 && (

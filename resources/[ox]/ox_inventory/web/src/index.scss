@@ -558,7 +558,7 @@ button:active {
   text-transform: uppercase;
   border-top-left-radius: var(--radius-sm);
   border-bottom-right-radius: var(--radius-sm);
-  font-size: var(--font-label);
+  font-size: 0.7vh;
   font-family: $mainFont;
   color: var(--text-primary);
   margin-left: auto;
@@ -599,12 +599,12 @@ button:active {
   color: var(--text-secondary);
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   position: absolute;
-  right: 0;
-  top: calc(0.8vh + 6px);
+  left: 0;
+  top: -4px;
   padding: 3px;
-  gap: 2px;
+  gap: 1px;
   font-family: $mainFont;
   p {
     font-size: var(--font-label);
@@ -613,7 +613,22 @@ button:active {
   }
   .item-weight-text {
     font-size: 0.9vh;
-    margin-top: 2px;
+    margin-top: 0;
+  }
+  &.with-slot-number {
+    left: calc(1.5vh - 4px + 0.2vh);
+  }
+  &.slot-1 {
+    left: calc(1.5vh - 4px + 0.2vh);
+  }
+  &.slot-2 {
+    left: calc(1.5vh - 4px + 0.2vh);
+  }
+  &.slot-3 {
+    left: calc(1.5vh - 4px + 0.2vh);
+  }
+  &.slot-4 {
+    left: calc(1.5vh - 4px + 0.2vh);
   }
 }
 
@@ -732,19 +747,22 @@ button:active {
   position: absolute;
   color: var(--text-primary);
   background: var(--bg-button);
-  padding-top: 2px;
-  font-weight: 600;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-bottom: 2px;
+  font-weight: 400;
   border-top-left-radius: var(--radius-sm);
   border-bottom-right-radius: var(--radius-sm);
   font-size: var(--font-body);
-  left: 0;
-  top: 0;
+  left: -4px;
+  top: -4px;
   border: var(--border-width, 0.0625rem) solid var(--border-color);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   font-family: $mainFont;
+  width: 1.5vh;
+  height: 1.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
 }
 
 .hotbar-item-slot {
