@@ -4,7 +4,7 @@ Config = {
     MainIdentifier = "license2", -- Identifier Type (steam, license, xbl, discord, ip)
 
     Webhooks = {
-        ["server-ac"] = "",
+        ["deaths"] = "https://discord.com/api/webhooks/1444898564135456768/z3XKoCjKfellMqit0XtlMbcovW8eBptAEyMt6N1iCJEF-fKua2lM6ZreSpE1g5BxAHRR",
     }
 }
 /*

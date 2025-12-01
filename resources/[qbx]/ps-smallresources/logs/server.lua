@@ -80,9 +80,9 @@ end)
 
 -- START SHOP LOGS --
 local webhooks = {
-    PoliceArmory = 'https://discord.com/api/webhooks/1381650620976463995/_sny1m8_AcEP13NX4HRVxpvJR76LNDXuSe5iJ7-5Y5bYntbNJCJqwkHrUVs6QLf4ZKXH',
-    AmbulanceArmory = 'https://discord.com/api/webhooks/1364989118383394856/eniEgQwoSoR77oydZ81tLyuc3uQD5_2m2subsJO0lT_acsP0dkVpef9Xa7wDo4OHD2ku',
-    FIBArmory = 'https://discord.com/api/webhooks/1418604591326429355/qN5SwHWQnSbJzzZCR8qPWJA2OEqbZtP09Kg_mjzRPaT3R_j2wzDEYxHoszpKr-Mo21TP',
+    -- PoliceArmory = 'https://discord.com/api/webhooks/1381650620976463995/_sny1m8_AcEP13NX4HRVxpvJR76LNDXuSe5iJ7-5Y5bYntbNJCJqwkHrUVs6QLf4ZKXH',
+    -- AmbulanceArmory = 'https://discord.com/api/webhooks/1364989118383394856/eniEgQwoSoR77oydZ81tLyuc3uQD5_2m2subsJO0lT_acsP0dkVpef9Xa7wDo4OHD2ku',
+    -- FIBArmory = 'https://discord.com/api/webhooks/1418604591326429355/qN5SwHWQnSbJzzZCR8qPWJA2OEqbZtP09Kg_mjzRPaT3R_j2wzDEYxHoszpKr-Mo21TP',
 }
 local function sendLogToDiscord(webhook, playerName, identifier, shop, item, amount, total)
     if not webhook then return end
@@ -266,7 +266,7 @@ end, {
 -- END ITEM LOGS --
 
 -- START DISCONNECT LOGS --
-local webhookUrl = "https://discord.com/api/webhooks/1358246113337151589/cDCTUrBBIrQHZLB-tBjRWWdkrZzqlp_-PdvH-yjJcRtIsWS3631iEgGtvMJPTWAEBYdP" -- Replace with your Discord webhook URL
+local webhookUrl = "https://discord.com/api/webhooks/1444898347033952319/n8s_wFQt4O-0zW5YzAus5DlHpomU6tVEwZFkA7euk9AUyJWIR40W4McDsJN4MN3WUMhR" -- Replace with your Discord webhook URL
 AddEventHandler('playerDropped', function(reason)
     local playerId = source
     local playerName = GetPlayerName(playerId)
@@ -312,7 +312,7 @@ RegisterNetEvent("ray-smallres:deathlogs:log", function(killer, message)
     else
         lastMessage = '**[' .. player .. '] ' .. GetPlayerName(player) .. '** died from `' .. message .. '`'
     end
-    exports['atleast_logs']:CreateLog({
+    exports['logs']:CreateLog({
         category = "deaths",
         title = 'New death',
         color = "red",
