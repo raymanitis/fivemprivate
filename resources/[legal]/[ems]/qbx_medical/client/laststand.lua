@@ -60,33 +60,16 @@ end
 local startLastStandLock = false
 
 ---put player in last stand mode and notify EMS.
+---NOTE: This function now redirects to death immediately (laststand stage removed)
 function StartLastStand(attacker, weapon)
+    -- Skip laststand completely, go directly to death (final stage)
     if startLastStandLock then return end
     startLastStandLock = true
-    TriggerEvent('ox_inventory:disarm', cache.playerId, true)
-    WaitForPlayerToStopMoving()
-    TriggerServerEvent('InteractSound_SV:PlayOnSource', 'demo', 0.1)
-    LaststandTime = config.laststandReviveInterval
-    ResurrectPlayer()
-    SetEntityHealth(cache.ped, 150)
-    SetDeathState(sharedConfig.deathState.LAST_STAND)
-    TriggerEvent('qbx_medical:client:onPlayerLaststand', attacker, weapon)
-    TriggerServerEvent('qbx_medical:server:onPlayerLaststand', attacker, weapon)
-    CreateThread(function()
-        while DeathState == sharedConfig.deathState.LAST_STAND do
-            countdownLastStand()
-            Wait(1000)
-        end
-    end)
-
-    CreateThread(function()
-        while DeathState == sharedConfig.deathState.LAST_STAND do
-            DisableControls()
-            PlayLastStandAnimation()
-            Wait(0)
-        end
-        startLastStandLock = false
-    end)
+    
+    -- Call OnDeath directly instead of starting laststand
+    -- OnDeath is defined in dead.lua, which is loaded before this file
+    exports.qbx_medical:KillPlayer(attacker, weapon)
+    startLastStandLock = false
 end
 
 exports('StartLastStand', StartLastStand)
