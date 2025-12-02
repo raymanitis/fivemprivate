@@ -195,7 +195,7 @@ local function refreshShops()
 
 	local id = 0
 
-	for type, shop in pairs(shopTypes) do
+	for shopType, shop in pairs(shopTypes) do
 		local blip = shop.blip
 
 		if shared.target then
@@ -209,7 +209,7 @@ local function refreshShops()
                         icon = shop.icon or 'fas fa-shopping-basket',
                         label = shop.name,
                         onSelect = function()
-                            client.openInventory('shop', { type = type })
+                            client.openInventory('shop', { type = shopType })
                         end,
                         distance = 2
                     },
@@ -217,7 +217,7 @@ local function refreshShops()
 		elseif shop.targets then
 			for i = 1, #shop.targets do
 				local target = shop.targets[i]
-				local shopid = ('%s-%s'):format(type, i)
+				local shopid = ('%s-%s'):format(shopType, i)
 
 				-- Check if this shop uses ped-based targets
 				if shop.ped then
@@ -235,7 +235,7 @@ local function refreshShops()
 						distance = 60,
 						inv = 'shop',
 						invId = i,
-						type = type,
+						type = shopType,
 						blip = blip and hasShopAccess(shop) and createBlip(blip, targetCoords),
 						ped = shop.ped, -- Use shop-level ped
 						scenario = shop.scenario, -- Use shop-level scenario
@@ -259,7 +259,7 @@ local function refreshShops()
                                     label = shop.name,
                                     groups = shop.groups,
                                     onSelect = function()
-                                        client.openInventory('shop', { id = i, type = type })
+                                        client.openInventory('shop', { id = i, type = shopType })
                                     end,
                                     iconColor = target.iconColor,
                                     distance = target.distance
