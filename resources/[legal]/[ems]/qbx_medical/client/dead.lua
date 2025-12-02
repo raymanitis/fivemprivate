@@ -3,25 +3,6 @@ local sharedConfig = require 'config.shared'
 local WEAPONS = exports.qbx_core:GetWeapons()
 local allowRespawn = true
 
----blocks until ped is no longer moving
-function WaitForPlayerToStopMoving()
-    local timeOut = 10000
-    while GetEntitySpeed(cache.ped) > 0.1 and IsPedRagdoll(cache.ped) and timeOut > 1 do
-        timeOut -= 10 Wait(10)
-    end
-end
-
---- low level GTA resurrection
-function ResurrectPlayer()
-    local pos = GetEntityCoords(cache.ped)
-    local heading = GetEntityHeading(cache.ped)
-
-    NetworkResurrectLocalPlayer(pos.x, pos.y, pos.z + 0.5, heading, true, false)
-    if cache.vehicle then
-        SetPedIntoVehicle(cache.ped, cache.vehicle, cache.seat)
-    end
-end
-
 local function playDeadAnimation()
     local deadAnimDict = 'dead'
     local playerData = QBX.PlayerData
@@ -152,17 +133,20 @@ end
 ---Monitor health and trigger death immediately when health reaches 0 (skip laststand)
 CreateThread(function()
     while true do
-        Wait(5) -- Check every 5ms for INSTANT response
+        Wait(10) -- Check every 10ms for IMMEDIATE response
         local currentHealth = GetEntityHealth(cache.ped)
         
-        -- If health dropped to 0 or below and we're NOT dead, trigger death IMMEDIATELY
-        if DeathState ~= sharedConfig.deathState.DEAD and (currentHealth <= 0 or IsEntityDead(cache.ped)) then
-            -- IMMEDIATELY stop ALL animations before anything else
+        -- If health dropped to 0 or below and we're alive, trigger death IMMEDIATELY
+        if DeathState == sharedConfig.deathState.ALIVE and (currentHealth <= 0 or IsEntityDead(cache.ped)) then
+            -- Stop any animations immediately
             ClearPedTasksImmediately(cache.ped)
-            StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 0.0)
-            -- Force DEAD state immediately
-            SetDeathState(sharedConfig.deathState.DEAD)
-            -- Then call OnDeath
+            StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 1.0)
+            -- Skip laststand completely, go directly to death
+            OnDeath()
+        elseif DeathState == sharedConfig.deathState.LAST_STAND then
+            -- If somehow in laststand, force death immediately
+            ClearPedTasksImmediately(cache.ped)
+            StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 1.0)
             OnDeath()
         end
     end
@@ -175,13 +159,11 @@ AddEventHandler('gameEventTriggered', function(event, data)
     if event ~= 'CEventNetworkEntityDamage' then return end
     local victim, attacker, victimDied, weapon = data[1], data[2], data[4], data[7]
     if not IsEntityAPed(victim) or not victimDied or NetworkGetPlayerIndexFromPed(victim) ~= cache.playerId or not IsEntityDead(cache.ped) then return end
-    
-    -- IMMEDIATELY stop all animations and force death
-    ClearPedTasksImmediately(cache.ped)
-    StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 1.0)
-    
-    -- Always go directly to death - no laststand check needed
-    if DeathState ~= sharedConfig.deathState.DEAD then
+    if DeathState == sharedConfig.deathState.ALIVE then
+        -- Skip laststand, go directly to death (final stage) - no wait
+        OnDeath(attacker, weapon)
+    elseif DeathState == sharedConfig.deathState.LAST_STAND then
+        -- If somehow in laststand, go to death immediately
         OnDeath(attacker, weapon)
     end
 end)

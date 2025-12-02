@@ -17,7 +17,7 @@ client_scripts {
     'client/damage/apply-damage-effects.lua',
     'client/damage/damage.lua',
     'client/dead.lua',
-    -- 'client/laststand.lua', -- REMOVED - laststand completely removed
+    'client/laststand.lua',
     'client/load-unload.lua',
     'client/main.lua',
     'client/setdownedstate.lua',
