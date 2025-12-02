@@ -22,6 +22,7 @@ lib.callback.register('hospital:client:UseFirstAid', function()
 end)
 
 lib.callback.register('hospital:client:canHelp', function()
+    -- Laststand is completely removed - always return false
     return false
 end)
 
