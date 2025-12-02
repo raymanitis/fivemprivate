@@ -4,6 +4,8 @@ local doctorCount = 0
 local helpCooldown = 0
 local helpCooldownTimer = 0
 local isUIVisible = false
+local laststandStartTime = 0
+local laststandTimerActive = false
 
 local function getDoctorCount()
     return lib.callback.await('qbx_ambulancejob:server:getNumDoctors')
@@ -45,8 +47,15 @@ local function showLastStandUI(laststandTime)
         isUIVisible = true
         SetNuiFocus(false, false)
     end
+    -- Use our config timer instead of qbx_medical's timer
+    if not laststandTimerActive then
+        laststandStartTime = GetGameTimer()
+        laststandTimerActive = true
+    end
+    local elapsed = math.floor((GetGameTimer() - laststandStartTime) / 1000)
+    local remainingTime = math.max(0, config.laststandTimer - elapsed)
     sendNUIMessage('knocked_down', {
-        timer = math.ceil(laststandTime),
+        timer = math.ceil(remainingTime),
         canCallHelp = true, -- Always allow showing the help text
         helpCooldown = helpCooldown > 0 and helpCooldown or nil,
     })
@@ -58,6 +67,8 @@ local function hideDeathUI()
         isUIVisible = false
         sendNUIMessage('ambulance_reset', {})
     end
+    laststandTimerActive = false
+    laststandStartTime = 0
 end
 
 ---Update death timer in UI
@@ -134,9 +145,15 @@ CreateThread(function()
                             helpCooldown = nil,
                         })
                     elseif inLaststand then
-                        local laststandTime = exports.qbx_medical:GetLaststandTime()
+                        -- Use our config timer instead of qbx_medical's timer
+                        if not laststandTimerActive then
+                            laststandStartTime = GetGameTimer()
+                            laststandTimerActive = true
+                        end
+                        local elapsed = math.floor((GetGameTimer() - laststandStartTime) / 1000)
+                        local remainingTime = math.max(0, config.laststandTimer - elapsed)
                         sendNUIMessage('knocked_down', {
-                            timer = math.ceil(laststandTime),
+                            timer = math.ceil(remainingTime),
                             canCallHelp = true,
                             helpCooldown = nil,
                         })
@@ -171,7 +188,14 @@ CreateThread(function()
                     updateDeathTimer(deathTime)
                 end
             elseif inLaststand then
-                local laststandTime = math.ceil(exports.qbx_medical:GetLaststandTime())
+                -- Use our config timer instead of qbx_medical's timer
+                if not laststandTimerActive then
+                    laststandStartTime = GetGameTimer()
+                    laststandTimerActive = true
+                end
+                local elapsed = math.floor((GetGameTimer() - laststandStartTime) / 1000)
+                local remainingTime = math.max(0, config.laststandTimer - elapsed)
+                local laststandTime = math.ceil(remainingTime)
                 -- Only send update if timer changed
                 if lastSentTimer ~= laststandTime then
                     lastSentTimer = laststandTime
@@ -253,8 +277,10 @@ RegisterNetEvent('qbx_medical:client:onPlayerLaststand', function()
         Wait(500) -- Small delay to ensure laststand state is set
         local inLaststand = exports.qbx_medical:IsLaststand()
         if inLaststand then
-            local laststandTime = exports.qbx_medical:GetLaststandTime()
-            showLastStandUI(laststandTime)
+            -- Reset timer tracking when laststand starts
+            laststandStartTime = GetGameTimer()
+            laststandTimerActive = true
+            showLastStandUI(config.laststandTimer)
         end
     end)
 end)
@@ -274,8 +300,12 @@ CreateThread(function()
                     local deathTime = exports.qbx_medical:GetDeathTime()
                     showDeathUI(deathTime)
                 elseif inLaststand then
-                    local laststandTime = exports.qbx_medical:GetLaststandTime()
-                    showLastStandUI(laststandTime)
+                    -- Reset timer tracking when laststand starts
+                    if not laststandTimerActive then
+                        laststandStartTime = GetGameTimer()
+                        laststandTimerActive = true
+                    end
+                    showLastStandUI(config.laststandTimer)
                 end
             end
             
