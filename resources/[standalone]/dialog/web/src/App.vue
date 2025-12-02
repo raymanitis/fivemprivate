@@ -1,7 +1,7 @@
 <template>
   <v-app style="background: transparent!important;">
     <v-fade-transition>
-      <div class="dialog-bg" v-if="show">
+      <div class="dialog-bg" v-if="show && data">
         <v-card color="bg" class="card ">
           <v-card-title class="title">
             <div>
@@ -49,19 +49,8 @@ export default {
   components: {
   },
   data: () => ({
-    show: true, // Set to true to see the dialog in dev mode
-    data: {
-      firstname: 'John',
-      lastname: 'Doe',
-      text: 'This is an example dialog. You can see how Vuetify components work without import errors!',
-      type: 'Example',
-      rep: '100',
-      buttons: [
-        { text: 'Option 1 - Click me!' },
-        { text: 'Option 2 - Or click me!' },
-        { text: 'Option 3 - Close dialog' }
-      ]
-    }
+    show: false,
+    data: null
   }),
 
   methods: {
@@ -77,7 +66,7 @@ export default {
 
   mounted() {
     this.escapeListener = window.addEventListener("keyup", (event) => {
-      if (!this.show) {
+      if (!this.show || !this.data || !this.data.buttons) {
         return
       }
       if (event.keyCode || 49 && event.keyCode || 51 && event.keyCode || 52 && event.keyCode || 53) { 
