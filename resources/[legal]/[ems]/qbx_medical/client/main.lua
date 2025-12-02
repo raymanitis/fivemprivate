@@ -62,8 +62,7 @@ Hp = nil
 DeathTime = 0
 LaststandTime = 0
 RespawnHoldTime = 5
-LastStandDict = 'combat@damage@writhe'
-LastStandAnim = 'writhe_loop'
+-- Removed LastStandDict and LastStandAnim - laststand stage is completely removed
 
 exports('IsDead', function()
     return DeathState == sharedConfig.deathState.DEAD
@@ -226,7 +225,7 @@ RegisterNetEvent('qbx_medical:client:playerRevived', function()
         NetworkResurrectLocalPlayer(pos.x, pos.y, pos.z, GetEntityHeading(cache.ped), true, false)
         SetDeathState(sharedConfig.deathState.ALIVE)
         SetEntityInvincible(cache.ped, false)
-        EndLastStand()
+        -- EndLastStand() removed - laststand stage is completely removed
     end
 
     SetEntityMaxHealth(cache.ped, 200)
