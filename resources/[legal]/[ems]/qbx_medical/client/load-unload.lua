@@ -18,10 +18,6 @@ local function initDeathAndLastStand(metadata)
     if metadata.isdead then
         DeathTime = config.deathTime
         OnDeath()
-    elseif metadata.inlaststand then
-        -- Skip laststand, go directly to death (final stage)
-        DeathTime = config.deathTime
-        OnDeath()
     end
 end
 
