@@ -144,6 +144,16 @@ html, body {
   background-color: transparent!important;
 }
 
+.v-application__wrap {
+  background: transparent!important;
+  background-color: transparent!important;
+}
+
+.v-application--wrap {
+  background: transparent!important;
+  background-color: transparent!important;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 0px;
