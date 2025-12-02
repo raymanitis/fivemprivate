@@ -1,3 +1,4 @@
+local config = require 'config.client'
 local isEscorting = false
 
 ---@param bool boolean
@@ -21,7 +22,7 @@ lib.callback.register('hospital:client:UseFirstAid', function()
 end)
 
 lib.callback.register('hospital:client:canHelp', function()
-    return exports.qbx_medical:IsLaststand() and exports.qbx_medical:GetLaststandTime() <= 300
+    return exports.qbx_medical:IsLaststand() and exports.qbx_medical:GetLaststandTime() <= config.laststandTimer
 end)
 
 ---@param targetId number playerId
