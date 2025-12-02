@@ -1,10 +1,8 @@
 local isEscorted = false
--- Removed all laststand animation variables and functions - laststand stage is completely removed
--- Death animation is handled by dead.lua instead
 
--- This function is kept for compatibility but does nothing (laststand removed)
+-- This function is kept for compatibility but does nothing
 function PlayLastStandAnimation()
-    -- Do nothing - laststand is removed, use death animation instead
+    -- Do nothing - laststand removed
 end
 
 ---@param bool boolean

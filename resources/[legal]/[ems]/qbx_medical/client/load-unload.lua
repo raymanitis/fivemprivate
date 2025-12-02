@@ -12,14 +12,10 @@ local function initHealthAndArmor(ped, playerId, playerMetadata)
     SetPedArmour(ped, playerMetadata.armor)
 end
 
----starts death based off of player's metadata (no laststand stage)
+---starts death based off of player's metadata
 ---@param metadata any
-local function initDeathAndLastStand(metadata)
+local function initDeath(metadata)
     if metadata.isdead then
-        DeathTime = config.deathTime
-        OnDeath()
-    elseif metadata.inlaststand then
-        -- Convert laststand to death immediately
         DeathTime = config.deathTime
         OnDeath()
     end
@@ -31,7 +27,7 @@ local function onPlayerLoaded()
     CreateThread(function()
         Wait(1000)
         initHealthAndArmor(cache.ped, cache.playerId, QBX.PlayerData.metadata)
-        initDeathAndLastStand(QBX.PlayerData.metadata)
+        initDeath(QBX.PlayerData.metadata)
     end)
 end
 

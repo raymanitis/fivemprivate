@@ -42,8 +42,8 @@ RegisterNetEvent('hospital:server:emergencyAlert', function()
 	alertAmbulance(src, locale('info.ems_down', player.PlayerData.charinfo.lastname))
 end)
 
--- Disabled automatic alert on laststand - alerts only sent when player presses H
--- RegisterNetEvent('qbx_medical:server:onPlayerLaststand', function()
+-- Disabled automatic alert on death - alerts only sent when player presses H
+-- RegisterNetEvent('qbx_medical:server:onPlayerDied', function()
 -- 	if GetInvokingResource() then return end
 -- 	local src = source
 -- 	alertAmbulance(src, locale('info.civ_down'))

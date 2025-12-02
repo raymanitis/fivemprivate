@@ -61,7 +61,6 @@ return {
     ---@enum DeathState
     deathState = {
         ALIVE = 1,
-        LAST_STAND = 2,
-        DEAD = 3,
+        DEAD = 2,
     },
 }

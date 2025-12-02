@@ -35,7 +35,6 @@ return {
         running = 50,
         walking = 15,
     },
-    laststandReviveInterval = 360,
     deathTime = 300,
 
     forceInjury = 35, -- Maximum amount of damage a player can take before limb damage & effects are forced to occur

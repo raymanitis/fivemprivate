@@ -15,9 +15,7 @@ local triggerEventHooks = require '@qbx_core.modules.hooks'
 
 local function getDeathState(src)
 	local player = exports.qbx_core:GetPlayer(src)
-	-- Skip laststand completely - only use DEAD or ALIVE
 	return player.PlayerData.metadata.isdead and sharedConfig.deathState.DEAD
-		or (sharedConfig.deathState.DEAD) -- Convert laststand to death
 		or sharedConfig.deathState.ALIVE
 end
 
@@ -35,10 +33,6 @@ AddStateBagChangeHandler(DEATH_STATE_STATE_BAG, nil, function(bagName, _, value)
     local player = exports.qbx_core:GetPlayer(playerId)
 
     if player then
-        -- Skip laststand completely - convert LAST_STAND to DEAD
-        if value == sharedConfig.deathState.LAST_STAND then
-            value = sharedConfig.deathState.DEAD
-        end
         player.Functions.SetMetaData('isdead', value == sharedConfig.deathState.DEAD)
         Player(playerId).state:set("isDead", value == sharedConfig.deathState.DEAD, true)
     end

@@ -36,27 +36,10 @@ end
 DeathState = playerState[DEATH_STATE_STATE_BAG] or sharedConfig.deathState.ALIVE
 
 AddStateBagChangeHandler(DEATH_STATE_STATE_BAG, ('player:%s'):format(cache.serverId), function(_, _, value)
-    -- Intercept LAST_STAND state changes and force DEAD state instead
-    if value == sharedConfig.deathState.LAST_STAND then
-        -- Skip laststand, force death immediately - set DEAD state directly
-        DeathState = sharedConfig.deathState.DEAD
-        -- Force update state bag to DEAD
-        SetDeathState(sharedConfig.deathState.DEAD)
-        -- Also call KillPlayer to ensure proper setup
-        CreateThread(function()
-            Wait(0)
-            exports.qbx_medical:KillPlayer()
-        end)
-        return -- Don't set LAST_STAND state
-    end
     DeathState = value
 end)
 
 function SetDeathState(deathState)
-    -- NEVER allow LAST_STAND state - force DEAD instead
-    if deathState == sharedConfig.deathState.LAST_STAND then
-        deathState = sharedConfig.deathState.DEAD
-    end
     playerState:set(DEATH_STATE_STATE_BAG, deathState, true)
     DeathState = deathState
 end
@@ -68,16 +51,13 @@ FadeOutTimer, BlackoutTimer = 0, 0
 Hp = nil
 
 DeathTime = 0
-LaststandTime = 0
 RespawnHoldTime = 5
--- Removed LastStandDict and LastStandAnim - laststand stage is completely removed
 
 exports('IsDead', function()
     return DeathState == sharedConfig.deathState.DEAD
 end)
 
 exports('IsLaststand', function()
-    -- Always return false - laststand is completely removed
     return false
 end)
 
@@ -86,7 +66,7 @@ exports('GetDeathTime', function()
 end)
 
 exports('GetLaststandTime', function()
-    return LaststandTime
+    return 0
 end)
 
 exports('IncrementDeathTime', function(seconds)
@@ -94,7 +74,7 @@ exports('IncrementDeathTime', function(seconds)
 end)
 
 exports('IncrementLaststandTime', function(seconds)
-    LaststandTime += seconds
+    -- Do nothing - laststand removed
 end)
 
 exports('GetRespawnHoldTimeDeprecated', function()
@@ -234,7 +214,10 @@ RegisterNetEvent('qbx_medical:client:playerRevived', function()
         NetworkResurrectLocalPlayer(pos.x, pos.y, pos.z, GetEntityHeading(cache.ped), true, false)
         SetDeathState(sharedConfig.deathState.ALIVE)
         SetEntityInvincible(cache.ped, false)
-        -- EndLastStand() removed - laststand stage is completely removed
+        -- Reset death lock to allow death again if needed
+        if exports.qbx_medical.ResetDeathLock then
+            exports.qbx_medical:ResetDeathLock()
+        end
     end
 
     SetEntityMaxHealth(cache.ped, 200)

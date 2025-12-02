@@ -27,7 +27,7 @@ local function sendNUIMessage(messageType, data)
     SendNUIMessage(message)
 end
 
----Show death screen UI (death is now the final stage, no laststand stage)
+---Show death screen UI
 ---@param deathTime number
 local function showDeathUI(deathTime)
     if not isUIVisible then
@@ -155,7 +155,6 @@ CreateThread(function()
                 if isUIVisible then
                     -- Update UI to show help is available again
                     local isDead = exports.qbx_medical:IsDead()
-                    -- Only handle death (no laststand stage)
                     if isDead then
                         local deathTime = math.ceil(exports.qbx_medical:GetDeathTime())
                         sendNUIMessage('eliminated', {
@@ -278,7 +277,7 @@ CreateThread(function()
     end
 end)
 
----Listen for death events (death is now the final stage, no laststand stage)
+---Listen for death events
 RegisterNetEvent('qbx_medical:client:onPlayerDied', function()
     CreateThread(function()
         Wait(100) -- Small delay to ensure death state is set
@@ -293,7 +292,7 @@ RegisterNetEvent('qbx_medical:client:onPlayerDied', function()
     end)
 end)
 
----Set death state (death is now the final stage, no laststand stage)
+---Set death state
 CreateThread(function()
     local lastUpdate = 0 -- Initialize to 0 so we fetch immediately
     local isFirstCheck = true
