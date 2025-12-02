@@ -46,16 +46,14 @@ local function logPlayerKiller()
     lib.callback.await('qbx_medical:server:log', false, 'playerKiller', message)
 end
 
----count down last stand, if last stand is over, put player in death mode and log the killer.
+---count down last stand - laststand is now the final stage (no death transition)
 local function countdownLastStand()
     if LaststandTime - 1 > 0 then
         LaststandTime -= 1
     else
-        exports.qbx_core:Notify(locale('error.bled_out'), 'error')
-        EndLastStand()
-        logPlayerKiller()
-        DeathTime = config.deathTime
-        OnDeath()
+        -- Laststand timer ended, but stay in laststand (no transition to death)
+        -- Timer will stay at 0, player can still be revived
+        LaststandTime = 0
     end
 end
 

@@ -27,30 +27,19 @@ local function sendNUIMessage(messageType, data)
     SendNUIMessage(message)
 end
 
----Show death screen UI
----@param deathTime number
-local function showDeathUI(deathTime)
+---Show laststand UI (laststand is now the final stage, no death stage)
+---@param laststandTime number
+local function showLastStandUI(laststandTime)
     if not isUIVisible then
         isUIVisible = true
-        SetNuiFocus(false, false) -- Keep focus off, UI is non-interactive
+        SetNuiFocus(false, false)
     end
-    sendNUIMessage('eliminated', {
-        timer = math.ceil(deathTime),
+    -- Use our config timer instead of qbx_medical's timer
+    sendNUIMessage('knocked_down', {
+        timer = math.ceil(laststandTime),
         canCallHelp = true, -- Always allow showing the help text
         helpCooldown = helpCooldown > 0 and helpCooldown or nil,
     })
-end
-
----Show last stand UI - Treat as death (skip laststand)
----@param laststandTime number
-local function showLastStandUI(laststandTime)
-    -- Skip laststand, treat as death immediately
-    local deathTime = exports.qbx_medical:GetDeathTime()
-    if deathTime <= 0 then
-        -- If no death time, use config death time from qbx_medical
-        deathTime = exports.qbx_medical:GetDeathTime() or 300
-    end
-    showDeathUI(deathTime)
 end
 
 ---Hide death screen UI
@@ -63,11 +52,11 @@ local function hideDeathUI()
     transferPromptShown = false
 end
 
----Update death timer in UI
----@param deathTime number
-local function updateDeathTimer(deathTime)
+---Update laststand timer in UI (laststand is the final stage)
+---@param laststandTime number
+local function updateLaststandTimer(laststandTime)
     if isUIVisible then
-        if deathTime <= 0 then
+        if laststandTime <= 0 then
             sendNUIMessage('update_respawn_available', {
                 canTransfer = config.allowTransferToHospital,
             })
@@ -78,7 +67,7 @@ local function updateDeathTimer(deathTime)
             end
         else
             sendNUIMessage('update_respawn_timer', {
-                timer = math.ceil(deathTime),
+                timer = math.ceil(laststandTime),
             })
         end
     end
@@ -157,12 +146,9 @@ local function playDeadAnimation(ped)
     end
 end
 
----@param ped number
-local function handleDead(ped)
-    playDeadAnimation(ped)
+local function handleLastStand()
+    -- Animation is handled by qbx_medical (laststand is the final stage)
 end
-
--- Removed handleLastStand - laststand is now treated as death
 
 ---Handle help cooldown timer
 CreateThread(function()
@@ -176,17 +162,12 @@ CreateThread(function()
                 EmsNotified = false
                 if isUIVisible then
                     -- Update UI to show help is available again
-                    local isDead = exports.qbx_medical:IsDead()
                     local inLaststand = exports.qbx_medical:IsLaststand()
-                    -- Treat laststand as death (skip laststand stage)
-                    if isDead or inLaststand then
-                        local deathTime = exports.qbx_medical:GetDeathTime()
-                        if deathTime <= 0 and inLaststand then
-                            -- If in laststand but no death time yet, use default
-                            deathTime = 300
-                        end
-                        sendNUIMessage('eliminated', {
-                            timer = math.ceil(deathTime),
+                    -- Only handle laststand (no death stage)
+                    if inLaststand then
+                        local laststandTime = math.ceil(exports.qbx_medical:GetLaststandTime())
+                        sendNUIMessage('knocked_down', {
+                            timer = laststandTime,
                             canCallHelp = true,
                             helpCooldown = nil,
                         })
@@ -205,25 +186,24 @@ CreateThread(function()
     end
 end)
 
----Update death timer continuously in UI (only when changed to prevent spam)
+---Update laststand timer continuously in UI (only when changed to prevent spam)
 CreateThread(function()
     local lastSentTimer = nil
     while true do
         if isUIVisible then
-            local isDead = exports.qbx_medical:IsDead()
             local inLaststand = exports.qbx_medical:IsLaststand()
             
-            -- Treat laststand as death (skip laststand stage)
-            if isDead or inLaststand then
-                local deathTime = math.ceil(exports.qbx_medical:GetDeathTime())
+            -- Only handle laststand (no death stage)
+            if inLaststand then
+                local laststandTime = math.ceil(exports.qbx_medical:GetLaststandTime())
                 -- Only send update if timer changed
-                if lastSentTimer ~= deathTime then
-                    lastSentTimer = deathTime
-                    updateDeathTimer(deathTime)
+                if lastSentTimer ~= laststandTime then
+                    lastSentTimer = laststandTime
+                    updateLaststandTimer(laststandTime)
                 end
                 
                 -- Show transfer prompt when timer ends
-                if deathTime <= 0 and config.allowTransferToHospital and not transferPromptShown then
+                if laststandTime <= 0 and config.allowTransferToHospital and not transferPromptShown then
                     showTransferPrompt = true
                     transferPromptShown = true
                 end
@@ -264,13 +244,13 @@ RegisterNetEvent('qbx_medical:client:playerRevived', function()
     LocalPlayer.state.invBusy = false
 end)
 
----Block inventory and animations when dead
+---Block inventory and animations when in laststand (final stage)
 CreateThread(function()
     while true do
-        local isDead = exports.qbx_medical:IsDead()
         local inLaststand = exports.qbx_medical:IsLaststand()
         
-        if isDead or inLaststand then
+        -- Only handle laststand (no death stage)
+        if inLaststand then
             LocalPlayer.state.invBusy = true
             -- Prevent inventory from opening
             if exports.ox_inventory then
@@ -306,65 +286,34 @@ CreateThread(function()
     end
 end)
 
----Listen for death events to show UI immediately
-RegisterNetEvent('qbx_medical:client:onPlayerDied', function()
-    CreateThread(function()
-        Wait(500) -- Small delay to ensure death state is set
-        local isDead = exports.qbx_medical:IsDead()
-        if isDead then
-            local deathTime = exports.qbx_medical:GetDeathTime()
-            showDeathUI(deathTime)
-        end
-    end)
-end)
-
+---Listen for laststand events (laststand is now the final stage, no death stage)
 RegisterNetEvent('qbx_medical:client:onPlayerLaststand', function(attacker, weapon)
     CreateThread(function()
-        Wait(100) -- Small delay to ensure laststand state is set
+        Wait(500) -- Small delay to ensure laststand state is set
         local inLaststand = exports.qbx_medical:IsLaststand()
-        -- Skip laststand, force immediate death
         if inLaststand then
-            -- Force death immediately by calling KillPlayer export
-            exports.qbx_medical:KillPlayer(attacker, weapon)
-            Wait(500) -- Wait for death state to be set
-            local deathTime = exports.qbx_medical:GetDeathTime()
-            if deathTime <= 0 then
-                deathTime = 300 -- Default death time if not set
-            end
-            showDeathUI(deathTime)
+            local laststandTime = exports.qbx_medical:GetLaststandTime()
+            showLastStandUI(laststandTime)
         end
     end)
 end)
 
----Set dead state (skip laststand, treat as death immediately)
+---Set laststand state (laststand is now the final stage, no death stage)
 CreateThread(function()
     local lastUpdate = 0 -- Initialize to 0 so we fetch immediately
     local isFirstCheck = true
-    local laststandForcedToDeath = false
     while true do
-        local isDead = exports.qbx_medical:IsDead()
         local inLaststand = exports.qbx_medical:IsLaststand()
         
-        -- Force laststand to death immediately (skip laststand stage)
-        if inLaststand and not isDead and not laststandForcedToDeath then
-            -- Immediately force death when laststand is detected
-            exports.qbx_medical:KillPlayer()
-            laststandForcedToDeath = true
-            Wait(500) -- Wait for death state to be set
-        end
-        
-        -- Treat laststand as death (skip laststand stage)
-        if isDead or inLaststand then
-            -- Always show UI when dead/laststand (in case events didn't fire)
+        -- Only handle laststand (no death stage)
+        if inLaststand then
+            -- Always show UI when in laststand (in case events didn't fire)
             if not isUIVisible then
-                local deathTime = exports.qbx_medical:GetDeathTime()
-                if deathTime <= 0 then
-                    deathTime = 300 -- Default death time if not set
-                end
-                showDeathUI(deathTime)
+                local laststandTime = exports.qbx_medical:GetLaststandTime()
+                showLastStandUI(laststandTime)
             end
             
-            -- Fetch doctor count immediately on first death, then every 60 seconds
+            -- Fetch doctor count immediately on first laststand, then every 60 seconds
             local currentTime = GetGameTimer()
             if (currentTime - lastUpdate) > 60000 or isFirstCheck then
                 doctorCount = getDoctorCount()
@@ -372,8 +321,8 @@ CreateThread(function()
                 isFirstCheck = false
             end
             
-            -- Handle animations (always use death animation)
-            handleDead(cache.ped)
+            -- Handle animations (use laststand animation)
+            handleLastStand()
 
             -- Handle help call key press (H key - control 74)
             -- Enable the control first, then check if pressed
@@ -406,8 +355,6 @@ CreateThread(function()
 
             Wait(0)
         else
-            -- Reset flags when alive
-            laststandForcedToDeath = false
             if isUIVisible then
                 hideDeathUI()
             end
