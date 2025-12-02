@@ -223,10 +223,11 @@ local function refreshShops()
 				if shop.ped then
 					id += 1
 
-					-- Get target location (support vec3 or vec4)
+					-- Get target location from vec4 (x, y, z, heading)
 					local targetLoc = target.loc or target
-					local targetHeading = target.heading or (type(targetLoc) == 'vector4' and targetLoc.w) or 0.0
-					local targetCoords = type(targetLoc) == 'vector4' and vec3(targetLoc.x, targetLoc.y, targetLoc.z) or targetLoc
+					local isVec4 = type(targetLoc) == 'vector4' or (type(targetLoc) == 'table' and targetLoc.w ~= nil)
+					local targetHeading = isVec4 and targetLoc.w or (target.heading or 0.0)
+					local targetCoords = isVec4 and vec3(targetLoc.x, targetLoc.y, targetLoc.z) or targetLoc
 
 					shops[id] = lib.points.new({
 						coords = targetCoords,
@@ -305,8 +306,9 @@ local function refreshShops()
 
 				-- Get target location from vec4 (x, y, z, heading)
 				local targetLoc = target.loc or target
-				local targetHeading = type(targetLoc) == 'vector4' and targetLoc.w or (target.heading or 0.0)
-				local targetCoords = type(targetLoc) == 'vector4' and vec3(targetLoc.x, targetLoc.y, targetLoc.z) or targetLoc
+				local isVec4 = type(targetLoc) == 'vector4' or (type(targetLoc) == 'table' and targetLoc.w ~= nil)
+				local targetHeading = isVec4 and targetLoc.w or (target.heading or 0.0)
+				local targetCoords = isVec4 and vec3(targetLoc.x, targetLoc.y, targetLoc.z) or targetLoc
 
 				shops[id] = lib.points.new({
 					coords = targetCoords,
