@@ -66,9 +66,16 @@ function StartLastStand(attacker, weapon)
     if startLastStandLock then return end
     startLastStandLock = true
     
-    -- Call OnDeath directly instead of starting laststand
-    -- OnDeath is defined in dead.lua, which is loaded before this file
-    exports.qbx_medical:KillPlayer(attacker, weapon)
+    -- Immediately call OnDeath instead of starting laststand
+    -- Use pcall to safely call OnDeath (defined in dead.lua)
+    pcall(function()
+        if attacker and weapon then
+            OnDeath(attacker, weapon)
+        else
+            OnDeath()
+        end
+    end)
+    
     startLastStandLock = false
 end
 
