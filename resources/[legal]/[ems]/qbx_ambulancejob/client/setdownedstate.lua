@@ -6,6 +6,8 @@ local helpCooldownTimer = 0
 local isUIVisible = false
 local laststandStartTime = 0
 local laststandTimerActive = false
+local showTransferPrompt = false
+local transferPromptShown = false
 
 local function getDoctorCount()
     return lib.callback.await('qbx_ambulancejob:server:getNumDoctors')
@@ -69,6 +71,8 @@ local function hideDeathUI()
     end
     laststandTimerActive = false
     laststandStartTime = 0
+    showTransferPrompt = false
+    transferPromptShown = false
 end
 
 ---Update death timer in UI
@@ -77,6 +81,11 @@ local function updateDeathTimer(deathTime)
     if isUIVisible then
         if deathTime <= 0 then
             sendNUIMessage('update_respawn_available', {})
+            -- Show transfer prompt when timer ends
+            if config.allowTransferToHospital and not transferPromptShown then
+                showTransferPrompt = true
+                transferPromptShown = true
+            end
         else
             sendNUIMessage('update_respawn_timer', {
                 timer = math.ceil(deathTime),
@@ -97,9 +106,66 @@ local function handleHelpCall()
             helpCooldown = helpCooldown,
         })
         exports.qbx_core:Notify('Help request sent to medical personnel', 'success')
+        -- Show transfer prompt when help is called
+        if config.allowTransferToHospital and not transferPromptShown then
+            showTransferPrompt = true
+            transferPromptShown = true
+        end
     else
         local remaining = math.ceil(helpCooldown - math.floor((GetGameTimer() - helpCooldownTimer) / 1000))
         exports.qbx_core:Notify(string.format('You must wait %d seconds before calling for help again', remaining), 'error')
+    end
+end
+
+---Show transfer to hospital dialog
+local function showTransferDialog()
+    if not config.allowTransferToHospital then return end
+    
+    local warningText = config.transferLoseItems and locale('info.transfer_warning_items') or locale('info.transfer_warning')
+    local dialog = lib.inputDialog(locale('info.transfer_to_hospital'), {
+        {
+            type = 'label',
+            label = warningText,
+        },
+        {
+            type = 'select',
+            label = locale('info.confirm_transfer'),
+            options = {
+                { value = 'yes', label = locale('text.yes') },
+                { value = 'no', label = locale('text.no') },
+            },
+            required = true,
+        }
+    })
+    
+    if not dialog or not dialog[1] then
+        -- User cancelled, just close the dialog
+        showTransferPrompt = false
+        lib.hideTextUI()
+        return
+    end
+    
+    local choice = dialog[1]
+    if choice == 'yes' then
+        -- Transfer to hospital - get closest hospital from server
+        local closestHospital = lib.callback.await('qbx_ambulancejob:server:getClosestHospital', false)
+        
+        if closestHospital then
+            -- Use card payment by default for transfer
+            local success = lib.callback.await('qbx_ambulancejob:server:checkIn', false, cache.serverId, closestHospital, 'card')
+            if success then
+                exports.qbx_core:Notify(locale('success.transferred_to_hospital'), 'success')
+                hideDeathUI()
+            else
+                exports.qbx_core:Notify(locale('error.transfer_failed'), 'error')
+            end
+        else
+            exports.qbx_core:Notify(locale('error.transfer_failed'), 'error')
+        end
+    else
+        -- User chose no, just close
+        showTransferPrompt = false
+        lib.hideTextUI()
     end
 end
 
@@ -187,6 +253,12 @@ CreateThread(function()
                     lastSentTimer = deathTime
                     updateDeathTimer(deathTime)
                 end
+                
+                -- Show transfer prompt when timer ends
+                if deathTime <= 0 and config.allowTransferToHospital and not transferPromptShown then
+                    showTransferPrompt = true
+                    transferPromptShown = true
+                end
             elseif inLaststand then
                 -- Use our config timer instead of qbx_medical's timer
                 if not laststandTimerActive then
@@ -203,9 +275,28 @@ CreateThread(function()
                         timer = laststandTime,
                     })
                 end
+                
+                -- Show transfer prompt when timer ends
+                if remainingTime <= 0 and config.allowTransferToHospital and not transferPromptShown then
+                    showTransferPrompt = true
+                    transferPromptShown = true
+                end
+            end
+            
+            -- Show/hide transfer prompt text UI
+            if showTransferPrompt and config.allowTransferToHospital then
+                lib.showTextUI(locale('text.press_e_to_transfer'))
+            elseif not showTransferPrompt then
+                local _, text = lib.isTextUIOpen()
+                if text == locale('text.press_e_to_transfer') then
+                    lib.hideTextUI()
+                end
             end
         else
             lastSentTimer = nil -- Reset when UI hidden
+            if lib.isTextUIOpen() then
+                lib.hideTextUI()
+            end
         end
         Wait(1000)
     end
@@ -216,6 +307,8 @@ RegisterNetEvent('hospital:client:Revive', function()
     hideDeathUI()
     helpCooldown = 0
     helpCooldownTimer = 0
+    showTransferPrompt = false
+    transferPromptShown = false
     LocalPlayer.state.invBusy = false
 end)
 
@@ -223,6 +316,8 @@ RegisterNetEvent('qbx_medical:client:playerRevived', function()
     hideDeathUI()
     helpCooldown = 0
     helpCooldownTimer = 0
+    showTransferPrompt = false
+    transferPromptShown = false
     LocalPlayer.state.invBusy = false
 end)
 
@@ -251,6 +346,14 @@ CreateThread(function()
             DisableControlAction(0, 175, true) -- Arrow right
             -- Enable H key for help call
             EnableControlAction(0, 74, true) -- H key
+            
+            -- Handle transfer prompt (E key)
+            if showTransferPrompt and config.allowTransferToHospital then
+                EnableControlAction(0, 38, true) -- E key
+                if IsControlJustPressed(0, 38) then
+                    showTransferDialog()
+                end
+            end
         else
             if not IsInHospitalBed then
                 LocalPlayer.state.invBusy = false

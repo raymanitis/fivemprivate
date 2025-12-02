@@ -10,13 +10,15 @@
         "cant_help": "You can't help this person...",
         "not_ems": "You are not EMS or not signed in",
         "payment_failed": "Payment failed. Please try again.",
-        "not_enough_money": "You don't have enough money to pay for the check-in."
+        "not_enough_money": "You don't have enough money to pay for the check-in.",
+        "transfer_failed": "Failed to transfer to hospital. Please try again."
     },
     "success": {
         "revived": "You revived a person",
         "healthy_player": "Player is Healthy",
         "helped_player": "You helped the person",
-        "being_helped": "You are being helped..."
+        "being_helped": "You are being helped...",
+        "transferred_to_hospital": "You have been transferred to the hospital"
     },
     "info": {
         "civ_died": "Civilian Died",
@@ -44,7 +46,11 @@
         "message_sent": "Message to be sent",
         "check_health": "Check a Players Health",
         "heal_player": "Heal a Player",
-        "revive_player": "Revive a Player"
+        "revive_player": "Revive a Player",
+        "transfer_to_hospital": "Transfer to Hospital",
+        "transfer_warning": "Are you sure you want to transfer to the hospital?",
+        "transfer_warning_items": "WARNING: Your items will be lost if you transfer to the hospital. Are you sure you want to continue?",
+        "confirm_transfer": "Confirm Transfer"
     },
     "mail": {
         "sender": "Pillbox Hospital",
@@ -79,7 +85,10 @@
         "bed": "Lay in bed",
         "put_bed": "Place citizen in bed",
         "bed_out": "[E] - To get out of bed..",
-        "alert": "Alert!"
+        "alert": "Alert!",
+        "press_e_to_transfer": "[E] - Transfer to Hospital",
+        "yes": "Yes",
+        "no": "No"
     },
     "progress": {
         "ifaks": "Taking ifaks...",

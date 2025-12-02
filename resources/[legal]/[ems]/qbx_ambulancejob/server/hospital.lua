@@ -147,6 +147,30 @@ end
 
 lib.callback.register('qbx_ambulancejob:server:checkIn', checkIn)
 
+lib.callback.register('qbx_ambulancejob:server:getClosestHospital', function(source)
+	local player = exports.qbx_core:GetPlayer(source)
+	if not player then return nil end
+	
+	local closestHospital
+	if player.PlayerData.metadata.injail > 0 then
+		closestHospital = 'jail'
+	else
+		local coords = GetEntityCoords(GetPlayerPed(source))
+		local closest = nil
+		
+		for hospitalName, hospital in pairs(sharedConfig.locations.hospitals) do
+			if hospitalName ~= 'jail' then
+				if not closest or #(coords - hospital.coords) < #(coords - closest) then
+					closest = hospital.coords
+					closestHospital = hospitalName
+				end
+			end
+		end
+	end
+	
+	return closestHospital
+end)
+
 exports('CheckIn', checkIn)
 
 local function respawn(src)
