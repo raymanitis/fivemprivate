@@ -318,12 +318,15 @@ RegisterNetEvent('qbx_medical:client:onPlayerDied', function()
     end)
 end)
 
-RegisterNetEvent('qbx_medical:client:onPlayerLaststand', function()
+RegisterNetEvent('qbx_medical:client:onPlayerLaststand', function(attacker, weapon)
     CreateThread(function()
-        Wait(500) -- Small delay to ensure laststand state is set
+        Wait(100) -- Small delay to ensure laststand state is set
         local inLaststand = exports.qbx_medical:IsLaststand()
-        -- Skip laststand, treat as death immediately
+        -- Skip laststand, force immediate death
         if inLaststand then
+            -- Force death immediately by calling KillPlayer export
+            exports.qbx_medical:KillPlayer(attacker, weapon)
+            Wait(500) -- Wait for death state to be set
             local deathTime = exports.qbx_medical:GetDeathTime()
             if deathTime <= 0 then
                 deathTime = 300 -- Default death time if not set
@@ -337,9 +340,18 @@ end)
 CreateThread(function()
     local lastUpdate = 0 -- Initialize to 0 so we fetch immediately
     local isFirstCheck = true
+    local laststandForcedToDeath = false
     while true do
         local isDead = exports.qbx_medical:IsDead()
         local inLaststand = exports.qbx_medical:IsLaststand()
+        
+        -- Force laststand to death immediately (skip laststand stage)
+        if inLaststand and not isDead and not laststandForcedToDeath then
+            -- Immediately force death when laststand is detected
+            exports.qbx_medical:KillPlayer()
+            laststandForcedToDeath = true
+            Wait(500) -- Wait for death state to be set
+        end
         
         -- Treat laststand as death (skip laststand stage)
         if isDead or inLaststand then
@@ -394,6 +406,8 @@ CreateThread(function()
 
             Wait(0)
         else
+            -- Reset flags when alive
+            laststandForcedToDeath = false
             if isUIVisible then
                 hideDeathUI()
             end
