@@ -73,7 +73,8 @@ local function createShop(shopType, id)
 
 	if not shop then return end
 
-	local store = (shop[locations] or shop.locations)?[id]
+	local shopLocs = shop[locations] or shop.locations
+	local store = shopLocs and shopLocs[id]
 
 	if not store then return end
 
@@ -99,7 +100,7 @@ local function createShop(shopType, id)
 		slots = #shop.inventory,
 		type = 'shop',
 		coords = coords,
-		distance = shared.target and shop.targets?[id]?.distance,
+		distance = shared.target and shop.targets and shop.targets[id] and shop.targets[id].distance or nil,
 	}
 
 	setupShopItems(id, shopType, shop.name, groups)
@@ -162,6 +163,81 @@ end)
 -- 	}
 -- end
 
+local function getBankBalance(source)
+    if shared.framework == 'qbx' then
+        local QBX = exports.qbx_core
+        local player = QBX:GetPlayer(source)
+        if player and player.PlayerData and player.PlayerData.money then
+            return player.PlayerData.money.bank or 0
+        end
+    elseif shared.framework == 'esx' then
+        local ESX = exports.es_extended:getSharedObject()
+        local xPlayer = ESX:GetPlayerFromId(source)
+        if xPlayer then
+            local account = xPlayer.getAccount('bank')
+            return account and account.money or 0
+        end
+    else
+        -- Try generic exports for bank balance
+        if GetResourceState('qbx_core') == 'started' then
+            local QBX = exports.qbx_core
+            local player = QBX:GetPlayer(source)
+            if player and player.PlayerData and player.PlayerData.money then
+                return player.PlayerData.money.bank or 0
+            end
+        elseif GetResourceState('es_extended') == 'started' then
+            local ESX = exports.es_extended:getSharedObject()
+            local xPlayer = ESX:GetPlayerFromId(source)
+            if xPlayer then
+                local account = xPlayer.getAccount('bank')
+                return account and account.money or 0
+            end
+        elseif exports['limitless-core'] then
+            local user = exports['limitless-core']:getComponent('User'):GetPlayer(source)
+            if user then
+                return user.bank or 0
+            end
+        end
+    end
+    return 0
+end
+
+local function removeBankBalance(source, amount)
+    if shared.framework == 'qbx' then
+        local QBX = exports.qbx_core
+        local player = QBX:GetPlayer(source)
+        if player and player.Functions then
+            player.Functions.RemoveMoney('bank', amount)
+        end
+    elseif shared.framework == 'esx' then
+        local ESX = exports.es_extended:getSharedObject()
+        local xPlayer = ESX:GetPlayerFromId(source)
+        if xPlayer then
+            xPlayer.removeAccountMoney('bank', amount)
+        end
+    else
+        -- Try generic exports for removing bank balance
+        if GetResourceState('qbx_core') == 'started' then
+            local QBX = exports.qbx_core
+            local player = QBX:GetPlayer(source)
+            if player and player.Functions then
+                player.Functions.RemoveMoney('bank', amount)
+            end
+        elseif GetResourceState('es_extended') == 'started' then
+            local ESX = exports.es_extended:getSharedObject()
+            local xPlayer = ESX:GetPlayerFromId(source)
+            if xPlayer then
+                xPlayer.removeAccountMoney('bank', amount)
+            end
+        elseif exports['limitless-core'] then
+            local user = exports['limitless-core']:getComponent('User'):GetPlayer(source)
+            if user and user.removeBank then
+                user.removeBank(amount)
+            end
+        end
+    end
+end
+
 local function canAffordItem(inv, currency, price)
     if price < 0 then
         return {
@@ -170,7 +246,7 @@ local function canAffordItem(inv, currency, price)
         }
     end
 
-    if currency == 'cash' then
+    if currency == 'cash' or currency == 'money' then
         local count = Inventory.GetItemCount(inv, 'money')
         if count >= price then return true end
 
@@ -179,8 +255,8 @@ local function canAffordItem(inv, currency, price)
             description = locale('cannot_afford', locale('$') .. math.groupdigits(price))
         }
     elseif currency == 'bank' then
-        local user = exports['limitless-core']:getComponent('User'):GetPlayer(inv.id)
-        if user and user.bank >= price then return true end
+        local bankBalance = getBankBalance(inv.id)
+        if bankBalance >= price then return true end
 
         return {
             type = 'error',
@@ -190,13 +266,10 @@ local function canAffordItem(inv, currency, price)
 end
 
 local function removeCurrency(inv, currency, amount)
-    if currency == 'money' then
+    if currency == 'cash' or currency == 'money' then
         Inventory.RemoveItem(inv, 'money', amount)
     elseif currency == 'bank' then
-        local user = exports['limitless-core']:getComponent('User'):GetPlayer(inv.id)
-        if user then
-            user.removeBank(amount)
-        end
+        removeBankBalance(inv.id, amount)
     end
 end
 
@@ -281,7 +354,8 @@ lib.callback.register('ox_inventory:buyItem', function(source, data)
     end
 
     for _, purchase in ipairs(purchaseList) do
-        local newWeight = playerInv.weight + (purchase.fromItem.weight + (purchase.metadata?.weight or 0)) * purchase.count
+        local metadataWeight = purchase.metadata and purchase.metadata.weight or 0
+        local newWeight = playerInv.weight + (purchase.fromItem.weight + metadataWeight) * purchase.count
         if newWeight > playerInv.maxWeight then
             return false, false, { type = 'error', description = locale('cannot_carry') }
         end
