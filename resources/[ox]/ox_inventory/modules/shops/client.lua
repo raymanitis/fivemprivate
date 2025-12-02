@@ -227,7 +227,7 @@ local function refreshShops()
 					local targetLoc = target.loc or target
 					local isVec4 = type(targetLoc) == 'vector4' or (type(targetLoc) == 'table' and targetLoc.w ~= nil)
 					local targetHeading = isVec4 and targetLoc.w or (target.heading or 0.0)
-					local targetCoords = isVec4 and vec3(targetLoc.x, targetLoc.y, targetLoc.z) or targetLoc
+					local targetCoords = isVec4 and vec3(targetLoc.x, targetLoc.y, targetLoc.z - 1.0) or targetLoc
 
 					shops[id] = lib.points.new({
 						coords = targetCoords,
@@ -308,7 +308,7 @@ local function refreshShops()
 				local targetLoc = target.loc or target
 				local isVec4 = type(targetLoc) == 'vector4' or (type(targetLoc) == 'table' and targetLoc.w ~= nil)
 				local targetHeading = isVec4 and targetLoc.w or (target.heading or 0.0)
-				local targetCoords = isVec4 and vec3(targetLoc.x, targetLoc.y, targetLoc.z) or targetLoc
+				local targetCoords = isVec4 and vec3(targetLoc.x, targetLoc.y, targetLoc.z - 1.0) or targetLoc
 
 				shops[id] = lib.points.new({
 					coords = targetCoords,
