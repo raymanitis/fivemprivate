@@ -91,6 +91,24 @@ function OnDeath(attacker, weapon)
         end
     end)
     
+    -- Continuously play death animation to ensure it stays active
+    CreateThread(function()
+        local deadAnimDict = 'dead'
+        local playerData = QBX.PlayerData
+        local metadata = playerData and playerData.metadata
+        local deadAnim = metadata and metadata.ishandcuffed and 'dead_f' or 'dead_a'
+        
+        lib.requestAnimDict(deadAnimDict, 5000)
+        
+        while DeathState == sharedConfig.deathState.DEAD do
+            -- Continuously ensure death animation is playing
+            if not IsEntityPlayingAnim(cache.ped, deadAnimDict, deadAnim, 3) then
+                TaskPlayAnim(cache.ped, deadAnimDict, deadAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
+            end
+            Wait(100) -- Check every 100ms
+        end
+    end)
+    
     LocalPlayer.state.invBusy = true
 
     -- Resurrect and setup death state
@@ -98,12 +116,10 @@ function OnDeath(attacker, weapon)
     SetEntityInvincible(cache.ped, true)
     SetEntityHealth(cache.ped, GetEntityMaxHealth(cache.ped))
     
-    -- Force death animation immediately - play it multiple times to ensure it sticks
+    -- Force death animation immediately
     playDeadAnimation()
-    Wait(50)
+    Wait(100) -- Wait for animation to start
     playDeadAnimation() -- Play again to ensure it's active
-    Wait(50)
-    playDeadAnimation() -- Play one more time
     
     -- Start respawn check
     CheckForRespawn()
