@@ -12,16 +12,14 @@ local function initHealthAndArmor(ped, playerId, playerMetadata)
     SetPedArmour(ped, playerMetadata.armor)
 end
 
----starts death based off of player's metadata (no laststand stage)
+---starts death or last stand based off of player's metadata
 ---@param metadata any
 local function initDeathAndLastStand(metadata)
     if metadata.isdead then
         DeathTime = config.deathTime
         OnDeath()
     elseif metadata.inlaststand then
-        -- Skip laststand, go directly to death (final stage)
-        DeathTime = config.deathTime
-        OnDeath()
+        StartLastStand()
     end
 end
 
