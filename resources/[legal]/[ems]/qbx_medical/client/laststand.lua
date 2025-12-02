@@ -66,15 +66,16 @@ function StartLastStand(attacker, weapon)
     if startLastStandLock then return end
     startLastStandLock = true
     
+    -- IMMEDIATELY stop any animations before calling OnDeath
+    ClearPedTasksImmediately(cache.ped)
+    StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 1.0)
+    
     -- Immediately call OnDeath instead of starting laststand
-    -- Use pcall to safely call OnDeath (defined in dead.lua)
-    pcall(function()
-        if attacker and weapon then
-            OnDeath(attacker, weapon)
-        else
-            OnDeath()
-        end
-    end)
+    if attacker and weapon then
+        OnDeath(attacker, weapon)
+    else
+        OnDeath()
+    end
     
     startLastStandLock = false
 end
