@@ -53,10 +53,6 @@ AddStateBagChangeHandler(DEATH_STATE_STATE_BAG, ('player:%s'):format(cache.serve
 end)
 
 function SetDeathState(deathState)
-    -- NEVER allow LAST_STAND state - force DEAD instead
-    if deathState == sharedConfig.deathState.LAST_STAND then
-        deathState = sharedConfig.deathState.DEAD
-    end
     playerState:set(DEATH_STATE_STATE_BAG, deathState, true)
     DeathState = deathState
 end
@@ -77,8 +73,7 @@ exports('IsDead', function()
 end)
 
 exports('IsLaststand', function()
-    -- Always return false - laststand is completely removed
-    return false
+    return DeathState == sharedConfig.deathState.LAST_STAND
 end)
 
 exports('GetDeathTime', function()
