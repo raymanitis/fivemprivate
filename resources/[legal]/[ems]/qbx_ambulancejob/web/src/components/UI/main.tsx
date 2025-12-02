@@ -9,6 +9,7 @@ interface AmbulanceMessage {
   timer?: number;
   canCallHelp?: boolean;
   helpCooldown?: number;
+  canTransfer?: boolean;
 }
 
 function formatTime(seconds: number): string {
@@ -23,6 +24,7 @@ export function UI() {
   const [respawnTimer, setRespawnTimer] = useState<number | null>(isBrowser ? 900 : null);
   const [canCallHelp, setCanCallHelp] = useState(true);
   const [helpCooldown, setHelpCooldown] = useState<number | null>(null);
+  const [canTransfer, setCanTransfer] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
@@ -34,6 +36,7 @@ export function UI() {
         setRespawnTimer(null);
         setCanCallHelp(true);
         setHelpCooldown(null);
+        setCanTransfer(false);
         if (intervalRef.current) {
           clearInterval(intervalRef.current);
           intervalRef.current = null;
@@ -43,14 +46,19 @@ export function UI() {
         setRespawnTimer(data.timer ?? 900);
         setCanCallHelp(true);
         setHelpCooldown(data.helpCooldown ?? null);
+        setCanTransfer(data.canTransfer ?? false);
       } else if (data.type === 'update_respawn_timer') {
         setRespawnTimer(data.timer ?? null);
       } else if (data.type === 'update_respawn_available') {
         setRespawnTimer(0);
+        setCanTransfer(true);
       } else if (data.type === 'help_called') {
         setHelpCooldown(data.helpCooldown ?? 300);
+        setCanTransfer(true);
       } else if (data.type === 'update_help_cooldown') {
         setHelpCooldown(data.helpCooldown ?? null);
+      } else if (data.type === 'update_transfer_available') {
+        setCanTransfer(data.canTransfer ?? false);
       }
     };
 
@@ -131,46 +139,20 @@ export function UI() {
             }}
           >
             <Stack gap="xs" align="center" style={{ width: '100%', maxWidth: '450px' }}>
-              {/* Help Call Prompt or Cooldown */}
-              <Card
-                p="sm"
-                style={{
-                  backgroundColor: '#121a1cde',
-                  border: '1px solid #c2f4f967',
-                  borderRadius: '0.25rem',
-                  boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
-                  width: 'fit-content',
-                  maxWidth: '100%',
-                  padding: '0.75rem 1rem',
-                }}
-              >
-                {helpCooldown !== null && helpCooldown > 0 ? (
-                  <Text
-                    size="sm"
-                    fw={600}
-                    ta="center"
-                    c="#fff"
-                    style={{
-                      fontFamily: "'Bai Jamjuree', sans-serif",
-                      textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    Help already called. Available again in{' '}
-                    <Text
-                      component="span"
-                      c="#C2F4F9"
-                      fw={700}
-                      style={{
-                        backgroundColor: 'rgba(0,0,0,0.3)',
-                        padding: '2px 6px',
-                        borderRadius: '4px',
-                      }}
-                    >
-                      {formatTime(helpCooldown)}
-                    </Text>
-                  </Text>
-                ) : (
+              {/* Transfer to Hospital Prompt */}
+              {canTransfer ? (
+                <Card
+                  p="sm"
+                  style={{
+                    backgroundColor: '#121a1cde',
+                    border: '1px solid #c2f4f967',
+                    borderRadius: '0.25rem',
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
+                    width: 'fit-content',
+                    maxWidth: '100%',
+                    padding: '0.75rem 1rem',
+                  }}
+                >
                   <Flex align="center" gap="0.25rem" style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}>
                     <span style={{ fontSize: '0.9rem', color: '#fff' }}>Press</span>
                     <div
@@ -189,7 +171,7 @@ export function UI() {
                         fontFamily: "'Bai Jamjuree', sans-serif",
                       }}
                     >
-                      H
+                      E
                     </div>
                     <span
                       style={{
@@ -198,11 +180,84 @@ export function UI() {
                         fontFamily: "'Bai Jamjuree', sans-serif",
                       }}
                     >
-                      to call for help
+                      to transfer to hospital
                     </span>
                   </Flex>
-                )}
-              </Card>
+                </Card>
+              ) : (
+                /* Help Call Prompt or Cooldown */
+                <Card
+                  p="sm"
+                  style={{
+                    backgroundColor: '#121a1cde',
+                    border: '1px solid #c2f4f967',
+                    borderRadius: '0.25rem',
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
+                    width: 'fit-content',
+                    maxWidth: '100%',
+                    padding: '0.75rem 1rem',
+                  }}
+                >
+                  {helpCooldown !== null && helpCooldown > 0 ? (
+                    <Text
+                      size="sm"
+                      fw={600}
+                      ta="center"
+                      c="#fff"
+                      style={{
+                        fontFamily: "'Bai Jamjuree', sans-serif",
+                        textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      Help already called. Available again in{' '}
+                      <Text
+                        component="span"
+                        c="#C2F4F9"
+                        fw={700}
+                        style={{
+                          backgroundColor: 'rgba(0,0,0,0.3)',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                        }}
+                      >
+                        {formatTime(helpCooldown)}
+                      </Text>
+                    </Text>
+                  ) : (
+                    <Flex align="center" gap="0.25rem" style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}>
+                      <span style={{ fontSize: '0.9rem', color: '#fff' }}>Press</span>
+                      <div
+                        style={{
+                          backgroundColor: '#384f524f',
+                          border: '0.0625rem solid #c2f4f967',
+                          width: '2rem',
+                          height: '2rem',
+                          borderRadius: '0.15rem',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '0.9rem',
+                          color: '#C2F4F9',
+                          fontWeight: 600,
+                          fontFamily: "'Bai Jamjuree', sans-serif",
+                        }}
+                      >
+                        H
+                      </div>
+                      <span
+                        style={{
+                          fontSize: '0.9rem',
+                          color: '#fff',
+                          fontFamily: "'Bai Jamjuree', sans-serif",
+                        }}
+                      >
+                        to call for help
+                      </span>
+                    </Flex>
+                  )}
+                </Card>
+              )}
 
               {/* Main Timer Panel */}
               <Card

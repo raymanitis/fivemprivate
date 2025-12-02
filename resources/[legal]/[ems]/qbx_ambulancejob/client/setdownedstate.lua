@@ -24,6 +24,7 @@ local function sendNUIMessage(messageType, data)
         timer = data.timer,
         canCallHelp = canCallHelpValue,
         helpCooldown = data.helpCooldown,
+        canTransfer = data.canTransfer or false,
     }
     SendNUIMessage(message)
 end
@@ -80,7 +81,9 @@ end
 local function updateDeathTimer(deathTime)
     if isUIVisible then
         if deathTime <= 0 then
-            sendNUIMessage('update_respawn_available', {})
+            sendNUIMessage('update_respawn_available', {
+                canTransfer = config.allowTransferToHospital,
+            })
             -- Show transfer prompt when timer ends
             if config.allowTransferToHospital and not transferPromptShown then
                 showTransferPrompt = true
@@ -104,12 +107,16 @@ local function handleHelpCall()
         helpCooldownTimer = GetGameTimer()
         sendNUIMessage('help_called', {
             helpCooldown = helpCooldown,
+            canTransfer = config.allowTransferToHospital,
         })
         exports.qbx_core:Notify('Help request sent to medical personnel', 'success')
         -- Show transfer prompt when help is called
         if config.allowTransferToHospital and not transferPromptShown then
             showTransferPrompt = true
             transferPromptShown = true
+            sendNUIMessage('update_transfer_available', {
+                canTransfer = true,
+            })
         end
     else
         local remaining = math.ceil(helpCooldown - math.floor((GetGameTimer() - helpCooldownTimer) / 1000))
@@ -283,14 +290,11 @@ CreateThread(function()
                 end
             end
             
-            -- Show/hide transfer prompt text UI
+            -- Update transfer availability in UI
             if showTransferPrompt and config.allowTransferToHospital then
-                lib.showTextUI(locale('text.press_e_to_transfer'))
-            elseif not showTransferPrompt then
-                local _, text = lib.isTextUIOpen()
-                if text == locale('text.press_e_to_transfer') then
-                    lib.hideTextUI()
-                end
+                sendNUIMessage('update_transfer_available', {
+                    canTransfer = true,
+                })
             end
         else
             lastSentTimer = nil -- Reset when UI hidden
