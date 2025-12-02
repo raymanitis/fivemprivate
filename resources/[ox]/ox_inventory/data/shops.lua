@@ -1,7 +1,121 @@
 -- groups virker ikke!!!
 
 return {
-	-- General = {
+	-- ============================================
+	-- EXAMPLE: Ped-based Shop (No Target/Marker)
+	-- ============================================
+	-- This example shows how to create shops using peds that players can interact with
+	-- directly by pressing E when nearby. Works without ox_target or markers.
+	-- 
+	-- To use this, make sure 'inventory:target' is set to 0 in your server.cfg
+	-- Example: setr inventory:target 0
+	--
+	-- All targets will show "Open [shop name]" text
+	-- Distance is always 2.0 (default) - same for all targets
+	--
+	GeneralStore = {
+		name = 'General Store', -- Display name (will show as "Open General Store")
+		blip = {
+			id = 59,
+			colour = 69,
+			scale = 0.8
+		},
+		icon = 'fas fa-shopping-basket',
+		-- Shop-level ped configuration (applies to ALL targets)
+		ped = `mp_m_shopkeep_01`, -- Ped model for all locations
+		scenario = 'WORLD_HUMAN_STAND_IMPATIENT', -- Animation for all peds (optional)
+		distance = 2.0, -- Interaction distance (default 2.0, optional)
+		inventory = {
+			{ name = 'burger', price = 5 },
+			{ name = 'water', price = 1 },
+			{ name = 'toast', price = 5 },
+			{ name = 'lockpick', price = 50 }
+		},
+		-- Targets: vec4 format (x, y, z, heading)
+		targets = {
+			vec4(25.7, -1347.3, 29.49, 180.0),
+			vec4(-3038.71, 585.9, 7.9, 90.0),
+			vec4(-3241.47, 1001.14, 12.83, 45.0),
+			vec4(1728.66, 6414.16, 35.03, 270.0),
+		}
+	},
+
+	-- ============================================
+	-- EXAMPLE: Job-Restricted Ped Shop
+	-- ============================================
+	Ammunation = {
+		name = 'Ammunation',
+		blip = {
+			id = 110,
+			colour = 1,
+			scale = 0.8
+		},
+		icon = 'fas fa-gun',
+		ped = `s_m_y_ammucity_01`, -- Same ped for all locations
+		scenario = 'WORLD_HUMAN_CLIPBOARD', -- Same animation for all
+		groups = { -- Only players with these jobs can access
+			police = 0,
+			sheriff = 0
+		},
+		inventory = {
+			{ name = 'ammo-9', price = 5 },
+			{ name = 'WEAPON_KNIFE', price = 200 },
+			{ name = 'WEAPON_BAT', price = 100 },
+			{ name = 'WEAPON_PISTOL', price = 1000, metadata = { registered = true }, license = 'weapon' }
+		},
+		targets = {
+			vec4(-662.180, -934.961, 21.829, 180.0),
+			vec4(810.25, -2157.60, 29.62, 270.0),
+			vec4(1693.44, 3760.16, 34.71, 90.0),
+		}
+	},
+
+	-- ============================================
+	-- EXAMPLE: Simple Single Ped Shop
+	-- ============================================
+	LiquorStore = {
+		name = 'Liquor Store',
+		blip = {
+			id = 93,
+			colour = 69,
+			scale = 0.8
+		},
+		icon = 'fas fa-wine-bottle',
+		ped = `mp_m_shopkeep_01`, -- Ped model
+		-- No scenario - ped will just stand there
+		inventory = {
+			{ name = 'whiskey', price = 10 },
+			{ name = 'beer', price = 5 }
+		},
+		targets = {
+			vec4(1135.808, -982.281, 46.415, 180.0),
+		}
+	},
+
+	-- ============================================
+	-- CONFIGURATION GUIDE:
+	-- ============================================
+	-- Shop Level:
+	--   - name: Shop name (will show as "Open [name]" in UI)
+	--   - ped: Ped model hash - same for ALL targets in this shop
+	--   - scenario: Optional ped animation - same for ALL targets
+	--   - distance: Optional interaction distance (default: 2.0) - same for ALL targets
+	--
+	-- Target Level (in targets array):
+	--   - Use vec4 format: vec4(x, y, z, heading)
+	--
+	-- Common Ped Models:
+	--   Male: `mp_m_shopkeep_01`, `s_m_y_ammucity_01`, `s_m_y_barman_01`
+	--   Female: `s_f_y_shop_low`, `s_f_y_bartender_01`, `mp_f_shopkeep_01`
+	--
+	-- Common Scenarios (optional):
+	--   - 'WORLD_HUMAN_STAND_IMPATIENT', 'WORLD_HUMAN_STAND_MOBILE'
+	--   - 'WORLD_HUMAN_CLIPBOARD', 'WORLD_HUMAN_SMOKING'
+	--   - Leave empty for default standing pose
+	-- ============================================
+
+	-- OLD EXAMPLES (commented out):
+	-- [OLD] General = {
 	-- 	name = '24/7 Supermarket',
 	-- 	blip = {
 	-- 		id = 59, colour = 69, scale = 0.8
