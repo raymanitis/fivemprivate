@@ -9,6 +9,7 @@ import { closeTooltip } from '../../store/tooltip';
 import { getItemUrl } from '../../helpers';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fetchNui } from '../../utils/fetchNui';
+import { Items } from '../../store/items';
 
 interface ShopItem {
     slot: number;
@@ -118,7 +119,7 @@ const RightInventory: React.FC = () => {
 
     const addToCart = (item: ShopItem) => {
         const itemKey = item.name + (item.slot ?? '');
-        const itemName = item.metadata?.label || item.name;
+        const itemName = item.metadata?.label ? item.metadata.label : Items[item.name]?.label || item.name;
         const itemPrice = item.price ?? 0;
         const itemImage = getItemUrl(item.name);
 
