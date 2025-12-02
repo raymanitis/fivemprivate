@@ -20,8 +20,8 @@ export default createVuetify({
         colors: {
           primary: '#C2F4F9',
           secondary: '#C2F4F9',
-          bg: 'transparent',
-          surface: 'transparent',
+          bg: '#121a1c',
+          surface: '#121a1cde',
           'on-surface': '#ffffff',
           'on-primary': '#121a1c',
         },

@@ -2,7 +2,7 @@
   <v-app style="background: transparent!important;">
     <v-fade-transition>
       <div class="dialog-bg" v-if="show">
-        <v-card class="card">
+        <v-card color="bg" class="card ">
           <v-card-title class="title">
             <div>
               <span class="font-weight-bold mr-2">
@@ -146,12 +146,6 @@ const post = (event, data, cb) => {
 
 html {
   overflow: hidden!important;
-  background: transparent !important;
-}
-
-body {
-  background: transparent !important;
-  background-color: transparent !important;
 }
 
 :root {
@@ -166,12 +160,6 @@ body {
 #app {
   background: transparent!important;
   background-color: transparent!important;
-}
-
-/* Ensure Vuetify v-app is transparent */
-.v-application {
-  background: transparent !important;
-  background-color: transparent !important;
 }
 
 /* width */
