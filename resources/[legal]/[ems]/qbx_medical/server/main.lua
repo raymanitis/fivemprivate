@@ -17,7 +17,7 @@ local function getDeathState(src)
 	local player = exports.qbx_core:GetPlayer(src)
 	-- Skip laststand completely - only use DEAD or ALIVE
 	return player.PlayerData.metadata.isdead and sharedConfig.deathState.DEAD
-		or (player.PlayerData.metadata.inlaststand and sharedConfig.deathState.DEAD) -- Convert laststand to death
+		or (sharedConfig.deathState.DEAD) -- Convert laststand to death
 		or sharedConfig.deathState.ALIVE
 end
 
@@ -40,7 +40,6 @@ AddStateBagChangeHandler(DEATH_STATE_STATE_BAG, nil, function(bagName, _, value)
             value = sharedConfig.deathState.DEAD
         end
         player.Functions.SetMetaData('isdead', value == sharedConfig.deathState.DEAD)
-        player.Functions.SetMetaData('inlaststand', false) -- Never set inlaststand
         Player(playerId).state:set("isDead", value == sharedConfig.deathState.DEAD, true)
     end
 end)
