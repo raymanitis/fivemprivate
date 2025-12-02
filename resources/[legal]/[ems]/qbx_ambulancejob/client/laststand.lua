@@ -22,7 +22,8 @@ lib.callback.register('hospital:client:UseFirstAid', function()
 end)
 
 lib.callback.register('hospital:client:canHelp', function()
-    return exports.qbx_medical:IsLaststand() and exports.qbx_medical:GetLaststandTime() <= config.laststandTimer
+    -- Laststand is completely removed - always return false
+    return false
 end)
 
 ---@param targetId number playerId
