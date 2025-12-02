@@ -31,7 +31,7 @@ return {
     consumables = {
         ---@type table<string, consumable>
         food = {
-            food_burger = {
+            brownie = {
                 min = 20,
                 max = 21,
                 stressRelief = {
@@ -39,7 +39,7 @@ return {
                     max = 4
                 },
             },
-            food_bread = {
+            bagel = {
                 min = 20,
                 max = 21,
                 stressRelief = {
@@ -47,7 +47,7 @@ return {
                     max = 4
                 },
             },
-            food_croissant = {
+            baconburger = {
                 min = 10,
                 max = 15,
                 stressRelief = {
@@ -59,7 +59,7 @@ return {
 
         ---@type table<string, consumable>
         drink = {
-            drink_cola = {
+            bubbletea = {
                 min = 10,
                 max = 15,
                 stressRelief = {
@@ -67,7 +67,7 @@ return {
                     max = 4
                 },
             },
-            drink_frappuccino = {
+            coffee_frappuccino = {
                 min = 10,
                 max = 15,
                 stressRelief = {
@@ -75,7 +75,7 @@ return {
                     max = 4
                 },
             },
-            drink_energy = {
+            water_bottle = {
                 min = 10,
                 max = 15,
                 stressRelief = {
