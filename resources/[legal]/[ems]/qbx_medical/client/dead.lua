@@ -105,9 +105,8 @@ local function logDeath(victim, attacker, weapon)
     local playerName = (' %s (%d)'):format(GetPlayerName(playerId), GetPlayerServerId(playerId)) or locale('info.self_death')
     local killerId = NetworkGetPlayerIndexFromPed(attacker)
     local killerName = ('%s (%d)'):format(GetPlayerName(killerId), GetPlayerServerId(killerId)) or locale('info.self_death')
-    local weaponItem = WEAPONS[weapon]
-    local weaponLabel = (weaponItem and weaponItem.label) or 'Unknown'
-    local weaponName = (weaponItem and weaponItem.name) or 'Unknown'
+    local weaponLabel = WEAPONS[weapon]?.label or 'Unknown'
+    local weaponName = WEAPONS[weapon]?.name or 'Unknown'
     local message = locale('logs.death_log_message', killerName, playerName, weaponLabel, weaponName)
 
     lib.callback.await('qbx_medical:server:log', false, 'logDeath', message)
@@ -124,11 +123,10 @@ AddEventHandler('gameEventTriggered', function(event, data)
         Wait(1000)
         StartLastStand(attacker, weapon)
     elseif DeathState == sharedConfig.deathState.LAST_STAND then
-        -- Stay in laststand (no transition to death) - laststand is the final stage
-        -- Reset laststand timer if needed
-        if LaststandTime <= 0 then
-            LaststandTime = config.laststandReviveInterval
-        end
+        EndLastStand()
+        logDeath(victim, attacker, weapon)
+        DeathTime = config.deathTime
+        OnDeath(attacker, weapon)
     end
 end)
 
