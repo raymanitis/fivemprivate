@@ -119,8 +119,12 @@ const post = (event, data, cb) => {
 
 <style>
 
-html {
+html, body {
   overflow: hidden!important;
+  background: transparent!important;
+  background-color: transparent!important;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -131,6 +135,11 @@ html {
 }
 
 #app {
+  background: transparent!important;
+  background-color: transparent!important;
+}
+
+.v-application {
   background: transparent!important;
   background-color: transparent!important;
 }
