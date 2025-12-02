@@ -122,11 +122,13 @@ AddEventHandler('gameEventTriggered', function(event, data)
     if not IsEntityAPed(victim) or not victimDied or NetworkGetPlayerIndexFromPed(victim) ~= cache.playerId or not IsEntityDead(cache.ped) then return end
     if DeathState == sharedConfig.deathState.ALIVE then
         Wait(1000)
-        -- Skip laststand, go directly to death (final stage)
-        OnDeath(attacker, weapon)
+        StartLastStand(attacker, weapon)
     elseif DeathState == sharedConfig.deathState.LAST_STAND then
-        -- If somehow in laststand, go to death immediately
-        OnDeath(attacker, weapon)
+        -- Stay in laststand (no transition to death) - laststand is the final stage
+        -- Reset laststand timer if needed
+        if LaststandTime <= 0 then
+            LaststandTime = config.laststandReviveInterval
+        end
     end
 end)
 
