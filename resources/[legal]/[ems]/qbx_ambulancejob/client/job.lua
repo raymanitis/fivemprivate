@@ -312,34 +312,10 @@ if config.useTarget then
         end
 
         for i = 1, #sharedConfig.locations.stash do
-            exports.ox_target:addBoxZone({
-                name = 'stash' .. i,
-                coords = sharedConfig.locations.stash[i].location,
-                size = vec3(1, 1, 2),
-                rotation = -20,
-                debug = config.debugPoly,
-                canInteract = function()
-                    return QBX.PlayerData.job.type == 'ems'
-                end,
-                options = {
-                    {
-                        icon = 'fa fa-clipboard',
-                        label = locale('text.pstash'),
-                        onSelect = function()
-                            openStash(i)
-                        end,
-                        distance = 2,
-                        groups = 'ambulance',
-                    }
-                }
-            })
-        end
-
-        for i = 1, #sharedConfig.locations.armory do
-            for ii = 1, #sharedConfig.locations.armory[i].locations do
+            if sharedConfig.locations.stash[i] and sharedConfig.locations.stash[i].location then
                 exports.ox_target:addBoxZone({
-                    name = 'armory' .. i .. ':' .. ii,
-                    coords = sharedConfig.locations.armory[i].locations[ii],
+                    name = 'stash' .. i,
+                    coords = sharedConfig.locations.stash[i].location,
                     size = vec3(1, 1, 2),
                     rotation = -20,
                     debug = config.debugPoly,
@@ -349,15 +325,45 @@ if config.useTarget then
                     options = {
                         {
                             icon = 'fa fa-clipboard',
-                            label = locale('text.armory'),
+                            label = locale('text.pstash'),
                             onSelect = function()
-                                openArmory(i, ii)
+                                openStash(i)
                             end,
-                            distance = 1.5,
+                            distance = 2,
                             groups = 'ambulance',
                         }
                     }
                 })
+            end
+        end
+
+        for i = 1, #sharedConfig.locations.armory do
+            if sharedConfig.locations.armory[i] and sharedConfig.locations.armory[i].locations then
+                for ii = 1, #sharedConfig.locations.armory[i].locations do
+                    if sharedConfig.locations.armory[i].locations[ii] then
+                        exports.ox_target:addBoxZone({
+                            name = 'armory' .. i .. ':' .. ii,
+                            coords = sharedConfig.locations.armory[i].locations[ii],
+                            size = vec3(1, 1, 2),
+                            rotation = -20,
+                            debug = config.debugPoly,
+                            canInteract = function()
+                                return QBX.PlayerData.job.type == 'ems'
+                            end,
+                            options = {
+                                {
+                                    icon = 'fa fa-clipboard',
+                                    label = locale('text.armory'),
+                                    onSelect = function()
+                                        openArmory(i, ii)
+                                    end,
+                                    distance = 1.5,
+                                    groups = 'ambulance',
+                                }
+                            }
+                        })
+                    end
+                end
             end
         end
 
@@ -424,15 +430,16 @@ else
         end
 
         for i = 1, #sharedConfig.locations.stash do
-            lib.zones.box({
-                coords = sharedConfig.locations.stash[i].location,
+            if sharedConfig.locations.stash[i] and sharedConfig.locations.stash[i].location then
+                lib.zones.box({
+                    coords = sharedConfig.locations.stash[i].location,
                 size = vec3(1, 1, 2),
                 rotation = -20,
                 debug = config.debugPoly,
                 onEnter = function()
                     if QBX.PlayerData.job.type ~= 'ems' or not QBX.PlayerData.job.onduty then return end
                     lib.showTextUI(locale('text.pstash_button'))
-                    end,
+                end,
                 onExit = function()
                     local _, text = lib.isTextUIOpen()
                     if text == locale('text.pstash_button') then lib.hideTextUI() end
@@ -444,30 +451,35 @@ else
                     end)
                 end,
             })
+            end
         end
 
         for i = 1, #sharedConfig.locations.armory do
-            for ii = 1, #sharedConfig.locations.armory[i].locations do
-                lib.zones.box({
-                    coords = sharedConfig.locations.armory[i].locations[ii],
-                    size = vec3(1, 1, 2),
-                    rotation = -20,
-                    debug = config.debugPoly,
-                    onEnter = function()
-                        if QBX.PlayerData.job.type ~= 'ems' or not QBX.PlayerData.job.onduty then return end
-                        lib.showTextUI(locale('text.armory_button'))
-                        end,
-                    onExit = function()
-                        local _, text = lib.isTextUIOpen()
-                        if text == locale('text.armory_button') then lib.hideTextUI() end
-                    end,
-                    inside = function()
-                        if QBX.PlayerData.job.type ~= 'ems' then return end
-                        OnKeyPress(function()
-                            openArmory(i, ii)
-                        end)
-                    end,
-                })
+            if sharedConfig.locations.armory[i] and sharedConfig.locations.armory[i].locations then
+                for ii = 1, #sharedConfig.locations.armory[i].locations do
+                    if sharedConfig.locations.armory[i].locations[ii] then
+                        lib.zones.box({
+                            coords = sharedConfig.locations.armory[i].locations[ii],
+                            size = vec3(1, 1, 2),
+                            rotation = -20,
+                            debug = config.debugPoly,
+                            onEnter = function()
+                                if QBX.PlayerData.job.type ~= 'ems' or not QBX.PlayerData.job.onduty then return end
+                                lib.showTextUI(locale('text.armory_button'))
+                            end,
+                            onExit = function()
+                                local _, text = lib.isTextUIOpen()
+                                if text == locale('text.armory_button') then lib.hideTextUI() end
+                            end,
+                            inside = function()
+                                if QBX.PlayerData.job.type ~= 'ems' then return end
+                                OnKeyPress(function()
+                                    openArmory(i, ii)
+                                end)
+                            end,
+                        })
+                    end
+                end
             end
         end
 
