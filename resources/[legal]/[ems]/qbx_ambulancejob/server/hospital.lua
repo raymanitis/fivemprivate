@@ -30,17 +30,31 @@ lib.callback.register('qbx_ambulancejob:server:getOpenBed', function(_, hospital
 end)
 
 ---@param src number
-local function billPlayer(src)
+---@param paymentMethod string 'cash' or 'card'
+---@return boolean
+local function billPlayer(src, paymentMethod)
 	local player = exports.qbx_core:GetPlayer(src)
-	player.Functions.RemoveMoney('bank', sharedConfig.checkInCost, 'respawned-at-hospital')
-	config.depositSociety('ambulance', sharedConfig.checkInCost)
-	TriggerClientEvent('hospital:client:SendBillEmail', src, sharedConfig.checkInCost)
+	if not player then return false end
+	
+	local cost = sharedConfig.checkInCost
+	local moneyType = paymentMethod == 'cash' and 'cash' or 'bank'
+	local hasMoney = player.PlayerData.money[moneyType] >= cost
+	
+	if not hasMoney then
+		exports.qbx_core:Notify(src, locale('error.not_enough_money'), 'error')
+		return false
+	end
+	
+	player.Functions.RemoveMoney(moneyType, cost, 'hospital-check-in')
+	config.depositSociety('ambulance', cost)
+	TriggerClientEvent('hospital:client:SendBillEmail', src, cost)
+	return true
 end
 
-RegisterNetEvent('qbx_ambulancejob:server:playerEnteredBed', function(hospitalName, bedIndex)
+RegisterNetEvent('qbx_ambulancejob:server:playerEnteredBed', function(hospitalName, bedIndex, paymentMethod)
 	if GetInvokingResource() then return end
 	local src = source
-	billPlayer(src)
+	-- Payment is handled in checkIn callback, this is just for bed tracking
 	hospitalBedsTaken[hospitalName][bedIndex] = true
 end)
 
@@ -110,13 +124,21 @@ lib.callback.register('qbx_ambulancejob:server:canCheckIn', canCheckIn)
 ---@param src number the player doing the checking in
 ---@param patientSrc number the player being checked in
 ---@param hospitalName string name of the hospital matching the config where player should be placed
-local function checkIn(src, patientSrc, hospitalName)
+---@param paymentMethod? string 'cash' or 'card' payment method
+local function checkIn(src, patientSrc, hospitalName, paymentMethod)
 	if src == patientSrc and not canCheckIn(patientSrc, hospitalName) then return false end
 
 	local bedIndex = getOpenBed(hospitalName)
 	if not bedIndex then
 		exports.qbx_core:Notify(src, locale('error.beds_taken'), 'error')
 		return false
+	end
+
+	-- Process payment if payment method is provided (check-in via ped)
+	if paymentMethod then
+		if not billPlayer(patientSrc, paymentMethod) then
+			return false
+		end
 	end
 
 	TriggerClientEvent('qbx_ambulancejob:client:checkedIn', patientSrc, hospitalName, bedIndex)

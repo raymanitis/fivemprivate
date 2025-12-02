@@ -1,5 +1,5 @@
 {
-    "error": {
+        "error": {
         "canceled": "Canceled",
         "impossible": "Action Impossible...",
         "no_player": "No Player Nearby",
@@ -8,7 +8,9 @@
         "beds_taken": "Beds are occupied...",
         "possessions_taken": "All your possessions have been taken...",
         "cant_help": "You can't help this person...",
-        "not_ems": "You are not EMS or not signed in"
+        "not_ems": "You are not EMS or not signed in",
+        "payment_failed": "Payment failed. Please try again.",
+        "not_enough_money": "You don't have enough money to pay for the check-in."
     },
     "success": {
         "revived": "You revived a person",
@@ -70,6 +72,9 @@
         "call": "Call",
         "check_in": "[E] Check in",
         "check": "Check In",
+        "payment_method": "Payment Method",
+        "pay_cash": "Pay with Cash",
+        "pay_card": "Pay with Card",
         "lie_bed": "[E] - To lay in bed",
         "bed": "Lay in bed",
         "put_bed": "Place citizen in bed",

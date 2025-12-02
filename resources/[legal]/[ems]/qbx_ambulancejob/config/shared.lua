@@ -55,11 +55,20 @@ return {
         ---@field coords vector4
         ---@field model number
 
-        ---@type table<string, {coords: vector3, checkIn?: vector3|vector3[], beds: Bed[]}>
+        ---@class CheckInPed
+        ---@field coords vector4
+        ---@field model string|number
+        ---@field scenario? string
+
+        ---@type table<string, {coords: vector3, checkIn?: vector3|vector3[], checkInPed?: CheckInPed, beds: Bed[]}>
         hospitals = {
             pillbox = {
-                coords = vec3(-325.2117, -587.9426, 32.8713),
-                checkIn = vec3(-325.2117, -587.9426, 32.8713),
+                coords = vec3(-325.1090, -586.6532, 32.7755),
+                checkInPed = {
+                    coords = vec4(-325.1090, -586.6532, 31.7755, 217.8043),
+                    model = `s_m_m_doctor_01`,
+                    scenario = 'WORLD_HUMAN_CLIPBOARD',
+                },
                 beds = {
                     {coords = vec4(-347.9178, -603.9609, 38.1887, 215.5175), model = 1631638868},
                     {coords = vec4(-347.0734, -607.9407, 38.1887, 306.4665), model = 1631638868},
@@ -82,6 +91,11 @@ return {
             -- },
             jail = {
                 coords = vec3(1761, 2600, 46),
+                checkInPed = {
+                    coords = vec4(1761.0, 2600.0, 46.0, 270.0),
+                    model = `s_m_m_doctor_01`,
+                    scenario = 'WORLD_HUMAN_CLIPBOARD',
+                },
                 beds = {
                     {coords = vec4(1761.96, 2597.74, 45.66, 270.14), model = 2117668672},
                     {coords = vec4(1761.96, 2591.51, 45.66, 269.8), model = 2117668672},

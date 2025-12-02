@@ -80,10 +80,31 @@ RegisterNetEvent('qbx_ambulancejob:client:putPlayerInBed', function(hospitalName
     putPlayerInBed(hospitalName, bedIndex, false, true)
 end)
 
----Notifies doctors, and puts player in a hospital bed.
+---Shows payment selection dialog and processes check-in
+---@param hospitalName string
 local function checkIn(hospitalName)
     local canCheckIn = lib.callback.await('qbx_ambulancejob:server:canCheckIn', false, hospitalName)
     if not canCheckIn then return end
+
+    local cost = sharedConfig.checkInCost
+    local paymentMethod = lib.inputDialog(locale('text.check_in'), {
+        {
+            type = 'select',
+            label = locale('text.payment_method'),
+            options = {
+                { value = 'cash', label = locale('text.pay_cash') .. ' ($' .. cost .. ')' },
+                { value = 'card', label = locale('text.pay_card') .. ' ($' .. cost .. ')' },
+            },
+            required = true,
+        }
+    })
+
+    if not paymentMethod or not paymentMethod[1] then
+        exports.qbx_core:Notify(locale('error.canceled'), 'error')
+        return
+    end
+
+    local selectedMethod = paymentMethod[1]
 
     if lib.progressCircle({
         duration = 2000,
@@ -118,11 +139,16 @@ local function checkIn(hospitalName)
         }
     })
     then
-        lib.callback.await('qbx_ambulancejob:server:checkIn', false, cache.serverId, hospitalName)
+        local success = lib.callback.await('qbx_ambulancejob:server:checkIn', false, cache.serverId, hospitalName, selectedMethod)
+        if not success then
+            exports.qbx_core:Notify(locale('error.payment_failed'), 'error')
+        end
     else
         exports.qbx_core:Notify(locale('error.canceled'), 'error')
     end
 end
+
+RegisterNetEvent('qbx_ambulancejob:client:checkIn', checkIn)
 
 RegisterNetEvent('qbx_ambulancejob:client:checkedIn', function(hospitalName, bedIndex)
     putPlayerInBed(hospitalName, bedIndex, true, true)
@@ -132,7 +158,8 @@ end)
 if config.useTarget then
     CreateThread(function()
         for hospitalName, hospital in pairs(sharedConfig.locations.hospitals) do
-            if hospital.checkIn then
+            -- Only create check-in zones if no ped is configured (ped takes priority)
+            if hospital.checkIn and not hospital.checkInPed then
                 if type(hospital.checkIn) ~= 'table' then hospital.checkIn = { hospital.checkIn } end
                 for i = 1, #hospital.checkIn do
                     exports.ox_target:addBoxZone({
@@ -195,7 +222,8 @@ if config.useTarget then
 else
     CreateThread(function()
         for hospitalName, hospital in pairs(sharedConfig.locations.hospitals) do
-            if hospital.checkIn then
+            -- Only create check-in zones if no ped is configured (ped takes priority)
+            if hospital.checkIn and not hospital.checkInPed then
                 lib.zones.box({
                     coords = hospital.checkIn,
                     size = vec3(2, 1, 2),

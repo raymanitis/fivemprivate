@@ -11,7 +11,8 @@ dependencies {
     'qbx_core',
 	'qbx_medical',
     'ox_lib',
-	'ox_inventory'
+	'ox_inventory',
+	'ox_target'
 }
 
 shared_scripts {
