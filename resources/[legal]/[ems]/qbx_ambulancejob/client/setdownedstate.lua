@@ -135,9 +135,28 @@ local function showTransferDialog()
 end
 
 ---@param ped number
+local function playDeadAnimation(ped)
+    if IsInHospitalBed then
+        if not IsEntityPlayingAnim(ped, InBedDict, InBedAnim, 3) then
+            lib.playAnim(ped, InBedDict, InBedAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
+        end
+    else
+        exports.qbx_medical:PlayDeadAnimation()
+    end
+end
+
+---@param ped number
 local function handleDead(ped)
-    -- Continuously ensure death animation is playing
-    if not IsInHospitalBed then
+    playDeadAnimation(ped)
+end
+
+---@param ped number
+local function playDeadAnimation(ped)
+    if IsInHospitalBed then
+        if not IsEntityPlayingAnim(ped, InBedDict, InBedAnim, 3) then
+            lib.playAnim(ped, InBedDict, InBedAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
+        end
+    else
         exports.qbx_medical:PlayDeadAnimation()
     end
 end
