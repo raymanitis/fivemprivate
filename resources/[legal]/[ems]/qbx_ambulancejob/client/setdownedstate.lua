@@ -280,8 +280,7 @@ end)
 ---Listen for death events
 RegisterNetEvent('qbx_medical:client:onPlayerDied', function()
     CreateThread(function()
-        -- Wait a bit longer to ensure death state is fully set
-        Wait(300)
+        Wait(100) -- Small delay to ensure death state is set
         local isDead = exports.qbx_medical:IsDead()
         if isDead then
             local deathTime = exports.qbx_medical:GetDeathTime()
