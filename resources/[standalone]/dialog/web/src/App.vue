@@ -1,7 +1,7 @@
 <template>
   <v-app style="background: transparent!important;">
     <v-fade-transition>
-      <div class="dialog-bg" v-if="show && data">
+      <div class="dialog-bg" v-if="show">
         <v-card color="bg" class="card ">
           <v-card-title class="title">
             <div>
@@ -50,7 +50,16 @@ export default {
   },
   data: () => ({
     show: false,
-    data: null
+    data: {
+      firstname: 'John',
+      lastname: 'Doe',
+      text: 'Lorem ipsum dolor sit amet',
+      type: '',
+      rep: '',
+      buttons: [
+        { text: 'Lorem ipsum dolor sit amet' }
+      ]
+    }
   }),
 
   methods: {
@@ -66,7 +75,7 @@ export default {
 
   mounted() {
     this.escapeListener = window.addEventListener("keyup", (event) => {
-      if (!this.show || !this.data || !this.data.buttons) {
+      if (!this.show) {
         return
       }
       if (event.keyCode || 49 && event.keyCode || 51 && event.keyCode || 52 && event.keyCode || 53) { 
@@ -119,37 +128,15 @@ const post = (event, data, cb) => {
 
 <style>
 
-html, body {
+html {
   overflow: hidden!important;
-  background: transparent!important;
-  background-color: transparent!important;
-  margin: 0;
-  padding: 0;
 }
 
 :root {
-  color-scheme: dark !important;
-  --item-color: #c2f4f91e;
-  --bg-color: #121a1ce3;
-  --main-color: #C2F4F9;
+  color-scheme: light !important;
 }
 
 #app {
-  background: transparent!important;
-  background-color: transparent!important;
-}
-
-.v-application {
-  background: transparent!important;
-  background-color: transparent!important;
-}
-
-.v-application__wrap {
-  background: transparent!important;
-  background-color: transparent!important;
-}
-
-.v-application--wrap {
   background: transparent!important;
   background-color: transparent!important;
 }
