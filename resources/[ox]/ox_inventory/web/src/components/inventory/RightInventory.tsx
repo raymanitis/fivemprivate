@@ -23,7 +23,8 @@ interface ShopItem {
 
 interface CartItem {
     itemKey: string; // unique key derived from name + slot
-    name: string;
+    name: string; // Display label
+    itemName: string; // Actual item spawn name for server
     price: number;
     quantity: number;
     image?: string;
@@ -119,7 +120,7 @@ const RightInventory: React.FC = () => {
 
     const addToCart = (item: ShopItem) => {
         const itemKey = item.name + (item.slot ?? '');
-        const itemName = item.metadata?.label ? item.metadata.label : Items[item.name]?.label || item.name;
+        const displayLabel = item.metadata?.label ? item.metadata.label : Items[item.name]?.label || item.name;
         const itemPrice = item.price ?? 0;
         const itemImage = getItemUrl(item.name);
 
@@ -130,7 +131,7 @@ const RightInventory: React.FC = () => {
                     i.itemKey === itemKey ? { ...i, quantity: i.quantity + 1 } : i
                 );
             }
-            return [...prev, { itemKey, name: itemName, price: itemPrice, quantity: 1, image: itemImage }];
+            return [...prev, { itemKey, name: displayLabel, itemName: item.name, price: itemPrice, quantity: 1, image: itemImage }];
         });
     };
 
@@ -161,7 +162,7 @@ const RightInventory: React.FC = () => {
         if (cart.length === 0) return;
 
         const itemsPayload = cart.map((item) => ({
-            name: item.name,
+            name: item.itemName,
             quantity: item.quantity,
             price: item.price,
         }));
