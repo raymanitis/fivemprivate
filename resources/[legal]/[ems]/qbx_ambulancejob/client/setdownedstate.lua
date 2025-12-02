@@ -133,46 +133,29 @@ local function showTransferDialog()
         {
             type = 'label',
             label = warningText,
-        },
-        {
-            type = 'select',
-            label = locale('info.confirm_transfer'),
-            options = {
-                { value = 'yes', label = locale('text.yes') },
-                { value = 'no', label = locale('text.no') },
-            },
-            required = true,
         }
     })
     
-    if not dialog or not dialog[1] then
+    if not dialog then
         -- User cancelled, just close the dialog
         showTransferPrompt = false
-        lib.hideTextUI()
         return
     end
     
-    local choice = dialog[1]
-    if choice == 'yes' then
-        -- Transfer to hospital - get closest hospital from server
-        local closestHospital = lib.callback.await('qbx_ambulancejob:server:getClosestHospital', false)
-        
-        if closestHospital then
-            -- Use card payment by default for transfer
-            local success = lib.callback.await('qbx_ambulancejob:server:checkIn', false, cache.serverId, closestHospital, 'card')
-            if success then
-                exports.qbx_core:Notify(locale('success.transferred_to_hospital'), 'success')
-                hideDeathUI()
-            else
-                exports.qbx_core:Notify(locale('error.transfer_failed'), 'error')
-            end
+    -- User confirmed, transfer to hospital
+    local closestHospital = lib.callback.await('qbx_ambulancejob:server:getClosestHospital', false)
+    
+    if closestHospital then
+        -- Use card payment by default for transfer
+        local success = lib.callback.await('qbx_ambulancejob:server:checkIn', false, cache.serverId, closestHospital, 'card')
+        if success then
+            exports.qbx_core:Notify(locale('success.transferred_to_hospital'), 'success')
+            hideDeathUI()
         else
             exports.qbx_core:Notify(locale('error.transfer_failed'), 'error')
         end
     else
-        -- User chose no, just close
-        showTransferPrompt = false
-        lib.hideTextUI()
+        exports.qbx_core:Notify(locale('error.transfer_failed'), 'error')
     end
 end
 
