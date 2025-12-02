@@ -38,13 +38,9 @@ DeathState = playerState[DEATH_STATE_STATE_BAG] or sharedConfig.deathState.ALIVE
 AddStateBagChangeHandler(DEATH_STATE_STATE_BAG, ('player:%s'):format(cache.serverId), function(_, _, value)
     -- Intercept LAST_STAND state changes and force DEAD state instead
     if value == sharedConfig.deathState.LAST_STAND then
-        -- Skip laststand, force death immediately - set DEAD state directly
-        DeathState = sharedConfig.deathState.DEAD
-        -- Force update state bag to DEAD
-        SetDeathState(sharedConfig.deathState.DEAD)
-        -- Also call KillPlayer to ensure proper setup
+        -- Skip laststand, force death immediately
         CreateThread(function()
-            Wait(0)
+            Wait(0) -- Wait one frame to ensure state bag is set
             exports.qbx_medical:KillPlayer()
         end)
         return -- Don't set LAST_STAND state
