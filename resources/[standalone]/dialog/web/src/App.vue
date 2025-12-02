@@ -23,7 +23,7 @@
             </div>
           </v-card-title>
           <div class="text-dialog">
-            <div class="text">
+            <div class="text bg-grey-darken-4 rounded">
               {{ data.text }}
             </div>
             <div class="buttons">
@@ -49,32 +49,23 @@ export default {
   components: {
   },
   data: () => ({
-    show: false,
+    show: true, // Set to true to see the dialog in dev mode
     data: {
       firstname: 'John',
       lastname: 'Doe',
-      text: 'Lorem ipsum dolor sit amet',
-      type: '',
-      rep: '',
+      text: 'This is an example dialog. You can see how Vuetify components work without import errors!',
+      type: 'Example',
+      rep: '100',
       buttons: [
-        { text: 'Lorem ipsum dolor sit amet' }
+        { text: 'Option 1 - Click me!' },
+        { text: 'Option 2 - Or click me!' },
+        { text: 'Option 3 - Close dialog' }
       ]
     }
   }),
 
   methods: {
     click(data){
-      // In dev mode, just log the click and close the dialog
-      if (import.meta.env.DEV) {
-        console.log('Dialog button clicked:', data);
-        this.show = false;
-        // Reset after a short delay to see the close animation
-        setTimeout(() => {
-          this.show = true;
-        }, 300);
-        return;
-      }
-      
       post('click', data, (resp) => {
         if (resp == 'close') {
           this.show = false;
@@ -85,11 +76,6 @@ export default {
   },
 
   mounted() {
-    // Show dialog in dev mode for editing
-    if (import.meta.env.DEV) {
-      this.show = true;
-    }
-
     this.escapeListener = window.addEventListener("keyup", (event) => {
       if (!this.show) {
         return
@@ -153,8 +139,6 @@ html {
   --item-color: #c2f4f91e;
   --bg-color: #121a1ce3;
   --main-color: #C2F4F9;
-  --border-color: #c2f4f967;
-  --key-bg: #384f524f;
 }
 
 #app {

@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
-:root {
-    --item-color: #c2f4f91e;
-    --bg-color: #121a1ce3;
-    --main-color: #C2F4F9;
-    --border-color: #c2f4f967;
-    --key-bg: #384f524f;
-}
-
 * {
     font-family: 'Bai Jamjuree', sans-serif;
 }
@@ -29,23 +21,14 @@
     background-color: #121a1cde !important;
     border: 0.0625rem solid #c2f4f967 !important;
     border-radius: 0.25rem !important;
-    padding: 0.75rem 1rem !important;
+    box-shadow: 0 0 20px rgba(194, 244, 249, 0.1) !important;
     
     .title {
         display: flex;
         align-items: center;
-        color: #ffffff !important;
-        padding-bottom: 0.5rem;
-        
-        > div:first-child {
-            span.font-weight-bold {
-                color: #C2F4F9;
-                font-weight: 600;
-            }
-            span.font-weight-light {
-                color: rgba(255, 255, 255, 0.7);
-            }
-        }
+        padding: 0.75rem 1rem !important;
+        color: #C2F4F9 !important;
+        border-bottom: 0.0625rem solid #c2f4f91e !important;
         
         .note {
             margin-left: 10px;
@@ -57,39 +40,38 @@
             color: #C2F4F9;
             padding: 0.4rem 0.6rem;
             line-height: 1.2;
+            font-weight: 500;
         }
     }
     
     .text-dialog {
-        margin: 0.5rem 0 0 0;
-        
+        margin: 1rem;
         .text {
             width: 610px;
             padding: 0.75rem 1rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             background-color: #384f524f;
-            border: 0.0625rem solid #c2f4f967;
-            border-radius: 0.15rem;
-            color: #ffffff;
-            font-size: 0.9rem;
+            border: 0.0625rem solid #c2f4f91e;
+            border-radius: 0.25rem;
+            color: #C2F4F9;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
-        
         .buttons {
             display: grid;
             grid-template-columns: 302px 302px;
             grid-row: auto auto;
             grid-column-gap: 0.5rem;
             grid-row-gap: 0.5rem;
-            
             .button {
                 display: flex;
                 padding: 0.5rem;
-                border-radius: 0.15rem;
+                border-radius: 0.25rem;
                 font-size: 0.9rem;
                 align-items: center;
                 background-color: #384f524f;
                 border: 0.0625rem solid #c2f4f967;
-                color: #ffffff;
+                color: #C2F4F9;
                 cursor: pointer;
                 transition: all 0.2s ease;
                 
@@ -97,24 +79,24 @@
                     background-color: #c2f4f91e;
                     border-color: #C2F4F9;
                     transform: translateY(-1px);
+                    box-shadow: 0 0 10px rgba(194, 244, 249, 0.2);
                 }
                 
                 .number {
                     margin-right: 0.75rem;
-                    width: 2.25rem;
-                    height: 2.25rem;
+                    width: 1.75rem;
+                    height: 1.75rem;
                     border-radius: 0.15rem;
                     background-color: #384f524f;
                     border: 0.0625rem solid #c2f4f967;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    
                     p {
                         color: #C2F4F9;
                         text-align: center;
                         font-weight: 600;
-                        font-size: 1rem;
+                        font-size: 0.9rem;
                         margin: 0;
                     }
                 }
