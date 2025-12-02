@@ -22,10 +22,10 @@ function ResurrectPlayer()
 end
 
 ---remove last stand mode from player.
+---NOTE: Laststand is removed, this function does nothing now
 function EndLastStand()
-    TaskPlayAnim(cache.ped, LastStandDict, 'exit', 1.0, 8.0, -1, 1, -1, false, false, false)
+    -- Do nothing - laststand is completely removed
     LaststandTime = 0
-    TriggerServerEvent('qbx_medical:server:onPlayerLaststandEnd')
 end
 
 local function logPlayerKiller()
