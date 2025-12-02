@@ -113,24 +113,7 @@ local function logDeath(victim, attacker, weapon)
     lib.callback.await('qbx_medical:server:log', false, 'logDeath', message)
 end
 
----Monitor health and trigger death immediately when health reaches 0 (skip laststand)
-CreateThread(function()
-    while true do
-        Wait(50) -- Check every 50ms for immediate response
-        local currentHealth = GetEntityHealth(cache.ped)
-        
-        -- If health dropped to 0 or below and we're alive, trigger death immediately
-        if DeathState == sharedConfig.deathState.ALIVE and (currentHealth <= 0 or IsEntityDead(cache.ped)) then
-            -- Skip laststand completely, go directly to death
-            OnDeath()
-        elseif DeathState == sharedConfig.deathState.LAST_STAND then
-            -- If somehow in laststand, force death immediately
-            OnDeath()
-        end
-    end
-end)
-
----when player is killed by another player, go directly to death (skip laststand)
+---when player is killed by another player, set last stand mode, or if already in last stand mode, set player to dead mode.
 ---@param event string
 ---@param data table
 AddEventHandler('gameEventTriggered', function(event, data)
@@ -138,7 +121,8 @@ AddEventHandler('gameEventTriggered', function(event, data)
     local victim, attacker, victimDied, weapon = data[1], data[2], data[4], data[7]
     if not IsEntityAPed(victim) or not victimDied or NetworkGetPlayerIndexFromPed(victim) ~= cache.playerId or not IsEntityDead(cache.ped) then return end
     if DeathState == sharedConfig.deathState.ALIVE then
-        -- Skip laststand, go directly to death (final stage) - no wait
+        Wait(1000)
+        -- Skip laststand, go directly to death (final stage)
         OnDeath(attacker, weapon)
     elseif DeathState == sharedConfig.deathState.LAST_STAND then
         -- If somehow in laststand, go to death immediately
