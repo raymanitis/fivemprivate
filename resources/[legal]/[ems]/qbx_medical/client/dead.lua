@@ -23,9 +23,6 @@ function ResurrectPlayer()
 end
 
 local function playDeadAnimation()
-    -- Stop ALL animations first
-    ClearPedTasksImmediately(cache.ped)
-    
     local deadAnimDict = 'dead'
     local playerData = QBX.PlayerData
     local metadata = playerData and playerData.metadata
@@ -34,20 +31,12 @@ local function playDeadAnimation()
     local deadVehAnimDict = 'veh@low@front_ps@idle_duck'
     local deadVehAnim = 'sit'
 
-    -- Request animation dictionary
-    lib.requestAnimDict(deadAnimDict, 5000)
-    lib.requestAnimDict(deadVehAnimDict, 5000)
-
     if cache.vehicle then
-        -- Stop any existing animation
-        StopAnimTask(cache.ped, deadVehAnimDict, deadVehAnim, 0.0)
-        -- Play vehicle death animation
-        TaskPlayAnim(cache.ped, deadVehAnimDict, deadVehAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
-    else
-        -- Stop any existing animation
-        StopAnimTask(cache.ped, deadAnimDict, deadAnim, 0.0)
-        -- Force play death animation
-        TaskPlayAnim(cache.ped, deadAnimDict, deadAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
+        if not IsEntityPlayingAnim(cache.ped, deadVehAnimDict, deadVehAnim, 3) then
+            lib.playAnim(cache.ped, deadVehAnimDict, deadVehAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
+        end
+    elseif not IsEntityPlayingAnim(cache.ped, deadAnimDict, deadAnim, 3) then
+        lib.playAnim(cache.ped, deadAnimDict, deadAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     end
 end
 
@@ -55,29 +44,24 @@ exports('PlayDeadAnimation', playDeadAnimation)
 
 ---put player in death animation and make invincible
 function OnDeath(attacker, weapon)
-    -- Initialize death time if not set
-    if DeathTime <= 0 then
-        DeathTime = config.deathTime
-    end
-    
     -- Force DEAD state immediately - no laststand
     SetDeathState(sharedConfig.deathState.DEAD)
     
-    -- AGGRESSIVELY stop ALL animations immediately
-    ClearPedTasksImmediately(cache.ped)
+    -- AGGRESSIVELY stop ALL laststand animations immediately
+    StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 1.0)
     StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 0.0)
-    ClearPedSecondaryTask(cache.ped)
+    ClearPedTasksImmediately(cache.ped)
     RemoveAnimDict('combat@damage@writhe')
     
-    -- Trigger events immediately
+    -- Stop any other potential animations
+    ClearPedSecondaryTask(cache.ped)
+    
     TriggerEvent('qbx_medical:client:onPlayerDied', attacker, weapon)
     TriggerServerEvent('qbx_medical:server:onPlayerDied', attacker, weapon)
     TriggerServerEvent('InteractSound_SV:PlayOnSource', 'demo', 0.1)
 
-    -- Wait for player to stop moving
     WaitForPlayerToStopMoving()
 
-    -- Start control disabling thread
     CreateThread(function()
         while DeathState == sharedConfig.deathState.DEAD do
             DisableControls()
@@ -90,22 +74,13 @@ function OnDeath(attacker, weapon)
             Wait(0)
         end
     end)
-    
     LocalPlayer.state.invBusy = true
 
-    -- Resurrect and setup death state
     ResurrectPlayer()
+    -- Force death animation immediately
+    playDeadAnimation() -- This plays the proper death animation (dead_a or dead_f)
     SetEntityInvincible(cache.ped, true)
     SetEntityHealth(cache.ped, GetEntityMaxHealth(cache.ped))
-    
-    -- Force death animation immediately - play it multiple times to ensure it sticks
-    playDeadAnimation()
-    Wait(50)
-    playDeadAnimation() -- Play again to ensure it's active
-    Wait(50)
-    playDeadAnimation() -- Play one more time
-    
-    -- Start respawn check
     CheckForRespawn()
 end
 
@@ -176,32 +151,19 @@ end
 
 ---Monitor health and trigger death immediately when health reaches 0 (skip laststand)
 CreateThread(function()
-    local deathTriggered = false
     while true do
-        Wait(0) -- Check every frame for INSTANT response
+        Wait(5) -- Check every 5ms for INSTANT response
         local currentHealth = GetEntityHealth(cache.ped)
-        local isDead = IsEntityDead(cache.ped)
         
         -- If health dropped to 0 or below and we're NOT dead, trigger death IMMEDIATELY
-        if DeathState ~= sharedConfig.deathState.DEAD and (currentHealth <= 0 or isDead) then
-            if not deathTriggered then
-                deathTriggered = true
-                -- IMMEDIATELY stop ALL animations before anything else
-                ClearPedTasksImmediately(cache.ped)
-                StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 0.0)
-                -- Initialize death time FIRST
-                DeathTime = config.deathTime
-                -- Force DEAD state immediately
-                SetDeathState(sharedConfig.deathState.DEAD)
-                -- Then call OnDeath
-                OnDeath()
-            end
-        elseif DeathState == sharedConfig.deathState.DEAD then
-            -- Keep flag true when dead
-            deathTriggered = true
-        else
-            -- Reset flag when alive
-            deathTriggered = false
+        if DeathState ~= sharedConfig.deathState.DEAD and (currentHealth <= 0 or IsEntityDead(cache.ped)) then
+            -- IMMEDIATELY stop ALL animations before anything else
+            ClearPedTasksImmediately(cache.ped)
+            StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 0.0)
+            -- Force DEAD state immediately
+            SetDeathState(sharedConfig.deathState.DEAD)
+            -- Then call OnDeath
+            OnDeath()
         end
     end
 end)

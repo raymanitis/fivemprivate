@@ -300,13 +300,10 @@ end)
 ---Listen for death events (death is now the final stage, no laststand stage)
 RegisterNetEvent('qbx_medical:client:onPlayerDied', function()
     CreateThread(function()
-        Wait(100) -- Small delay to ensure death state is set
+        Wait(500) -- Small delay to ensure death state is set
         local isDead = exports.qbx_medical:IsDead()
         if isDead then
             local deathTime = exports.qbx_medical:GetDeathTime()
-            if deathTime <= 0 then
-                deathTime = 300 -- Default if not set
-            end
             showDeathUI(deathTime)
         end
     end)
