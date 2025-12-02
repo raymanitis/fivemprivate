@@ -35,17 +35,25 @@ local function playDeadAnimation()
     local deadVehAnim = 'sit'
 
     -- Request animation dictionary (wait for it to load)
-    lib.requestAnimDict(deadAnimDict, 5000)
-    lib.requestAnimDict(deadVehAnimDict, 5000)
+    if not HasAnimDictLoaded(deadAnimDict) then
+        RequestAnimDict(deadAnimDict)
+        while not HasAnimDictLoaded(deadAnimDict) do
+            Wait(10)
+        end
+    end
     
-    -- Wait a moment for dictionaries to load
-    Wait(100)
+    if not HasAnimDictLoaded(deadVehAnimDict) then
+        RequestAnimDict(deadVehAnimDict)
+        while not HasAnimDictLoaded(deadVehAnimDict) do
+            Wait(10)
+        end
+    end
 
     if cache.vehicle then
         -- Stop any existing animation
         StopAnimTask(cache.ped, deadVehAnimDict, deadVehAnim, 0.0)
-        -- Play vehicle death animation
-        TaskPlayAnim(cache.ped, deadVehAnimDict, deadVehAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
+        -- Play vehicle death animation with high priority
+        TaskPlayAnim(cache.ped, deadVehAnimDict, deadVehAnim, 8.0, 8.0, -1, 1, 0, false, false, false)
     else
         -- Stop any existing animation
         StopAnimTask(cache.ped, deadAnimDict, deadAnim, 0.0)
@@ -88,12 +96,7 @@ function OnDeath(attacker, weapon)
     ClearPedSecondaryTask(cache.ped)
     RemoveAnimDict('combat@damage@writhe')
     
-    -- Trigger events immediately
-    TriggerEvent('qbx_medical:client:onPlayerDied', attacker, weapon)
-    TriggerServerEvent('qbx_medical:server:onPlayerDied', attacker, weapon)
-    TriggerServerEvent('InteractSound_SV:PlayOnSource', 'demo', 0.1)
-
-    -- Wait for player to stop moving
+    -- Wait for player to stop moving first
     WaitForPlayerToStopMoving()
 
     LocalPlayer.state.invBusy = true
@@ -104,12 +107,17 @@ function OnDeath(attacker, weapon)
     SetEntityHealth(cache.ped, GetEntityMaxHealth(cache.ped))
     
     -- Wait a moment for resurrection to complete
-    Wait(100)
+    Wait(200)
     
     -- Force death animation immediately after resurrection
     playDeadAnimation()
-    Wait(200) -- Wait for animation to start
+    Wait(300) -- Wait for animation to start
     playDeadAnimation() -- Play again to ensure it's active
+    
+    -- Trigger events AFTER state is set and animation is playing (so UI shows correctly)
+    TriggerEvent('qbx_medical:client:onPlayerDied', attacker, weapon)
+    TriggerServerEvent('qbx_medical:server:onPlayerDied', attacker, weapon)
+    TriggerServerEvent('InteractSound_SV:PlayOnSource', 'demo', 0.1)
     
     -- Start control disabling thread
     CreateThread(function()
@@ -132,12 +140,18 @@ function OnDeath(attacker, weapon)
         local metadata = playerData and playerData.metadata
         local deadAnim = metadata and metadata.ishandcuffed and 'dead_f' or 'dead_a'
         
-        lib.requestAnimDict(deadAnimDict, 5000)
+        -- Ensure animation dictionary is loaded
+        if not HasAnimDictLoaded(deadAnimDict) then
+            RequestAnimDict(deadAnimDict)
+            while not HasAnimDictLoaded(deadAnimDict) do
+                Wait(10)
+            end
+        end
         
         while DeathState == sharedConfig.deathState.DEAD do
-            -- Continuously ensure death animation is playing
+            -- Continuously ensure death animation is playing with high priority
             if not IsEntityPlayingAnim(cache.ped, deadAnimDict, deadAnim, 3) then
-                TaskPlayAnim(cache.ped, deadAnimDict, deadAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
+                TaskPlayAnim(cache.ped, deadAnimDict, deadAnim, 8.0, 8.0, -1, 1, 0, false, false, false)
             end
             Wait(100) -- Check every 100ms
         end
@@ -150,12 +164,16 @@ end
 exports('KillPlayer', OnDeath)
 
 local function respawn()
-    local success = lib.callback.await('qbx_medical:server:respawn')
-    if not success then return end
-    
-    -- Reset death state and lock
+    -- Reset death state and lock FIRST before respawn callback
     SetDeathState(sharedConfig.deathState.ALIVE)
     ResetDeathLock()
+    
+    local success = lib.callback.await('qbx_medical:server:respawn')
+    if not success then 
+        -- If respawn failed, restore death state
+        SetDeathState(sharedConfig.deathState.DEAD)
+        return 
+    end
     
     if QBX.PlayerData.metadata.ishandcuffed then
         TriggerEvent('police:client:GetCuffed', -1)
@@ -246,14 +264,17 @@ AddEventHandler('gameEventTriggered', function(event, data)
     local victim, attacker, victimDied, weapon = data[1], data[2], data[4], data[7]
     if not IsEntityAPed(victim) or not victimDied or NetworkGetPlayerIndexFromPed(victim) ~= cache.playerId or not IsEntityDead(cache.ped) then return end
     
+    -- Prevent double-death - check both state and lock
+    if DeathState == sharedConfig.deathState.DEAD or onDeathLock then
+        return
+    end
+    
     -- Stop all animations and force death
     ClearPedTasksImmediately(cache.ped)
     StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 1.0)
     
     -- Go directly to death
-    if DeathState ~= sharedConfig.deathState.DEAD then
-        OnDeath(attacker, weapon)
-    end
+    OnDeath(attacker, weapon)
 end)
 
 function DisableControls()
