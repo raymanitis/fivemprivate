@@ -23,10 +23,8 @@ function ResurrectPlayer()
 end
 
 local function playDeadAnimation()
-    -- Stop ALL animations first - be very aggressive
+    -- Stop ALL animations first
     ClearPedTasksImmediately(cache.ped)
-    ClearPedSecondaryTask(cache.ped)
-    ClearPedTasks(cache.ped)
     
     local deadAnimDict = 'dead'
     local playerData = QBX.PlayerData
@@ -39,37 +37,28 @@ local function playDeadAnimation()
     -- Request animation dictionary (wait for it to load)
     if not HasAnimDictLoaded(deadAnimDict) then
         RequestAnimDict(deadAnimDict)
-        local timeout = 0
-        while not HasAnimDictLoaded(deadAnimDict) and timeout < 100 do
+        while not HasAnimDictLoaded(deadAnimDict) do
             Wait(10)
-            timeout = timeout + 1
         end
     end
     
     if not HasAnimDictLoaded(deadVehAnimDict) then
         RequestAnimDict(deadVehAnimDict)
-        local timeout = 0
-        while not HasAnimDictLoaded(deadVehAnimDict) and timeout < 100 do
+        while not HasAnimDictLoaded(deadVehAnimDict) do
             Wait(10)
-            timeout = timeout + 1
         end
     end
 
     if cache.vehicle then
         -- Stop any existing animation
         StopAnimTask(cache.ped, deadVehAnimDict, deadVehAnim, 0.0)
-        -- Play vehicle death animation with maximum priority
+        -- Play vehicle death animation with high priority
         TaskPlayAnim(cache.ped, deadVehAnimDict, deadVehAnim, 8.0, 8.0, -1, 1, 0, false, false, false)
     else
         -- Stop any existing animation
         StopAnimTask(cache.ped, deadAnimDict, deadAnim, 0.0)
-        -- Force play death animation with maximum priority - use flag 1 to force restart
+        -- Force play death animation with higher priority
         TaskPlayAnim(cache.ped, deadAnimDict, deadAnim, 8.0, 8.0, -1, 1, 0, false, false, false)
-        -- Also try with different flags to ensure it plays
-        Wait(50)
-        if not IsEntityPlayingAnim(cache.ped, deadAnimDict, deadAnim, 3) then
-            TaskPlayAnim(cache.ped, deadAnimDict, deadAnim, 8.0, 8.0, -1, 1, 0, false, false, false)
-        end
     end
 end
 
@@ -87,23 +76,18 @@ exports('ResetDeathLock', ResetDeathLock)
 ---put player in death animation and make invincible
 function OnDeath(attacker, weapon)
     -- Prevent double-death - if already dead, return immediately
-    -- Check lock FIRST before anything else
-    if onDeathLock then
+    if DeathState == sharedConfig.deathState.DEAD or onDeathLock then
         return
     end
     
-    -- Set lock IMMEDIATELY to prevent any other calls
     onDeathLock = true
-    
-    -- Set local state IMMEDIATELY (before state bag update) to prevent double-trigger
-    DeathState = sharedConfig.deathState.DEAD
     
     -- Initialize death time if not set
     if DeathTime <= 0 then
         DeathTime = config.deathTime
     end
     
-    -- Force DEAD state in state bag (this will sync to server)
+    -- Force DEAD state immediately
     SetDeathState(sharedConfig.deathState.DEAD)
     
     -- Stop ALL animations immediately
@@ -123,14 +107,12 @@ function OnDeath(attacker, weapon)
     SetEntityHealth(cache.ped, GetEntityMaxHealth(cache.ped))
     
     -- Wait a moment for resurrection to complete
-    Wait(300)
+    Wait(200)
     
-    -- Force death animation immediately after resurrection - play multiple times to ensure it sticks
+    -- Force death animation immediately after resurrection
     playDeadAnimation()
-    Wait(200)
-    playDeadAnimation()
-    Wait(200)
-    playDeadAnimation() -- Play 3 times to ensure it's active
+    Wait(300) -- Wait for animation to start
+    playDeadAnimation() -- Play again to ensure it's active
     
     -- Trigger events AFTER state is set and animation is playing (so UI shows correctly)
     TriggerEvent('qbx_medical:client:onPlayerDied', attacker, weapon)
@@ -161,24 +143,17 @@ function OnDeath(attacker, weapon)
         -- Ensure animation dictionary is loaded
         if not HasAnimDictLoaded(deadAnimDict) then
             RequestAnimDict(deadAnimDict)
-            local timeout = 0
-            while not HasAnimDictLoaded(deadAnimDict) and timeout < 100 do
+            while not HasAnimDictLoaded(deadAnimDict) do
                 Wait(10)
-                timeout = timeout + 1
             end
         end
         
-        -- Wait a bit for initial animation to start
-        Wait(500)
-        
         while DeathState == sharedConfig.deathState.DEAD do
             -- Continuously ensure death animation is playing with high priority
-            -- Check more frequently and be more aggressive
             if not IsEntityPlayingAnim(cache.ped, deadAnimDict, deadAnim, 3) then
-                ClearPedTasksImmediately(cache.ped)
                 TaskPlayAnim(cache.ped, deadAnimDict, deadAnim, 8.0, 8.0, -1, 1, 0, false, false, false)
             end
-            Wait(50) -- Check every 50ms for faster response
+            Wait(100) -- Check every 100ms
         end
     end)
     
@@ -268,8 +243,8 @@ CreateThread(function()
         local isDead = IsEntityDead(cache.ped)
         
         -- If health dropped to 0 or below and we're NOT dead, trigger death IMMEDIATELY
-        -- Check lock FIRST, then state - this prevents race conditions
-        if not onDeathLock and DeathState ~= sharedConfig.deathState.DEAD and (currentHealth <= 0 or isDead) then
+        -- Also check onDeathLock to prevent double-death
+        if DeathState ~= sharedConfig.deathState.DEAD and not onDeathLock and (currentHealth <= 0 or isDead) then
             -- Stop ALL animations before anything else
             ClearPedTasksImmediately(cache.ped)
             StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 0.0)
@@ -289,13 +264,8 @@ AddEventHandler('gameEventTriggered', function(event, data)
     local victim, attacker, victimDied, weapon = data[1], data[2], data[4], data[7]
     if not IsEntityAPed(victim) or not victimDied or NetworkGetPlayerIndexFromPed(victim) ~= cache.playerId or not IsEntityDead(cache.ped) then return end
     
-    -- Prevent double-death - check lock FIRST (most important check)
-    if onDeathLock then
-        return
-    end
-    
-    -- Also check state as secondary check
-    if DeathState == sharedConfig.deathState.DEAD then
+    -- Prevent double-death - check both state and lock
+    if DeathState == sharedConfig.deathState.DEAD or onDeathLock then
         return
     end
     
