@@ -37,12 +37,6 @@ DeathState = playerState[DEATH_STATE_STATE_BAG] or sharedConfig.deathState.ALIVE
 
 AddStateBagChangeHandler(DEATH_STATE_STATE_BAG, ('player:%s'):format(cache.serverId), function(_, _, value)
     DeathState = value
-    -- Reset death lock when state changes to ALIVE (prevents double-death bug)
-    if value == sharedConfig.deathState.ALIVE then
-        if exports.qbx_medical.ResetDeathLock then
-            exports.qbx_medical:ResetDeathLock()
-        end
-    end
 end)
 
 function SetDeathState(deathState)

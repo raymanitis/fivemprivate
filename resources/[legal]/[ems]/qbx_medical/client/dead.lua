@@ -34,12 +34,9 @@ local function playDeadAnimation()
     local deadVehAnimDict = 'veh@low@front_ps@idle_duck'
     local deadVehAnim = 'sit'
 
-    -- Request animation dictionary (wait for it to load)
+    -- Request animation dictionary
     lib.requestAnimDict(deadAnimDict, 5000)
     lib.requestAnimDict(deadVehAnimDict, 5000)
-    
-    -- Wait a moment for dictionaries to load
-    Wait(100)
 
     if cache.vehicle then
         -- Stop any existing animation
@@ -49,8 +46,8 @@ local function playDeadAnimation()
     else
         -- Stop any existing animation
         StopAnimTask(cache.ped, deadAnimDict, deadAnim, 0.0)
-        -- Force play death animation with higher priority
-        TaskPlayAnim(cache.ped, deadAnimDict, deadAnim, 8.0, 8.0, -1, 1, 0, false, false, false)
+        -- Force play death animation
+        TaskPlayAnim(cache.ped, deadAnimDict, deadAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     end
 end
 
@@ -58,7 +55,7 @@ exports('PlayDeadAnimation', playDeadAnimation)
 
 local onDeathLock = false
 
----Reset death lock (called when state changes to ALIVE)
+---Reset death lock (called on revive)
 function ResetDeathLock()
     onDeathLock = false
 end
@@ -96,21 +93,6 @@ function OnDeath(attacker, weapon)
     -- Wait for player to stop moving
     WaitForPlayerToStopMoving()
 
-    LocalPlayer.state.invBusy = true
-
-    -- Resurrect and setup death state FIRST
-    ResurrectPlayer()
-    SetEntityInvincible(cache.ped, true)
-    SetEntityHealth(cache.ped, GetEntityMaxHealth(cache.ped))
-    
-    -- Wait a moment for resurrection to complete
-    Wait(100)
-    
-    -- Force death animation immediately after resurrection
-    playDeadAnimation()
-    Wait(200) -- Wait for animation to start
-    playDeadAnimation() -- Play again to ensure it's active
-    
     -- Start control disabling thread
     CreateThread(function()
         while DeathState == sharedConfig.deathState.DEAD do
@@ -143,6 +125,18 @@ function OnDeath(attacker, weapon)
         end
     end)
     
+    LocalPlayer.state.invBusy = true
+
+    -- Resurrect and setup death state
+    ResurrectPlayer()
+    SetEntityInvincible(cache.ped, true)
+    SetEntityHealth(cache.ped, GetEntityMaxHealth(cache.ped))
+    
+    -- Force death animation immediately
+    playDeadAnimation()
+    Wait(100) -- Wait for animation to start
+    playDeadAnimation() -- Play again to ensure it's active
+    
     -- Start respawn check
     CheckForRespawn()
 end
@@ -152,11 +146,6 @@ exports('KillPlayer', OnDeath)
 local function respawn()
     local success = lib.callback.await('qbx_medical:server:respawn')
     if not success then return end
-    
-    -- Reset death state and lock
-    SetDeathState(sharedConfig.deathState.ALIVE)
-    ResetDeathLock()
-    
     if QBX.PlayerData.metadata.ishandcuffed then
         TriggerEvent('police:client:GetCuffed', -1)
     end
@@ -225,8 +214,7 @@ CreateThread(function()
         local isDead = IsEntityDead(cache.ped)
         
         -- If health dropped to 0 or below and we're NOT dead, trigger death IMMEDIATELY
-        -- Also check onDeathLock to prevent double-death
-        if DeathState ~= sharedConfig.deathState.DEAD and not onDeathLock and (currentHealth <= 0 or isDead) then
+        if DeathState ~= sharedConfig.deathState.DEAD and (currentHealth <= 0 or isDead) then
             -- Stop ALL animations before anything else
             ClearPedTasksImmediately(cache.ped)
             StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 0.0)
