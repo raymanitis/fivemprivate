@@ -26,10 +26,12 @@ return {
 		scenario = 'WORLD_HUMAN_STAND_IMPATIENT', -- Animation for all peds (optional)
 		distance = 2.0, -- Interaction distance (default 2.0, optional)
 		inventory = {
-			{ name = 'burger', price = 5 },
-			{ name = 'water', price = 1 },
-			{ name = 'toast', price = 5 },
-			{ name = 'lockpick', price = 50 }
+			{ name = 'bubbletea', price = 50 },
+			{ name = 'coffee_frappuccino', price = 50 },
+			{ name = 'water_bottle', price = 50 },
+			{ name = 'baconburger', price = 50 },
+			{ name = 'bagel', price = 50 },
+			{ name = 'brownie', price = 50 }
 		},
 		-- Targets: vec4 format (x, y, z, heading)
 		targets = {
@@ -104,7 +106,7 @@ return {
 		ped = `mp_m_shopkeep_01`, -- Ped model
 		-- No scenario - ped will just stand there
 		inventory = {
-			{ name = 'whiskey', price = 10 },
+			{ name = 'vodka', price = 10 },
 			{ name = 'beer', price = 5 }
 		},
 		targets = {
