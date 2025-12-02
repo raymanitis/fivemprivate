@@ -25,7 +25,13 @@ exports('PlayDeadAnimation', playDeadAnimation)
 
 ---put player in death animation and make invincible
 function OnDeath(attacker, weapon)
+    -- Force DEAD state immediately - no laststand
     SetDeathState(sharedConfig.deathState.DEAD)
+    
+    -- Stop any laststand animations that might be playing
+    StopAnimTask(cache.ped, 'combat@damage@writhe', 'writhe_loop', 3.0)
+    RemoveAnimDict('combat@damage@writhe')
+    
     TriggerEvent('qbx_medical:client:onPlayerDied', attacker, weapon)
     TriggerServerEvent('qbx_medical:server:onPlayerDied', attacker, weapon)
     TriggerServerEvent('InteractSound_SV:PlayOnSource', 'demo', 0.1)
@@ -42,7 +48,7 @@ function OnDeath(attacker, weapon)
     LocalPlayer.state.invBusy = true
 
     ResurrectPlayer()
-    playDeadAnimation()
+    playDeadAnimation() -- This plays the proper death animation (dead_a or dead_f)
     SetEntityInvincible(cache.ped, true)
     SetEntityHealth(cache.ped, GetEntityMaxHealth(cache.ped))
     CheckForRespawn()
