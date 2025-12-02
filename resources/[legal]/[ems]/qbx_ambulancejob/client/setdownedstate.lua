@@ -4,8 +4,6 @@ local doctorCount = 0
 local helpCooldown = 0
 local helpCooldownTimer = 0
 local isUIVisible = false
-local laststandStartTime = 0
-local laststandTimerActive = false
 local showTransferPrompt = false
 local transferPromptShown = false
 
@@ -43,25 +41,16 @@ local function showDeathUI(deathTime)
     })
 end
 
----Show last stand UI
+---Show last stand UI - Treat as death (skip laststand)
 ---@param laststandTime number
 local function showLastStandUI(laststandTime)
-    if not isUIVisible then
-        isUIVisible = true
-        SetNuiFocus(false, false)
+    -- Skip laststand, treat as death immediately
+    local deathTime = exports.qbx_medical:GetDeathTime()
+    if deathTime <= 0 then
+        -- If no death time, use config death time from qbx_medical
+        deathTime = exports.qbx_medical:GetDeathTime() or 300
     end
-    -- Use our config timer instead of qbx_medical's timer
-    if not laststandTimerActive then
-        laststandStartTime = GetGameTimer()
-        laststandTimerActive = true
-    end
-    local elapsed = math.floor((GetGameTimer() - laststandStartTime) / 1000)
-    local remainingTime = math.max(0, config.laststandTimer - elapsed)
-    sendNUIMessage('knocked_down', {
-        timer = math.ceil(remainingTime),
-        canCallHelp = true, -- Always allow showing the help text
-        helpCooldown = helpCooldown > 0 and helpCooldown or nil,
-    })
+    showDeathUI(deathTime)
 end
 
 ---Hide death screen UI
@@ -70,8 +59,6 @@ local function hideDeathUI()
         isUIVisible = false
         sendNUIMessage('ambulance_reset', {})
     end
-    laststandTimerActive = false
-    laststandStartTime = 0
     showTransferPrompt = false
     transferPromptShown = false
 end
@@ -175,9 +162,7 @@ local function handleDead(ped)
     playDeadAnimation(ped)
 end
 
-local function handleLastStand()
-    -- Animation is handled by qbx_medical
-end
+-- Removed handleLastStand - laststand is now treated as death
 
 ---Handle help cooldown timer
 CreateThread(function()
@@ -193,23 +178,15 @@ CreateThread(function()
                     -- Update UI to show help is available again
                     local isDead = exports.qbx_medical:IsDead()
                     local inLaststand = exports.qbx_medical:IsLaststand()
-                    if isDead then
+                    -- Treat laststand as death (skip laststand stage)
+                    if isDead or inLaststand then
                         local deathTime = exports.qbx_medical:GetDeathTime()
+                        if deathTime <= 0 and inLaststand then
+                            -- If in laststand but no death time yet, use default
+                            deathTime = 300
+                        end
                         sendNUIMessage('eliminated', {
                             timer = math.ceil(deathTime),
-                            canCallHelp = true,
-                            helpCooldown = nil,
-                        })
-                    elseif inLaststand then
-                        -- Use our config timer instead of qbx_medical's timer
-                        if not laststandTimerActive then
-                            laststandStartTime = GetGameTimer()
-                            laststandTimerActive = true
-                        end
-                        local elapsed = math.floor((GetGameTimer() - laststandStartTime) / 1000)
-                        local remainingTime = math.max(0, config.laststandTimer - elapsed)
-                        sendNUIMessage('knocked_down', {
-                            timer = math.ceil(remainingTime),
                             canCallHelp = true,
                             helpCooldown = nil,
                         })
@@ -236,7 +213,8 @@ CreateThread(function()
             local isDead = exports.qbx_medical:IsDead()
             local inLaststand = exports.qbx_medical:IsLaststand()
             
-            if isDead then
+            -- Treat laststand as death (skip laststand stage)
+            if isDead or inLaststand then
                 local deathTime = math.ceil(exports.qbx_medical:GetDeathTime())
                 -- Only send update if timer changed
                 if lastSentTimer ~= deathTime then
@@ -246,28 +224,6 @@ CreateThread(function()
                 
                 -- Show transfer prompt when timer ends
                 if deathTime <= 0 and config.allowTransferToHospital and not transferPromptShown then
-                    showTransferPrompt = true
-                    transferPromptShown = true
-                end
-            elseif inLaststand then
-                -- Use our config timer instead of qbx_medical's timer
-                if not laststandTimerActive then
-                    laststandStartTime = GetGameTimer()
-                    laststandTimerActive = true
-                end
-                local elapsed = math.floor((GetGameTimer() - laststandStartTime) / 1000)
-                local remainingTime = math.max(0, config.laststandTimer - elapsed)
-                local laststandTime = math.ceil(remainingTime)
-                -- Only send update if timer changed
-                if lastSentTimer ~= laststandTime then
-                    lastSentTimer = laststandTime
-                    sendNUIMessage('update_respawn_timer', {
-                        timer = laststandTime,
-                    })
-                end
-                
-                -- Show transfer prompt when timer ends
-                if remainingTime <= 0 and config.allowTransferToHospital and not transferPromptShown then
                     showTransferPrompt = true
                     transferPromptShown = true
                 end
@@ -366,16 +322,18 @@ RegisterNetEvent('qbx_medical:client:onPlayerLaststand', function()
     CreateThread(function()
         Wait(500) -- Small delay to ensure laststand state is set
         local inLaststand = exports.qbx_medical:IsLaststand()
+        -- Skip laststand, treat as death immediately
         if inLaststand then
-            -- Reset timer tracking when laststand starts
-            laststandStartTime = GetGameTimer()
-            laststandTimerActive = true
-            showLastStandUI(config.laststandTimer)
+            local deathTime = exports.qbx_medical:GetDeathTime()
+            if deathTime <= 0 then
+                deathTime = 300 -- Default death time if not set
+            end
+            showDeathUI(deathTime)
         end
     end)
 end)
 
----Set dead and last stand states.
+---Set dead state (skip laststand, treat as death immediately)
 CreateThread(function()
     local lastUpdate = 0 -- Initialize to 0 so we fetch immediately
     local isFirstCheck = true
@@ -383,23 +341,18 @@ CreateThread(function()
         local isDead = exports.qbx_medical:IsDead()
         local inLaststand = exports.qbx_medical:IsLaststand()
         
+        -- Treat laststand as death (skip laststand stage)
         if isDead or inLaststand then
             -- Always show UI when dead/laststand (in case events didn't fire)
             if not isUIVisible then
-                if isDead then
-                    local deathTime = exports.qbx_medical:GetDeathTime()
-                    showDeathUI(deathTime)
-                elseif inLaststand then
-                    -- Reset timer tracking when laststand starts
-                    if not laststandTimerActive then
-                        laststandStartTime = GetGameTimer()
-                        laststandTimerActive = true
-                    end
-                    showLastStandUI(config.laststandTimer)
+                local deathTime = exports.qbx_medical:GetDeathTime()
+                if deathTime <= 0 then
+                    deathTime = 300 -- Default death time if not set
                 end
+                showDeathUI(deathTime)
             end
             
-            -- Fetch doctor count immediately on first death/laststand, then every 60 seconds
+            -- Fetch doctor count immediately on first death, then every 60 seconds
             local currentTime = GetGameTimer()
             if (currentTime - lastUpdate) > 60000 or isFirstCheck then
                 doctorCount = getDoctorCount()
@@ -407,18 +360,36 @@ CreateThread(function()
                 isFirstCheck = false
             end
             
-            -- Handle animations
-            if isDead then
-                handleDead(cache.ped)
-            elseif inLaststand then
-                handleLastStand()
-            end
+            -- Handle animations (always use death animation)
+            handleDead(cache.ped)
 
             -- Handle help call key press (H key - control 74)
             -- Enable the control first, then check if pressed
             EnableControlAction(0, 74, true)
             if IsControlJustPressed(0, 74) and not IsPauseMenuActive() then
                 handleHelpCall()
+            end
+            
+            -- Block animations (hands up, etc.)
+            DisableControlAction(0, 36, true) -- Ctrl (duck/crouch)
+            DisableControlAction(0, 44, true) -- Q (hands up)
+            DisableControlAction(0, 140, true) -- R (reload/animations)
+            DisableControlAction(0, 141, true) -- Shift (sprint)
+            DisableControlAction(0, 142, true) -- Alt (walk)
+            DisableControlAction(0, 143, true) -- X (hands up)
+            DisableControlAction(0, 172, true) -- Arrow up
+            DisableControlAction(0, 173, true) -- Arrow down
+            DisableControlAction(0, 174, true) -- Arrow left
+            DisableControlAction(0, 175, true) -- Arrow right
+            -- Enable H key for help call
+            EnableControlAction(0, 74, true) -- H key
+            
+            -- Handle transfer prompt (E key)
+            if showTransferPrompt and config.allowTransferToHospital then
+                EnableControlAction(0, 38, true) -- E key
+                if IsControlJustPressed(0, 38) then
+                    showTransferDialog()
+                end
             end
 
             Wait(0)
@@ -428,6 +399,9 @@ CreateThread(function()
             end
             lastUpdate = 0 -- Reset so we fetch immediately next time
             isFirstCheck = true
+            if not IsInHospitalBed then
+                LocalPlayer.state.invBusy = false
+            end
             Wait(1000)
         end
     end
