@@ -16,7 +16,13 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: transparent;
+    background: transparent !important;
+    background-color: transparent !important;
+    pointer-events: none; // Allow clicks to pass through empty areas
+    
+    .card {
+        pointer-events: auto; // Re-enable clicks on the card itself
+    }
 }
 
 .card {
@@ -26,10 +32,17 @@
     margin: auto !important;
     width: fit-content;
     bottom: 10vh;
+    background: transparent !important;
     background-color: transparent !important;
     border: 0.0625rem solid #c2f4f967 !important;
     border-radius: 0.25rem !important;
     padding: 0.75rem 1rem !important;
+    box-shadow: none !important;
+    
+    // Override Vuetify v-card default styles
+    &::before {
+        display: none !important;
+    }
     
     .title {
         display: flex;
