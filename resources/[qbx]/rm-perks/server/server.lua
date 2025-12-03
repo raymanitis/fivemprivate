@@ -2,7 +2,7 @@ local utils = require 'modules.utils'
 
 -- Database table creation
 CreateThread(function()
-    MySQL.query([[
+    exports.oxmysql:execute([[
         CREATE TABLE IF NOT EXISTS `specializations` (
             `id` INT(11) NOT NULL AUTO_INCREMENT,
             `citizenid` VARCHAR(50) NOT NULL,
@@ -17,7 +17,7 @@ end)
 
 -- Get player's current specialization
 local function GetPlayerSpecialization(citizenid)
-    local result = MySQL.query.await('SELECT * FROM specializations WHERE citizenid = ?', {citizenid})
+    local result = exports.oxmysql:querySync('SELECT * FROM specializations WHERE citizenid = ?', {citizenid})
     if result and #result > 0 then
         return result[1]
     end
@@ -29,12 +29,12 @@ local function SetPlayerSpecialization(citizenid, specializationId)
     local existing = GetPlayerSpecialization(citizenid)
     
     if existing then
-        MySQL.update('UPDATE specializations SET specialization_id = ?, selected_at = CURRENT_TIMESTAMP WHERE citizenid = ?', {
+        exports.oxmysql:execute('UPDATE specializations SET specialization_id = ?, selected_at = CURRENT_TIMESTAMP WHERE citizenid = ?', {
             specializationId,
             citizenid
         })
     else
-        MySQL.insert('INSERT INTO specializations (citizenid, specialization_id) VALUES (?, ?)', {
+        exports.oxmysql:execute('INSERT INTO specializations (citizenid, specialization_id) VALUES (?, ?)', {
             citizenid,
             specializationId
         })
@@ -49,7 +49,7 @@ local function CanChangeSpecialization(citizenid)
     end
     
     -- Use MySQL to calculate time difference
-    local result = MySQL.query.await('SELECT TIMESTAMPDIFF(SECOND, selected_at, NOW()) as seconds_passed FROM specializations WHERE citizenid = ?', {citizenid})
+    local result = exports.oxmysql:querySync('SELECT TIMESTAMPDIFF(SECOND, selected_at, NOW()) as seconds_passed FROM specializations WHERE citizenid = ?', {citizenid})
     if not result or #result == 0 then
         return true, 0
     end
