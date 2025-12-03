@@ -2,36 +2,36 @@ Config = {
     Target = 'ox', -- 'ox' , 'qb'
     FrameworkLoadinEvent = 'QBCore:Client:OnPlayerLoaded', --leave empty if dont need
     peds = { -- some example peds i recomend creating them via your own script
-    --     ['test'] = {
-    --         label = 'Talk to stranger',
-    --         icon = 'fa-solid fa-comment',
-    --         model = "csb_avon",
-    --         coords = vector3(165.48, 6612.81, 31.9),
-    --         heading = 170,
-    --         data = {
-    --             firstname = 'John',
-    --             lastname = 'Doe',
-    --             text = 'Hey bud, how ya doin.',
-    --             buttons = {
-    --                 { 
-    --                     text = 'Im ok, how are you?',
-    --                     data = {
-    --                         text = 'Im cool rn, see you around!',
-    --                         buttons = {
-    --                             {
-    --                                 text = 'Se ya',
-    --                                 close = true
-    --                             },
-    --                         }
-    --                     } 
-    --                 },
-    --                 { 
-    --                     text = 'No sorry, im gonna leave', 
-    --                     close = true 
-    --                 },
-    --             }
-    --         }
-    --     },
+        ['test'] = {
+            label = 'Talk to stranger',
+            icon = 'fa-solid fa-comment',
+            model = "csb_avon",
+            coords = vector3(165.48, 6612.81, 31.9),
+            heading = 170,
+            data = {
+                firstname = 'John',
+                lastname = 'Doe',
+                text = 'Hey bud, how ya doin.',
+                buttons = {
+                    { 
+                        text = 'Im ok, how are you?',
+                        data = {
+                            text = 'Im cool rn, see you around!',
+                            buttons = {
+                                {
+                                    text = 'Se ya',
+                                    close = true
+                                },
+                            }
+                        } 
+                    },
+                    { 
+                        text = 'No sorry, im gonna leave', 
+                        close = true 
+                    },
+                }
+            }
+        },
     --     ['test2'] = {
     --         label = 'Talk to the Mechanic',
     --         icon = 'fa-solid fa-comment',
