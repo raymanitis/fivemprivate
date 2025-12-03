@@ -96,6 +96,7 @@
         "painkillers": "Taking Painkillers...",
         "revive": "Reviving Person...",
         "healing": "Healing Wounds...",
-        "checking_in": "Checking in..."
+        "checking_in": "Checking in...",
+        "recovering": "Recovering..."
     }
 }

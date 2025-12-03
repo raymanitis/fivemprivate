@@ -65,8 +65,26 @@ local function putPlayerInBed(hospitalName, bedIndex, isRevive, skipOpenCheck)
         Wait(5)
         if isRevive then
             exports.qbx_core:Notify(locale('success.being_helped'), 'success')
-            Wait(config.aiHealTimer * 1000)
-            TriggerEvent('hospital:client:Revive')
+            
+            -- Show recovery progress bar
+            local healTime = config.aiHealTimer * 1000
+            if lib.progressBar({
+                duration = healTime,
+                label = locale('progress.recovering') or 'Recovering...',
+                useWhileDead = false,
+                canCancel = false,
+                disable = {
+                    move = true,
+                    car = true,
+                    combat = true,
+                    mouse = true,
+                },
+            }) then
+                -- Recovery complete
+                TriggerEvent('hospital:client:Revive')
+                CanLeaveBed = true
+                -- Text UI will be shown automatically by the thread that checks CanLeaveBed
+            end
         else
             CanLeaveBed = true
         end
