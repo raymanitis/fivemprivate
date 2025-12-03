@@ -83,9 +83,7 @@ return {
             id = 'animations',
             icon = 'theater-masks',
             label = 'Animations',
-            action = function()
-                TriggerEvent('scully_emotemenu:toggleMenu')
-            end
+            event = 'qbx_radialmenu:client:openAnimations'
         },
         {
             id = 'walk_styles',
@@ -155,6 +153,18 @@ return {
                     args = 'move_m@drunk@a'
                 },
             },
+        },
+        {
+            id = 'perks_menu',
+            icon = 'star',
+            label = 'Perks Menu',
+            event = 'qbx_radialmenu:client:openPerks'
+        },
+        {
+            id = 'skill_tree',
+            icon = 'diagram-project',
+            label = 'Skill Tree',
+            event = 'qbx_radialmenu:client:openSkillTree'
         },
         {
             id = 'general',
