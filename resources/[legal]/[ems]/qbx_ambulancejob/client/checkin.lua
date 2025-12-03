@@ -17,58 +17,44 @@ end
 local function showPaymentDialog(ped, hospitalName, pedName)
     local cost = sharedConfig.checkInCost
     
-    -- Check if player has enough money (server-side check via callback)
-    local hasCash = lib.callback.await('qbx_ambulancejob:server:hasMoneyForCheckIn', false, 'cash')
-    local hasCard = lib.callback.await('qbx_ambulancejob:server:hasMoneyForCheckIn', false, 'card')
-    
-    -- Build payment options with availability indicators
-    local paymentOptions = {}
-    
-    if hasCash then
-        paymentOptions[#paymentOptions + 1] = {
+    -- Show payment dialog immediately, check money when options are selected
+    local paymentOptions = {
+        {
             id = 'cash',
             label = locale('text.pay_cash') .. ' ($' .. cost .. ')',
             icon = 'money-bill-wave',
             close = true,
             action = function()
-                processCheckIn(hospitalName, 'cash')
+                -- Check money before processing
+                local hasCash = lib.callback.await('qbx_ambulancejob:server:hasMoneyForCheckIn', false, 'cash')
+                if hasCash then
+                    processCheckIn(hospitalName, 'cash')
+                else
+                    exports.qbx_core:Notify(locale('error.not_enough_money'), 'error')
+                end
             end
-        }
-    else
-        paymentOptions[#paymentOptions + 1] = {
-            id = 'cash',
-            label = locale('text.pay_cash') .. ' ($' .. cost .. ') - ' .. locale('error.not_enough_money'),
-            icon = 'money-bill-wave',
-            close = true,
-            disabled = true
-        }
-    end
-    
-    if hasCard then
-        paymentOptions[#paymentOptions + 1] = {
+        },
+        {
             id = 'card',
             label = locale('text.pay_card') .. ' ($' .. cost .. ')',
             icon = 'credit-card',
             close = true,
             action = function()
-                processCheckIn(hospitalName, 'card')
+                -- Check money before processing
+                local hasCard = lib.callback.await('qbx_ambulancejob:server:hasMoneyForCheckIn', false, 'card')
+                if hasCard then
+                    processCheckIn(hospitalName, 'card')
+                else
+                    exports.qbx_core:Notify(locale('error.not_enough_money'), 'error')
+                end
             end
-        }
-    else
-        paymentOptions[#paymentOptions + 1] = {
-            id = 'card',
-            label = locale('text.pay_card') .. ' ($' .. cost .. ') - ' .. locale('error.not_enough_money'),
-            icon = 'credit-card',
+        },
+        {
+            id = 'close',
+            label = locale('text.no') or 'Cancel',
+            icon = 'ban',
             close = true,
-            disabled = true
-        }
-    end
-    
-    paymentOptions[#paymentOptions + 1] = {
-        id = 'close',
-        label = locale('text.no') or 'Cancel',
-        icon = 'ban',
-        close = true,
+        },
     }
     
     exports.mt_lib:showDialogue({
@@ -168,7 +154,11 @@ local function createCheckInPed(hospitalName, pedData)
                             icon = 'clipboard',
                             close = true,
                             action = function()
-                                showPaymentDialog(ped, hospitalName, pedName)
+                                -- Create a thread to show payment dialog after first dialog closes
+                                CreateThread(function()
+                                    Wait(200)
+                                    showPaymentDialog(ped, hospitalName, pedName)
+                                end)
                             end
                         },
                         {
