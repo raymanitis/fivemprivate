@@ -335,7 +335,6 @@ if config.useTarget then
             end
         end
 
-<<<<<<< HEAD
         for i = 1, #sharedConfig.locations.armory do
             if sharedConfig.locations.armory[i] and sharedConfig.locations.armory[i].locations then
                 for ii = 1, #sharedConfig.locations.armory[i].locations do
@@ -381,24 +380,9 @@ if config.useTarget then
                         distance = 1.5,
                         groups = 'ambulance',
                     }
-=======
-        exports.ox_target:addBoxZone({
-            name = 'roof1',
-            coords = sharedConfig.locations.roof[1],
-            size = vec3(1, 2, 2),
-            rotation = -20,
-            debug = config.debugPoly,
-            options = {
-                {
-                    icon = 'fas fa-hand-point-down',
-                    label = locale('text.el_main'),
-                    onSelect = teleportToMainElevator,
-                    distance = 1.5,
-                    groups = 'ambulance',
->>>>>>> parent of 14ae458 (fix)
                 }
-            }
-        })
+            })
+        end
 
         if sharedConfig.locations.main and sharedConfig.locations.main[1] then
             exports.ox_target:addBoxZone({
