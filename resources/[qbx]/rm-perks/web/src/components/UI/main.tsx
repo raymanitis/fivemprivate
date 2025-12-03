@@ -140,15 +140,16 @@ export function UI() {
           {/* Blurred Background Overlay */}
           <Box
             style={{
-              position: 'absolute',
+              position: 'fixed',
               top: 0,
               left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              zIndex: -1,
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'rgba(0, 0, 0, 0.3)',
+              backdropFilter: 'blur(20px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+              zIndex: 0,
+              pointerEvents: 'none',
             }}
           />
           <Box
@@ -162,6 +163,7 @@ export function UI() {
               flexDirection: 'column',
               overflow: 'visible',
               zIndex: 1,
+              pointerEvents: 'auto',
             }}
           >
             <Stack gap="xl" style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'visible' }}>
