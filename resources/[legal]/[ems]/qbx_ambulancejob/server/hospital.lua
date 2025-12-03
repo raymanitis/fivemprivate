@@ -147,6 +147,16 @@ end
 
 lib.callback.register('qbx_ambulancejob:server:checkIn', checkIn)
 
+---Check if player has enough money for check-in
+lib.callback.register('qbx_ambulancejob:server:hasMoneyForCheckIn', function(source, paymentMethod)
+	local player = exports.qbx_core:GetPlayer(source)
+	if not player then return false end
+	
+	local cost = sharedConfig.checkInCost
+	local moneyType = paymentMethod == 'cash' and 'cash' or 'bank'
+	return (player.PlayerData.money[moneyType] or 0) >= cost
+end)
+
 lib.callback.register('qbx_ambulancejob:server:getClosestHospital', function(source)
 	local player = exports.qbx_core:GetPlayer(source)
 	if not player then return nil end

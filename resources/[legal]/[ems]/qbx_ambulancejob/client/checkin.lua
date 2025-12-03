@@ -10,6 +10,124 @@ local function setPedScenario(ped, scenario)
     TaskStartScenarioInPlace(ped, scenario, 0, true)
 end
 
+---Show payment selection dialog and process check-in
+---@param ped number
+---@param hospitalName string
+---@param pedName string
+local function showPaymentDialog(ped, hospitalName, pedName)
+    local cost = sharedConfig.checkInCost
+    
+    -- Check if player has enough money (server-side check via callback)
+    local hasCash = lib.callback.await('qbx_ambulancejob:server:hasMoneyForCheckIn', false, 'cash')
+    local hasCard = lib.callback.await('qbx_ambulancejob:server:hasMoneyForCheckIn', false, 'card')
+    
+    -- Build payment options with availability indicators
+    local paymentOptions = {}
+    
+    if hasCash then
+        paymentOptions[#paymentOptions + 1] = {
+            id = 'cash',
+            label = locale('text.pay_cash') .. ' ($' .. cost .. ')',
+            icon = 'money-bill-wave',
+            close = true,
+            action = function()
+                processCheckIn(hospitalName, 'cash')
+            end
+        }
+    else
+        paymentOptions[#paymentOptions + 1] = {
+            id = 'cash',
+            label = locale('text.pay_cash') .. ' ($' .. cost .. ') - ' .. locale('error.not_enough_money'),
+            icon = 'money-bill-wave',
+            close = true,
+            disabled = true
+        }
+    end
+    
+    if hasCard then
+        paymentOptions[#paymentOptions + 1] = {
+            id = 'card',
+            label = locale('text.pay_card') .. ' ($' .. cost .. ')',
+            icon = 'credit-card',
+            close = true,
+            action = function()
+                processCheckIn(hospitalName, 'card')
+            end
+        }
+    else
+        paymentOptions[#paymentOptions + 1] = {
+            id = 'card',
+            label = locale('text.pay_card') .. ' ($' .. cost .. ') - ' .. locale('error.not_enough_money'),
+            icon = 'credit-card',
+            close = true,
+            disabled = true
+        }
+    end
+    
+    paymentOptions[#paymentOptions + 1] = {
+        id = 'close',
+        label = locale('text.no') or 'Cancel',
+        icon = 'ban',
+        close = true,
+    }
+    
+    exports.mt_lib:showDialogue({
+        ped = ped,
+        label = pedName,
+        speech = locale('text.payment_method') .. '? The cost is $' .. cost .. '.',
+        options = paymentOptions
+    })
+end
+
+---Process the check-in with payment method
+---@param hospitalName string
+---@param paymentMethod string
+local function processCheckIn(hospitalName, paymentMethod)
+    local canCheckIn = lib.callback.await('qbx_ambulancejob:server:canCheckIn', false, hospitalName)
+    if not canCheckIn then return end
+
+    if lib.progressCircle({
+        duration = 2000,
+        position = 'bottom',
+        label = locale('progress.checking_in'),
+        useWhileDead = false,
+        canCancel = true,
+        disable = {
+            move = true,
+            car = true,
+            combat = true,
+            mouse = false,
+        },
+        anim = {
+            clip = 'base',
+            dict = 'missheistdockssetup1clipboard@base',
+            flag = 16
+        },
+        prop = {
+            {
+                model = 'prop_notepad_01',
+                bone = 18905,
+                pos = vec3(0.1, 0.02, 0.05),
+                rot = vec3(10.0, 0.0, 0.0),
+            },
+            {
+                model = 'prop_pencil_01',
+                bone = 58866,
+                pos = vec3(0.11, -0.02, 0.001),
+                rot = vec3(-120.0, 0.0, 0.0)
+            }
+        }
+    })
+    then
+        local success = lib.callback.await('qbx_ambulancejob:server:checkIn', false, cache.serverId, hospitalName, paymentMethod)
+        if not success then
+            exports.qbx_core:Notify(locale('error.payment_failed'), 'error')
+        end
+    else
+        exports.qbx_core:Notify(locale('error.canceled'), 'error')
+    end
+end
+
 ---@param hospitalName string
 ---@param pedData table
 local function createCheckInPed(hospitalName, pedData)
@@ -29,6 +147,9 @@ local function createCheckInPed(hospitalName, pedData)
     
     checkInPeds[hospitalName] = ped
     
+    -- Store ped data for later use
+    local pedName = pedData.name or 'Hospital Receptionist'
+    
     exports.ox_target:addLocalEntity(ped, {
         {
             name = 'hospital_checkin_' .. hospitalName,
@@ -36,7 +157,28 @@ local function createCheckInPed(hospitalName, pedData)
             label = locale('text.check_in'),
             distance = 2.5,
             onSelect = function()
-                TriggerEvent('qbx_ambulancejob:client:checkIn', hospitalName)
+                exports.mt_lib:showDialogue({
+                    ped = ped,
+                    label = pedName,
+                    speech = 'How can I help you?',
+                    options = {
+                        {
+                            id = 'checkin',
+                            label = locale('text.check') .. ' - $' .. sharedConfig.checkInCost,
+                            icon = 'clipboard',
+                            close = true,
+                            action = function()
+                                showPaymentDialog(ped, hospitalName, pedName)
+                            end
+                        },
+                        {
+                            id = 'close',
+                            label = locale('text.no') or "I don't need anything",
+                            icon = 'ban',
+                            close = true,
+                        },
+                    }
+                })
             end,
         }
     })
