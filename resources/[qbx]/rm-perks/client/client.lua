@@ -4,6 +4,8 @@ local utils = require 'modules.utils'
 RegisterNuiCallback('hideApp', function(data, cb)
     utils.ShowNUI('UPDATE_VISIBILITY', false)
     SetNuiFocus(false, false)
+    -- Disable blur effect
+    ClearTimecycleModifier()
     cb('ok')
 end)
 
@@ -35,6 +37,8 @@ RegisterNetEvent('rm-perks:client:openUI', function()
     SetNuiFocus(true, true)
     -- Request specialization data when opening
     TriggerServerEvent('rm-perks:server:getSpecializations')
+    -- Enable motion blur effect (if available)
+    SetTimecycleModifier('hud_def_blur')
 end)
 
 --- Command to open UI
