@@ -137,6 +137,20 @@ export function UI() {
             zIndex: 1000,
           }}
         >
+          {/* Blurred Background Overlay */}
+          <Box
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'rgba(0, 0, 0, 0.4)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              zIndex: -1,
+            }}
+          />
           <Box
             className="specialization-container"
             style={{
@@ -147,11 +161,12 @@ export function UI() {
               display: 'flex',
               flexDirection: 'column',
               overflow: 'visible',
+              zIndex: 1,
             }}
           >
             <Stack gap="xl" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
               {/* Header */}
-              <Stack gap={8} align="center" style={{ flexShrink: 0 }}>
+              <Stack gap={8} align="center" style={{ flexShrink: 0, position: 'relative', zIndex: 100 }}>
                 <Title order={1} c="#C2F4F9" size="2.5rem" fw={600} style={{ letterSpacing: '1px', margin: 0 }}>
                   Choose specialization
                 </Title>
@@ -181,7 +196,7 @@ export function UI() {
               </Group>
 
               {/* Specialization Cards */}
-              <Box style={{ flex: '1 1 auto', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 60px', minHeight: 0, maxHeight: 'calc(90vh - 400px)', overflow: 'visible' }}>
+              <Box style={{ flex: '1 1 auto', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 60px', minHeight: 0, maxHeight: 'calc(90vh - 400px)', overflow: 'visible', zIndex: 10 }}>
                 {filteredSpecializations.length > 3 && (
                   <ActionIcon
                     variant="subtle"
