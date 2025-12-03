@@ -16,34 +16,28 @@ const useStyles = createStyles((theme) => ({
     left: '50%',
     transform: 'translate(-50%, -50%)',
   },
-  hex: {
+  squareButton: {
     fill: "rgba(18, 26, 28, 0.89)",
     stroke: "rgba(194, 244, 249, 0.40)",
     strokeWidth: 1,
     transition: 'all 0.2s ease',
+    cursor: 'pointer',
+    rx: 4,
     '&:hover': {
       fill: "rgba(56, 79, 82, 0.85)",
       stroke: "rgba(194, 244, 249, 0.67)",
-      cursor: 'pointer',
-      '& ~ g text': {
-        fill: '#ffffff',
-      },
-      '& ~ g svg path': {
-        fill: '#E3FBFF',
-      },
     },
   },
-  centerHex: {
-    opacity: "1",
+  centerSquare: {
     fill: "rgba(56, 79, 82, 0.31)",
     stroke: "rgba(194, 244, 249, 0.40)",
     strokeWidth: 1,
     transition: 'all 0.2s ease',
+    cursor: 'pointer',
+    rx: 4,
     '&:hover': {
-      opacity: "1",
       fill: "rgba(56, 79, 82, 0.60)",
       stroke: "rgba(194, 244, 249, 0.67)",
-      cursor: 'pointer',
     },
   },
   iconText: {
@@ -64,43 +58,31 @@ const useStyles = createStyles((theme) => ({
   centerIcon: {
     color: '#E3FBFF',
   },
+  centerText: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    pointerEvents: 'none',
+    color: '#ffffff',
+    fontFamily: "Inter",
+    fontSize: '16px',
+    fontWeight: 600,
+    textAlign: 'center',
+    whiteSpace: 'nowrap',
+    transition: 'opacity 0.2s ease',
+    padding: '8px 16px',
+    borderRadius: '4px',
+    background: 'rgba(18, 26, 28, 0.89)',
+    border: '1px solid rgba(194, 244, 249, 0.40)',
+    minWidth: 'fit-content',
+  },
 }));
 
-const roundedHexPath = (cx: number, cy: number, size: number, radius: number) => {
-  const angleStep = Math.PI / 3;
-  let path = '';
-  for (let i = 0; i < 6; i++) {
-    const angle = angleStep * i - Math.PI / 6;
-    const nextAngle = angleStep * (i + 1) - Math.PI / 6;
-
-    const x1 = cx + size * Math.cos(angle);
-    const y1 = cy + size * Math.sin(angle);
-    const x2 = cx + size * Math.cos(nextAngle);
-    const y2 = cy + size * Math.sin(nextAngle);
-
-    const dx = x2 - x1;
-    const dy = y2 - y1;
-    const len = Math.sqrt(dx * dx + dy * dy);
-    const ux = dx / len;
-    const uy = dy / len;
-
-    const startX = x1 + ux * radius;
-    const startY = y1 + uy * radius;
-    const endX = x2 - ux * radius;
-    const endY = y2 - uy * radius;
-
-    if (i === 0) path += `M ${startX} ${startY}`;
-    else path += ` L ${startX} ${startY}`;
-
-    path += ` Q ${x2} ${y2} ${endX} ${endY}`;
-  }
-  path += ' Z';
-  return path;
-};
-
-
-const radius = 3;
-const PAGE_ITEMS = 6;
+const PAGE_ITEMS = 8;
+const BUTTON_SIZE = 60;
+const CENTER_SIZE = 80;
+const RADIUS = 120; // Distance from center to button centers
 
 const RadialMenu: React.FC = () => {
   const { classes } = useStyles();
@@ -108,6 +90,7 @@ const RadialMenu: React.FC = () => {
   const newDimension = 350 * 1.1025;
   const [visible, setVisible] = useState(false);
   const [menuItems, setMenuItems] = useState<RadialMenuItem[]>([]);
+  const [hoveredLabel, setHoveredLabel] = useState<string | null>(null);
   const [menu, setMenu] = useState<{ items: RadialMenuItem[]; sub?: boolean; page: number }>({
     items: [],
     sub: false,
@@ -125,10 +108,10 @@ const RadialMenu: React.FC = () => {
   useEffect(() => {
     if (menu.items.length <= PAGE_ITEMS) return setMenuItems(menu.items);
     const items = menu.items.slice(
-      PAGE_ITEMS * (menu.page - 1) - (menu.page - 1),
-      PAGE_ITEMS * menu.page - menu.page + 1
+      PAGE_ITEMS * (menu.page - 1),
+      PAGE_ITEMS * menu.page
     );
-    if (PAGE_ITEMS * menu.page - menu.page + 1 < menu.items.length) {
+    if (PAGE_ITEMS * menu.page < menu.items.length) {
       items[items.length - 1] = { icon: 'ellipsis-h', label: locale.ui.more || "More", isMore: true };
     }
     setMenuItems(items);
@@ -156,21 +139,16 @@ const RadialMenu: React.FC = () => {
     return text.slice(0, Math.max(0, maxLength - 3)) + '...';
   }
 
-  // 🐝 Honeycomb layout konumları
-  // Üst 2, orta 2, alt 2 olacak şekilde (x,y koordinatları)
-  const hexSize = 50;
-  const gap = 5;
-  const horizontal = hexSize * Math.sqrt(3) + gap;
-  const vertical = hexSize * 1.5 + gap;
-
-  const positions = [
-    { x: 175 - horizontal / 2, y: 175 - vertical }, // üst sol
-    { x: 175 + horizontal / 2, y: 175 - vertical }, // üst sağ
-    { x: 175 - horizontal, y: 175 }, // orta sol
-    { x: 175 + horizontal, y: 175 }, // orta sağ
-    { x: 175 - horizontal / 2, y: 175 + vertical }, // alt sol
-    { x: 175 + horizontal / 2, y: 175 + vertical }, // alt sağ
-  ];
+  // Calculate circular positions for 8 buttons
+  const centerX = 175;
+  const centerY = 175;
+  const positions = Array.from({ length: PAGE_ITEMS }, (_, i) => {
+    const angle = (i * 2 * Math.PI) / PAGE_ITEMS - Math.PI / 2; // Start from top
+    return {
+      x: centerX + RADIUS * Math.cos(angle),
+      y: centerY + RADIUS * Math.sin(angle),
+    };
+  });
 
   return (
     <Box
@@ -187,67 +165,62 @@ const RadialMenu: React.FC = () => {
           height={`${newDimension}px`}
           viewBox="0 0 350 350"
         >
-          {/* 6 dış altıgen */}
-          {menuItems.slice(0, 6).map((item, index) => {
+          {/* Square buttons in circular layout */}
+          {menuItems.slice(0, PAGE_ITEMS).map((item, index) => {
             const { x, y } = positions[index];
+            const buttonX = x - BUTTON_SIZE / 2;
+            const buttonY = y - BUTTON_SIZE / 2;
             return (
               <g
                 key={index}
                 onClick={async () => {
-                  const clickIndex = menu.page === 1 ? index : PAGE_ITEMS * (menu.page - 1) - (menu.page - 1) + index;
+                  const clickIndex = menu.page === 1 ? index : PAGE_ITEMS * (menu.page - 1) + index;
                   if (!item.isMore) fetchNui('radialClick', clickIndex);
                   else await changePage(true);
                 }}
+                onMouseEnter={() => setHoveredLabel(item.label)}
+                onMouseLeave={() => setHoveredLabel(null)}
               >
-                <path d={roundedHexPath(x, y, hexSize, radius)} className={classes.hex} />
-                <g transform={`translate(${x}, ${y + 5})`} pointerEvents="none">
+                <rect
+                  x={buttonX}
+                  y={buttonY}
+                  width={BUTTON_SIZE}
+                  height={BUTTON_SIZE}
+                  className={classes.squareButton}
+                />
+                <g transform={`translate(${x}, ${y})`} pointerEvents="none">
                   {typeof item.icon === 'string' && isIconUrl(item.icon) ? (
-                    <image href={item.icon} width={30} height={30} x={-15} y={-35} />
+                    <image href={item.icon} width={32} height={32} x={-16} y={-16} />
                   ) : (
-                    <LibIcon
-                      icon={item.icon as IconProp}
-                      x={-13}
-                      y={-30}
-                      width={26}
-                      height={26}
-                      fixedWidth
-                    />
+                    <foreignObject x={-16} y={-16} width={32} height={32}>
+                      <div style={{ 
+                        display: 'flex', 
+                        justifyContent: 'center', 
+                        alignItems: 'center',
+                        width: '100%',
+                        height: '100%',
+                        color: '#E3FBFF'
+                      }}>
+                        <LibIcon
+                          icon={item.icon as IconProp}
+                          fixedWidth
+                          style={{ fontSize: '24px' }}
+                        />
+                      </div>
+                    </foreignObject>
                   )}
-                  <text className={classes.iconText} x={0} y={15}>
-                    {truncateText(item.label, 14)}
-                  </text>
                 </g>
               </g>
             );
           })}
 
-          {/* Merkez altıgen */}
-          <g
-            transform={`translate(175,175)`}
-            onClick={async () => {
-              if (menu.page > 1) await changePage();
-              else {
-                if (menu.sub) fetchNui('radialBack');
-                else {
-                  setVisible(false);
-                  fetchNui('radialClose');
-                }
-              }
-            }}
-          >
-            <path d={roundedHexPath(0, 0, 45, radius)} className={classes.centerHex} />
-          </g>
         </svg>
 
-        <div className={classes.centerIconContainer}>
-          <LibIcon
-            icon={!menu.sub && menu.page < 2 ? 'xmark' : 'arrow-rotate-left'}
-            fixedWidth
-            className={classes.centerIcon}
-            color="#fff"
-            size="2x"
-          />
-        </div>
+        {hoveredLabel && (
+          <div className={classes.centerText}>
+            {hoveredLabel}
+          </div>
+        )}
       </ScaleFade>
     </Box>
   );
