@@ -147,31 +147,91 @@ RegisterCommand('spec', function(source, args, rawCommand)
     local data = GetPlayerSpecialization(citizenid)
     
     if data then
-        local canChange, timeRemaining = CanChangeSpecialization(citizenid)
-        local message = 'Your specialization: ' .. data.specialization_id
-        
-        if not canChange then
-            local days = math.floor(timeRemaining / (24 * 60 * 60))
-            local hours = math.floor((timeRemaining % (24 * 60 * 60)) / (60 * 60))
-            message = message .. string.format('\nYou can change it in %d days and %d hours', days, hours)
-        else
-            message = message .. '\nYou can change it now!'
-        end
-        
         TriggerClientEvent('ox_lib:notify', src, {
             type = 'info',
-            title = 'Specialization',
-            description = message,
+            description = 'Specialization: ' .. data.specialization_id,
             duration = 5000
         })
     else
         TriggerClientEvent('ox_lib:notify', src, {
             type = 'info',
-            title = 'Specialization',
-            description = 'You have not selected a specialization yet. Use the specialization menu to choose one.',
+            description = 'Specialization: None',
             duration = 5000
         })
     end
+end, false)
+
+-- Admin Command: /specclear [id] - Clear player's specialization
+RegisterCommand('specclear', function(source, args, rawCommand)
+    local src = source
+    
+    -- Check if player has admin permission using ox_lib
+    local Player = exports.qbx_core:GetPlayer(src)
+    if not Player then
+        return
+    end
+    
+    -- Check admin permission - adjust this based on your framework's permission system
+    local isAdmin = false
+    if Player.PlayerData.groups then
+        for group, _ in pairs(Player.PlayerData.groups) do
+            if group == 'admin' or group == 'god' then
+                isAdmin = true
+                break
+            end
+        end
+    end
+    
+    -- Allow console (source 0) to use the command
+    if src == 0 then
+        isAdmin = true
+    end
+    
+    if not isAdmin then
+        TriggerClientEvent('ox_lib:notify', src, {
+            type = 'error',
+            description = 'You do not have permission to use this command.',
+            duration = 5000
+        })
+        return
+    end
+    
+    local targetId = tonumber(args[1])
+    if not targetId then
+        TriggerClientEvent('ox_lib:notify', src, {
+            type = 'error',
+            description = 'Usage: /specclear [player_id]',
+            duration = 5000
+        })
+        return
+    end
+    
+    local Player = exports.qbx_core:GetPlayer(targetId)
+    if not Player then
+        TriggerClientEvent('ox_lib:notify', src, {
+            type = 'error',
+            description = 'Player not found.',
+            duration = 5000
+        })
+        return
+    end
+    
+    local citizenid = Player.PlayerData.citizenid
+    
+    -- Delete specialization
+    exports.oxmysql:execute('DELETE FROM specializations WHERE citizenid = ?', {citizenid})
+    
+    TriggerClientEvent('ox_lib:notify', src, {
+        type = 'success',
+        description = 'Specialization cleared for player ID: ' .. targetId,
+        duration = 5000
+    })
+    
+    TriggerClientEvent('ox_lib:notify', targetId, {
+        type = 'info',
+        description = 'Your specialization has been cleared by an admin.',
+        duration = 5000
+    })
 end, false)
 
 -- Event to open UI
