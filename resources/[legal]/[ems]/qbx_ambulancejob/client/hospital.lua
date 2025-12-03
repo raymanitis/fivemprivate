@@ -184,17 +184,18 @@ if config.useTarget then
 
             for i = 1, #hospital.beds do
                 local bed = hospital.beds[i]
-                exports.ox_target:addBoxZone({
-                    name = hospitalName..'_bed_'..i,
-                    coords = bed.coords.xyz,
-                    size = vec3(1.7, 1.9, 2),
-                    rotation = bed.coords.w,
-                    debug = config.debugPoly,
-                    options = {
-                        {
-                            onSelect = function()
-                                putPlayerInBed(hospitalName, i, false)
-                            end,
+                if bed and bed.coords then
+                    exports.ox_target:addBoxZone({
+                        name = hospitalName..'_bed_'..i,
+                        coords = bed.coords.xyz,
+                        size = vec3(1.7, 1.9, 2),
+                        rotation = bed.coords.w,
+                        debug = config.debugPoly,
+                        options = {
+                            {
+                                onSelect = function()
+                                    putPlayerInBed(hospitalName, i, false)
+                                end,
                             icon = 'fas fa-clipboard',
                             label = locale('text.bed'),
                             distance = 3.0,
@@ -215,7 +216,8 @@ if config.useTarget then
                             distance = 3.0,
                         }
                     }
-                })
+                    })
+                end
             end
         end
     end)
@@ -224,52 +226,71 @@ else
         for hospitalName, hospital in pairs(sharedConfig.locations.hospitals) do
             -- Only create check-in zones if no ped is configured (ped takes priority)
             if hospital.checkIn and not hospital.checkInPed then
-                lib.zones.box({
-                    coords = hospital.checkIn,
-                    size = vec3(2, 1, 2),
-                    rotation = 18,
-                    debug = config.debugPoly,
-                    onEnter = function()
-                        local numDoctors = lib.callback.await('qbx_ambulancejob:server:getNumDoctors')
-                        if numDoctors >= sharedConfig.minForCheckIn then
-                            lib.showTextUI(locale('text.call_doc'))
-                        else
-                            lib.showTextUI(locale('text.check_in'))
+                local checkInCoords = hospital.checkIn
+                -- Handle both single coord and array of coords
+                -- Check if it's a vector3 (userdata) or has x,y,z properties but isn't an array
+                local isVector = type(checkInCoords) == 'vector3' or (type(checkInCoords) == 'table' and checkInCoords.x and checkInCoords.y and checkInCoords.z and not checkInCoords[1])
+                if isVector then 
+                    checkInCoords = { checkInCoords } 
+                end
+                
+                -- Ensure it's a table/array before iterating
+                if type(checkInCoords) == 'table' then
+                    for i = 1, #checkInCoords do
+                        local coords = checkInCoords[i]
+                        -- Validate coords before creating zone
+                        if coords and (type(coords) == 'vector3' or (type(coords) == 'table' and coords.x and coords.y and coords.z)) then
+                            lib.zones.box({
+                                coords = coords,
+                                size = vec3(2, 1, 2),
+                                rotation = 18,
+                                debug = config.debugPoly,
+                                onEnter = function()
+                                    local numDoctors = lib.callback.await('qbx_ambulancejob:server:getNumDoctors')
+                                    if numDoctors >= sharedConfig.minForCheckIn then
+                                        lib.showTextUI(locale('text.call_doc'))
+                                    else
+                                        lib.showTextUI(locale('text.check_in'))
+                                    end
+                                end,
+                                onExit = function()
+                                    lib.hideTextUI()
+                                end,
+                                inside = function()
+                                    if IsControlJustPressed(0, 38) then
+                                        checkIn(hospitalName)
+                                    end
+                                end,
+                            })
                         end
-                    end,
-                    onExit = function()
-                        lib.hideTextUI()
-                    end,
-                    inside = function()
-                        if IsControlJustPressed(0, 38) then
-                            checkIn(hospitalName)
-                        end
-                    end,
-                })
+                    end
+                end
             end
 
             for i = 1, #hospital.beds do
                 local bed = hospital.beds[i]
-                lib.zones.box({
-                    coords = bed.coords.xyz,
-                    size = vec3(1.9, 2.1, 2),
-                    rotation = bed.coords.w,
-                    debug = config.debugPoly,
-                    onEnter = function()
-                        if not IsInHospitalBed then
-                            lib.showTextUI(locale('text.lie_bed'))
-                        end
-                    end,
-                    onExit = function()
-                        lib.hideTextUI()
-                    end,
-                    inside = function()
-                        if IsControlJustPressed(0, 38) then
+                if bed and bed.coords then
+                    lib.zones.box({
+                        coords = bed.coords.xyz,
+                        size = vec3(1.9, 2.1, 2),
+                        rotation = bed.coords.w,
+                        debug = config.debugPoly,
+                        onEnter = function()
+                            if not IsInHospitalBed then
+                                lib.showTextUI(locale('text.lie_bed'))
+                            end
+                        end,
+                        onExit = function()
                             lib.hideTextUI()
-                            putPlayerInBed(hospitalName, i, false)
-                        end
-                    end,
-                })
+                        end,
+                        inside = function()
+                            if IsControlJustPressed(0, 38) then
+                                lib.hideTextUI()
+                                putPlayerInBed(hospitalName, i, false)
+                            end
+                        end,
+                    })
+                end
             end
         end
     end)
