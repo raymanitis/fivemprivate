@@ -68,8 +68,11 @@ local function putPlayerInBed(hospitalName, bedIndex, isRevive, skipOpenCheck)
             
             -- Show recovery progress bar
             local healTime = config.aiHealTimer * 1000
-            if lib.progressBar({
+            
+            -- Use progressCircle for recovery
+            lib.progressCircle({
                 duration = healTime,
+                position = 'bottom',
                 label = locale('progress.recovering') or 'Recovering...',
                 useWhileDead = false,
                 canCancel = false,
@@ -79,12 +82,12 @@ local function putPlayerInBed(hospitalName, bedIndex, isRevive, skipOpenCheck)
                     combat = true,
                     mouse = true,
                 },
-            }) then
-                -- Recovery complete
-                TriggerEvent('hospital:client:Revive')
-                CanLeaveBed = true
-                -- Text UI will be shown automatically by the thread that checks CanLeaveBed
-            end
+            })
+            
+            -- Recovery complete - always execute after progress
+            TriggerEvent('hospital:client:Revive')
+            CanLeaveBed = true
+            exports.qbx_core:Notify(locale('success.recovered') or 'You have recovered! Press E to get out of bed.', 'success')
         else
             CanLeaveBed = true
         end
@@ -178,14 +181,24 @@ if config.useTarget then
         for hospitalName, hospital in pairs(sharedConfig.locations.hospitals) do
             -- Only create check-in zones if no ped is configured (ped takes priority)
             if hospital.checkIn and not hospital.checkInPed then
-                if type(hospital.checkIn) ~= 'table' then hospital.checkIn = { hospital.checkIn } end
-                for i = 1, #hospital.checkIn do
-                    exports.ox_target:addBoxZone({
-                        name = hospitalName..'_checkin_'..i,
-                        coords = hospital.checkIn[i],
-                        size = vec3(2, 1, 2),
-                        rotation = 18,
-                        debug = config.debugPoly,
+                local checkInCoords = hospital.checkIn
+                -- Handle both single coord and array of coords
+                local isVector = type(checkInCoords) == 'vector3' or (type(checkInCoords) == 'table' and checkInCoords.x and checkInCoords.y and checkInCoords.z and not checkInCoords[1])
+                if isVector then 
+                    checkInCoords = { checkInCoords } 
+                end
+                
+                if type(checkInCoords) == 'table' then
+                    for i = 1, #checkInCoords do
+                        local coords = checkInCoords[i]
+                        -- Validate coords before creating zone
+                        if coords and (type(coords) == 'vector3' or (type(coords) == 'table' and coords.x and coords.y and coords.z)) then
+                            exports.ox_target:addBoxZone({
+                                name = hospitalName..'_checkin_'..i,
+                                coords = coords,
+                                size = vec3(2, 1, 2),
+                                rotation = 18,
+                                debug = config.debugPoly,
                         options = {
                             {
                                 onSelect = function()
@@ -196,19 +209,24 @@ if config.useTarget then
                                 distance = 3.0,
                             }
                         }
-                    })
+                        })
+                        end
+                    end
                 end
             end
 
             for i = 1, #hospital.beds do
                 local bed = hospital.beds[i]
-                if bed and bed.coords then
-                    exports.ox_target:addBoxZone({
-                        name = hospitalName..'_bed_'..i,
-                        coords = bed.coords.xyz,
-                        size = vec3(1.7, 1.9, 2),
-                        rotation = bed.coords.w,
-                        debug = config.debugPoly,
+                if bed and bed.coords and bed.coords.xyz then
+                    local bedCoords = bed.coords.xyz
+                    -- Ensure coords is valid vector3
+                    if type(bedCoords) == 'vector3' or (type(bedCoords) == 'table' and bedCoords.x and bedCoords.y and bedCoords.z) then
+                        exports.ox_target:addBoxZone({
+                            name = hospitalName..'_bed_'..i,
+                            coords = bedCoords,
+                            size = vec3(1.7, 1.9, 2),
+                            rotation = bed.coords.w or 0,
+                            debug = config.debugPoly,
                         options = {
                             {
                                 onSelect = function()
@@ -235,8 +253,10 @@ if config.useTarget then
                         }
                     }
                     })
+                    end
                 end
             end
+        end
         end
     end)
 else
@@ -287,27 +307,31 @@ else
 
             for i = 1, #hospital.beds do
                 local bed = hospital.beds[i]
-                if bed and bed.coords then
-                    lib.zones.box({
-                        coords = bed.coords.xyz,
-                        size = vec3(1.9, 2.1, 2),
-                        rotation = bed.coords.w,
-                        debug = config.debugPoly,
-                        onEnter = function()
-                            if not IsInHospitalBed then
-                                lib.showTextUI(locale('text.lie_bed'))
-                            end
-                        end,
-                        onExit = function()
-                            lib.hideTextUI()
-                        end,
-                        inside = function()
-                            if IsControlJustPressed(0, 38) then
+                if bed and bed.coords and bed.coords.xyz then
+                    local bedCoords = bed.coords.xyz
+                    -- Ensure coords is valid vector3
+                    if type(bedCoords) == 'vector3' or (type(bedCoords) == 'table' and bedCoords.x and bedCoords.y and bedCoords.z) then
+                        lib.zones.box({
+                            coords = bedCoords,
+                            size = vec3(1.9, 2.1, 2),
+                            rotation = bed.coords.w or 0,
+                            debug = config.debugPoly,
+                            onEnter = function()
+                                if not IsInHospitalBed then
+                                    lib.showTextUI(locale('text.lie_bed'))
+                                end
+                            end,
+                            onExit = function()
                                 lib.hideTextUI()
-                                putPlayerInBed(hospitalName, i, false)
-                            end
-                        end,
-                    })
+                            end,
+                            inside = function()
+                                if IsControlJustPressed(0, 38) then
+                                    lib.hideTextUI()
+                                    putPlayerInBed(hospitalName, i, false)
+                                end
+                            end,
+                        })
+                    end
                 end
             end
         end

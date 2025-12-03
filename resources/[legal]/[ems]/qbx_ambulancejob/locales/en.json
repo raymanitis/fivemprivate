@@ -18,7 +18,8 @@
         "healthy_player": "Player is Healthy",
         "helped_player": "You helped the person",
         "being_helped": "You are being helped...",
-        "transferred_to_hospital": "You have been transferred to the hospital"
+        "transferred_to_hospital": "You have been transferred to the hospital",
+        "recovered": "You have recovered! Press E to get out of bed."
     },
     "info": {
         "civ_died": "Civilian Died",
