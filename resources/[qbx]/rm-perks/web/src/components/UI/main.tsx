@@ -16,6 +16,8 @@ import useAppVisibilityStore from '../../stores/appVisibilityStore';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 import { Specialization, SpecializationCategory, SpecializationData } from '../../typings/type';
+import { fetchNui } from '../../utils/fetchNui';
+import { getNuiImagePath } from '../../utils/misc';
 import './SpecializationUI.css';
 
 const mockSpecializations: Specialization[] = [
@@ -24,7 +26,7 @@ const mockSpecializations: Specialization[] = [
     id: 'hustler',
     title: 'Hustler',
     description: 'You know how to make a lot of money on the side from stolen goods.',
-    image: '/images/hustler.png',
+    image: 'web/images/hustler.png',
     status: 'LOCKED',
     category: 'CRIME',
     color: '#C2F4F9'
@@ -33,7 +35,7 @@ const mockSpecializations: Specialization[] = [
     id: 'hacker',
     title: 'Hacker',
     description: 'Master of burgling and bypassing security.',
-    image: '/images/hacker.png',
+    image: 'web/images/hacker.png',
     status: 'LOCKED',
     category: 'CRIME',
     color: '#8ed8e1'
@@ -42,7 +44,7 @@ const mockSpecializations: Specialization[] = [
     id: 'drug-lord',
     title: 'Drug Lord',
     description: 'Control the streets with your network and distribution.',
-    image: '/images/drug_lord.png',
+    image: 'web/images/drug_lord.png',
     status: 'LOCKED',
     category: 'CRIME',
     color: '#5abcc9'
@@ -115,8 +117,9 @@ export function UI() {
     console.log('Selected:', spec.id);
   };
 
-  const handleGoBack = () => {
+  const handleClose = () => {
     setVisibility(false);
+    fetchNui('hideApp');
   };
   
   return (
@@ -232,16 +235,16 @@ export function UI() {
                 )}
               </Box>
 
-              {/* Go Back Button */}
+              {/* Close Button */}
               <Group justify="center" style={{ paddingTop: '1.5rem', paddingBottom: '1rem', flexShrink: 0, marginTop: 'auto' }}>
                 <Button
                   variant="subtle"
                   size="md"
-                  onClick={handleGoBack}
+                  onClick={handleClose}
                   className="go-back-button"
                   style={{ marginBottom: '1rem' }}
                 >
-                  GO BACK
+                  CLOSE
                 </Button>
               </Group>
             </Stack>
@@ -317,7 +320,7 @@ function SpecializationCard({ specialization, onSelect }: SpecializationCardProp
       >
         <Box
           component="img"
-          src={specialization.image}
+          src={getNuiImagePath(specialization.image)}
           alt={specialization.title}
           style={{
             width: '100%',

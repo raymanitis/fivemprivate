@@ -10,6 +10,7 @@ files {
     "modules/*.lua",
 	"web/build/index.html",
 	"web/build/**/*",
+	"web/images/**/*",
 }
 
 shared_scripts {
