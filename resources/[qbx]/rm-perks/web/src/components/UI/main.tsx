@@ -250,9 +250,39 @@ export function UI() {
             }}
           >
             <Stack gap="xl" style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'visible', position: 'relative' }}>
-              {/* Top Bar with Timer on Left */}
-              <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', width: '100%', flexShrink: 0, position: 'relative', zIndex: 100 }}>
-                {/* Timer - Left */}
+              {/* Header */}
+              <Stack gap={8} align="center" style={{ flexShrink: 0, position: 'relative', zIndex: 100 }}>
+                <Title order={1} c="#C2F4F9" size="2.5rem" fw={600} style={{ letterSpacing: '1px', margin: 0 }}>
+                  Choose specialization
+                </Title>
+                <Text c="rgba(255, 255, 255, 0.7)" size="sm" ta="center" style={{ maxWidth: '600px', margin: 0 }}>
+                  Be careful choosing your specialization. You can change it only once a week.
+                </Text>
+              </Stack>
+
+              {/* Category Buttons and Timer - Same Row */}
+              <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginTop: '0.5rem', marginBottom: '1rem', flexShrink: 0, position: 'relative', zIndex: 100 }}>
+                {/* Category Buttons - Left */}
+                <Group gap="md" style={{ flexShrink: 0 }}>
+                  <Button
+                    variant="subtle"
+                    onClick={() => setSelectedCategory('CRIME')}
+                    className="category-tab"
+                    data-active={selectedCategory === 'CRIME'}
+                  >
+                    CRIME
+                  </Button>
+                  <Button
+                    variant="subtle"
+                    onClick={() => setSelectedCategory('CIVILIAN')}
+                    className="category-tab"
+                    data-active={selectedCategory === 'CIVILIAN'}
+                  >
+                    CIVILIAN
+                  </Button>
+                </Group>
+
+                {/* Timer - Right */}
                 {!canChange && timeRemaining > 0 && (
                   <Box
                     style={{
@@ -264,43 +294,13 @@ export function UI() {
                       fontSize: '0.875rem',
                       fontWeight: 500,
                       letterSpacing: '0.5px',
+                      flexShrink: 0,
                     }}
                   >
                     Can change in: {formatTime(timeRemaining)}
                   </Box>
                 )}
-                <Box style={{ flex: 1 }} /> {/* Spacer */}
               </Box>
-
-              {/* Header */}
-              <Stack gap={8} align="center" style={{ flexShrink: 0, position: 'relative', zIndex: 100 }}>
-                <Title order={1} c="#C2F4F9" size="2.5rem" fw={600} style={{ letterSpacing: '1px', margin: 0 }}>
-                  Choose specialization
-                </Title>
-                <Text c="rgba(255, 255, 255, 0.7)" size="sm" ta="center" style={{ maxWidth: '600px', margin: 0 }}>
-                  Be careful choosing your specialization. You can change it only once a week.
-                </Text>
-              </Stack>
-
-              {/* Category Buttons - Left */}
-              <Group justify="flex-start" gap="md" style={{ marginTop: '0.5rem', marginBottom: '1rem', flexShrink: 0 }}>
-                <Button
-                  variant="subtle"
-                  onClick={() => setSelectedCategory('CRIME')}
-                  className="category-tab"
-                  data-active={selectedCategory === 'CRIME'}
-                >
-                  CRIME
-                </Button>
-                <Button
-                  variant="subtle"
-                  onClick={() => setSelectedCategory('CIVILIAN')}
-                  className="category-tab"
-                  data-active={selectedCategory === 'CIVILIAN'}
-                >
-                  CIVILIAN
-                </Button>
-              </Group>
 
               {/* Specialization Cards */}
               <Box style={{ flex: '1 1 auto', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 60px', minHeight: 0, maxHeight: 'calc(90vh - 400px)', overflow: 'visible', zIndex: 10 }}>
