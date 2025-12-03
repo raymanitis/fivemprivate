@@ -222,17 +222,19 @@ export function UI() {
         >
           {/* Blurred Background Overlay */}
           <Box
+            component="div"
             style={{
               position: 'fixed',
               top: 0,
               left: 0,
               width: '100vw',
               height: '100vh',
-              backgroundColor: 'rgba(0, 0, 0, 0.3)',
-              backdropFilter: 'blur(20px) saturate(180%)',
-              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
               zIndex: 0,
               pointerEvents: 'none',
+              willChange: 'backdrop-filter',
             }}
           />
           <Box
