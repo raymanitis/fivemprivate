@@ -19,11 +19,14 @@ RegisterNetEvent('qbx_radialmenu:client:setWalk', function(walkStyle)
     end
 end)
 
--- Perks Menu (placeholder - customize to your needs)
+-- Perks Menu
 RegisterNetEvent('qbx_radialmenu:client:openPerks', function()
-    exports.qbx_core:Notify('Perks Menu - Coming Soon!', 'info')
-    -- Add your perks menu logic here
-    -- Example: TriggerEvent('your_perks_script:openMenu')
+    if GetResourceState('rm-perks') == 'started' then
+        TriggerEvent('rm-perks:client:openUI')
+        lib.hideRadial()
+    else
+        exports.qbx_core:Notify('Perks Menu is not available!', 'error')
+    end
 end)
 
 -- Skill Tree (placeholder - customize to your needs)

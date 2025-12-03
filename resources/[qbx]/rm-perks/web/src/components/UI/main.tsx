@@ -24,7 +24,7 @@ const mockSpecializations: Specialization[] = [
     id: 'hustler',
     title: 'Hustler',
     description: 'You know how to make a lot of money on the side from stolen goods.',
-    image: 'https://i.imgur.com/placeholder1.jpg',
+    image: '/images/hustler.png',
     status: 'LOCKED',
     category: 'CRIME',
     color: '#C2F4F9'
@@ -33,7 +33,7 @@ const mockSpecializations: Specialization[] = [
     id: 'hacker',
     title: 'Hacker',
     description: 'Master of burgling and bypassing security.',
-    image: 'https://i.imgur.com/placeholder2.jpg',
+    image: '/images/hacker.png',
     status: 'LOCKED',
     category: 'CRIME',
     color: '#8ed8e1'
@@ -42,7 +42,7 @@ const mockSpecializations: Specialization[] = [
     id: 'drug-lord',
     title: 'Drug Lord',
     description: 'Control the streets with your network and distribution.',
-    image: 'https://i.imgur.com/placeholder3.jpg',
+    image: '/images/drug_lord.png',
     status: 'LOCKED',
     category: 'CRIME',
     color: '#5abcc9'

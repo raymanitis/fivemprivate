@@ -5,3 +5,8 @@ RegisterNuiCallback('hideApp', function(data, cb)
     utils.ShowNUI('UPDATE_VISIBILITY', false)
     cb(true)
 end)
+
+--- Event to open the perks UI
+RegisterNetEvent('rm-perks:client:openUI', function()
+    utils.ShowNUI('UPDATE_VISIBILITY', true)
+end)
