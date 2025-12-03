@@ -122,7 +122,7 @@ RegisterNetEvent('rm-perks:server:selectSpecialization', function(specialization
     
     SetPlayerSpecialization(citizenid, specializationId)
     
-    TriggerClientEvent('ox_lib:notify', src, {
+    lib.notify(src, {
         type = 'success',
         title = 'Specialization Selected',
         description = 'You have selected: ' .. specializationId,
@@ -136,7 +136,9 @@ RegisterNetEvent('rm-perks:server:selectSpecialization', function(specialization
 end)
 
 -- Command: /spec - Show current specialization
-RegisterCommand('spec', function(source, args, rawCommand)
+lib.addCommand('spec', {
+    help = 'Show your current specialization',
+}, function(source, args, rawCommand)
     local src = source
     local Player = exports.qbx_core:GetPlayer(src)
     if not Player then
@@ -147,58 +149,37 @@ RegisterCommand('spec', function(source, args, rawCommand)
     local data = GetPlayerSpecialization(citizenid)
     
     if data then
-        TriggerClientEvent('ox_lib:notify', src, {
+        lib.notify(src, {
             type = 'info',
             description = 'Specialization: ' .. data.specialization_id,
             duration = 5000
         })
     else
-        TriggerClientEvent('ox_lib:notify', src, {
+        lib.notify(src, {
             type = 'info',
             description = 'Specialization: None',
             duration = 5000
         })
     end
-end, false)
+end)
 
 -- Admin Command: /specclear [id] - Clear player's specialization
-RegisterCommand('specclear', function(source, args, rawCommand)
+lib.addCommand('specclear', {
+    help = 'Clear a player\'s specialization (Admin only)',
+    params = {
+        {
+            name = 'id',
+            type = 'number',
+            help = 'Player server ID',
+        }
+    },
+    restricted = 'group.admin'
+}, function(source, args, rawCommand)
     local src = source
+    local targetId = args.id
     
-    -- Check if player has admin permission using ox_lib
-    local Player = exports.qbx_core:GetPlayer(src)
-    if not Player then
-        return
-    end
-    
-    -- Check admin permission - adjust this based on your framework's permission system
-    local isAdmin = false
-    if Player.PlayerData.groups then
-        for group, _ in pairs(Player.PlayerData.groups) do
-            if group == 'admin' or group == 'god' then
-                isAdmin = true
-                break
-            end
-        end
-    end
-    
-    -- Allow console (source 0) to use the command
-    if src == 0 then
-        isAdmin = true
-    end
-    
-    if not isAdmin then
-        TriggerClientEvent('ox_lib:notify', src, {
-            type = 'error',
-            description = 'You do not have permission to use this command.',
-            duration = 5000
-        })
-        return
-    end
-    
-    local targetId = tonumber(args[1])
     if not targetId then
-        TriggerClientEvent('ox_lib:notify', src, {
+        lib.notify(src, {
             type = 'error',
             description = 'Usage: /specclear [player_id]',
             duration = 5000
@@ -206,9 +187,9 @@ RegisterCommand('specclear', function(source, args, rawCommand)
         return
     end
     
-    local Player = exports.qbx_core:GetPlayer(targetId)
-    if not Player then
-        TriggerClientEvent('ox_lib:notify', src, {
+    local TargetPlayer = exports.qbx_core:GetPlayer(targetId)
+    if not TargetPlayer then
+        lib.notify(src, {
             type = 'error',
             description = 'Player not found.',
             duration = 5000
@@ -216,23 +197,23 @@ RegisterCommand('specclear', function(source, args, rawCommand)
         return
     end
     
-    local citizenid = Player.PlayerData.citizenid
+    local citizenid = TargetPlayer.PlayerData.citizenid
     
     -- Delete specialization
     exports.oxmysql:execute('DELETE FROM specializations WHERE citizenid = ?', {citizenid})
     
-    TriggerClientEvent('ox_lib:notify', src, {
+    lib.notify(src, {
         type = 'success',
         description = 'Specialization cleared for player ID: ' .. targetId,
         duration = 5000
     })
     
-    TriggerClientEvent('ox_lib:notify', targetId, {
+    lib.notify(targetId, {
         type = 'info',
         description = 'Your specialization has been cleared by an admin.',
         duration = 5000
     })
-end, false)
+end)
 
 -- Event to open UI
 RegisterNetEvent('rm-perks:server:openUI', function()
