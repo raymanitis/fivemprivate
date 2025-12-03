@@ -80,6 +80,58 @@ return {
             },
         },
         {
+            id = 'animations',
+            icon = 'user',
+            label = 'Animations',
+            items = {
+                {
+                    id = 'givenum',
+                    icon = 'address-book',
+                    label = 'Give Contact Details',
+                    event = 'qb-phone:client:GiveContactDetails'
+                },
+            },
+        },
+        {
+            id = 'walk_styles',
+            icon = 'user',
+            label = 'Walk Styles',
+            items = {
+                {
+                    id = 'givenum',
+                    icon = 'address-book',
+                    label = 'Give Contact Details',
+                    event = 'qb-phone:client:GiveContactDetails'
+                },
+            },
+        },
+        {
+            id = 'perks_menu',
+            icon = 'user',
+            label = 'Perks Menu,
+            items = {
+                {
+                    id = 'givenum',
+                    icon = 'address-book',
+                    label = 'Give Contact Details',
+                    event = 'qb-phone:client:GiveContactDetails'
+                },
+            },
+        },
+        {
+            id = 'skill_tree',
+            icon = 'user',
+            label = 'Skill Tree,
+            items = {
+                {
+                    id = 'givenum',
+                    icon = 'address-book',
+                    label = 'Give Contact Details',
+                    event = 'qb-phone:client:GiveContactDetails'
+                },
+            },
+        },
+        {
             id = 'general',
             icon = 'rectangle-list',
             label = 'General',
