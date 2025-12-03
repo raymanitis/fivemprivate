@@ -20,3 +20,13 @@ shared_scripts {
 client_script {
     "client/client.lua",
 }
+
+server_script {
+    "server/server.lua",
+}
+
+dependencies {
+    "ox_lib",
+    "qbx_core",
+    "oxmysql"
+}

@@ -1,6 +1,6 @@
 export type SpecializationCategory = 'CRIME' | 'CIVILIAN';
 
-export type SpecializationStatus = 'LOCKED' | 'UNLOCKED' | 'COMING_SOON';
+export type SpecializationStatus = 'LOCKED' | 'UNLOCKED' | 'COMING_SOON' | 'CHOSEN';
 
 export interface Specialization {
   id: string;
@@ -13,8 +13,9 @@ export interface Specialization {
 }
 
 export interface SpecializationData {
-  dailyReputation: number;
-  maxDailyReputation: number;
+  currentSpecialization?: string;
+  canChange: boolean;
+  timeRemaining: number;
   selectedCategory: SpecializationCategory;
   specializations: Specialization[];
 }
