@@ -4,6 +4,8 @@ game "gta5"
 
 author "Thomas"
 
+ui_page "web/build/index.html"
+
 files {
     "modules/*.lua",
 	"web/build/index.html",
