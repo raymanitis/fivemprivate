@@ -145,9 +145,9 @@ export function UI() {
               left: 0,
               width: '100%',
               height: '100%',
-              backgroundColor: 'rgba(0, 0, 0, 0.4)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
               zIndex: -1,
             }}
           />
@@ -331,6 +331,9 @@ function SpecializationCard({ specialization, onSelect }: SpecializationCardProp
             position: 'relative',
             overflow: 'hidden',
             backgroundColor: '#121a1c',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
       >
         <Box
@@ -341,7 +344,13 @@ function SpecializationCard({ specialization, onSelect }: SpecializationCardProp
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            objectPosition: 'center',
+            display: 'block',
             filter: isComingSoon ? 'grayscale(100%)' : 'none',
+          }}
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
           }}
         />
         {/* Eye Icon */}
