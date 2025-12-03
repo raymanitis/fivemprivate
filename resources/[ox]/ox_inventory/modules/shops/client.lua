@@ -13,7 +13,9 @@ for shopType, shopData in pairs(lib.load('data.shops') or {} --[[@as table<strin
 		-- Shop-level ped configuration (applies to all targets)
 		ped = shopData.ped,
 		scenario = shopData.scenario,
-		distance = shopData.distance or 2.0
+		distance = shopData.distance or 2.0,
+		-- Dialog configuration
+		dialog = shopData.dialog
 	}
 
 	if shared.target then
@@ -36,6 +38,91 @@ end
 
 -- Store active shop peds for interaction detection
 local activeShopPeds = {}
+
+-- Function to show shop dialog
+local function showShopDialog(point)
+	local shopConfig = shopTypes[point.type]
+	if not shopConfig then return end
+
+	-- Get dialog configuration from shop (with defaults)
+	local dialogConfig = shopConfig.dialog or {}
+	local pedName = dialogConfig.name or shopConfig.name or point.label or 'Shopkeeper'
+	local speech = dialogConfig.speech or 'How can I help you?'
+	local options = dialogConfig.options or {}
+
+	-- Build context menu options
+	local menuOptions = {}
+
+	-- Add custom options from config
+	for i = 1, #options do
+		local option = options[i]
+		table.insert(menuOptions, {
+			title = option.label or option.title,
+			icon = option.icon or 'fas fa-circle',
+			onSelect = function()
+				if option.action and type(option.action) == 'function' then
+					option.action()
+				elseif option.id == 'shop' or option.openShop then
+					client.openInventory('shop', { id = point.invId, type = point.type })
+				end
+			end,
+		})
+	end
+
+	-- If no options provided, add default "Open Shop" option
+	if #menuOptions == 0 then
+		table.insert(menuOptions, {
+			title = 'Open Shop',
+			icon = 'fas fa-shopping-basket',
+			onSelect = function()
+				client.openInventory('shop', { id = point.invId, type = point.type })
+			end,
+		})
+		table.insert(menuOptions, {
+			title = 'Nevermind',
+			icon = 'fas fa-times',
+			onSelect = function() end,
+		})
+	else
+		-- Add close option if not already present
+		local hasClose = false
+		for i = 1, #menuOptions do
+			if menuOptions[i].title:lower():match('close') or menuOptions[i].title:lower():match('nevermind') or menuOptions[i].title:lower():match('no') then
+				hasClose = true
+				break
+			end
+		end
+
+		if not hasClose then
+			table.insert(menuOptions, {
+				title = 'Nevermind',
+				icon = 'fas fa-times',
+				onSelect = function() end,
+			})
+		end
+	end
+
+	-- Show notification with speech first
+	if speech and speech ~= '' then
+		lib.notify({
+			type = 'inform',
+			title = pedName,
+			description = speech,
+			duration = 4000
+		})
+		Wait(500) -- Small delay so notification is visible before menu
+	end
+
+	-- Show context menu
+	local contextId = 'shop_dialog_' .. point.type .. '_' .. (point.invId or 0)
+	lib.registerContext({
+		id = contextId,
+		title = pedName,
+		options = menuOptions
+	})
+
+	lib.showContext(contextId)
+end
 
 ---@param point CPoint
 local function onEnterShop(point)
@@ -60,7 +147,7 @@ local function onEnterShop(point)
 					label = point.label,
 					groups = point.groups,
 					onSelect = function()
-						client.openInventory('shop', { id = point.invId, type = point.type })
+						showShopDialog(point)
 					end,
 					iconColor = point.iconColor,
 					distance = point.shopDistance or 2.0
@@ -181,7 +268,7 @@ CreateThread(function()
 				-- Check for E key press (38 = E key) and basic conditions
 				if IsControlJustReleased(0, 38) and not cache.vehicle and not IsPauseMenuActive() then
 					lib.hideTextUI()
-					client.openInventory('shop', { id = shopData.invId, type = shopData.type })
+					showShopDialog(shopData.point)
 				end
 			else
 				lib.hideTextUI()

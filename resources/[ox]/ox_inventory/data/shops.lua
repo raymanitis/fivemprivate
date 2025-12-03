@@ -25,6 +25,22 @@ return {
 		ped = `mp_m_shopkeep_01`, -- Ped model for all locations
 		scenario = 'WORLD_HUMAN_STAND_IMPATIENT', -- Animation for all peds (optional)
 		distance = 2.0, -- Interaction distance (default 2.0, optional)
+		-- Dialog configuration (optional - shows when clicking ped)
+		dialog = {
+			name = 'Shopkeeper', -- Ped name shown in dialog
+			speech = 'Welcome! How can I help you today?', -- Speech text (optional)
+			options = {
+				{
+					label = 'I want to shop',
+					icon = 'fas fa-shopping-basket',
+					openShop = true, -- This will open the shop
+				},
+				{
+					label = 'Nevermind',
+					icon = 'fas fa-times',
+				},
+			},
+		},
 		inventory = {
 			{ name = 'bubbletea', price = 50 },
 			{ name = 'coffee_frappuccino', price = 50 },
@@ -72,6 +88,21 @@ return {
 		groups = { -- Only players with these jobs can access
 			police = 0,
 			sheriff = 0
+		},
+		dialog = {
+			name = 'Ammunation Clerk',
+			speech = 'Welcome to Ammunation. What can I do for you?',
+			options = {
+				{
+					label = 'Browse Weapons',
+					icon = 'fas fa-gun',
+					openShop = true,
+				},
+				{
+					label = 'Just looking',
+					icon = 'fas fa-eye',
+				},
+			},
 		},
 		inventory = {
 			{ name = 'ammo-9', price = 5 },
