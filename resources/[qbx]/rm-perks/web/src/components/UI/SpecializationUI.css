@@ -1,0 +1,172 @@
+.specialization-container {
+  background: transparent;
+  padding: 2rem 3rem;
+  padding-bottom: 2rem;
+}
+
+.category-tabs {
+  border: none !important;
+  border-bottom: none !important;
+  background: transparent;
+  gap: 1rem;
+  display: flex;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.category-tabs::before {
+  display: none !important;
+}
+
+.category-tabs::after {
+  display: none !important;
+}
+
+/* Remove any border from Tabs.List and all children */
+.category-tabs > *,
+.category-tabs > * > * {
+  border-bottom: none !important;
+}
+
+/* Target Mantine's default tab list border */
+[class*="mantine-Tabs-list"] {
+  border-bottom: none !important;
+}
+
+.category-tab {
+  background-color: #384f524f !important;
+  border: 0.0625rem solid #c2f4f967 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.2s ease !important;
+  border-radius: 0.15rem !important;
+  position: relative !important;
+  min-height: 2.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+.category-tab::after {
+  display: none !important;
+}
+
+.category-tab:last-child {
+  margin-right: 0;
+}
+
+.category-tab:hover {
+  background-color: #384f5266 !important;
+  color: #C2F4F9 !important;
+  border-color: rgba(194, 244, 249, 0.8) !important;
+}
+
+.category-tab:hover::after {
+  display: none !important;
+}
+
+.category-tab[data-active="true"] {
+  background-color: #384f5277 !important;
+  color: #C2F4F9 !important;
+  border-color: #c2f4f9 !important;
+}
+
+.category-tab[data-active="true"]::after {
+  display: none !important;
+}
+
+/* Scrollbar styling */
+.specialization-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.specialization-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Navigation arrows */
+.nav-arrow {
+  background: rgba(18, 26, 28, 0.6) !important;
+  color: #C2F4F9 !important;
+  border: 1px solid rgba(194, 244, 249, 0.3) !important;
+}
+
+.nav-arrow:hover {
+  background: rgba(18, 26, 28, 0.8) !important;
+  border-color: rgba(194, 244, 249, 0.5) !important;
+  color: #C2F4F9 !important;
+}
+
+/* Card styling */
+.specialization-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  background: transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.specialization-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(194, 244, 249, 0.6);
+  box-shadow: 0 8px 24px rgba(194, 244, 249, 0.2);
+}
+
+/* Select button */
+.select-button {
+  transition: all 0.2s ease !important;
+  border-radius: 0.15rem !important;
+  background-color: #384f524f !important;
+  border: 0.0625rem solid #c2f4f967 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  z-index: 10 !important;
+  position: relative !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.select-button:hover:not(:disabled) {
+  background-color: #384f5266 !important;
+  border-color: rgba(194, 244, 249, 0.8) !important;
+  color: #C2F4F9 !important;
+}
+
+.select-button:active:not(:disabled) {
+  background-color: #384f5277 !important;
+}
+
+.select-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: #384f5233 !important;
+}
+
+/* Go back button */
+.go-back-button {
+  background-color: #384f524f !important;
+  border: 0.0625rem solid #c2f4f967 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.2s ease !important;
+  border-radius: 0.15rem !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.go-back-button:hover {
+  background-color: #384f5266 !important;
+  border-color: rgba(194, 244, 249, 0.8) !important;
+  color: #C2F4F9 !important;
+}
+
+.go-back-button:active {
+  background-color: #384f5277 !important;
+}
+
