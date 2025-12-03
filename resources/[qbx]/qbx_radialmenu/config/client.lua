@@ -81,53 +81,78 @@ return {
         },
         {
             id = 'animations',
-            icon = 'user',
+            icon = 'theater-masks',
             label = 'Animations',
-            items = {
-                {
-                    id = 'givenum',
-                    icon = 'address-book',
-                    label = 'Give Contact Details',
-                    event = 'qb-phone:client:GiveContactDetails'
-                },
-            },
+            action = function()
+                TriggerEvent('scully_emotemenu:toggleMenu')
+            end
         },
         {
             id = 'walk_styles',
-            icon = 'user',
+            icon = 'person-walking',
             label = 'Walk Styles',
             items = {
                 {
-                    id = 'givenum',
-                    icon = 'address-book',
-                    label = 'Give Contact Details',
-                    event = 'qb-phone:client:GiveContactDetails'
+                    id = 'walk_reset',
+                    icon = 'rotate-left',
+                    label = 'Reset Walk',
+                    event = 'scully_emotemenu:resetWalk'
                 },
-            },
-        },
-        {
-            id = 'perks_menu',
-            icon = 'user',
-            label = 'Perks Menu,
-            items = {
                 {
-                    id = 'givenum',
-                    icon = 'address-book',
-                    label = 'Give Contact Details',
-                    event = 'qb-phone:client:GiveContactDetails'
+                    id = 'walk_confident',
+                    icon = 'person-walking',
+                    label = 'Confident',
+                    event = 'qbx_radialmenu:client:setWalk',
+                    args = 'move_m@confident'
                 },
-            },
-        },
-        {
-            id = 'skill_tree',
-            icon = 'user',
-            label = 'Skill Tree,
-            items = {
                 {
-                    id = 'givenum',
-                    icon = 'address-book',
-                    label = 'Give Contact Details',
-                    event = 'qb-phone:client:GiveContactDetails'
+                    id = 'walk_tough',
+                    icon = 'person-walking',
+                    label = 'Tough',
+                    event = 'qbx_radialmenu:client:setWalk',
+                    args = 'move_m@tough_guy@'
+                },
+                {
+                    id = 'walk_casual',
+                    icon = 'person-walking',
+                    label = 'Casual',
+                    event = 'qbx_radialmenu:client:setWalk',
+                    args = 'move_m@casual@a'
+                },
+                {
+                    id = 'walk_gangster',
+                    icon = 'person-walking',
+                    label = 'Gangster',
+                    event = 'qbx_radialmenu:client:setWalk',
+                    args = 'move_m@gangster@generic'
+                },
+                {
+                    id = 'walk_posh',
+                    icon = 'person-walking',
+                    label = 'Posh',
+                    event = 'qbx_radialmenu:client:setWalk',
+                    args = 'move_m@posh@'
+                },
+                {
+                    id = 'walk_swagger',
+                    icon = 'person-walking',
+                    label = 'Swagger',
+                    event = 'qbx_radialmenu:client:setWalk',
+                    args = 'move_m@swagger'
+                },
+                {
+                    id = 'walk_sad',
+                    icon = 'person-walking',
+                    label = 'Sad',
+                    event = 'qbx_radialmenu:client:setWalk',
+                    args = 'move_m@sad@a'
+                },
+                {
+                    id = 'walk_drunk',
+                    icon = 'person-walking',
+                    label = 'Drunk',
+                    event = 'qbx_radialmenu:client:setWalk',
+                    args = 'move_m@drunk@a'
                 },
             },
         },
