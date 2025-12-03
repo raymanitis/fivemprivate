@@ -39,7 +39,7 @@ end
 -- Store active shop peds for interaction detection
 local activeShopPeds = {}
 
--- Function to show shop dialog
+-- Function to show shop dialog using mt_lib
 local function showShopDialog(point)
 	local shopConfig = shopTypes[point.type]
 	if not shopConfig then return end
@@ -50,16 +50,18 @@ local function showShopDialog(point)
 	local speech = dialogConfig.speech or 'How can I help you?'
 	local options = dialogConfig.options or {}
 
-	-- Build context menu options
-	local menuOptions = {}
+	-- Build mt_lib dialog options
+	local dialogOptions = {}
 
 	-- Add custom options from config
 	for i = 1, #options do
 		local option = options[i]
-		table.insert(menuOptions, {
-			title = option.label or option.title,
-			icon = option.icon or 'fas fa-circle',
-			onSelect = function()
+		table.insert(dialogOptions, {
+			id = option.id or ('option_' .. i),
+			label = option.label or option.title,
+			icon = option.icon or 'circle',
+			close = option.close ~= false, -- Default to true if not specified
+			action = function()
 				if option.action and type(option.action) == 'function' then
 					option.action()
 				elseif option.id == 'shop' or option.openShop then
@@ -70,58 +72,52 @@ local function showShopDialog(point)
 	end
 
 	-- If no options provided, add default "Open Shop" option
-	if #menuOptions == 0 then
-		table.insert(menuOptions, {
-			title = 'Open Shop',
-			icon = 'fas fa-shopping-basket',
-			onSelect = function()
+	if #dialogOptions == 0 then
+		table.insert(dialogOptions, {
+			id = 'shop',
+			label = 'Open Shop',
+			icon = 'shopping-basket',
+			close = true,
+			action = function()
 				client.openInventory('shop', { id = point.invId, type = point.type })
 			end,
 		})
-		table.insert(menuOptions, {
-			title = 'Nevermind',
-			icon = 'fas fa-times',
-			onSelect = function() end,
+		table.insert(dialogOptions, {
+			id = 'close',
+			label = 'Nevermind',
+			icon = 'times',
+			close = true,
 		})
 	else
 		-- Add close option if not already present
 		local hasClose = false
-		for i = 1, #menuOptions do
-			if menuOptions[i].title:lower():match('close') or menuOptions[i].title:lower():match('nevermind') or menuOptions[i].title:lower():match('no') then
+		for i = 1, #dialogOptions do
+			if dialogOptions[i].id == 'close' or dialogOptions[i].label:lower():match('close') or dialogOptions[i].label:lower():match('nevermind') or dialogOptions[i].label:lower():match('no') then
 				hasClose = true
 				break
 			end
 		end
 
 		if not hasClose then
-			table.insert(menuOptions, {
-				title = 'Nevermind',
-				icon = 'fas fa-times',
-				onSelect = function() end,
+			table.insert(dialogOptions, {
+				id = 'close',
+				label = 'Nevermind',
+				icon = 'times',
+				close = true,
 			})
 		end
 	end
 
-	-- Show notification with speech first
-	if speech and speech ~= '' then
-		lib.notify({
-			type = 'inform',
-			title = pedName,
-			description = speech,
-			duration = 4000
+	-- Show mt_lib dialogue
+	local pedEntity = point.entity
+	if pedEntity and DoesEntityExist(pedEntity) then
+		exports.mt_lib:showDialogue({
+			ped = pedEntity,
+			label = pedName,
+			speech = speech,
+			options = dialogOptions
 		})
-		Wait(500) -- Small delay so notification is visible before menu
 	end
-
-	-- Show context menu
-	local contextId = 'shop_dialog_' .. point.type .. '_' .. (point.invId or 0)
-	lib.registerContext({
-		id = contextId,
-		title = pedName,
-		options = menuOptions
-	})
-
-	lib.showContext(contextId)
 end
 
 ---@param point CPoint
