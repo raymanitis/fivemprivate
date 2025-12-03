@@ -83,7 +83,10 @@ export function UI() {
   const theme = useMantineTheme();
   const { showApp, setVisibility } = useAppVisibilityStore();
   const [selectedCategory, setSelectedCategory] = useState<SpecializationCategory>('CRIME');
-  const [specializations, setSpecializations] = useState<Specialization[]>(mockSpecializations);
+  // Initialize all specializations as unlocked by default
+  const [specializations, setSpecializations] = useState<Specialization[]>(
+    mockSpecializations.map(spec => ({ ...spec, status: 'UNLOCKED' as const }))
+  );
   const [currentSpecialization, setCurrentSpecialization] = useState<string | null>(null);
   const [canChange, setCanChange] = useState(true);
   const [timeRemaining, setTimeRemaining] = useState(0);
@@ -101,22 +104,38 @@ export function UI() {
           
           // Update specialization statuses
           const updatedSpecs = mockSpecializations.map(spec => {
-            if (spec.id === specData.currentSpecialization) {
-              return { ...spec, status: 'CHOSEN' as const };
-            } else if (specData.currentSpecialization) {
-              // If player has a specialization, lock others in the same category
-              const currentSpec = mockSpecializations.find(s => s.id === specData.currentSpecialization);
-              if (currentSpec && spec.category === currentSpec.category) {
-                return { ...spec, status: 'LOCKED' as const };
+            // If player has a specialization
+            if (specData.currentSpecialization) {
+              if (spec.id === specData.currentSpecialization) {
+                return { ...spec, status: 'CHOSEN' as const };
+              } else {
+                // Lock others in the same category
+                const currentSpec = mockSpecializations.find(s => s.id === specData.currentSpecialization);
+                if (currentSpec && spec.category === currentSpec.category) {
+                  return { ...spec, status: 'LOCKED' as const };
+                }
               }
             }
-            // Default: all unlocked
+            // Default: all unlocked (when no specialization selected)
             return { ...spec, status: 'UNLOCKED' as const };
           });
           setSpecializations(updatedSpecs);
+        } else {
+          // If no data returned, default to all unlocked
+          const defaultSpecs = mockSpecializations.map(spec => ({ ...spec, status: 'UNLOCKED' as const }));
+          setSpecializations(defaultSpecs);
+          setCurrentSpecialization(null);
+          setCanChange(true);
+          setTimeRemaining(0);
         }
       } catch (error) {
         console.error('Error fetching specializations:', error);
+        // On error, default to all unlocked
+        const defaultSpecs = mockSpecializations.map(spec => ({ ...spec, status: 'UNLOCKED' as const }));
+        setSpecializations(defaultSpecs);
+        setCurrentSpecialization(null);
+        setCanChange(true);
+        setTimeRemaining(0);
       }
     }
   });
@@ -247,29 +266,9 @@ export function UI() {
             }}
           >
             <Stack gap="xl" style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'visible', position: 'relative' }}>
-              {/* Top Bar with Category Buttons and Timer */}
+              {/* Top Bar with Timer on Left */}
               <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', width: '100%', flexShrink: 0, position: 'relative', zIndex: 100 }}>
-                {/* Category Buttons - Left */}
-                <Group gap="md" style={{ flexShrink: 0 }}>
-                  <Button
-                    variant="subtle"
-                    onClick={() => setSelectedCategory('CRIME')}
-                    className="category-tab"
-                    data-active={selectedCategory === 'CRIME'}
-                  >
-                    CRIME
-                  </Button>
-                  <Button
-                    variant="subtle"
-                    onClick={() => setSelectedCategory('CIVILIAN')}
-                    className="category-tab"
-                    data-active={selectedCategory === 'CIVILIAN'}
-                  >
-                    CIVILIAN
-                  </Button>
-                </Group>
-
-                {/* Timer - Right */}
+                {/* Timer - Left */}
                 {!canChange && timeRemaining > 0 && (
                   <Box
                     style={{
@@ -286,6 +285,7 @@ export function UI() {
                     Can change in: {formatTime(timeRemaining)}
                   </Box>
                 )}
+                <Box style={{ flex: 1 }} /> {/* Spacer */}
               </Box>
 
               {/* Header */}
@@ -297,6 +297,26 @@ export function UI() {
                   Be careful choosing your specialization. You can change it only once a week.
                 </Text>
               </Stack>
+
+              {/* Category Buttons - Center */}
+              <Group justify="center" gap="md" style={{ marginTop: '0.5rem', marginBottom: '1rem', flexShrink: 0 }}>
+                <Button
+                  variant="subtle"
+                  onClick={() => setSelectedCategory('CRIME')}
+                  className="category-tab"
+                  data-active={selectedCategory === 'CRIME'}
+                >
+                  CRIME
+                </Button>
+                <Button
+                  variant="subtle"
+                  onClick={() => setSelectedCategory('CIVILIAN')}
+                  className="category-tab"
+                  data-active={selectedCategory === 'CIVILIAN'}
+                >
+                  CIVILIAN
+                </Button>
+              </Group>
 
               {/* Specialization Cards */}
               <Box style={{ flex: '1 1 auto', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 60px', minHeight: 0, maxHeight: 'calc(90vh - 400px)', overflow: 'visible', zIndex: 10 }}>
