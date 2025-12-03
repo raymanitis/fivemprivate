@@ -164,7 +164,7 @@ export function UI() {
               zIndex: 1,
             }}
           >
-            <Stack gap="xl" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            <Stack gap="xl" style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'visible' }}>
               {/* Header */}
               <Stack gap={8} align="center" style={{ flexShrink: 0, position: 'relative', zIndex: 100 }}>
                 <Title order={1} c="#C2F4F9" size="2.5rem" fw={600} style={{ letterSpacing: '1px', margin: 0 }}>
@@ -196,7 +196,7 @@ export function UI() {
               </Group>
 
               {/* Specialization Cards */}
-              <Box style={{ flex: '1 1 auto', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 60px', minHeight: 0, maxHeight: 'calc(90vh - 400px)', overflow: 'visible', zIndex: 10 }}>
+              <Box style={{ flex: '1 1 auto', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 60px', minHeight: 0, maxHeight: 'calc(90vh - 400px)', overflow: 'visible', zIndex: 10 }}>
                 {filteredSpecializations.length > 3 && (
                   <ActionIcon
                     variant="subtle"
@@ -219,13 +219,13 @@ export function UI() {
                     display: 'flex',
                     justifyContent: 'center',
                     overflowX: filteredSpecializations.length > 3 ? 'auto' : 'visible',
-                    overflowY: 'hidden',
+                    overflowY: 'visible',
                     scrollbarWidth: 'none',
                     msOverflowStyle: 'none',
                   }}
                   className="specialization-scroll"
                 >
-                  <Group gap={24} align="stretch" wrap="nowrap" style={{ height: '100%', justifyContent: 'center' }}>
+                  <Group gap={24} align="stretch" wrap="nowrap" style={{ height: '100%', justifyContent: 'center', overflow: 'visible' }}>
                     {filteredSpecializations.map((spec) => (
                       <SpecializationCard
                         key={spec.id}
