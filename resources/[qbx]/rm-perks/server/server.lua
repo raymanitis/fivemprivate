@@ -78,35 +78,33 @@ local function GetPlayerSpecializationsData(citizenid)
     }
 end
 
--- NUI Callback: Get specializations data
-RegisterNUICallback('getSpecializations', function(data, cb)
+-- Server event: Get specializations data
+RegisterNetEvent('rm-perks:server:getSpecializations', function()
     local src = source
     local Player = exports.qbx_core:GetPlayer(src)
     if not Player then
-        cb({error = 'Player not found'})
         return
     end
     
     local citizenid = Player.PlayerData.citizenid
     local specData = GetPlayerSpecializationsData(citizenid)
     
-    cb(specData)
+    TriggerClientEvent('rm-perks:client:receiveSpecializations', src, specData)
 end)
 
--- NUI Callback: Select specialization
-RegisterNUICallback('selectSpecialization', function(data, cb)
+-- Server event: Select specialization
+RegisterNetEvent('rm-perks:server:selectSpecialization', function(specializationId)
     local src = source
     local Player = exports.qbx_core:GetPlayer(src)
     if not Player then
-        cb({success = false, error = 'Player not found'})
+        TriggerClientEvent('rm-perks:client:selectionResult', src, {success = false, error = 'Player not found'})
         return
     end
     
     local citizenid = Player.PlayerData.citizenid
-    local specializationId = data.specializationId
     
     if not specializationId then
-        cb({success = false, error = 'Invalid specialization'})
+        TriggerClientEvent('rm-perks:client:selectionResult', src, {success = false, error = 'Invalid specialization'})
         return
     end
     
@@ -115,7 +113,10 @@ RegisterNUICallback('selectSpecialization', function(data, cb)
     if not canChange then
         local days = math.floor(timeRemaining / (24 * 60 * 60))
         local hours = math.floor((timeRemaining % (24 * 60 * 60)) / (60 * 60))
-        cb({success = false, error = string.format('You can change your specialization in %d days and %d hours', days, hours)})
+        TriggerClientEvent('rm-perks:client:selectionResult', src, {
+            success = false,
+            error = string.format('You can change your specialization in %d days and %d hours', days, hours)
+        })
         return
     end
     
@@ -128,7 +129,10 @@ RegisterNUICallback('selectSpecialization', function(data, cb)
         duration = 5000
     })
     
-    cb({success = true})
+    -- Send updated data
+    local specData = GetPlayerSpecializationsData(citizenid)
+    TriggerClientEvent('rm-perks:client:receiveSpecializations', src, specData)
+    TriggerClientEvent('rm-perks:client:selectionResult', src, {success = true})
 end)
 
 -- Command: /spec - Show current specialization

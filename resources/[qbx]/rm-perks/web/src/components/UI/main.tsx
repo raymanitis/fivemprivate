@@ -91,52 +91,54 @@ export function UI() {
   const [canChange, setCanChange] = useState(true);
   const [timeRemaining, setTimeRemaining] = useState(0);
 
-  useNuiEvent<boolean>('UPDATE_VISIBILITY', async (data) => {
+  useNuiEvent<boolean>('UPDATE_VISIBILITY', (data) => {
     setVisibility(data);
     if (data) {
-      // Fetch specialization data when opening
-      try {
-        const specData = await fetchNui<{currentSpecialization?: string, canChange: boolean, timeRemaining: number}>('getSpecializations');
-        if (specData) {
-          setCurrentSpecialization(specData.currentSpecialization || null);
-          setCanChange(specData.canChange);
-          setTimeRemaining(specData.timeRemaining || 0);
-          
-          // Update specialization statuses
-          const updatedSpecs = mockSpecializations.map(spec => {
-            // If player has a specialization
-            if (specData.currentSpecialization) {
-              if (spec.id === specData.currentSpecialization) {
-                return { ...spec, status: 'CHOSEN' as const };
-              } else {
-                // Lock others in the same category
-                const currentSpec = mockSpecializations.find(s => s.id === specData.currentSpecialization);
-                if (currentSpec && spec.category === currentSpec.category) {
-                  return { ...spec, status: 'LOCKED' as const };
-                }
-              }
+      // Request specialization data - server will send it via SET_SPECIALIZATION_DATA
+      fetchNui('getSpecializations');
+    }
+  });
+
+  useNuiEvent<{currentSpecialization?: string, canChange: boolean, timeRemaining: number}>('SET_SPECIALIZATION_DATA', (specData) => {
+    if (specData) {
+      setCurrentSpecialization(specData.currentSpecialization || null);
+      setCanChange(specData.canChange);
+      setTimeRemaining(specData.timeRemaining || 0);
+      
+      // Update specialization statuses
+      const updatedSpecs = mockSpecializations.map(spec => {
+        // If player has a specialization
+        if (specData.currentSpecialization) {
+          if (spec.id === specData.currentSpecialization) {
+            return { ...spec, status: 'CHOSEN' as const };
+          } else {
+            // Lock others in the same category
+            const currentSpec = mockSpecializations.find(s => s.id === specData.currentSpecialization);
+            if (currentSpec && spec.category === currentSpec.category) {
+              return { ...spec, status: 'LOCKED' as const };
             }
-            // Default: all unlocked (when no specialization selected)
-            return { ...spec, status: 'UNLOCKED' as const };
-          });
-          setSpecializations(updatedSpecs);
-        } else {
-          // If no data returned, default to all unlocked
-          const defaultSpecs = mockSpecializations.map(spec => ({ ...spec, status: 'UNLOCKED' as const }));
-          setSpecializations(defaultSpecs);
-          setCurrentSpecialization(null);
-          setCanChange(true);
-          setTimeRemaining(0);
+          }
         }
-      } catch (error) {
-        console.error('Error fetching specializations:', error);
-        // On error, default to all unlocked
-        const defaultSpecs = mockSpecializations.map(spec => ({ ...spec, status: 'UNLOCKED' as const }));
-        setSpecializations(defaultSpecs);
-        setCurrentSpecialization(null);
-        setCanChange(true);
-        setTimeRemaining(0);
-      }
+        // Default: all unlocked (when no specialization selected)
+        return { ...spec, status: 'UNLOCKED' as const };
+      });
+      setSpecializations(updatedSpecs);
+    } else {
+      // If no data returned, default to all unlocked
+      const defaultSpecs = mockSpecializations.map(spec => ({ ...spec, status: 'UNLOCKED' as const }));
+      setSpecializations(defaultSpecs);
+      setCurrentSpecialization(null);
+      setCanChange(true);
+      setTimeRemaining(0);
+    }
+  });
+
+  useNuiEvent<{success: boolean, error?: string}>('SELECTION_RESULT', (result) => {
+    if (result?.success) {
+      // Request updated data
+      fetchNui('getSpecializations');
+    } else if (result?.error) {
+      console.error('Error selecting specialization:', result.error);
     }
   });
 
@@ -191,29 +193,11 @@ export function UI() {
     }
   };
 
-  const handleSelect = async (spec: Specialization) => {
+  const handleSelect = (spec: Specialization) => {
     if (spec.status === 'LOCKED' || spec.status === 'COMING_SOON' || spec.status === 'CHOSEN') return;
     
-    try {
-      const result = await fetchNui<{success: boolean, error?: string}>('selectSpecialization', { specializationId: spec.id });
-      if (result?.success) {
-        // Update local state
-        setCurrentSpecialization(spec.id);
-        const updatedSpecs = specializations.map(s => {
-          if (s.id === spec.id) {
-            return { ...s, status: 'CHOSEN' as const };
-          } else if (s.category === spec.category) {
-            return { ...s, status: 'LOCKED' as const };
-          }
-          return s;
-        });
-        setSpecializations(updatedSpecs);
-      } else if (result?.error) {
-        console.error('Error selecting specialization:', result.error);
-      }
-    } catch (error) {
-      console.error('Error selecting specialization:', error);
-    }
+    // Send selection request - server will respond via SELECTION_RESULT event
+    fetchNui('selectSpecialization', { specializationId: spec.id });
   };
 
   const handleClose = () => {
@@ -298,8 +282,8 @@ export function UI() {
                 </Text>
               </Stack>
 
-              {/* Category Buttons - Center */}
-              <Group justify="center" gap="md" style={{ marginTop: '0.5rem', marginBottom: '1rem', flexShrink: 0 }}>
+              {/* Category Buttons - Left */}
+              <Group justify="flex-start" gap="md" style={{ marginTop: '0.5rem', marginBottom: '1rem', flexShrink: 0 }}>
                 <Button
                   variant="subtle"
                   onClick={() => setSelectedCategory('CRIME')}
