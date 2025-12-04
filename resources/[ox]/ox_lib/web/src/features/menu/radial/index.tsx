@@ -139,11 +139,12 @@ const RadialMenu: React.FC = () => {
     return text.slice(0, Math.max(0, maxLength - 3)) + '...';
   }
 
-  // Calculate circular positions for 8 buttons
+  // Calculate circular positions dynamically based on actual number of items
   const centerX = 175;
   const centerY = 175;
-  const positions = Array.from({ length: PAGE_ITEMS }, (_, i) => {
-    const angle = (i * 2 * Math.PI) / PAGE_ITEMS - Math.PI / 2; // Start from top
+  const itemCount = menuItems.length;
+  const positions = Array.from({ length: itemCount }, (_, i) => {
+    const angle = (i * 2 * Math.PI) / itemCount - Math.PI / 2; // Start from top, evenly distributed
     return {
       x: centerX + RADIUS * Math.cos(angle),
       y: centerY + RADIUS * Math.sin(angle),
@@ -166,7 +167,7 @@ const RadialMenu: React.FC = () => {
           viewBox="0 0 350 350"
         >
           {/* Square buttons in circular layout */}
-          {menuItems.slice(0, PAGE_ITEMS).map((item, index) => {
+          {menuItems.map((item, index) => {
             const { x, y } = positions[index];
             const buttonX = x - BUTTON_SIZE / 2;
             const buttonY = y - BUTTON_SIZE / 2;
