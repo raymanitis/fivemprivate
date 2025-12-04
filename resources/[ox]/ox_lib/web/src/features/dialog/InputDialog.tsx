@@ -1,5 +1,5 @@
 import { Button, Group, Modal, Stack } from '@mantine/core';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNuiEvent } from '../../hooks/useNuiEvent';
 import { useLocales } from '../../providers/LocaleProvider';
 import { fetchNui } from '../../utils/fetchNui';
@@ -76,6 +76,20 @@ const InputDialog: React.FC = () => {
     if (dontPost) return;
     fetchNui('inputData');
   };
+
+  useEffect(() => {
+    if (!visible) return;
+
+    const keyHandler = (e: KeyboardEvent) => {
+      if (e.code === 'Escape' && fields.options?.allowCancel !== false) {
+        handleClose(true);
+      }
+    };
+
+    window.addEventListener('keydown', keyHandler);
+
+    return () => window.removeEventListener('keydown', keyHandler);
+  }, [visible, fields.options?.allowCancel]);
 
   const onSubmit = form.handleSubmit(async (data) => {
     setVisible(false);

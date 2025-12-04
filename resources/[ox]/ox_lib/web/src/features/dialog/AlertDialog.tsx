@@ -1,5 +1,5 @@
 import { createStyles, Group, Modal, Stack, useMantineTheme } from '@mantine/core';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useNuiEvent } from '../../hooks/useNuiEvent';
 import { fetchNui } from '../../utils/fetchNui';
@@ -39,6 +39,25 @@ const AlertDialog: React.FC = () => {
   useNuiEvent('closeAlertDialog', () => {
     setOpened(false);
   });
+
+  useEffect(() => {
+    if (!opened) return;
+
+    const keyHandler = (e: KeyboardEvent) => {
+      if (e.code === 'Escape') {
+        // Close with cancel if cancel button exists, otherwise confirm
+        if (dialogData.cancel) {
+          closeAlert('cancel');
+        } else {
+          closeAlert('confirm');
+        }
+      }
+    };
+
+    window.addEventListener('keydown', keyHandler);
+
+    return () => window.removeEventListener('keydown', keyHandler);
+  }, [opened, dialogData.cancel]);
 
   return (
     <>
