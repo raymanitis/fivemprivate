@@ -175,8 +175,8 @@ function LockpickDoor(isAdvancedLockedpick, maxDistance, customChallenge)
         or GetVehicleConfig(vehicle).lockpickImmune
     then return end
 
+    -- Check if vehicle can be lockpicked (skip vehicles with empty skillCheck config like MILITARY/TRAINS)
     local skillCheckConfig = config.skillCheck[isAdvancedLockedpick and 'advancedLockpick' or 'lockpick']
-
     skillCheckConfig = skillCheckConfig.model[GetEntityModel(vehicle)]
         or skillCheckConfig.class[GetVehicleClass(vehicle)]
         or skillCheckConfig.default
@@ -190,7 +190,12 @@ function LockpickDoor(isAdvancedLockedpick, maxDistance, customChallenge)
             or config.anims.lockpick.class[GetVehicleClass(vehicle)]
             or config.anims.lockpick.default
         lib.playAnim(cache.ped, anim.dict, anim.clip, 3.0, 3.0, -1, 16, 0, false, false, false) -- lock opening animation
-        local isSuccess = customChallenge or lib.skillCheck(skillCheckConfig.difficulty, skillCheckConfig.inputs)
+        local isSuccess = customChallenge or exports['tgg-minigames']:Lockpick({
+            slowMovementThreshold = 7,
+            sections = 36,
+            lightShakeTolerance = 6,
+            successZoneTolerance = 2
+        })
 
         if getIsVehicleInRange(vehicle, maxDistance) then -- the action will be aborted if the opened vehicle is too far.
             lockpickCallback(vehicle, isAdvancedLockedpick, isSuccess)
@@ -230,8 +235,8 @@ local isHotwiringProcessLocked = false -- lock flag
 ---@param customChallenge boolean? lockpick challenge
 function Hotwire(vehicle, isAdvancedLockedpick, customChallenge)
     if cache.seat ~= -1 or GetIsVehicleAccessible(vehicle) then return end
+    -- Check if vehicle can be hotwired (skip vehicles with empty skillCheck config like MILITARY/TRAINS)
     local skillCheckConfig = config.skillCheck[isAdvancedLockedpick and 'advancedHotwire' or 'hotwire']
-
     skillCheckConfig = skillCheckConfig.model[GetEntityModel(vehicle)]
         or skillCheckConfig.class[GetVehicleClass(vehicle)]
         or skillCheckConfig.default
@@ -245,7 +250,11 @@ function Hotwire(vehicle, isAdvancedLockedpick, customChallenge)
         or config.anims.hotwire.class[GetVehicleClass(vehicle)]
         or config.anims.hotwire.default
         lib.playAnim(cache.ped, anim.dict, anim.clip, 3.0, 3.0, -1, 16, 0, false, false, false) -- lock opening animation
-        local isSuccess = customChallenge or lib.skillCheck(skillCheckConfig.difficulty, skillCheckConfig.inputs)
+        local isSuccess = customChallenge or exports['tgg-minigames']:RhythmClick({
+            numberOfCircles = 10,
+            spawnInterval = 0.7,
+            perfectClickWindow = 0.4
+        })
 
         hotwireCallback(vehicle, isAdvancedLockedpick, isSuccess)
 
