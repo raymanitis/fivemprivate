@@ -23,7 +23,7 @@ let categories;
 let currentCategory = 'all';
 
 function post(type, data) {
-    fetch(`https://pickle_xp/${type}`, {
+    return fetch(`https://pickle_xp/${type}`, {
         method: 'post',
         headers: {
             'Accept': 'application/json',
@@ -31,8 +31,8 @@ function post(type, data) {
         },
         body: JSON.stringify(data || {})
     })
-    .then(response => {  })
-    .catch(error => {  });
+    .then(response => { return response; })
+    .catch(error => { console.error(error); });
 }
 
 function getCategoryFromKey(key, categoryData) {
@@ -102,8 +102,10 @@ function HideSkills() {
 $(document).ready(function () {
     $(document).on("click", ".exit, .exit-wrapper", function(event) {
         event.stopPropagation();
-        HideSkills()
-        post("hide")
+        event.preventDefault();
+        post("hide").then(() => {
+            HideSkills();
+        });
     })
     
     // Category button handlers
@@ -117,8 +119,10 @@ $(document).ready(function () {
     // Handle ESC key to close menu
     $(document).on("keydown", function(event) {
         if (event.key === "Escape" || event.keyCode === 27) {
-            HideSkills()
-            post("hide")
+            event.preventDefault();
+            post("hide").then(() => {
+                HideSkills();
+            });
         }
     })
 })

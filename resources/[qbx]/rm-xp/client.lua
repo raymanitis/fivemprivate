@@ -34,17 +34,18 @@ function ShowDisplay()
 end
 
 function HideDisplay()
+    SetNuiFocus(false, false)
     SendNUIMessage({
         type = "hide"
     })
-    SetNuiFocus(false, false)
 end
 
 RegisterNUICallback("hide", function(data, cb)
+    SetNuiFocus(false, false)
     cb('ok')
-    -- Small delay to ensure callback completes before releasing focus
+    -- Ensure focus is released even if callback fails
     CreateThread(function()
-        Wait(50)
+        Wait(100)
         SetNuiFocus(false, false)
     end)
 end)
