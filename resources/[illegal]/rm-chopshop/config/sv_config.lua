@@ -51,18 +51,18 @@ Config.ChopshopRewards = {
     D = {
         items = {
             -- Example item rewards (uncomment / edit as you like)
-            -- {
-            --     name = 'black_money',
-            --     min = 2000,
-            --     max = 4000,
-            --     chance = 100, -- always
-            -- },
-            -- {
-            --     name = 'lockpick',
-            --     min = 1,
-            --     max = 2,
-            --     chance = 50, -- 50% chance
-            -- },
+            {
+                name = 'black_money',
+                min = 2000,
+                max = 4000,
+                chance = 100, -- always
+            },
+            {
+                name = 'lockpick',
+                min = 1,
+                max = 2,
+                chance = 50, -- 50% chance
+            },
         },
 
         -- Optional money reward for this class
@@ -77,18 +77,18 @@ Config.ChopshopRewards = {
     -- Mid tier - Class C
     C = {
         items = {
-            -- {
-            --     name = 'black_money',
-            --     min = 4000,
-            --     max = 7000,
-            --     chance = 100,
-            -- },
-            -- {
-            --     name = 'advancedlockpick',
-            --     min = 1,
-            --     max = 1,
-            --     chance = 40,
-            -- },
+            {
+                name = 'black_money',
+                min = 4000,
+                max = 7000,
+                chance = 100,
+            },
+            {
+                name = 'advancedlockpick',
+                min = 1,
+                max = 1,
+                chance = 40,
+            },
         },
         money = {
             -- min = 6000,
