@@ -79,9 +79,9 @@ local function spawnChopshopPed()
                             id = 'money',
                             label = "Yeah, I'm tryin' to make some money",
                             icon = 'dollar-sign',
-                            close = true,
+                            close = false, -- keep the same dialog open
                             action = function()
-                                -- Second step: he offers chop work (no mission start yet)
+                                -- Second step: he offers chop work but stays in the same dialog window
                                 exports.mt_lib:showDialogue({
                                     ped = chopshopPed,
                                     label = 'Carlos Ramirez',
