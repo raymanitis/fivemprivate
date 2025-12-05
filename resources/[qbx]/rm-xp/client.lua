@@ -43,8 +43,15 @@ end
 RegisterNUICallback("hide", function(data, cb)
     -- Immediately release focus and cursor
     SetNuiFocus(false, false)
-    -- Respond to callback immediately
+    -- Respond to callback
     cb('ok')
+    -- Ensure focus is fully released (multiple attempts for reliability)
+    CreateThread(function()
+        Wait(0)
+        SetNuiFocus(false, false)
+        Wait(10)
+        SetNuiFocus(false, false)
+    end)
 end)
 
 RegisterNetEvent("pickle_xp:updateXP", function(xp, name)

@@ -101,8 +101,9 @@ $(document).ready(function () {
     $(document).on("click", ".exit, .exit-wrapper", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        HideSkills();
-        post("hide");
+        post("hide").then(() => {
+            HideSkills();
+        });
     })
     
     // Category button handlers
@@ -117,8 +118,9 @@ $(document).ready(function () {
     $(document).on("keydown", function(event) {
         if (event.key === "Escape" || event.keyCode === 27) {
             event.preventDefault();
-            HideSkills();
-            post("hide");
+            post("hide").then(() => {
+                HideSkills();
+            });
         }
     })
 })
