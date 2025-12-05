@@ -1,6 +1,6 @@
 const Formats = {
     category: `
-        <div class="skill-item">
+        <div class="skill-item" data-category="$[CATEGORY]">
             <div class="skill-header">
                 <span class="skill-label">$[LABEL]</span>
                 <div class="skill-level-info">
@@ -20,6 +20,7 @@ const Formats = {
 }
 
 let categories;
+let currentCategory = 'all';
 
 function post(type, data) {
     fetch(`https://pickle_xp/${type}`, {
@@ -34,6 +35,33 @@ function post(type, data) {
     .catch(error => {  });
 }
 
+function getCategoryFromKey(key, categoryData) {
+    // Use category from data if available
+    if (categoryData && categoryData.category) {
+        return categoryData.category.toLowerCase();
+    }
+    
+    // Fallback: Check if key contains category name
+    key = key.toLowerCase();
+    if (key.includes('criminal')) return 'criminal';
+    if (key.includes('civilian')) return 'civilian';
+    if (key.includes('default')) return 'default';
+    
+    // Default fallback
+    return 'default';
+}
+
+function filterSkills() {
+    $('.skill-item').each(function() {
+        const itemCategory = $(this).data('category');
+        if (currentCategory === 'all' || itemCategory === currentCategory) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+}
+
 function DisplayXP(data) {
     categories = data;
     let categoriesHtml = "";
@@ -43,6 +71,7 @@ function DisplayXP(data) {
         let xp = (category.xp > category.level_xp ? category.level_xp : category.xp)
         let remaining = Math.max(0, category.level_xp - xp)
         let progress = Math.ceil((xp / category.level_xp) * 100)
+        let categoryType = getCategoryFromKey(key, category);
         
         xpHtml = xpHtml.replaceAll("$[LABEL]", category.label)
         xpHtml = xpHtml.replaceAll("$[LEVEL]", category.level)
@@ -50,9 +79,11 @@ function DisplayXP(data) {
         xpHtml = xpHtml.replaceAll("$[LEVEL_XP]", category.level_xp.toLocaleString())
         xpHtml = xpHtml.replaceAll("$[PROGRESS]", progress)
         xpHtml = xpHtml.replaceAll("$[REMAINING]", remaining.toLocaleString())
+        xpHtml = xpHtml.replaceAll("$[CATEGORY]", categoryType)
         categoriesHtml += xpHtml;
     }
     $("#middle").html(categoriesHtml);
+    filterSkills();
     
     // Show with animation
     $("#container").css('display', 'flex');
@@ -73,6 +104,14 @@ $(document).ready(function () {
         event.stopPropagation();
         HideSkills()
         post("hide")
+    })
+    
+    // Category button handlers
+    $(document).on("click", ".category-btn", function() {
+        $(".category-btn").removeClass("active");
+        $(this).addClass("active");
+        currentCategory = $(this).data("category");
+        filterSkills();
     })
     
     // Handle ESC key to close menu

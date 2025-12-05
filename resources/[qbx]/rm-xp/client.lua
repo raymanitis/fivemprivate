@@ -19,6 +19,7 @@ function GetXPData()
             xp = xp,
             level = level,
             level_xp = GetLevelXP(k, level),
+            category = v.category or "default", -- Add category field
         }
     end
     return data
@@ -40,8 +41,12 @@ function HideDisplay()
 end
 
 RegisterNUICallback("hide", function(data, cb)
-    SetNuiFocus(false, false)
     cb('ok')
+    -- Small delay to ensure callback completes before releasing focus
+    CreateThread(function()
+        Wait(50)
+        SetNuiFocus(false, false)
+    end)
 end)
 
 RegisterNetEvent("pickle_xp:updateXP", function(xp, name)
