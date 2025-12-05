@@ -41,11 +41,15 @@ function HideDisplay()
 end
 
 RegisterNUICallback("hide", function(data, cb)
+    -- Immediately release focus and cursor before responding
     SetNuiFocus(false, false)
+    -- Respond to callback
     cb('ok')
-    -- Ensure focus is released even if callback fails
+    -- Ensure focus is fully released (safety net for edge cases)
     CreateThread(function()
-        Wait(100)
+        Wait(0) -- Next frame
+        SetNuiFocus(false, false)
+        Wait(10) -- Small delay
         SetNuiFocus(false, false)
     end)
 end)
