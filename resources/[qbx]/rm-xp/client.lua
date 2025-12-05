@@ -32,8 +32,16 @@ function ShowDisplay()
     SetNuiFocus(true, true)
 end
 
-RegisterNUICallback("hide", function()
+function HideDisplay()
+    SendNUIMessage({
+        type = "hide"
+    })
     SetNuiFocus(false, false)
+end
+
+RegisterNUICallback("hide", function(data, cb)
+    SetNuiFocus(false, false)
+    cb('ok')
 end)
 
 RegisterNetEvent("pickle_xp:updateXP", function(xp, name)
