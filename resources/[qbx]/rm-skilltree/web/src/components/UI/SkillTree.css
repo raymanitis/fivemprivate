@@ -1,0 +1,208 @@
+.skilltree-container {
+  background: transparent;
+  padding: 2rem 3rem;
+  padding-bottom: 2rem;
+}
+
+.category-tab {
+  background-color: #384f524f !important;
+  border: 0.0625rem solid #c2f4f967 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.2s ease !important;
+  border-radius: 0.15rem !important;
+  position: relative !important;
+  min-height: 2.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+.category-tab:hover {
+  background-color: #384f5266 !important;
+  color: #C2F4F9 !important;
+  border-color: rgba(194, 244, 249, 0.8) !important;
+}
+
+.category-tab[data-active="true"] {
+  background-color: #384f5277 !important;
+  color: #C2F4F9 !important;
+  border-color: #c2f4f9 !important;
+}
+
+.skilltree-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skilltree-row {
+  padding: 1.2rem 1.5rem 0.8rem;
+  background-color: #121a1cde;
+  border: 1.5px solid rgba(194, 244, 249, 0.4);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skilltree-row-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.skilltree-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.skill-connector {
+  flex: 1;
+  height: 0.12rem;
+  min-width: 2rem;
+  max-width: 4rem;
+  background: linear-gradient(90deg, #f5d16a 0%, #b1fffb 70%, #00ffc8 100%);
+  opacity: 0.85;
+  box-shadow: 0 0 4px rgba(194, 244, 249, 0.3);
+}
+
+.skill-node {
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  transform: rotate(45deg);
+  border-radius: 0.25rem;
+  background: #061214;
+  border: 0.12rem solid #2b393b;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.7);
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.skill-node-inner {
+  transform: rotate(-45deg);
+  width: 75%;
+  height: 75%;
+  border-radius: 0.15rem;
+  background: radial-gradient(circle at 30% 0%, #ffffff, #8ffcff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.skill-node.locked {
+  border-color: #444;
+  background: #050608;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.skill-node.locked .skill-node-inner {
+  background: radial-gradient(circle at 30% 0%, #555, #111);
+  color: #c0c0c0;
+}
+
+.skill-node.active {
+  border-color: #f5d16a;
+  box-shadow: 0 0 0.8rem rgba(245, 209, 106, 0.9);
+}
+
+.skill-node.unlocked .skill-node-inner {
+  background: radial-gradient(circle at 30% 0%, #ffffff, #ffe895);
+}
+
+.skill-node:hover:not(.locked) {
+  border-color: #C2F4F9;
+  transform: rotate(45deg) scale(1.15);
+  box-shadow: 0 0 1rem rgba(194, 244, 249, 0.6);
+  z-index: 10;
+}
+
+.skill-node:active:not(.locked) {
+  transform: rotate(45deg) scale(1.05);
+}
+
+.skill-tooltip {
+  position: fixed;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.25rem;
+  background-color: #121a1cde;
+  border: 1.5px solid rgba(194, 244, 249, 0.4);
+  font-size: 0.875rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s linear;
+  max-width: 18rem;
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+  white-space: normal;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.skill-tooltip-title {
+  font-size: 1rem;
+  color: #C2F4F9;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.skill-tooltip-desc {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.3rem;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+.skill-tooltip-meta {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+/* Go back button */
+.go-back-button {
+  background-color: #384f524f !important;
+  border: 0.0625rem solid #c2f4f967 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.2s ease !important;
+  border-radius: 0.15rem !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.go-back-button:hover {
+  background-color: #384f5266 !important;
+  border-color: rgba(194, 244, 249, 0.8) !important;
+  color: #C2F4F9 !important;
+}
+
+.go-back-button:active {
+  background-color: #384f5277 !important;
+}
