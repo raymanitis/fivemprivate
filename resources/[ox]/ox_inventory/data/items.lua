@@ -755,7 +755,7 @@ return {
 	-- chop shop visi itemi
 
 	['chopshop_contract'] = {
-		label = 'Chopshop Contract'
+		label = 'Chopshop Contract',
 		weight = 250,
 		stack = false,
 		rarity = 'uncommon'
