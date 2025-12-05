@@ -94,8 +94,12 @@ function DisplayXP(data) {
 }
 
 function HideSkills() {
+    // Remove show class to trigger closing animation (reverse of opening)
     $("#container").removeClass('show');
-    $("#container").css('display', 'none');
+    // Wait for animation to complete (300ms matches CSS transition) before hiding
+    setTimeout(() => {
+        $("#container").css('display', 'none');
+    }, 300);
 }
 
 $(document).ready(function () {
