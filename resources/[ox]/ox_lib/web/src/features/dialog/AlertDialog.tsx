@@ -1,5 +1,5 @@
 import { createStyles, Group, Modal, Stack, useMantineTheme } from '@mantine/core';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useNuiEvent } from '../../hooks/useNuiEvent';
 import { fetchNui } from '../../utils/fetchNui';
@@ -26,10 +26,13 @@ const AlertDialog: React.FC = () => {
     content: '',
   });
 
-  const closeAlert = (button: string) => {
+  const closeAlert = useCallback((button: string) => {
     setOpened(false);
-    fetchNui('closeAlert', button);
-  };
+    // Ensure NUI callback is called to reset focus
+    fetchNui('closeAlert', button).catch(() => {
+      // Silently handle errors, focus reset should still work
+    });
+  }, []);
 
   useNuiEvent('sendAlert', (data: AlertProps) => {
     setDialogData(data);
@@ -45,6 +48,8 @@ const AlertDialog: React.FC = () => {
 
     const keyHandler = (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
         // Close with cancel if cancel button exists, otherwise confirm
         if (dialogData.cancel) {
           closeAlert('cancel');
@@ -57,7 +62,7 @@ const AlertDialog: React.FC = () => {
     window.addEventListener('keydown', keyHandler);
 
     return () => window.removeEventListener('keydown', keyHandler);
-  }, [opened, dialogData.cancel]);
+  }, [opened, dialogData.cancel, closeAlert]);
 
   return (
     <>
