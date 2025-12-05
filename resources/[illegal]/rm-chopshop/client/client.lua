@@ -11,6 +11,9 @@ end)
 ---------------------------------------------------------------------
 
 local chopshopPed
+local hasChopContract = false
+local currentContract = nil
+local contractCompleted = false
 
 local function loadModel(model)
     if type(model) == 'string' then
@@ -69,6 +72,33 @@ local function spawnChopshopPed()
             label = "Talk to Carlos",
             icon = "fas fa-comments",
             onSelect = function()
+                if currentContract and contractCompleted then
+                    -- Completion dialogue
+                    exports.mt_lib:showDialogue({
+                        ped = chopshopPed,
+                        label = 'Carlos Ramirez',
+                        speech = "So, you got the job done or what, hermano?",
+                        options = {
+                            {
+                                id = 'finished_yes',
+                                label = "Yeah, everything's chopped.",
+                                icon = 'check',
+                                close = true,
+                                action = function()
+                                    TriggerServerEvent('rm-chopshop:claimReward')
+                                end
+                            },
+                            {
+                                id = 'finished_no',
+                                label = "Not yet, still working on it.",
+                                icon = 'times',
+                                close = true,
+                            },
+                        }
+                    })
+                    return
+                end
+
                 -- First dialogue: street-style greeting
                 exports.mt_lib:showDialogue({
                     ped = chopshopPed,
@@ -93,8 +123,7 @@ local function spawnChopshopPed()
                                             icon = 'check',
                                             close = true,
                                             action = function()
-                                                -- Here you will later start the chop mission
-                                                -- For now, it's just dialogue.
+                                                TriggerServerEvent('rm-chopshop:startJob')
                                             end
                                         },
                                         {
@@ -156,5 +185,182 @@ AddEventHandler('onResourceStop', function(resource)
     if chopshopPed and DoesEntityExist(chopshopPed) then
         DeleteEntity(chopshopPed)
         chopshopPed = nil
+    end
+end)
+
+---------------------------------------------------------------------
+-- Chopshop Delivery Zone + Vehicle Chopping
+---------------------------------------------------------------------
+
+local function isPointInDeliveryZone(coords)
+    if not Config or not Config.ChopshopDeliveryZone or #Config.ChopshopDeliveryZone < 4 then
+        return false
+    end
+
+    local minX, maxX = 99999.0, -99999.0
+    local minY, maxY = 99999.0, -99999.0
+    local avgZ = 0.0
+
+    for _, v in ipairs(Config.ChopshopDeliveryZone) do
+        if v.x < minX then minX = v.x end
+        if v.x > maxX then maxX = v.x end
+        if v.y < minY then minY = v.y end
+        if v.y > maxY then maxY = v.y end
+        avgZ = avgZ + v.z
+    end
+
+    avgZ = avgZ / #Config.ChopshopDeliveryZone
+
+    local x, y = coords.x, coords.y
+
+    if x >= minX and x <= maxX and y >= minY and y <= maxY then
+        return true, vector3((minX + maxX) / 2.0, (minY + maxY) / 2.0, avgZ)
+    end
+
+    return false
+end
+
+RegisterNetEvent('rm-chopshop:jobStarted', function(contract)
+    hasChopContract = true
+    contractCompleted = false
+    currentContract = contract
+
+    if lib and lib.notify then
+        lib.notify({
+            title = 'Chopshop',
+            description = 'Job started. Check your contract in the inventory for details.',
+            type = 'success'
+        })
+    end
+end)
+
+RegisterNetEvent('rm-chopshop:contractUpdated', function(contract)
+    currentContract = contract
+    contractCompleted = contract.completed or false
+end)
+
+RegisterNetEvent('rm-chopshop:jobFinished', function()
+    hasChopContract = false
+    contractCompleted = false
+    currentContract = nil
+end)
+
+CreateThread(function()
+    local showingText = false
+
+    while true do
+        Wait(0)
+
+        if not hasChopContract or not currentContract or contractCompleted then
+            if showingText and lib and lib.hideTextUI then
+                lib.hideTextUI()
+                showingText = false
+            end
+
+            goto continue
+        end
+
+        local ped = PlayerPedId()
+        local coords = GetEntityCoords(ped)
+
+        local inZone, center = isPointInDeliveryZone(coords)
+
+        if inZone then
+            local veh = GetVehiclePedIsIn(ped, false)
+
+            if veh ~= 0 and GetPedInVehicleSeat(veh, -1) == ped then
+                if lib and lib.showTextUI then
+                    if not showingText then
+                        lib.showTextUI('[E] Deliver vehicle', {
+                            position = 'left-center'
+                        })
+                        showingText = true
+                    end
+                end
+
+                if IsControlJustPressed(0, 38) then -- E
+                    local model = GetEntityModel(veh)
+                    local modelName = GetDisplayNameFromVehicleModel(model)
+                    if modelName then
+                        modelName = modelName:lower()
+                    end
+
+                    -- quick check client-side to see if this model is part of contract
+                    local valid = false
+                    if currentContract and currentContract.remaining then
+                        for _, required in ipairs(currentContract.remaining) do
+                            if required:lower() == modelName then
+                                valid = true
+                                break
+                            end
+                        end
+                    end
+
+                    if not valid then
+                        if lib and lib.notify then
+                            lib.notify({
+                                title = 'Chopshop',
+                                description = 'This vehicle is not part of your contract.',
+                                type = 'error'
+                            })
+                        end
+                    else
+                        if lib and lib.progressCircle then
+                            local success = lib.progressCircle({
+                                duration = 180000, -- 3 minutes
+                                label = 'Chopping vehicle...',
+                                useWhileDead = false,
+                                canCancel = true,
+                                disable = {
+                                    car = true,
+                                    move = true,
+                                    combat = true,
+                                }
+                            })
+
+                            if success then
+                                -- Visually damage/remove parts
+                                for i = 0, 5 do
+                                    SetVehicleDoorBroken(veh, i, true)
+                                end
+
+                                for i = 0, 5 do
+                                    SetVehicleTyreBurst(veh, i, true, 1000.0)
+                                end
+
+                                SetVehicleEngineHealth(veh, 0.0)
+                                SetVehicleBodyHealth(veh, 0.0)
+
+                                local netId = NetworkGetNetworkIdFromEntity(veh)
+
+                                -- Let the server delete the vehicle and update contract
+                                TriggerServerEvent('rm-chopshop:deliverVehicle', modelName)
+                                TriggerServerEvent('rm-chopshop:deleteVehicle', netId)
+                            else
+                                if lib and lib.notify then
+                                    lib.notify({
+                                        title = 'Chopshop',
+                                        description = 'Chopping cancelled.',
+                                        type = 'error'
+                                    })
+                                end
+                            end
+                        end
+                    end
+                end
+            else
+                if showingText and lib and lib.hideTextUI then
+                    lib.hideTextUI()
+                    showingText = false
+                end
+            end
+        else
+            if showingText and lib and lib.hideTextUI then
+                lib.hideTextUI()
+                showingText = false
+            end
+        end
+
+        ::continue::
     end
 end)
