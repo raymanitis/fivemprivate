@@ -147,4 +147,40 @@ Config.ChopshopRewards = {
     },
 }
 
+--[[ --------------------------------------------------------------------------
+    Chopshop XP / Level Settings
+
+    - startXP: how much XP players have when they first start using the chopshop
+    - classes: per-class XP configuration
+        - requiredXP: how much XP you need to unlock that class
+        - minXP / maxXP: how much XP you gain per completed contract of that class
+----------------------------------------------------------------------------]]
+
+Config.ChopshopXP = {
+    startXP = 0,
+
+    classes = {
+        D = {
+            requiredXP = 0,   -- always available
+            minXP = 5,
+            maxXP = 10,
+        },
+        C = {
+            requiredXP = 50,  -- needs 50+ XP to get C contracts
+            minXP = 8,
+            maxXP = 15,
+        },
+        B = {
+            requiredXP = 150, -- needs 150+ XP to get B contracts
+            minXP = 12,
+            maxXP = 20,
+        },
+        A = {
+            requiredXP = 300, -- needs 300+ XP to get A contracts
+            minXP = 18,
+            maxXP = 30,
+        },
+    }
+}
+
 

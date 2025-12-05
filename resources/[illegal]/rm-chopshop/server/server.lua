@@ -1,8 +1,27 @@
 Config = Config or {}
 
 local ActiveContracts = {}
+local PlayerChopXP = {}
 
 local ox_inventory = exports.ox_inventory
+
+---------------------------------------------------------------------
+-- Database setup (XP persistence)
+---------------------------------------------------------------------
+
+CreateThread(function()
+    if not lib or not lib.mysql then
+        print('[rm-chopshop] WARNING: lib.mysql not available, chopshop XP will not be saved to database.')
+        return
+    end
+
+    lib.mysql.execute([[
+        CREATE TABLE IF NOT EXISTS rm_chopshop_xp (
+            citizenid VARCHAR(64) NOT NULL PRIMARY KEY,
+            xp INT NOT NULL DEFAULT 0
+        )
+    ]])
+end)
 
 local function notify(src, message, notifType)
     TriggerClientEvent('ox_lib:notify', src, {
@@ -10,6 +29,111 @@ local function notify(src, message, notifType)
         description = message,
         type = notifType or 'info'
     })
+end
+
+local function getCitizenId(src)
+    -- Qbox-style example; adapt if your core uses something else
+    if exports.qbx_core then
+        local player = exports.qbx_core:GetPlayer(src)
+        if player and player.PlayerData and player.PlayerData.citizenid then
+            return player.PlayerData.citizenid
+        end
+    end
+
+    -- Fallback to license/identifier if needed
+    local identifier = GetPlayerIdentifier(src, 0)
+    return identifier or ('src:' .. tostring(src))
+end
+
+local function getXPByCitizenId(citizenid)
+    local defaultXP = 0
+    if Config.ChopshopXP and Config.ChopshopXP.startXP then
+        defaultXP = tonumber(Config.ChopshopXP.startXP) or 0
+    end
+
+    if not citizenid or not lib or not lib.mysql then
+        return defaultXP
+    end
+
+    local row = lib.mysql.single.await('SELECT xp FROM rm_chopshop_xp WHERE citizenid = ?', { citizenid })
+    if row and row.xp then
+        return tonumber(row.xp) or defaultXP
+    end
+
+    return defaultXP
+end
+
+local function saveXPForCitizenId(citizenid, xp)
+    if not citizenid or not lib or not lib.mysql then return end
+    xp = tonumber(xp) or 0
+
+    lib.mysql.execute(
+        'INSERT INTO rm_chopshop_xp (citizenid, xp) VALUES (?, ?) ON DUPLICATE KEY UPDATE xp = VALUES(xp)',
+        { citizenid, xp }
+    )
+end
+
+local function ensurePlayerXP(src)
+    if PlayerChopXP[src] then return end
+
+    local citizenid = getCitizenId(src)
+    local xp = getXPByCitizenId(citizenid)
+
+    PlayerChopXP[src] = {
+        citizenid = citizenid,
+        xp = xp
+    }
+end
+
+local function getPlayerXP(src)
+    ensurePlayerXP(src)
+    return PlayerChopXP[src].xp
+end
+
+local function addPlayerXP(src, classKey)
+    if not Config.ChopshopXP or not Config.ChopshopXP.classes then return end
+    local classXP = Config.ChopshopXP.classes[classKey]
+    if not classXP then return end
+
+    local minXP = tonumber(classXP.minXP) or 0
+    local maxXP = tonumber(classXP.maxXP) or minXP
+    if maxXP < minXP then maxXP, minXP = minXP, maxXP end
+
+    local gain
+    if maxXP == minXP then
+        gain = minXP
+    else
+        gain = math.random(minXP, maxXP)
+    end
+
+    if gain <= 0 then return end
+
+    local oldXP = getPlayerXP(src)
+    local newXP = oldXP + gain
+    PlayerChopXP[src].xp = newXP
+
+    saveXPForCitizenId(PlayerChopXP[src].citizenid, newXP)
+
+    notify(src, ('You earned %d chopshop XP (total: %d).'):format(gain, newXP), 'success')
+end
+
+local function getBestClassForXP(xp)
+    if not Config.ChopshopXP or not Config.ChopshopXP.classes then
+        return 'D'
+    end
+
+    local bestClass
+    local bestRequired = -1
+
+    for classKey, data in pairs(Config.ChopshopXP.classes) do
+        local required = tonumber(data.requiredXP) or 0
+        if xp >= required and required >= bestRequired and Config.ChopshopContracts[classKey] then
+            bestClass = classKey
+            bestRequired = required
+        end
+    end
+
+    return bestClass or 'D'
 end
 
 local function buildContractDescription(classLabel, vehicles, remaining)
@@ -97,25 +221,6 @@ local function giveContractItem(src, classKey, contractData)
     end
 end
 
-local function updateContractMetadata(src, contract)
-    -- Find the chopshop_contract in player inventory and update its metadata
-    local result = ox_inventory:Search(src, 'slots', 'chopshop_contract')
-    if not result or not result[1] then return end
-
-    local slot = result[1].slot
-
-    local metadata = {
-        class = contract.class,
-        classLabel = contract.classLabel,
-        vehicles = contract.vehicles,
-        remaining = contract.remaining,
-    }
-
-    metadata.description = buildContractDescription(metadata.classLabel, contract.vehicles, contract.remaining)
-
-    ox_inventory:SetMetadata(src, slot, metadata)
-end
-
 RegisterNetEvent('rm-chopshop:startJob', function()
     local src = source
 
@@ -124,13 +229,54 @@ RegisterNetEvent('rm-chopshop:startJob', function()
         return
     end
 
-    -- For now always give Class D contract. You can randomize or select later.
-    if not Config.ChopshopContracts or not Config.ChopshopContracts.D then
-        notify(src, 'Chopshop configuration for Class D is missing.', 'error')
+    if not Config.ChopshopContracts then
+        notify(src, 'Chopshop contract configuration is missing.', 'error')
         return
     end
 
-    giveContractItem(src, 'D')
+    local xp = getPlayerXP(src)
+    local classKey = getBestClassForXP(xp)
+
+    if not classKey or not Config.ChopshopContracts[classKey] then
+        notify(src, 'No valid chopshop class found for your XP.', 'error')
+        return
+    end
+
+    giveContractItem(src, classKey)
+end)
+
+AddEventHandler('playerDropped', function()
+    local src = source
+    if PlayerChopXP[src] and PlayerChopXP[src].citizenid then
+        saveXPForCitizenId(PlayerChopXP[src].citizenid, PlayerChopXP[src].xp or 0)
+    end
+
+    PlayerChopXP[src] = nil
+    ActiveContracts[src] = nil
+end)
+
+AddEventHandler('onResourceStop', function(resource)
+    if resource ~= GetCurrentResourceName() then return end
+
+    for src, data in pairs(PlayerChopXP) do
+        if data.citizenid then
+            saveXPForCitizenId(data.citizenid, data.xp or 0)
+        end
+    end
+end)
+
+---------------------------------------------------------------------
+-- Exports: get player XP / class by citizenid
+---------------------------------------------------------------------
+
+exports('GetChopshopXP', function(citizenid)
+    return getXPByCitizenId(citizenid)
+end)
+
+exports('GetChopshopClass', function(citizenid)
+    local xp = getXPByCitizenId(citizenid)
+    local classKey = getBestClassForXP(xp)
+    return classKey, xp
 end)
 
 RegisterNetEvent('rm-chopshop:deliverVehicle', function(modelName)
@@ -174,7 +320,7 @@ RegisterNetEvent('rm-chopshop:deliverVehicle', function(modelName)
     end
 
     ActiveContracts[src] = contract
-    updateContractMetadata(src, contract)
+    -- No need to update metadata on the item anymore, we only track progress server-side
     TriggerClientEvent('rm-chopshop:contractUpdated', src, contract)
 end)
 
@@ -265,6 +411,9 @@ RegisterNetEvent('rm-chopshop:claimReward', function()
     end
 
     ActiveContracts[src] = nil
+
+    -- Give XP based on contract class
+    addPlayerXP(src, contract.class)
 
     notify(src, 'Nice work. Here\'s your cut.', 'success')
     TriggerClientEvent('rm-chopshop:jobFinished', src)
