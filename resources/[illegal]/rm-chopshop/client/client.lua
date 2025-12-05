@@ -224,14 +224,6 @@ RegisterNetEvent('rm-chopshop:jobStarted', function(contract)
     hasChopContract = true
     contractCompleted = false
     currentContract = contract
-
-    if lib and lib.notify then
-        lib.notify({
-            title = 'Chopshop',
-            description = 'Job started. Check your contract in the inventory for details.',
-            type = 'success'
-        })
-    end
 end)
 
 RegisterNetEvent('rm-chopshop:contractUpdated', function(contract)
@@ -306,11 +298,11 @@ CreateThread(function()
                         end
                     else
                         if lib and lib.progressCircle then
-                            local success = lib.progressCircle({
+                            local result = lib.progressCircle({
                                 duration = 180000, -- 3 minutes
                                 label = 'Chopping vehicle...',
                                 useWhileDead = false,
-                                canCancel = true,
+                                canCancel = false, -- don't allow cancelling with key, only fail on real interrupt
                                 disable = {
                                     car = true,
                                     move = true,
@@ -318,7 +310,9 @@ CreateThread(function()
                                 }
                             })
 
-                            if success then
+                            -- Some ox_lib versions return nil on success, false on cancel.
+                            -- Treat anything that is NOT false as success to avoid wrong "cancelled" message.
+                            if result ~= false then
                                 -- Visually damage/remove parts
                                 for i = 0, 5 do
                                     SetVehicleDoorBroken(veh, i, true)
@@ -336,7 +330,7 @@ CreateThread(function()
                                 -- Let the server delete the vehicle and update contract
                                 TriggerServerEvent('rm-chopshop:deliverVehicle', modelName)
                                 TriggerServerEvent('rm-chopshop:deleteVehicle', netId)
-                            else
+                            elseif lib and lib.notify then
                                 if lib and lib.notify then
                                     lib.notify({
                                         title = 'Chopshop',
