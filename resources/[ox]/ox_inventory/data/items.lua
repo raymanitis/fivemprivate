@@ -761,5 +761,16 @@ return {
 		rarity = 'uncommon'
 	},
 
+	-- police itemi kkadi
+
+	['police_stormram'] = {
+		label = 'Police stormram',
+		weight = 1000,
+		stack = true,
+		close = true,
+	},
+
+
+
 	
 }

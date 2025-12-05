@@ -46,31 +46,16 @@ local function getCitizenId(src)
 end
 
 local function getXPByCitizenId(citizenid)
+    -- DB persistence disabled: just return default starting XP.
     local defaultXP = 0
     if Config.ChopshopXP and Config.ChopshopXP.startXP then
         defaultXP = tonumber(Config.ChopshopXP.startXP) or 0
     end
-
-    if not citizenid or not lib or not lib.mysql then
-        return defaultXP
-    end
-
-    local row = lib.mysql.single.await('SELECT xp FROM rm_chopshop_xp WHERE citizenid = ?', { citizenid })
-    if row and row.xp then
-        return tonumber(row.xp) or defaultXP
-    end
-
     return defaultXP
 end
 
 local function saveXPForCitizenId(citizenid, xp)
-    if not citizenid or not lib or not lib.mysql then return end
-    xp = tonumber(xp) or 0
-
-    lib.mysql.execute(
-        'INSERT INTO rm_chopshop_xp (citizenid, xp) VALUES (?, ?) ON DUPLICATE KEY UPDATE xp = VALUES(xp)',
-        { citizenid, xp }
-    )
+    -- No-op: implement your own MySQL logic here if you want persistence.
 end
 
 local function ensurePlayerXP(src)
