@@ -161,10 +161,10 @@ return {
             event = 'qbx_radialmenu:client:openPerks'
         },
         {
-            id = 'skill_tree',
+            id = 'skills',
             icon = 'diagram-project',
-            label = 'Skill Tree',
-            event = 'qbx_radialmenu:client:openSkillTree'
+            label = 'Skills',
+            event = 'qbx_radialmenu:client:openSkills'
         },
         {
             id = 'general',

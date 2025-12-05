@@ -60,13 +60,28 @@ RegisterNetEvent("pickle_xp:xpEvent", function(event, name, xp, total)
     end
 end)
 
-RegisterCommand(Config.MenuCommand, function()
-    ShowDisplay()
-end)
+if Config.MenuCommand and Config.MenuCommand ~= "" then
+    RegisterCommand(Config.MenuCommand, function()
+        ShowDisplay()
+    end)
+end
+
+-- F7 Keybind (can be disabled via config)
+if Config.EnableF7Keybind then
+    lib.addKeybind({
+        name = 'xpmenu',
+        description = 'Open XP Menu',
+        defaultKey = 'F7',
+        onPressed = function()
+            ShowDisplay()
+        end
+    })
+end
 
 exports("GetXPData", GetXPData)
 exports("GetXP", GetXP)
 exports("GetLevel", GetLevel)
+exports("ShowDisplay", ShowDisplay)
 
 AddEventHandler('onResourceStart', function(resourceName)
   if (GetCurrentResourceName() ~= resourceName) then

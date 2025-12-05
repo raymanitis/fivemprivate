@@ -29,10 +29,22 @@ RegisterNetEvent('qbx_radialmenu:client:openPerks', function()
     end
 end)
 
--- Skill Tree (placeholder - customize to your needs)
-RegisterNetEvent('qbx_radialmenu:client:openSkillTree', function()
-    exports.qbx_core:Notify('Skill Tree - Coming Soon!', 'info')
-    -- Add your skill tree logic here
-    -- Example: TriggerEvent('your_skill_script:openTree')
+-- Skills Menu (XP Display)
+RegisterNetEvent('qbx_radialmenu:client:openSkills', function()
+    local resourceName = nil
+    if GetResourceState('rm-xp') == 'started' then
+        resourceName = 'rm-xp'
+    elseif GetResourceState('pickle_xp') == 'started' then
+        resourceName = 'pickle_xp'
+    else
+        return exports.qbx_core:Notify('Skills Menu is not available!', 'error')
+    end
+    
+    if exports[resourceName] and exports[resourceName].ShowDisplay then
+        exports[resourceName]:ShowDisplay()
+        lib.hideRadial()
+    else
+        exports.qbx_core:Notify('Skills Menu is not available!', 'error')
+    end
 end)
 

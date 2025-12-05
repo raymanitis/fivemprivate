@@ -4,7 +4,9 @@ Config.Language = "en"
 
 Config.NotifyXP = true
 
-Config.MenuCommand = "xpdisplay"
+Config.MenuCommand = ""
+
+Config.EnableF7Keybind = false
 
 Config.Categories = {
     ["example"] = {
