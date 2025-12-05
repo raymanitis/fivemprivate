@@ -41,17 +41,10 @@ function HideDisplay()
 end
 
 RegisterNUICallback("hide", function(data, cb)
-    -- Immediately release focus and cursor before responding
+    -- Immediately release focus and cursor
     SetNuiFocus(false, false)
-    -- Respond to callback
+    -- Respond to callback immediately
     cb('ok')
-    -- Ensure focus is fully released (safety net for edge cases)
-    CreateThread(function()
-        Wait(0) -- Next frame
-        SetNuiFocus(false, false)
-        Wait(10) -- Small delay
-        SetNuiFocus(false, false)
-    end)
 end)
 
 RegisterNetEvent("pickle_xp:updateXP", function(xp, name)

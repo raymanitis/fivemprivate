@@ -20,7 +20,7 @@ const Formats = {
 }
 
 let categories;
-let currentCategory = 'all';
+let currentCategory = 'default';
 
 function post(type, data) {
     return fetch(`https://pickle_xp/${type}`, {
@@ -54,7 +54,7 @@ function getCategoryFromKey(key, categoryData) {
 function filterSkills() {
     $('.skill-item').each(function() {
         const itemCategory = $(this).data('category');
-        if (currentCategory === 'all' || itemCategory === currentCategory) {
+        if (itemCategory === currentCategory) {
             $(this).show();
         } else {
             $(this).hide();
@@ -94,18 +94,15 @@ function DisplayXP(data) {
 
 function HideSkills() {
     $("#container").removeClass('show');
-    setTimeout(() => {
-        $("#container").css('display', 'none');
-    }, 300);
+    $("#container").css('display', 'none');
 }
 
 $(document).ready(function () {
     $(document).on("click", ".exit, .exit-wrapper", function(event) {
         event.stopPropagation();
         event.preventDefault();
-        post("hide").then(() => {
-            HideSkills();
-        });
+        HideSkills();
+        post("hide");
     })
     
     // Category button handlers
@@ -120,9 +117,8 @@ $(document).ready(function () {
     $(document).on("keydown", function(event) {
         if (event.key === "Escape" || event.keyCode === 27) {
             event.preventDefault();
-            post("hide").then(() => {
-                HideSkills();
-            });
+            HideSkills();
+            post("hide");
         }
     })
 })
