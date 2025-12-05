@@ -66,35 +66,74 @@ local function spawnChopshopPed()
     -- ox_target interaction with mt_lib dialogue
     exports.ox_target:addLocalEntity(chopshopPed, {
         {
-            label = "Falar com a Maria",
-            icon = "fas fa-refresh",
+            label = "Talk to Carlos",
+            icon = "fas fa-comments",
             onSelect = function()
+                -- First dialogue: street-style greeting
                 exports.mt_lib:showDialogue({
                     ped = chopshopPed,
-                    label = 'Maria Fernanda',
-                    speech = 'How can I help sweety?',
+                    label = 'Carlos Ramirez',
+                    speech = "What you doin' around here, amigo? You lookin' for something?",
                     options = {
                         {
-                            id = 'sell',
-                            label = 'I want to sell fruits',
-                            icon = 'apple-alt',
+                            id = 'money',
+                            label = "Yeah, I'm tryin' to make some money",
+                            icon = 'dollar-sign',
                             close = true,
                             action = function()
-                                -- TODO: Start your chopshop / sell mission logic here
+                                -- Second step: he offers chop work (no mission start yet)
+                                exports.mt_lib:showDialogue({
+                                    ped = chopshopPed,
+                                    label = 'Carlos Ramirez',
+                                    speech = "Heh, I like that. I got some work with cars… real quiet work. You down to chop some vehicles for me or what?",
+                                    options = {
+                                        {
+                                            id = 'accept',
+                                            label = "Yeah, I'm in. Show me what you got.",
+                                            icon = 'check',
+                                            close = true,
+                                            action = function()
+                                                -- Here you will later start the chop mission
+                                                -- For now, it's just dialogue.
+                                            end
+                                        },
+                                        {
+                                            id = 'decline',
+                                            label = "Nah, this sounds too hot for me.",
+                                            icon = 'times',
+                                            close = true,
+                                            action = function()
+                                                -- Player declines, nothing happens for now
+                                            end
+                                        },
+                                    }
+                                })
                             end
                         },
                         {
-                            id = 'buy',
-                            label = 'I want to buy seeds',
-                            icon = 'seedling',
+                            id = 'just_looking',
+                            label = "Relax man, I'm just lookin' around.",
+                            icon = 'eye',
                             close = true,
                             action = function()
-                                -- TODO: Alternative mission / shop logic here
+                                exports.mt_lib:showDialogue({
+                                    ped = chopshopPed,
+                                    label = 'Carlos Ramirez',
+                                    speech = "Aight, then keep it movin', hermano. This spot ain't for tourists.",
+                                    options = {
+                                        {
+                                            id = 'close',
+                                            label = "Alright, I'm out of here.",
+                                            icon = 'ban',
+                                            close = true,
+                                        },
+                                    }
+                                })
                             end
                         },
                         {
-                            id = 'close',
-                            label = "I don't need anything",
+                            id = 'leave',
+                            label = "Forget it, I don't need anything.",
                             icon = 'ban',
                             close = true,
                         },

@@ -11,9 +11,9 @@ Config = Config or {}
 Config.ChopshopPed = {
     enabled = true,
 
-    -- Default PED model (you can replace with your "ve4 ped skin" model)
-    -- Examples: "a_f_m_bevhills_01", "a_m_m_farmer_01", etc.
-    model = `a_f_m_bevhills_01`,
+    -- Default PED model (replace with your own if you want)
+    -- Example Mexican-style ped: csb_ramp_mex
+    model = `csb_ramp_mex`,
 
     -- vec4(x, y, z, heading) - EDIT THIS TO YOUR DESIRED LOCATION
     -- This uses ox_lib's vec4 helper.
