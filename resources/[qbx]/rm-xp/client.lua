@@ -28,7 +28,8 @@ end
 function ShowDisplay()
     SendNUIMessage({
         type = "show",
-        data = GetXPData()
+        data = GetXPData(),
+        resourceName = GetCurrentResourceName()
     })
     SetNuiFocus(true, true)
 end

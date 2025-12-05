@@ -21,9 +21,10 @@ const Formats = {
 
 let categories;
 let currentCategory = 'default';
+let resourceName = GetParentResourceName ? GetParentResourceName() : 'rm-xp';
 
 function post(type, data) {
-    return fetch(`https://pickle_xp/${type}`, {
+    return fetch(`https://${resourceName}/${type}`, {
         method: 'post',
         headers: {
             'Accept': 'application/json',
@@ -128,6 +129,9 @@ $(document).ready(function () {
 window.addEventListener("message", function(ev) {
     var event = ev.data
     if (event.type == "show") {
+        if (event.resourceName) {
+            resourceName = event.resourceName;
+        }
         DisplayXP(event.data)
     }
     else if (event.type == "hide") {
