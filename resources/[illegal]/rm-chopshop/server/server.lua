@@ -10,8 +10,9 @@ local ox_inventory = exports.ox_inventory
 ---------------------------------------------------------------------
 
 CreateThread(function()
-    if not lib or not lib.mysql then
-        print('[rm-chopshop] WARNING: lib.mysql not available, chopshop XP will not be saved to database.')
+    local hasMysql = lib and type(lib.mysql) == 'table'
+    if not hasMysql then
+        print('[rm-chopshop] WARNING: lib.mysql is not a table, chopshop XP will not be saved to database.')
         return
     end
 

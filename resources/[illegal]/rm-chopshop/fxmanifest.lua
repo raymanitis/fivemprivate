@@ -6,8 +6,9 @@ author "Thomas"
 
 files {
     "modules/*.lua",
-	"web/build/index.html",
-	"web/build/**/*",
+    -- If you build the React NUI, point these back at web/build
+	-- "web/build/index.html",
+	-- "web/build/**/*",
 }
 
 shared_scripts {
