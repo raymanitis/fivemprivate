@@ -71,13 +71,13 @@ local function spawnChopshopPed()
         {
             label = "Talk to Carlos",
             icon = "fas fa-comments",
+            distance = 2.0,
             onSelect = function()
                 if currentContract and contractCompleted then
                     -- Completion dialogue
                     exports.mt_lib:showDialogue({
                         ped = chopshopPed,
                         label = 'Carlos Ramirez',
-                        distance = 2.0,
                         speech = "So, you got the job done or what, hermano?",
                         options = {
                             {
