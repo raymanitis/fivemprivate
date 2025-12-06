@@ -33,7 +33,7 @@ window.addEventListener("message", (event) => {
         }
 
         case "leftTarget":{
-            clearOptions(true);
+            clearOptions(false);
             return $eye.removeClass("eye-hover");
         }
 
