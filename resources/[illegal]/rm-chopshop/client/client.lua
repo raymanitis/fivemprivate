@@ -77,6 +77,7 @@ local function spawnChopshopPed()
                     exports.mt_lib:showDialogue({
                         ped = chopshopPed,
                         label = 'Carlos Ramirez',
+                        distance = 2.0,
                         speech = "So, you got the job done or what, hermano?",
                         options = {
                             {
