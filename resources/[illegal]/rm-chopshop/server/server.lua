@@ -9,20 +9,20 @@ local ox_inventory = exports.ox_inventory
 -- Database setup (XP persistence)
 ---------------------------------------------------------------------
 
-CreateThread(function()
-    local hasMysql = lib and type(lib.mysql) == 'table'
-    if not hasMysql then
-        print('[rm-chopshop] WARNING: lib.mysql is not a table, chopshop XP will not be saved to database.')
-        return
-    end
+-- CreateThread(function()
+--     local hasMysql = lib and type(lib.mysql) == 'table'
+--     if not hasMysql then
+--         print('[rm-chopshop] WARNING: lib.mysql is not a table, chopshop XP will not be saved to database.')
+--         return
+--     end
 
-    lib.mysql.execute([[
-        CREATE TABLE IF NOT EXISTS rm_chopshop_xp (
-            citizenid VARCHAR(64) NOT NULL PRIMARY KEY,
-            xp INT NOT NULL DEFAULT 0
-        )
-    ]])
-end)
+--     lib.mysql.execute([[
+--         CREATE TABLE IF NOT EXISTS rm_chopshop_xp (
+--             citizenid VARCHAR(64) NOT NULL PRIMARY KEY,
+--             xp INT NOT NULL DEFAULT 0
+--         )
+--     ]])
+-- end)
 
 local function notify(src, message, notifType)
     TriggerClientEvent('ox_lib:notify', src, {
